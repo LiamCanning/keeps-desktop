@@ -76,7 +76,8 @@ const comingSoonDeals: Investment[] = [
     investors: "0",
     timeRemaining: "1 day",
     status: "coming-soon",
-    dividendPotential: "8% annual dividends from stadium revenues"
+    dividendPotential: "8% annual dividends from stadium revenues",
+    tier: "Bronze"
   },
   {
     id: "5",
@@ -88,7 +89,8 @@ const comingSoonDeals: Investment[] = [
     investors: "0", 
     timeRemaining: "2 weeks",
     status: "coming-soon",
-    dividendPotential: "12% annual dividends from club profits"
+    dividendPotential: "12% annual dividends from club profits",
+    tier: "Silver"
   },
   {
     id: "6",
@@ -100,7 +102,8 @@ const comingSoonDeals: Investment[] = [
     investors: "0",
     timeRemaining: "3 weeks",
     status: "coming-soon",
-    dividendPotential: "15% annual returns from tournament winnings"
+    dividendPotential: "15% annual returns from tournament winnings",
+    tier: "Platinum"
   }
 ];
 
@@ -124,7 +127,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
         <img 
           src={investment.logo}
           alt={investment.name}
-          className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
@@ -196,7 +199,11 @@ function InvestmentCard({ investment }: { investment: Investment }) {
           size="lg"
           onClick={(e) => {
             e.stopPropagation();
-            // Handle invest action
+            if (investment.status === "live") {
+              navigate(`/deal/${getDealSlug(investment.name)}`);
+            } else {
+              navigate('/buy-asset', { state: { dealId: investment.id, dealName: investment.name } });
+            }
           }}
         >
           {investment.status === "live" ? "View Deal" : "Get Early Access"}

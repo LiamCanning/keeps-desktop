@@ -18,6 +18,7 @@ import MarketTrends from "@/pages/MarketTrends";
 import UserProfile from "@/pages/UserProfile";
 import BuyAsset from "@/pages/BuyAsset";
 import SellAsset from "@/pages/SellAsset";
+import SectorPerformance from "@/pages/SectorPerformance";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,12 +39,13 @@ const App = () => (
             <Route path="/my-account" element={<Account />} />
             <Route path="/deal/:dealId" element={<DealDetails />} />
             <Route path="/user/:username" element={<UserProfile />} />
-            <Route path="/buy/:dealId" element={<BuyAsset />} />
-            <Route path="/sell" element={<SellAsset />} />
+            <Route path="/buy-asset" element={<BuyAsset />} />
+            <Route path="/sell-asset" element={<SellAsset />} />
             <Route path="/for-organisations" element={<ForOrganisations />} />
             <Route path="/support-hub" element={<SupportHub />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/market-trends" element={<MarketTrends />} />
+            <Route path="/sector-performance" element={<SectorPerformance />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

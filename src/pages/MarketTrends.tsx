@@ -172,30 +172,37 @@ export default function MarketTrends() {
           </div>
 
           {/* Sector Performance */}
-          <Card className="bg-card border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle>Sector Performance (Last 30 Days)</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {marketData.map((sector, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-muted/30 rounded-lg">
-                    <div className="flex items-center gap-4">
-                      <div className="text-lg font-semibold text-foreground">{sector.sector}</div>
-                      <Badge variant={sector.trend === "up" ? "success" : "destructive"} className="flex items-center gap-1">
-                        {sector.trend === "up" ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                        {sector.performance}
-                      </Badge>
+            <Card className="bg-card border-0 shadow-elegant">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-xl font-bold text-card-foreground">Sector Performance (Last 30 Days)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {marketData.map((sector, index) => (
+                    <div key={index} className="flex items-center justify-between p-6 bg-gradient-to-r from-muted/20 to-muted/10 rounded-xl border border-border/50 hover:border-primary/20 transition-all duration-200">
+                      <div className="flex items-center gap-6">
+                        <div className="text-lg font-bold text-card-foreground">{sector.sector}</div>
+                        <Badge 
+                          variant={sector.trend === "up" ? "default" : "secondary"}
+                          className={`flex items-center gap-1 px-3 py-1 font-semibold ${
+                            sector.trend === "up" 
+                              ? "bg-success/10 text-success border-success/20" 
+                              : "bg-destructive/10 text-destructive border-destructive/20"
+                          }`}
+                        >
+                          {sector.trend === "up" ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+                          {sector.performance}
+                        </Badge>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-bold text-lg text-card-foreground">{sector.volume}</p>
+                        <p className="text-sm text-muted-foreground font-medium">{sector.deals} deals</p>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-foreground">{sector.volume}</p>
-                      <p className="text-sm text-muted-foreground">{sector.deals} deals</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
         </TabsContent>
 
         <TabsContent value="sectors" className="mt-6">

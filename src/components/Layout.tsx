@@ -29,8 +29,8 @@ export function Layout({ children }: LayoutProps) {
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input 
-                      placeholder="Search teams, investments..." 
-                      className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground"
+                      placeholder="search sports assets" 
+                      className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground min-w-[200px]"
                     />
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import { BenefitsTiers } from "@/components/BenefitsTiers";
 
 const deals = {
   "liverpool-fc": {
@@ -22,6 +23,7 @@ const deals = {
     valuation: "£4,000,000,000",
     dividends: "Annual dividends based on profits",
     exclusiveBenefits: true,
+    benefitsTier: "gold",
     status: "live" as const
   },
   "mclaren-f1": {
@@ -40,6 +42,7 @@ const deals = {
     valuation: "£6,250,000,000",
     dividends: "6-12% annually from racing revenues",
     exclusiveBenefits: true,
+    benefitsTier: "diamond",
     status: "live" as const
   },
   "ryder-cup": {
@@ -58,6 +61,7 @@ const deals = {
     valuation: "N/A",
     dividends: "5% + Principal return",
     exclusiveBenefits: true,
+    benefitsTier: "platinum",
     status: "live" as const
   }
 };
@@ -109,7 +113,7 @@ export default function DealDetails() {
             <img 
               src={deal.logo} 
               alt={deal.name}
-              className="w-24 h-24 mx-auto mb-4 object-contain"
+              className="w-20 h-20 mx-auto mb-4 object-contain rounded-lg shadow-md"
             />
             <h1 className="text-3xl font-bold text-card-foreground mb-2">
               {deal.name}
@@ -206,19 +210,38 @@ export default function DealDetails() {
               </div>
             </div>
 
+            {/* Benefits Tier Section */}
+            {deal.benefitsTier && (
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-primary mb-4">Your Benefits Tier</h3>
+                <BenefitsTiers selectedTier={deal.benefitsTier} compact={true} />
+              </div>
+            )}
+
             {/* Action Buttons */}
             <div className="space-y-4">
-              <Button className="w-full bg-gradient-to-r from-success to-success/90 hover:from-success/90 hover:to-success text-white text-lg py-4 rounded-lg">
+              <Button 
+                className="w-full bg-gradient-to-r from-success to-success/90 hover:from-success/90 hover:to-success text-white text-lg py-4 rounded-lg"
+                onClick={() => navigate('/buy-asset', { state: { dealId: deal.id, dealName: deal.name } })}
+              >
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Invest Now
               </Button>
               
               <div className="grid grid-cols-2 gap-4">
-                <Button variant="destructive" className="text-base py-3">
+                <Button 
+                  variant="destructive" 
+                  className="text-base py-3"
+                  onClick={() => navigate('/sell-asset', { state: { dealId: deal.id, dealName: deal.name } })}
+                >
                   Sell Now
                 </Button>
-                <Button variant="outline" className="text-base py-3 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  Exclusive Benefits
+                <Button 
+                  variant="outline" 
+                  className="text-base py-3 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  onClick={() => navigate('/benefits')}
+                >
+                  View All Benefits
                 </Button>
               </div>
             </div>
