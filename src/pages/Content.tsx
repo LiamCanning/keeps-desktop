@@ -96,6 +96,99 @@ const newsArticles: NewsArticle[] = [
   }
 ];
 
+interface CommunityPost {
+  id: string;
+  user: {
+    name: string;
+    username: string;
+    avatar: string;
+    verified: boolean;
+  };
+  content: string;
+  timestamp: string;
+  likes: number;
+  retweets: number;
+  replies: number;
+  dealMention?: string;
+}
+
+const communityPosts: CommunityPost[] = [
+  {
+    id: "1",
+    user: {
+      name: "Sarah Mitchell",
+      username: "sarahm_investor",
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612400d?w=64&h=64&fit=crop&crop=face",
+      verified: true
+    },
+    content: "Just invested in Liverpool FC through @keeps! The 4-8% annual dividends plus being part of the club's journey is incredible. This is the future of sports investment! ⚽️🔥",
+    timestamp: "2h",
+    likes: 127,
+    retweets: 34,
+    replies: 15,
+    dealMention: "Liverpool FC"
+  },
+  {
+    id: "2", 
+    user: {
+      name: "Mike Rodriguez",
+      username: "f1mike",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face",
+      verified: false
+    },
+    content: "McLaren's technology centre tour was INSANE! Meeting Lando Norris was a dream come true. The Keeps platform benefits are next level 🏎️ #McLarenRacing",
+    timestamp: "4h",
+    likes: 89,
+    retweets: 22,
+    replies: 8,
+    dealMention: "McLaren F1"
+  },
+  {
+    id: "3",
+    user: {
+      name: "Emma Thompson",
+      username: "golf_emma",
+      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=64&h=64&fit=crop&crop=face", 
+      verified: true
+    },
+    content: "Ryder Cup debentures are 90% funded already! The exclusive access to tournaments and pro-am events is worth every penny. Golf investment at its finest ⛳️",
+    timestamp: "6h",
+    likes: 156,
+    retweets: 45,
+    replies: 23,
+    dealMention: "Ryder Cup"
+  },
+  {
+    id: "4",
+    user: {
+      name: "Alex Chen",
+      username: "alexc_sports",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
+      verified: false
+    },
+    content: "The AI portfolio analysis on Keeps is spot on! Recommended diversifying away from my heavy McLaren position. 18.4% returns beating the market by 2.1% 📈",
+    timestamp: "8h", 
+    likes: 92,
+    retweets: 18,
+    replies: 12
+  },
+  {
+    id: "5",
+    user: {
+      name: "James Wilson",
+      username: "jwilson_reds",
+      avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=64&h=64&fit=crop&crop=face",
+      verified: true
+    },
+    content: "Season ticket priority through Liverpool FC investment is a game changer! Finally got seats in the Kop. You'll Never Walk Alone! 🔴 #YNWA #LiverpoolFC",
+    timestamp: "12h",
+    likes: 234,
+    retweets: 67,
+    replies: 34,
+    dealMention: "Liverpool FC"
+  }
+];
+
 function NewsCard({ article }: { article: NewsArticle }) {
   return (
     <Card className="card-professional group hover:shadow-xl transition-all duration-300">
@@ -176,6 +269,62 @@ function NewsCard({ article }: { article: NewsArticle }) {
   );
 }
 
+function CommunityTimeline() {
+  return (
+    <div className="space-y-4">
+      {communityPosts.map((post) => (
+        <Card key={post.id} className="card-professional p-4">
+          <div className="flex gap-3">
+            <img 
+              src={post.user.avatar}
+              alt={post.user.name}
+              className="w-12 h-12 rounded-full object-cover"
+            />
+            <div className="flex-1 space-y-2">
+              <div className="flex items-center gap-2">
+                <h4 className="font-semibold text-card-foreground">{post.user.name}</h4>
+                {post.user.verified && (
+                  <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center">
+                    <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                )}
+                <span className="text-muted-foreground text-sm">@{post.user.username}</span>
+                <span className="text-muted-foreground text-sm">·</span>
+                <span className="text-muted-foreground text-sm">{post.timestamp}</span>
+              </div>
+              
+              <p className="text-card-foreground leading-relaxed">{post.content}</p>
+              
+              {post.dealMention && (
+                <Badge variant="secondary" className="text-xs">
+                  {post.dealMention}
+                </Badge>
+              )}
+              
+              <div className="flex items-center gap-6 pt-2 text-muted-foreground">
+                <button className="flex items-center gap-1 hover:text-primary transition-colors text-sm">
+                  <MessageCircle className="w-4 h-4" />
+                  {post.replies}
+                </button>
+                <button className="flex items-center gap-1 hover:text-success transition-colors text-sm">
+                  <Share2 className="w-4 h-4" />
+                  {post.retweets}
+                </button>
+                <button className="flex items-center gap-1 hover:text-destructive transition-colors text-sm">
+                  <Heart className="w-4 h-4" />
+                  {post.likes}
+                </button>
+              </div>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+  );
+}
+
 export default function Content() {
   const [activeTab, setActiveTab] = useState("news");
 
@@ -252,17 +401,59 @@ export default function Content() {
           <TabsTrigger value="all">All Content</TabsTrigger>
         </TabsList>
 
-        <TabsContent value={activeTab} className="mt-6">
+        <TabsContent value="community" className="mt-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-card-foreground">
-                {activeTab === "news" ? "Latest News" :
-                 activeTab === "community" ? "Community Stories" :
-                 activeTab === "reels" ? "Reels & Videos" :
-                 "All Content"}
-              </h2>
+              <h2 className="text-xl font-semibold text-foreground">Community Timeline</h2>
+              <Badge variant="success">
+                Live Updates
+              </Badge>
+            </div>
+            
+            <CommunityTimeline />
+          </div>
+        </TabsContent>
+
+        <TabsContent value="news" className="mt-6">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">Latest News</h2>
               <Badge variant="secondary">
                 {filteredArticles.length} Articles
+              </Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filteredArticles.map((article) => (
+                <NewsCard key={article.id} article={article} />
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="reels" className="mt-6">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">Reels & Videos</h2>
+              <Badge variant="warning">
+                {filteredArticles.length} Videos
+              </Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filteredArticles.map((article) => (
+                <NewsCard key={article.id} article={article} />
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="all" className="mt-6">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">All Content</h2>
+              <Badge variant="secondary">
+                {filteredArticles.length} Items
               </Badge>
             </div>
             

@@ -105,74 +105,74 @@ const comingSoonDeals: Investment[] = [
 
 function InvestmentCard({ investment }: { investment: Investment }) {
   return (
-    <Card className="investment-card group">
-      <CardHeader className="pb-4">
+    <Card className="investment-card group bg-card border-0 shadow-lg">
+      <div className="relative overflow-hidden rounded-t-xl">
+        <img 
+          src={investment.logo}
+          alt={investment.name}
+          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        {investment.featured && (
+          <Badge variant="warning" className="absolute top-4 left-4 flex items-center gap-1 text-xs">
+            <Star className="w-3 h-3" />
+            Featured
+          </Badge>
+        )}
+      </div>
+      
+      <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
-          <div className="flex items-center gap-3">
-            <img 
-              src={investment.logo}
-              alt={investment.name}
-              className="w-12 h-12 rounded-lg object-cover"
-            />
-            <div>
-              <CardTitle className="text-lg">{investment.name}</CardTitle>
-              <p className="text-sm text-muted-foreground">{investment.amount} {investment.type}</p>
-            </div>
+          <div>
+            <CardTitle className="text-xl font-bold text-card-foreground">{investment.name}</CardTitle>
+            <p className="text-primary font-semibold mt-1">{investment.amount} {investment.type}</p>
           </div>
-          {investment.featured && (
-            <Badge variant="warning" className="flex items-center gap-1">
-              <Star className="w-3 h-3" />
-              Featured
-            </Badge>
-          )}
         </div>
       </CardHeader>
       
       <CardContent className="space-y-4">
         {investment.status === "live" && (
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="flex justify-between text-sm">
-              <span>{investment.progress}% Funded</span>
+              <span className="font-semibold text-card-foreground">{investment.progress}% Funded</span>
               <span className="text-muted-foreground">Goal: {investment.amount}</span>
             </div>
-            <Progress value={investment.progress} className="h-2" />
+            <Progress value={investment.progress} className="h-3" />
           </div>
         )}
         
-        <div className="grid grid-cols-2 gap-4 text-sm">
-          <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-muted-foreground" />
-            <span>{investment.investors} Investors</span>
+        <div className="grid grid-cols-3 gap-6 text-sm">
+          <div className="text-center">
+            <p className="font-bold text-lg text-card-foreground">{investment.progress}%</p>
+            <p className="text-muted-foreground text-xs">Funded</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-muted-foreground" />
-            <span>{investment.timeRemaining} Remaining</span>
+          <div className="text-center">
+            <p className="font-bold text-lg text-card-foreground">{investment.investors}</p>
+            <p className="text-muted-foreground text-xs">Investors</p>
+          </div>
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 text-destructive">
+              <Clock className="w-3 h-3" />
+              <span className="font-bold text-sm">{investment.timeRemaining}</span>
+            </div>
+            <p className="text-muted-foreground text-xs">Remaining</p>
           </div>
         </div>
         
         {investment.dividendPotential && (
           <div className="p-3 rounded-lg bg-success/10 border border-success/20">
-            <p className="text-sm text-success-foreground">
-              <TrendingUp className="w-4 h-4 inline mr-1" />
+            <p className="text-sm text-card-foreground font-medium">
+              <TrendingUp className="w-4 h-4 inline mr-1 text-success" />
               {investment.dividendPotential}
             </p>
           </div>
         )}
         
-        <div className="flex items-center justify-between pt-2">
-          <Badge variant={investment.status}>
-            {investment.status === "live" ? "Live" : 
-             investment.status === "coming-soon" ? "Coming Soon" : "Completed"}
-          </Badge>
-          
-          <Button 
-            className="btn-invest"
-            size="sm"
-          >
-            {investment.status === "live" ? "Invest Now" : "Get Early Access"}
-            <ArrowRight className="w-4 h-4 ml-1" />
-          </Button>
-        </div>
+        <Button 
+          className="w-full btn-invest text-base font-semibold py-3"
+          size="lg"
+        >
+          {investment.status === "live" ? "Invest Now" : "Get Early Access"}
+        </Button>
       </CardContent>
     </Card>
   );
@@ -187,37 +187,24 @@ export default function Dashboard() {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gradient">Hello Liam Canning</h1>
-            <p className="text-lg text-muted-foreground">Welcome Back!</p>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <Card className="p-4">
-              <div className="flex items-center gap-3">
-                <BarChart3 className="w-5 h-5 text-primary" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Total Portfolio</p>
-                  <p className="font-semibold text-lg">£302,355</p>
-                  <p className="text-sm text-success">+£52,355 (20.9%)</p>
-                </div>
-              </div>
-            </Card>
+            <h1 className="text-3xl font-bold text-foreground">Hello Liam Canning</h1>
+            <p className="text-lg text-foreground/80">Welcome Back!</p>
           </div>
         </div>
       </div>
 
       {/* Investment Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
-          <TabsTrigger value="live" className="flex items-center gap-2">
+        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-card">
+          <TabsTrigger value="live" className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <div className="w-2 h-2 bg-success rounded-full animate-glow-pulse"></div>
             Live Deals
           </TabsTrigger>
-          <TabsTrigger value="coming-soon" className="flex items-center gap-2">
+          <TabsTrigger value="coming-soon" className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <Calendar className="w-4 h-4" />
             Coming Soon
           </TabsTrigger>
-          <TabsTrigger value="completed" className="flex items-center gap-2">
+          <TabsTrigger value="completed" className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             Completed Deals
           </TabsTrigger>
         </TabsList>
@@ -225,13 +212,11 @@ export default function Dashboard() {
         <TabsContent value="live" className="mt-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Live Deals</h2>
-              <Badge variant="live" className="animate-glow-pulse">
-                {liveDeals.length} Active
-              </Badge>
+              <h2 className="text-xl font-semibold text-foreground">Featured Investment Opportunities</h2>
+              <p className="text-foreground/70">Premium sports assets with proven track records</p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {liveDeals.map((investment) => (
                 <InvestmentCard key={investment.id} investment={investment} />
               ))}

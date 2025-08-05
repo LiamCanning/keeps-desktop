@@ -74,7 +74,7 @@ export function AppSidebar() {
             <DropdownMenuTrigger asChild>
               <Button 
                 variant="ghost" 
-                className="flex items-center gap-3 p-2 h-auto hover:bg-sidebar-accent rounded-lg"
+                className="flex items-center gap-3 p-2 h-auto hover:bg-sidebar-accent rounded-lg text-sidebar-foreground"
               >
                 <img 
                   src="/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png" 
@@ -85,9 +85,9 @@ export function AppSidebar() {
                   <>
                     <div className="text-left">
                       <h2 className="text-lg font-bold text-primary">keeps</h2>
-                      <p className="text-xs text-muted-foreground">Sports Investment</p>
+                      <p className="text-xs text-sidebar-foreground/70">Sports Investment</p>
                     </div>
-                    <ChevronDown className="w-4 h-4 text-muted-foreground ml-auto" />
+                    <ChevronDown className="w-4 h-4 text-sidebar-foreground/70 ml-auto" />
                   </>
                 )}
               </Button>
@@ -143,12 +143,12 @@ export function AppSidebar() {
         {!isCollapsed && (
           <div className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="/placeholder-avatar.jpg" />
+              <AvatarImage src="/src/assets/liam-avatar.png" />
               <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground truncate">Liam Canning</p>
-              <p className="text-xs text-muted-foreground truncate">Portfolio: £302,355</p>
+              <p className="text-sm font-medium text-sidebar-foreground truncate">Liam Canning</p>
+              <p className="text-xs text-sidebar-foreground/70 truncate">@liam_canning</p>
             </div>
           </div>
         )}
