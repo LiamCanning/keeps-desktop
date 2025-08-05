@@ -25,7 +25,7 @@ const liveDeals: Investment[] = [
   {
     id: "1",
     name: "Liverpool FC",
-    logo: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
     amount: "£40,000,000",
     type: "Equity Raise",
     progress: 75,
@@ -39,7 +39,7 @@ const liveDeals: Investment[] = [
   {
     id: "2", 
     name: "McLaren F1",
-    logo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
     amount: "£50,000,000",
     type: "ISA",
     progress: 70,
@@ -52,7 +52,7 @@ const liveDeals: Investment[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
     amount: "£42,500,000", 
     type: "Debenture Programme",
     progress: 90,
@@ -92,7 +92,7 @@ const comingSoonDeals: Investment[] = [
   {
     id: "6",
     name: "Hexagon Fan Team",
-    logo: "https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     amount: "£1,250,000",
     type: "Equity", 
     progress: 0,
