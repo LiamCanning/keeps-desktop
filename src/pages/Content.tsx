@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Calendar, Clock, FileText, ExternalLink, Heart, MessageCircle, Share2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -270,19 +271,31 @@ function NewsCard({ article }: { article: NewsArticle }) {
 }
 
 function CommunityTimeline() {
+  const navigate = useNavigate();
+  
   return (
     <div className="space-y-4">
       {communityPosts.map((post) => (
         <Card key={post.id} className="card-professional p-4">
           <div className="flex gap-3">
-            <img 
-              src={post.user.avatar}
-              alt={post.user.name}
-              className="w-12 h-12 rounded-full object-cover"
-            />
+            <button
+              onClick={() => navigate(`/user/${post.user.username}`)}
+              className="hover:scale-105 transition-transform"
+            >
+              <img 
+                src={post.user.avatar}
+                alt={post.user.name}
+                className="w-12 h-12 rounded-full object-cover"
+              />
+            </button>
             <div className="flex-1 space-y-2">
               <div className="flex items-center gap-2">
-                <h4 className="font-semibold text-card-foreground">{post.user.name}</h4>
+                <button
+                  onClick={() => navigate(`/user/${post.user.username}`)}
+                  className="font-semibold text-card-foreground hover:text-primary transition-colors cursor-pointer"
+                >
+                  {post.user.name}
+                </button>
                 {post.user.verified && (
                   <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center">
                     <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -290,7 +303,12 @@ function CommunityTimeline() {
                     </svg>
                   </div>
                 )}
-                <span className="text-muted-foreground text-sm">@{post.user.username}</span>
+                <button
+                  onClick={() => navigate(`/user/${post.user.username}`)}
+                  className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-pointer"
+                >
+                  @{post.user.username}
+                </button>
                 <span className="text-muted-foreground text-sm">·</span>
                 <span className="text-muted-foreground text-sm">{post.timestamp}</span>
               </div>
@@ -326,6 +344,7 @@ function CommunityTimeline() {
 }
 
 export default function Content() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("news");
 
   const filteredArticles = newsArticles.filter(article => {

@@ -15,6 +15,9 @@ import ForOrganisations from "@/pages/ForOrganisations";
 import SupportHub from "@/pages/SupportHub";
 import AboutUs from "@/pages/AboutUs";
 import MarketTrends from "@/pages/MarketTrends";
+import UserProfile from "@/pages/UserProfile";
+import BuyAsset from "@/pages/BuyAsset";
+import SellAsset from "@/pages/SellAsset";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +37,9 @@ const App = () => (
             <Route path="/market" element={<Market />} />
             <Route path="/my-account" element={<Account />} />
             <Route path="/deal/:dealId" element={<DealDetails />} />
+            <Route path="/user/:username" element={<UserProfile />} />
+            <Route path="/buy/:dealId" element={<BuyAsset />} />
+            <Route path="/sell" element={<SellAsset />} />
             <Route path="/for-organisations" element={<ForOrganisations />} />
             <Route path="/support-hub" element={<SupportHub />} />
             <Route path="/about-us" element={<AboutUs />} />
