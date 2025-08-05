@@ -19,6 +19,8 @@ import UserProfile from "@/pages/UserProfile";
 import BuyAsset from "@/pages/BuyAsset";
 import SellAsset from "@/pages/SellAsset";
 import SectorPerformance from "@/pages/SectorPerformance";
+import Community from "@/pages/Community";
+import Article from "@/pages/Article";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +48,8 @@ const App = () => (
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="/sector-performance" element={<SectorPerformance />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/article/:id" element={<Article />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

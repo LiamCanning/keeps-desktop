@@ -8,29 +8,29 @@
 
 @layer base {
   :root {
-    /* Professional fintech navy background */
-    --background: 220 26% 8%;
-    --foreground: 0 0% 98%;
+    /* Premium white background for clean, sophisticated look */
+    --background: 0 0% 100%;
+    --foreground: 220 26% 12%;
 
-    /* Premium white cards with subtle warmth */
-    --card: 0 0% 100%;
+    /* Subtle off-white cards with elegant shadows */
+    --card: 210 20% 98%;
     --card-foreground: 220 26% 12%;
 
     /* Clean popover */
     --popover: 0 0% 100%;
     --popover-foreground: 220 26% 12%;
 
-    /* Sophisticated primary - Deep navy blue */
-    --primary: 217 91% 60%;
+    /* Premium deep navy primary - sophisticated and professional */
+    --primary: 217 91% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 217 91% 55%;
-    --primary-glow: 217 91% 65%;
+    --primary-hover: 217 91% 30%;
+    --primary-glow: 217 91% 40%;
 
-    /* Professional secondary */
+    /* Elegant secondary */
     --secondary: 210 20% 95%;
     --secondary-foreground: 220 26% 12%;
 
-    /* Refined muted colors */
+    /* Refined muted colors for premium feel */
     --muted: 210 20% 92%;
     --muted-foreground: 220 9% 45%;
 
@@ -38,46 +38,52 @@
     --accent: 210 20% 95%;
     --accent-foreground: 220 26% 12%;
 
-    /* Professional success - Emerald */
-    --success: 158 64% 52%;
+    /* Premium emerald green for success */
+    --success: 158 64% 40%;
     --success-foreground: 0 0% 100%;
 
-    /* Professional destructive - Ruby */
-    --destructive: 0 72% 51%;
+    /* Sophisticated ruby for destructive */
+    --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Professional warning - Amber */
-    --warning: 43 96% 56%;
+    /* Rich amber for warnings */
+    --warning: 43 96% 50%;
     --warning-foreground: 0 0% 100%;
 
+    /* Premium gold accent */
+    --gold: 45 95% 50%;
+    --gold-foreground: 220 26% 12%;
+
     /* Clean borders and inputs */
-    --border: 220 13% 91%;
+    --border: 220 13% 88%;
     --input: 0 0% 100%;
-    --ring: 217 91% 60%;
+    --ring: 217 91% 35%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Professional sidebar */
-    --sidebar-background: 220 26% 10%;
+    /* Sophisticated sidebar */
+    --sidebar-background: 220 26% 8%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary: 217 91% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 26% 15%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 220 26% 20%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-ring: 217 91% 40%;
 
     /* Premium gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(210 40% 98%));
-    --gradient-background: linear-gradient(180deg, hsl(220 26% 8%), hsl(220 26% 10%));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(210 40% 95%));
+    --gradient-background: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 99%));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(45 85% 60%));
 
-    /* Refined shadows */
-    --shadow-elegant: 0 8px 32px -8px hsl(220 26% 8% / 0.4);
-    --shadow-card: 0 4px 16px -4px hsl(220 26% 8% / 0.25);
-    --shadow-dropdown: 0 12px 40px -8px hsl(220 26% 8% / 0.5);
+    /* Elegant shadows for premium pop-out effect */
+    --shadow-elegant: 0 12px 40px -8px hsl(220 26% 8% / 0.15);
+    --shadow-card: 0 6px 20px -4px hsl(220 26% 8% / 0.1);
+    --shadow-premium: 0 20px 60px -12px hsl(220 26% 8% / 0.2);
+    --shadow-dropdown: 0 12px 40px -8px hsl(220 26% 8% / 0.2);
 
-    /* Animation timing */
+    /* Smooth animation timing */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
@@ -99,28 +105,42 @@
 }
 
 @layer components {
-  /* Professional card styles */
+  /* Premium card styles with elegant shadows */
   .card-professional {
-    @apply bg-card border border-border rounded-xl shadow-card transition-all duration-300 hover:shadow-elegant;
+    @apply bg-card border border-border rounded-xl transition-all duration-300 hover:scale-[1.02];
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-professional:hover {
+    box-shadow: var(--shadow-elegant);
   }
 
   .card-elevated {
     @apply bg-card border border-border rounded-xl;
+    box-shadow: var(--shadow-premium);
+  }
+
+  /* Premium investment card styles */
+  .investment-card {
+    @apply card-professional hover:scale-[1.03] transition-all duration-300;
     box-shadow: var(--shadow-elegant);
   }
 
-  /* Investment card styles */
-  .investment-card {
-    @apply card-professional p-6 hover:scale-[1.02] transition-all duration-300;
+  .investment-card:hover {
+    box-shadow: var(--shadow-premium);
   }
 
-  /* Button variants */
+  /* Premium button variants */
   .btn-invest {
-    @apply bg-gradient-to-r from-primary to-primary-glow hover:from-primary-hover hover:to-primary text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl;
+    @apply bg-gradient-to-r from-primary to-primary-glow hover:from-primary-hover hover:to-primary text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-premium;
   }
 
   .btn-ghost {
     @apply bg-transparent hover:bg-accent text-foreground border border-border hover:border-primary/50 transition-all duration-200;
+  }
+
+  .btn-premium {
+    @apply bg-gradient-to-r from-gold to-warning text-gold-foreground font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-premium;
   }
 
   /* Status indicators */
