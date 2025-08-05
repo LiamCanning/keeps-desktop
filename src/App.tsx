@@ -24,6 +24,7 @@ import Article from "@/pages/Article";
 import TradingInterface from "@/pages/TradingInterface";
 import RegulatoryCompliance from "@/pages/RegulatoryCompliance";
 import InvestorRelations from "@/pages/InvestorRelations";
+import InvestorLeaderboard from "@/pages/InvestorLeaderboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/community" element={<Community />} />
             <Route path="/article/:id" element={<Article />} />
             <Route path="/trade/:assetId" element={<TradingInterface />} />
+            <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
             <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
             <Route path="/investor-relations" element={<InvestorRelations />} />
             <Route path="*" element={<NotFound />} />
