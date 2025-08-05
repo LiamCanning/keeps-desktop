@@ -8,11 +8,11 @@
 
 @layer base {
   :root {
-    /* Light professional theme */
-    --background: 0 0% 100%;
-    --foreground: 224 71% 4%;
+    /* Navy background with white content theme */
+    --background: 224 71% 4%;
+    --foreground: 0 0% 100%;
 
-    /* Card colors */
+    /* Card colors - White content that pops */
     --card: 0 0% 100%;
     --card-foreground: 224 71% 4%;
 
@@ -26,12 +26,12 @@
     --primary-hover: 20 95% 58%;
     --primary-glow: 20 100% 65%;
 
-    /* Secondary - Light blue grey */
+    /* Secondary - Light grey for contrast */
     --secondary: 210 40% 96%;
     --secondary-foreground: 224 71% 4%;
 
-    /* Muted colors */
-    --muted: 210 40% 96%;
+    /* Muted colors - Subtle on navy */
+    --muted: 220 13% 91%;
     --muted-foreground: 215 16% 47%;
 
     /* Accent colors */
@@ -52,12 +52,12 @@
 
     /* Border and input */
     --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --input: 0 0% 100%;
     --ring: 20 95% 62%;
 
     --radius: 0.75rem;
 
-    /* Sidebar colors */
+    /* Sidebar colors - White sidebar on navy */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 224 71% 4%;
     --sidebar-primary: 20 95% 62%;
@@ -67,10 +67,10 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 20 95% 62%;
 
-    /* Professional gradients */
+    /* Professional gradients on navy */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(210 40% 98%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 40% 98%));
+    --gradient-navy: linear-gradient(180deg, hsl(224 71% 4%), hsl(224 71% 6%));
 
     /* Professional shadows */
     --shadow-elegant: 0 4px 20px -4px hsl(220 13% 69% / 0.3);
