@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Calendar, Clock, Users, TrendingUp, Star, ArrowRight, BarChart3 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -104,62 +105,85 @@ const comingSoonDeals: Investment[] = [
 ];
 
 function InvestmentCard({ investment }: { investment: Investment }) {
+  const navigate = useNavigate();
+  
+  const getDealSlug = (name: string) => {
+    return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+  };
+
+  const handleCardClick = () => {
+    navigate(`/deal/${getDealSlug(investment.name)}`);
+  };
+
   return (
-    <Card className="investment-card group bg-card border-0 shadow-lg">
-      <div className="relative overflow-hidden rounded-t-xl">
+    <Card 
+      className="investment-card group bg-card border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+      onClick={handleCardClick}
+    >
+      <div className="relative overflow-hidden">
         <img 
           src={investment.logo}
           alt={investment.name}
-          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        
         {investment.featured && (
-          <Badge variant="warning" className="absolute top-4 left-4 flex items-center gap-1 text-xs">
+          <Badge variant="warning" className="absolute top-4 left-4 flex items-center gap-1 text-xs z-10">
             <Star className="w-3 h-3" />
             Featured
           </Badge>
         )}
+        
+        {investment.status === "live" && (
+          <Badge variant="success" className="absolute top-4 right-4 text-xs z-10">
+            LIVE NOW
+          </Badge>
+        )}
+
+        {/* Overlay content */}
+        <div className="absolute bottom-4 left-4 right-4 text-white">
+          <h3 className="text-2xl font-bold mb-2">{investment.name}</h3>
+          <p className="text-lg font-semibold text-primary-foreground/90">{investment.amount}</p>
+          <p className="text-sm text-primary-foreground/80">{investment.type}</p>
+        </div>
       </div>
       
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <div>
-            <CardTitle className="text-xl font-bold text-card-foreground">{investment.name}</CardTitle>
-            <p className="text-primary font-semibold mt-1">{investment.amount} {investment.type}</p>
+      <CardContent className="p-6 space-y-4">
+        {/* Key metrics in cards */}
+        <div className="grid grid-cols-3 gap-3">
+          <div className="text-center p-3 bg-muted/30 rounded-lg">
+            <p className="text-xs text-muted-foreground mb-1">Min Entry</p>
+            <p className="font-bold text-sm text-card-foreground">£500</p>
+          </div>
+          <div className="text-center p-3 bg-muted/30 rounded-lg">
+            <Users className="w-4 h-4 mx-auto text-primary mb-1" />
+            <p className="font-bold text-sm text-card-foreground">{investment.investors}</p>
+          </div>
+          <div className="text-center p-3 bg-muted/30 rounded-lg">
+            <Clock className="w-4 h-4 mx-auto text-destructive mb-1" />
+            <p className="font-bold text-sm text-card-foreground">{investment.timeRemaining}</p>
           </div>
         </div>
-      </CardHeader>
-      
-      <CardContent className="space-y-4">
+
+        {/* Progress section */}
         {investment.status === "live" && (
-          <div className="space-y-3">
+          <div className="space-y-3 p-4 bg-success/5 rounded-lg border border-success/20">
             <div className="flex justify-between text-sm">
-              <span className="font-semibold text-card-foreground">{investment.progress}% Funded</span>
-              <span className="text-muted-foreground">Goal: {investment.amount}</span>
+              <span className="font-semibold text-card-foreground">
+                £{Math.round((investment.progress / 100) * parseFloat(investment.amount.replace(/[£,]/g, '')) / 1000000)}M raised
+              </span>
+              <span className="text-muted-foreground">{investment.progress}% complete</span>
             </div>
-            <Progress value={investment.progress} className="h-3" />
+            <Progress value={investment.progress} className="h-2" />
+            <p className="text-xs text-muted-foreground text-center">
+              Goal: {investment.amount}
+            </p>
           </div>
         )}
         
-        <div className="grid grid-cols-3 gap-6 text-sm">
-          <div className="text-center">
-            <p className="font-bold text-lg text-card-foreground">{investment.progress}%</p>
-            <p className="text-muted-foreground text-xs">Funded</p>
-          </div>
-          <div className="text-center">
-            <p className="font-bold text-lg text-card-foreground">{investment.investors}</p>
-            <p className="text-muted-foreground text-xs">Investors</p>
-          </div>
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-1 text-destructive">
-              <Clock className="w-3 h-3" />
-              <span className="font-bold text-sm">{investment.timeRemaining}</span>
-            </div>
-            <p className="text-muted-foreground text-xs">Remaining</p>
-          </div>
-        </div>
-        
         {investment.dividendPotential && (
-          <div className="p-3 rounded-lg bg-success/10 border border-success/20">
+          <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
             <p className="text-sm text-card-foreground font-medium">
               <TrendingUp className="w-4 h-4 inline mr-1 text-success" />
               {investment.dividendPotential}
@@ -170,8 +194,12 @@ function InvestmentCard({ investment }: { investment: Investment }) {
         <Button 
           className="w-full btn-invest text-base font-semibold py-3"
           size="lg"
+          onClick={(e) => {
+            e.stopPropagation();
+            // Handle invest action
+          }}
         >
-          {investment.status === "live" ? "Invest Now" : "Get Early Access"}
+          {investment.status === "live" ? "View Deal" : "Get Early Access"}
         </Button>
       </CardContent>
     </Card>
@@ -180,6 +208,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("live");
+  const navigate = useNavigate();
 
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">

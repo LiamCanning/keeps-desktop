@@ -96,22 +96,30 @@ export function AppSidebar() {
               align="start" 
               className="w-56 bg-popover border border-border shadow-dropdown"
             >
-              <DropdownMenuItem className="flex items-center gap-3 py-3">
-                <Building2 className="w-4 h-4" />
-                <span>For Organisations</span>
+              <DropdownMenuItem asChild>
+                <NavLink to="/for-organisations" className="flex items-center gap-3 py-3 w-full">
+                  <Building2 className="w-4 h-4" />
+                  <span>For Organisations</span>
+                </NavLink>
               </DropdownMenuItem>
-              <DropdownMenuItem className="flex items-center gap-3 py-3">
-                <HelpCircle className="w-4 h-4" />
-                <span>Support Hub</span>
+              <DropdownMenuItem asChild>
+                <NavLink to="/support-hub" className="flex items-center gap-3 py-3 w-full">
+                  <HelpCircle className="w-4 h-4" />
+                  <span>Support Hub</span>
+                </NavLink>
               </DropdownMenuItem>
-              <DropdownMenuItem className="flex items-center gap-3 py-3">
-                <Info className="w-4 h-4" />
-                <span>About Us</span>
+              <DropdownMenuItem asChild>
+                <NavLink to="/about-us" className="flex items-center gap-3 py-3 w-full">
+                  <Info className="w-4 h-4" />
+                  <span>About Us</span>
+                </NavLink>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="flex items-center gap-3 py-3">
-                <BarChart3 className="w-4 h-4" />
-                <span>Market Trends</span>
+              <DropdownMenuItem asChild>
+                <NavLink to="/market-trends" className="flex items-center gap-3 py-3 w-full">
+                  <BarChart3 className="w-4 h-4" />
+                  <span>Market Trends</span>
+                </NavLink>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

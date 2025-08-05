@@ -10,6 +10,11 @@ import Content from "@/pages/Content";
 import Portfolio from "@/pages/Portfolio";
 import Market from "@/pages/Market";
 import Account from "@/pages/Account";
+import DealDetails from "@/pages/DealDetails";
+import ForOrganisations from "@/pages/ForOrganisations";
+import SupportHub from "@/pages/SupportHub";
+import AboutUs from "@/pages/AboutUs";
+import MarketTrends from "@/pages/MarketTrends";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +33,11 @@ const App = () => (
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/market" element={<Market />} />
             <Route path="/my-account" element={<Account />} />
+            <Route path="/deal/:dealId" element={<DealDetails />} />
+            <Route path="/for-organisations" element={<ForOrganisations />} />
+            <Route path="/support-hub" element={<SupportHub />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
