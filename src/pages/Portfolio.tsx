@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
     name: "Ryder Cup",
     logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
     investment: "£15,000",
-    shares: "3 (£5000 per debenture)",
+    shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
     purchasePrice: "£5000.00 per debenture",
     currentPrice: "£5935.00 per debenture",
@@ -121,7 +121,7 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
       <CardContent className="space-y-4">
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-muted-foreground">Shares Owned</p>
+            <p className="text-muted-foreground">{holding.type === 'Debenture' ? 'Debentures Owned' : 'Shares Owned'}</p>
             <p className="font-medium text-card-foreground">{holding.shares}</p>
           </div>
           <div>
@@ -146,13 +146,20 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
         </div>
         
         <div className="flex gap-2">
-          <Button variant="outline" className="flex-1">
+          <Button 
+            variant="outline" 
+            className="flex-1"
+            onClick={() => window.location.href = `/deal/${holding.name.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1')}`}
+          >
             <Eye className="w-4 h-4 mr-2" />
             View Benefits
           </Button>
-          <Button className="btn-invest flex-1">
+          <Button 
+            className="btn-invest flex-1"
+            onClick={() => window.location.href = `/trade/${holding.name.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1')}`}
+          >
             <Activity className="w-4 h-4 mr-2" />
-            Trade Shares
+            Trade {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}
           </Button>
         </div>
       </CardContent>

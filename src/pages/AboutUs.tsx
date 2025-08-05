@@ -65,13 +65,17 @@ export default function AboutUs() {
     <div className="max-w-7xl mx-auto p-6 space-y-12">
       {/* Hero Section */}
       <div className="text-center space-y-6 py-12">
-        <Badge variant="secondary" className="mb-4">About Keeps</Badge>
+        <img 
+          src="/src/assets/keeps-logo.png" 
+          alt="Keeps Logo" 
+          className="h-16 mx-auto mb-4"
+        />
         <h1 className="text-4xl font-bold text-foreground">
-          Democratizing Sports Investment
+          Democratising Sports Investment
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           We're on a mission to make sports investment accessible to everyone. 
-          Founded in 2019, Keeps has become the leading platform for retail sports investment in the UK.
+          Keeps has become the leading platform for retail sports investment in the UK.
         </p>
       </div>
 

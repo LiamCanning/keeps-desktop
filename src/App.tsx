@@ -20,6 +20,8 @@ import BuyAsset from "@/pages/BuyAsset";
 import SellAsset from "@/pages/SellAsset";
 import SectorPerformance from "@/pages/SectorPerformance";
 import Community from "@/pages/Community";
+import CommunityContent from "@/pages/CommunityContent";
+import CommunityComments from "@/pages/CommunityComments";
 import Article from "@/pages/Article";
 import TradingInterface from "@/pages/TradingInterface";
 import RegulatoryCompliance from "@/pages/RegulatoryCompliance";
@@ -52,8 +54,9 @@ const App = () => (
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="/sector-performance" element={<SectorPerformance />} />
-            <Route path="/community" element={<Community />} />
+            <Route path="/community" element={<CommunityContent />} />
             <Route path="/article/:id" element={<Article />} />
+            <Route path="/community-comments/:id" element={<CommunityComments />} />
             <Route path="/trade/:assetId" element={<TradingInterface />} />
             <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
             <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />

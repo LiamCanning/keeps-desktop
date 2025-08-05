@@ -184,10 +184,25 @@ export default function Market() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("price-low");
 
-  const filteredListings = marketListings.filter(listing =>
-    listing.asset.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    listing.seller.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredListings = marketListings
+    .filter(listing =>
+      listing.asset.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      listing.seller.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      switch (sortBy) {
+        case "price-high":
+          return parseFloat(b.finalPrice.replace(/[£,]/g, '')) - parseFloat(a.finalPrice.replace(/[£,]/g, ''));
+        case "price-low":
+          return parseFloat(a.finalPrice.replace(/[£,]/g, '')) - parseFloat(b.finalPrice.replace(/[£,]/g, ''));
+        case "change-high":
+          return b.priceChange - a.priceChange;
+        case "expires-soon":
+          return new Date(a.expires).getTime() - new Date(b.expires).getTime();
+        default:
+          return 0;
+      }
+    });
 
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
@@ -311,39 +326,181 @@ export default function Market() {
                 <h3 className="text-lg font-semibold text-card-foreground">List Your Assets</h3>
                 <p className="text-muted-foreground">Sell your sports investments to other investors on the secondary market.</p>
               </div>
-              <Button className="btn-invest">List Asset for Sale</Button>
+              <Button 
+                className="btn-invest"
+                onClick={() => window.location.href = '/sell-asset'}
+              >
+                List Asset for Sale
+              </Button>
             </div>
           </Card>
         </TabsContent>
 
         <TabsContent value="analysis" className="mt-6">
-          <Card className="card-professional p-8 text-center">
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center mx-auto">
-                <TrendingUp className="w-8 h-8 text-success" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-card-foreground">Market Analysis</h3>
-                <p className="text-muted-foreground">Deep dive into market trends, price movements, and investment insights.</p>
-              </div>
-              <Button variant="outline">View Analysis</Button>
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold text-foreground">Secondary Market Analysis</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card className="card-professional p-6">
+                <h3 className="font-semibold mb-4 text-card-foreground">Market Trends</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Liverpool FC</span>
+                    <Badge variant="success">+12% this month</Badge>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">McLaren Racing</span>
+                    <Badge variant="success">+18% this month</Badge>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Ryder Cup</span>
+                    <Badge variant="success">+15% this month</Badge>
+                  </div>
+                </div>
+              </Card>
+              
+              <Card className="card-professional p-6">
+                <h3 className="font-semibold mb-4 text-card-foreground">Liquidity Insights</h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Average Settlement Time</p>
+                    <p className="text-lg font-semibold text-card-foreground">2.5 days</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Market Depth</p>
+                    <p className="text-lg font-semibold text-card-foreground">£1.2M</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Success Rate</p>
+                    <p className="text-lg font-semibold text-success">94%</p>
+                  </div>
+                </div>
+              </Card>
+              
+              <Card className="card-professional p-6">
+                <h3 className="font-semibold mb-4 text-card-foreground">Price Analysis</h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Best Performing Asset</p>
+                    <p className="text-lg font-semibold text-card-foreground">McLaren Racing</p>
+                    <Badge variant="success">+20% premium</Badge>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Market Volatility</p>
+                    <p className="text-lg font-semibold text-warning">Medium</p>
+                  </div>
+                </div>
+              </Card>
             </div>
-          </Card>
+            
+            <Card className="card-professional p-6">
+              <h3 className="font-semibold mb-4 text-card-foreground">AI Market Intelligence</h3>
+              <div className="p-4 bg-muted/20 rounded-lg">
+                <p className="text-sm text-card-foreground leading-relaxed">
+                  Current market conditions show strong demand for premium sports assets. McLaren Racing continues to outperform 
+                  with 20% premium over initial offering price, driven by strong F1 performance and exclusive benefits. Liverpool FC 
+                  maintains steady growth at 12% premium, whilst Ryder Cup debentures are showing increased interest ahead of the 
+                  2025 tournament. Secondary market liquidity is excellent with 94% settlement success rate.
+                </p>
+              </div>
+            </Card>
+          </div>
         </TabsContent>
 
         <TabsContent value="watchlist" className="mt-6">
-          <Card className="card-professional p-8 text-center">
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-warning/20 rounded-full flex items-center justify-center mx-auto">
-                <Users className="w-8 h-8 text-warning" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-card-foreground">Your Watchlist</h3>
-                <p className="text-muted-foreground">Track assets you're interested in and get notified of price changes.</p>
-              </div>
-              <Button variant="outline">Manage Watchlist</Button>
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">Your Watchlist</h2>
+              <Badge variant="secondary">3 Assets</Badge>
             </div>
-          </Card>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <Card className="card-professional">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src="/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png"
+                      alt="Newcastle United"
+                      className="w-12 h-12 rounded-lg object-cover"
+                    />
+                    <div>
+                      <CardTitle className="text-lg text-card-foreground">Newcastle United</CardTitle>
+                      <p className="text-sm text-muted-foreground">Premier League</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Target Price</span>
+                      <span className="font-semibold text-card-foreground">£750</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Current Offers</span>
+                      <span className="font-semibold text-card-foreground">£820</span>
+                    </div>
+                    <Badge variant="success" className="w-full justify-center">Above Target</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="card-professional">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src="/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png"
+                      alt="Real Madrid"
+                      className="w-12 h-12 rounded-lg object-cover"
+                    />
+                    <div>
+                      <CardTitle className="text-lg text-card-foreground">Real Madrid</CardTitle>
+                      <p className="text-sm text-muted-foreground">La Liga</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Target Price</span>
+                      <span className="font-semibold text-card-foreground">£2,500</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Current Offers</span>
+                      <span className="font-semibold text-card-foreground">£2,350</span>
+                    </div>
+                    <Badge variant="warning" className="w-full justify-center">Below Target</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="card-professional">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-blue-600 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-xs">PSG</span>
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg text-card-foreground">Paris Saint-Germain</CardTitle>
+                      <p className="text-sm text-muted-foreground">Ligue 1</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Target Price</span>
+                      <span className="font-semibold text-card-foreground">£1,800</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">No Offers</span>
+                      <span className="font-semibold text-muted-foreground">-</span>
+                    </div>
+                    <Badge variant="secondary" className="w-full justify-center">Awaiting Offers</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </TabsContent>
       </Tabs>
     </div>

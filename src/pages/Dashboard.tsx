@@ -223,7 +223,7 @@ export default function Dashboard() {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Hello Liam Canning</h1>
+            <h1 className="text-3xl font-bold text-foreground">Hello <span className="text-[#E74C3C]">Keeps</span> member</h1>
             <p className="text-lg text-foreground/80">Welcome Back!</p>
           </div>
         </div>

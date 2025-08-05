@@ -220,9 +220,10 @@ export default function SellAsset() {
                       max={selectedHolding.quantity}
                       min={1}
                     />
-                    <div className="status-coming-soon p-3 rounded-lg">
-                      <p className="text-sm font-medium mb-1">Suggested Price: £{selectedHolding.currentPrice}</p>
-                      <p className="text-xs opacity-90">Based on current market conditions and recent transactions</p>
+                    <div className="p-3 bg-muted/20 rounded-lg border">
+                      <p className="text-sm text-muted-foreground mb-1">Suggested Price</p>
+                      <p className="text-lg font-semibold text-card-foreground">£{selectedHolding.currentPrice} per share</p>
+                      <p className="text-xs text-muted-foreground">Based on current market conditions and recent transactions</p>
                     </div>
                     <p className="text-sm text-muted-foreground">
                       Maximum: {selectedHolding.quantity} shares (£{(selectedHolding.quantity * selectedHolding.currentPrice).toLocaleString()} total value)

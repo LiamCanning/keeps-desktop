@@ -12,7 +12,8 @@ import {
   HelpCircle,
   Info,
   BarChart3,
-  Menu
+  Menu,
+  Users
 } from "lucide-react";
 import {
   Sidebar,
@@ -40,6 +41,7 @@ const navigationItems = [
   { title: "Dashboard", url: "/", icon: Home },
   { title: "Benefits", url: "/benefits", icon: Gift },
   { title: "Content", url: "/content", icon: FileText },
+  { title: "Community", url: "/community", icon: Users },
   { title: "Portfolio", url: "/portfolio", icon: PieChart },
   { title: "Trade", url: "/market", icon: TrendingUp },
   { title: "Account", url: "/my-account", icon: User },

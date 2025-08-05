@@ -8,28 +8,44 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    question: "How do I start investing in sports assets?",
-    answer: "Getting started is simple. Create your account, complete the verification process, and browse our live deals. You can start with as little as £500 on most investments."
+    question: "Are these real assets?",
+    answer: "Yes, all assets on Keeps are real sports organisations with verified ownership structures. We work directly with clubs, teams, and sports entities to offer genuine investment opportunities."
   },
   {
-    question: "What types of returns can I expect?",
-    answer: "Returns vary by investment type. Equity investments typically offer 8-15% annual returns, while debentures offer fixed returns plus principal protection. All investments carry risk."
+    question: "Is Keeps regulated?",
+    answer: "Keeps operates under UK financial regulations and works with authorised intermediaries. All investments are subject to regulatory oversight and investor protection measures."
   },
   {
-    question: "How long are investment periods?",
-    answer: "Investment periods vary from 2-10 years depending on the asset. Stadium developments typically have longer terms, while revenue-sharing agreements may be shorter."
+    question: "What is the minimum investment amount?",
+    answer: "Most investments start from £500, making sports assets accessible to a wider range of investors. Some premium opportunities may have higher minimums."
   },
   {
-    question: "Can I sell my investment early?",
-    answer: "Yes, we offer a secondary market for many investments. Liquidity depends on demand and the specific terms of your investment."
+    question: "How do I receive returns on my investments?",
+    answer: "Returns are distributed according to each investment's terms. This may include annual dividends, profit sharing, or capital appreciation depending on the asset type."
   },
   {
-    question: "What exclusive benefits do I get?",
-    answer: "Benefits include priority booking for events, meet & greet opportunities, exclusive merchandise, and access to VIP areas depending on your investment level."
+    question: "Can I sell my investments?",
+    answer: "Yes, we offer a secondary market where you can sell your investments to other users. Liquidity depends on demand and the specific terms of your investment."
   },
   {
-    question: "How is my investment protected?",
-    answer: "All investments are backed by legal agreements, and we work with regulated custodians. However, investments can go down as well as up, and you may not get back your original investment."
+    question: "What exclusive benefits do I receive?",
+    answer: "Benefits vary by investment tier and include priority booking for events, meet & greet opportunities, exclusive merchandise, VIP access, and unique experiences with your chosen teams."
+  },
+  {
+    question: "How are asset valuations determined?",
+    answer: "Asset valuations are conducted by independent third-party professionals using industry-standard methodologies including revenue multiples, comparable transactions, and discounted cash flow analysis."
+  },
+  {
+    question: "What fees does Keeps charge?",
+    answer: "Keeps charges a transparent 2.5% processing fee on investments. There are no hidden charges, and all fees are clearly disclosed before you invest."
+  },
+  {
+    question: "How do I track my investment performance?",
+    answer: "Use your portfolio dashboard to monitor real-time performance, view detailed analytics, and track returns. You'll also receive regular updates on your investments."
+  },
+  {
+    question: "Is my personal information secure?",
+    answer: "Yes, we use bank-grade encryption and security measures to protect your data. We're compliant with GDPR and follow strict data protection protocols."
   }
 ];
 
