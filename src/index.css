@@ -127,12 +127,17 @@
   }
 
   .investment-card:hover {
-    box-shadow: var(--shadow-premium);
+    box-shadow: var(--shadow-elegant);
+    transform: scale(1.03);
   }
 
   /* Premium button variants */
   .btn-invest {
-    @apply bg-gradient-to-r from-primary to-primary-glow hover:from-primary-hover hover:to-primary text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-premium;
+    @apply bg-gradient-to-r from-primary to-primary-glow hover:from-primary-hover hover:to-primary text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg;
+  }
+
+  .btn-invest:hover {
+    box-shadow: var(--shadow-elegant);
   }
 
   .btn-ghost {
@@ -140,7 +145,11 @@
   }
 
   .btn-premium {
-    @apply bg-gradient-to-r from-gold to-warning text-gold-foreground font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-premium;
+    @apply bg-gradient-to-r from-gold to-warning text-gold-foreground font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg;
+  }
+
+  .btn-premium:hover {
+    box-shadow: var(--shadow-elegant);
   }
 
   /* Status indicators */
