@@ -283,9 +283,9 @@ export default function TradingInterface() {
               )}
 
               {/* Investment Round Info */}
-              <div className="p-4 bg-warning/10 border border-warning/30 rounded-lg">
-                <h4 className="font-semibold text-warning-foreground mb-1">Investment Round Percentage</h4>
-                <p className="text-sm text-warning-foreground">
+              <div className="status-coming-soon p-4 rounded-lg">
+                <h4 className="font-semibold mb-1">Investment Round Percentage</h4>
+                <p className="text-sm">
                   £{total.toLocaleString()} = {((total / 10000000) * 100).toFixed(4)}% of the investment round
                 </p>
               </div>
@@ -328,15 +328,17 @@ export default function TradingInterface() {
           </Card>
 
           {/* Security Notice */}
-          <Card className="card-professional border-success/30 bg-success/5">
+          <Card className="card-professional">
             <CardContent className="p-4">
-              <div className="flex items-start gap-3">
-                <Shield className="w-5 h-5 text-success mt-1" />
-                <div>
-                  <h4 className="font-semibold text-success-foreground mb-1">Secure Trading</h4>
-                  <p className="text-sm text-success-foreground/80">
-                    All transactions are encrypted and protected by industry-leading security measures.
-                  </p>
+              <div className="status-live p-4 rounded-lg">
+                <div className="flex items-start gap-3">
+                  <Shield className="w-5 h-5 mt-1" />
+                  <div>
+                    <h4 className="font-semibold mb-1">Secure Trading</h4>
+                    <p className="text-sm opacity-90">
+                      All transactions are encrypted and protected by industry-leading security measures.
+                    </p>
+                  </div>
                 </div>
               </div>
             </CardContent>
