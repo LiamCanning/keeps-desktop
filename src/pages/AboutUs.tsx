@@ -153,28 +153,6 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* Team */}
-      <div>
-        <h2 className="text-3xl font-bold text-center text-foreground mb-8">Leadership Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {team.map((member, index) => (
-            <Card key={index} className="bg-card border-0 shadow-lg overflow-hidden">
-              <div className="aspect-square overflow-hidden">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardContent className="p-6">
-                <h3 className="font-bold text-lg text-foreground mb-1">{member.name}</h3>
-                <p className="text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-sm text-muted-foreground">{member.bio}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
 
       {/* Contact */}
       <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">

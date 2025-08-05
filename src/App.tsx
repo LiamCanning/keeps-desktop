@@ -22,6 +22,8 @@ import SectorPerformance from "@/pages/SectorPerformance";
 import Community from "@/pages/Community";
 import Article from "@/pages/Article";
 import TradingInterface from "@/pages/TradingInterface";
+import RegulatoryCompliance from "@/pages/RegulatoryCompliance";
+import InvestorRelations from "@/pages/InvestorRelations";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -52,6 +54,8 @@ const App = () => (
             <Route path="/community" element={<Community />} />
             <Route path="/article/:id" element={<Article />} />
             <Route path="/trade/:assetId" element={<TradingInterface />} />
+            <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
+            <Route path="/investor-relations" element={<InvestorRelations />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
