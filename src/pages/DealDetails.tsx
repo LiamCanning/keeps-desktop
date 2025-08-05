@@ -222,7 +222,10 @@ export default function DealDetails() {
             <div className="space-y-4">
               <Button 
                 className="w-full bg-gradient-to-r from-success to-success/90 hover:from-success/90 hover:to-success text-white text-lg py-4 rounded-lg"
-                onClick={() => navigate('/buy-asset', { state: { dealId: deal.id, dealName: deal.name } })}
+                onClick={() => {
+                  const assetId = deal.name.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1');
+                  window.open(`/trade/${assetId}`, '_blank');
+                }}
               >
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Invest Now

@@ -170,7 +170,10 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
           ))}
         </div>
         
-        <Button className="w-full btn-invest">
+        <Button 
+          className="w-full btn-invest"
+          onClick={() => window.open(`/deal/${benefit.team.toLowerCase().replace(' ', '-')}`, '_blank')}
+        >
           View All Benefits
         </Button>
       </CardContent>

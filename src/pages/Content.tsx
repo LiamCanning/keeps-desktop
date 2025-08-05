@@ -257,7 +257,10 @@ function NewsCard({ article }: { article: NewsArticle }) {
         )}
         
         <div className="flex items-center gap-2">
-          <Button className="btn-invest flex-1">
+          <Button 
+            className="btn-invest flex-1"
+            onClick={() => window.open(`/article/${article.id}`, '_blank')}
+          >
             Read Article
             <ExternalLink className="w-4 h-4 ml-2" />
           </Button>

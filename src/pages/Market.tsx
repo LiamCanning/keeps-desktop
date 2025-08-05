@@ -165,7 +165,13 @@ function MarketCard({ listing }: { listing: MarketListing }) {
           </div>
         </div>
         
-        <Button className="w-full btn-invest">
+        <Button 
+          className="w-full btn-invest"
+          onClick={() => {
+            const assetId = listing.asset.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1');
+            window.open(`/trade/${assetId}`, '_blank');
+          }}
+        >
           Buy Now
         </Button>
       </CardContent>

@@ -21,6 +21,7 @@ import SellAsset from "@/pages/SellAsset";
 import SectorPerformance from "@/pages/SectorPerformance";
 import Community from "@/pages/Community";
 import Article from "@/pages/Article";
+import TradingInterface from "@/pages/TradingInterface";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/sector-performance" element={<SectorPerformance />} />
             <Route path="/community" element={<Community />} />
             <Route path="/article/:id" element={<Article />} />
+            <Route path="/trade/:assetId" element={<TradingInterface />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
