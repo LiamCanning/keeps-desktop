@@ -138,8 +138,8 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           </div>
         </div>
         
-        <div className="p-3 rounded-lg bg-success/10 border border-success/20">
-          <p className="text-sm text-success-foreground">
+        <div className="p-3 rounded-lg bg-success/20 border border-success/30">
+          <p className="text-sm font-medium text-success">
             <Target className="w-4 h-4 inline mr-1" />
             {holding.dividendPotential}
           </p>
@@ -148,7 +148,7 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
         <div className="flex gap-2">
           <Button 
             variant="outline" 
-            className="flex-1"
+            className="flex-1 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white"
             onClick={() => window.location.href = `/deal/${holding.name.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1')}`}
           >
             <Eye className="w-4 h-4 mr-2" />
@@ -156,10 +156,10 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           </Button>
           <Button 
             className="btn-invest flex-1"
-            onClick={() => window.location.href = `/trade/${holding.name.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1')}`}
+            onClick={() => window.location.href = `/sell-asset`}
           >
             <Activity className="w-4 h-4 mr-2" />
-            Trade {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}
+            Sell {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}
           </Button>
         </div>
       </CardContent>
@@ -176,12 +176,27 @@ export default function Portfolio() {
   const returnPercent = (totalReturn / totalInvested) * 100;
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto">
-      {/* Header Section */}
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">Liam's Portfolio</h1>
-        <p className="text-lg text-foreground/80">Track your sports investments</p>
+    <div className="space-y-6">
+      {/* Sticky Portfolio Banner */}
+      <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border p-4 shadow-sm">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div>
+            <h2 className="text-lg font-bold text-gradient">Liam's Portfolio</h2>
+            <p className="text-sm text-muted-foreground">Total Value: £{totalValue.toLocaleString()}</p>
+          </div>
+          <div className="text-right">
+            <p className="text-lg font-bold text-success">+£{totalReturn.toLocaleString()}</p>
+            <p className="text-sm text-success">+{returnPercent.toFixed(1)}%</p>
+          </div>
+        </div>
       </div>
+
+      <div className="p-6 space-y-6 max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold text-gradient">Portfolio Overview</h1>
+          <p className="text-lg text-foreground/80">Track your sports investments</p>
+        </div>
 
       {/* Portfolio Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -325,6 +340,7 @@ export default function Portfolio() {
           </div>
         </TabsContent>
       </Tabs>
+      </div>
     </div>
   );
 }

@@ -33,44 +33,44 @@ const favoriteTeams: FavoriteTeam[] = [
 const dataPartners: DataPartner[] = [
   {
     id: "1",
-    name: "Rolex",
-    logo: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=64&h=64&fit=crop",
-    description: "Luxury timepieces and exclusive sports events",
+    name: "Liverpool FC",
+    logo: "/src/assets/brands/liverpool-fc-logo.png",
+    description: "Football club experiences and exclusive match day benefits",
     optedIn: true
   },
   {
     id: "2", 
-    name: "Nike",
-    logo: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=64&h=64&fit=crop",
-    description: "Sports apparel and equipment discounts",
+    name: "McLaren Racing",
+    logo: "/src/assets/brands/mclaren-logo.png",
+    description: "Formula 1 paddock access and racing experiences",
     optedIn: true
   },
   {
     id: "3",
-    name: "AXA",
-    logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop",
-    description: "Insurance and financial services",
+    name: "Tottenham Hotspur",
+    logo: "/src/assets/brands/tottenham-logo.png",
+    description: "Stadium tours and exclusive fan experiences",
     optedIn: true
   },
   {
     id: "4",
-    name: "Heineken",
-    logo: "https://images.unsplash.com/photo-1534147904324-07a0f75f5a4d?w=64&h=64&fit=crop",
-    description: "Hospitality and event experiences",
+    name: "Manchester United",
+    logo: "/src/assets/brands/manchester-united-logo.png",
+    description: "Old Trafford experiences and club merchandise",
     optedIn: true
   },
   {
     id: "5",
-    name: "Emirates",
-    logo: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=64&h=64&fit=crop",
-    description: "Travel and premium flight experiences",
+    name: "British Cycling",
+    logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=64&h=64&fit=crop",
+    description: "Cycling events and training programme access",
     optedIn: false
   },
   {
     id: "6",
-    name: "BMW",
-    logo: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=64&h=64&fit=crop",
-    description: "Automotive experiences and test drives",
+    name: "Ryder Cup",
+    logo: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=64&h=64&fit=crop",
+    description: "Golf tournament hospitality and exclusive access",
     optedIn: false
   }
 ];
