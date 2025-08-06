@@ -22,7 +22,7 @@ const benefits: Benefit[] = [
   {
     id: "1",
     team: "Liverpool FC",
-    logo: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
     status: "live",
     benefits: [
       {
@@ -48,13 +48,19 @@ const benefits: Benefit[] = [
         description: "20% discount on all official Liverpool FC merchandise",
         icon: <Gift className="w-5 h-5" />,
         available: true
+      },
+      {
+        title: "VIP Match Experience",
+        description: "Premium hospitality suites with gourmet dining and exclusive viewing areas",
+        icon: <Calendar className="w-5 h-5" />,
+        available: true
       }
     ]
   },
   {
     id: "2",
     team: "McLaren F1",
-    logo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png",
     status: "live",
     benefits: [
       {
@@ -80,37 +86,49 @@ const benefits: Benefit[] = [
         description: "VIP hospitality packages for Grand Prix weekends",
         icon: <Calendar className="w-5 h-5" />,
         available: true
+      },
+      {
+        title: "Technical Briefings",
+        description: "Exclusive technical sessions with McLaren engineers and team principals",
+        icon: <Gift className="w-5 h-5" />,
+        available: true
       }
     ]
   },
   {
     id: "3",
     team: "Ryder Cup",
-    logo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
     status: "live",
     benefits: [
       {
-        title: "Tournament Access",
-        description: "Guaranteed tickets to Ryder Cup tournaments",
-        icon: <Ticket className="w-5 h-5" />,
+        title: "Commemorative Merchandise",
+        description: "Limited edition Ryder Cup merchandise package and certificate",
+        icon: <Gift className="w-5 h-5" />,
         available: true
       },
       {
-        title: "Pro-Am Participation",
-        description: "Opportunity to play in pro-am events with tour professionals",
+        title: "Premium Hospitality",
+        description: "Access to Silver Club hospitality areas during practice rounds",
+        icon: <Star className="w-5 h-5" />,
+        available: true
+      },
+      {
+        title: "Exclusive Tournament Access",
+        description: "Premium seating for all tournament days plus Gold Lounge Access",
         icon: <Trophy className="w-5 h-5" />,
         available: true
       },
       {
-        title: "Clubhouse Access",
-        description: "Access to exclusive clubhouse facilities during events",
-        icon: <MapPin className="w-5 h-5" />,
+        title: "Player Meet & Greet",
+        description: "Exclusive meet and greet with Ryder Cup players",
+        icon: <Calendar className="w-5 h-5" />,
         available: true
       },
       {
-        title: "Golf Masterclasses",
-        description: "Private coaching sessions with Ryder Cup professionals",
-        icon: <Star className="w-5 h-5" />,
+        title: "Captain's Dinner",
+        description: "Exclusive dinner with the Ryder Cup Captain and team members",
+        icon: <Ticket className="w-5 h-5" />,
         available: true
       }
     ]
@@ -170,12 +188,6 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
           ))}
         </div>
         
-        <Button 
-          className="w-full btn-invest"
-          onClick={() => window.open(`/deal/${benefit.team.toLowerCase().replace(' ', '-')}`, '_blank')}
-        >
-          View All Benefits
-        </Button>
       </CardContent>
     </Card>
   );
@@ -206,7 +218,7 @@ export default function Benefits() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Benefits</p>
-              <p className="font-semibold text-xl">12</p>
+              <p className="font-semibold text-xl">15</p>
             </div>
           </div>
         </Card>
@@ -218,7 +230,7 @@ export default function Benefits() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Available Now</p>
-              <p className="font-semibold text-xl">12</p>
+              <p className="font-semibold text-xl">15</p>
             </div>
           </div>
         </Card>
@@ -230,7 +242,7 @@ export default function Benefits() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Premium Access</p>
-              <p className="font-semibold text-xl">8</p>
+              <p className="font-semibold text-xl">10</p>
             </div>
           </div>
         </Card>

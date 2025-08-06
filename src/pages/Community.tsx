@@ -1,5 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { MessageCircle, Users, Heart, Send, Plus, Edit3, Calendar, Star } from "lucide-react";
+
+// Import avatar images
+import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
+import mikeAvatar from "@/assets/avatars/mike-avatar.png";
+import emmaAvatar from "@/assets/avatars/emma-avatar.png";
+import alexAvatar from "@/assets/avatars/alex-avatar.png";
+import jamesAvatar from "@/assets/avatars/james-avatar.png";
+import liamAvatar from "@/assets/liam-avatar.png";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -29,7 +38,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Sarah Mitchell",
       username: "sarahm_investor",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612400d?w=64&h=64&fit=crop&crop=face",
+      avatar: sarahAvatar,
       verified: true
     },
     content: "Just invested in Liverpool FC through Keeps! The Diamond tier benefits are incredible - behind-the-scenes access and VIP hospitality make this feel like true ownership. This is the future of fan investment! ⚽️🔥",
@@ -43,7 +52,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Mike Rodriguez",
       username: "f1mike",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face",
+      avatar: mikeAvatar,
       verified: false
     },
     content: "McLaren's technology centre tour was INSANE! Meeting the engineers and seeing the cars up close through my Platinum tier benefits. The income sharing returns are outperforming expectations too! 🏎️ #McLarenRacing",
@@ -57,7 +66,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Emma Thompson",
       username: "golf_emma",
-      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=64&h=64&fit=crop&crop=face", 
+      avatar: emmaAvatar, 
       verified: true
     },
     content: "Ryder Cup debentures are 90% funded already! The exclusive access to tournaments and pro-am events through the Gold tier is worth every penny. Plus the annual strategic briefings give real insight into golf's future ⛳️",
@@ -71,7 +80,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Alex Chen",
       username: "alexc_sports",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
+      avatar: alexAvatar,
       verified: false
     },
     content: "The Bronze tier community forum is already so valuable - connecting with other investors and getting monthly newsletters with exclusive insights. Amazing how even the entry level benefits deliver real value! 📈",
@@ -84,7 +93,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "James Wilson",
       username: "jwilson_reds",
-      avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=64&h=64&fit=crop&crop=face",
+      avatar: jamesAvatar,
       verified: true
     },
     content: "Silver tier perks are incredible! Quarterly video updates from Liverpool management and early access to new opportunities. The branded merchandise package was a nice touch too! You'll Never Walk Alone! 🔴 #YNWA #LiverpoolFC",
@@ -96,6 +105,8 @@ const communityPosts: CommunityPost[] = [
 ];
 
 function CommunityPost({ post }: { post: CommunityPost }) {
+  const navigate = useNavigate();
+
   return (
     <Card className="card-professional">
       <CardContent className="p-6">
@@ -129,7 +140,10 @@ function CommunityPost({ post }: { post: CommunityPost }) {
             )}
             
             <div className="flex items-center gap-6 pt-2 text-muted-foreground">
-              <button className="flex items-center gap-1 hover:text-primary transition-colors text-sm">
+              <button 
+                className="flex items-center gap-1 hover:text-primary transition-colors text-sm"
+                onClick={() => navigate(`/community/comments/${post.id}`)}
+              >
                 <MessageCircle className="w-4 h-4" />
                 {post.replies}
               </button>
@@ -159,7 +173,7 @@ export default function Community() {
       user: {
         name: "Liam Canning",
         username: "liamcanning",
-        avatar: "/src/assets/liam-avatar.png",
+        avatar: liamAvatar,
         verified: true
       },
       content: newPost,
@@ -275,11 +289,11 @@ export default function Community() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex gap-3">
-                <img 
-                  src="/src/assets/liam-avatar.png"
-                  alt="Your avatar"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+            <img 
+              src={liamAvatar}
+              alt="Your avatar"
+              className="w-12 h-12 rounded-full object-cover"
+            />
                 <div className="flex-1 space-y-4">
                   <Textarea
                     placeholder="Share your thoughts about sports investments, benefits you've received, or ask questions to the community..."

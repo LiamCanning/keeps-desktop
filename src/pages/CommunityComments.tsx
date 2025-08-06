@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Heart, MessageCircle, Share2, Send } from "lucide-react";
+
+// Import avatar images
+import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
+import alexAvatar from "@/assets/avatars/alex-avatar.png";
+import mariaAvatar from "@/assets/avatars/maria-avatar.png";
+import jamesAvatar from "@/assets/avatars/james-avatar.png";
+import liamAvatar from "@/assets/liam-avatar.png";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -41,7 +48,7 @@ const originalPost: CommunityPost = {
   user: {
     name: "Sarah Mitchell",
     username: "@sarahm_investor",
-    avatar: "/src/assets/liam-avatar.png",
+    avatar: sarahAvatar,
     verified: true
   },
   content: "Just invested in Liverpool FC through @keeps! The 4-8% annual dividends plus being part of the club's journey is incredible. This is the future of sports investment! ⚽🔥",
@@ -57,7 +64,7 @@ const mockComments: Comment[] = [
     user: {
       name: "Alex Johnson",
       username: "@alexj_sports",
-      avatar: "/src/assets/liam-avatar.png",
+      avatar: alexAvatar,
       verified: false
     },
     content: "Amazing! How was the verification process? Thinking of getting in myself.",
@@ -69,7 +76,7 @@ const mockComments: Comment[] = [
     user: {
       name: "Maria Santos",
       username: "@maria_investor",
-      avatar: "/src/assets/liam-avatar.png",
+      avatar: mariaAvatar,
       verified: true
     },
     content: "The returns on Liverpool have been incredible this season. Already seeing great performance on my investment!",
@@ -81,7 +88,7 @@ const mockComments: Comment[] = [
     user: {
       name: "James Wilson",
       username: "@jwilson_lfc",
-      avatar: "/src/assets/liam-avatar.png",
+      avatar: jamesAvatar,
       verified: false
     },
     content: "Welcome to the Liverpool investor community! The benefits are amazing - can't wait for you to experience your first VIP match day.",
@@ -111,7 +118,7 @@ export default function CommunityComments() {
       user: {
         name: "Liam Canning",
         username: "@liam_investor",
-        avatar: "/src/assets/liam-avatar.png",
+        avatar: liamAvatar,
         verified: true
       },
       content: newComment,
@@ -192,7 +199,7 @@ export default function CommunityComments() {
         <CardHeader>
           <div className="flex items-center gap-3">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam" />
+              <AvatarImage src={liamAvatar} alt="Liam" />
               <AvatarFallback>LC</AvatarFallback>
             </Avatar>
             <h3 className="font-semibold text-card-foreground">Add a comment</h3>

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Bell, Search, Menu } from "lucide-react";
@@ -11,6 +12,8 @@ interface LayoutProps {
 }
 
 export function Layout({ children }: LayoutProps) {
+  const navigate = useNavigate();
+
   return (
     <SidebarProvider defaultOpen>
       <div className="min-h-screen flex w-full bg-background">
@@ -25,19 +28,24 @@ export function Layout({ children }: LayoutProps) {
                   <Menu className="w-5 h-5" />
                 </SidebarTrigger>
                 
-                <div className="flex items-center gap-2 max-w-md w-full">
+                <div className="flex items-center gap-2 flex-1 max-w-2xl">
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input 
                       placeholder="search sports assets" 
-                      className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground min-w-[200px]"
+                      className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground w-full"
                     />
                   </div>
                 </div>
               </div>
               
               <div className="flex items-center gap-4">
-                <Button variant="ghost" size="icon" className="relative hover:bg-sidebar-accent text-foreground">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="relative hover:bg-sidebar-accent text-foreground"
+                  onClick={() => navigate('/notifications')}
+                >
                   <Bell className="w-5 h-5" />
                   <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 text-xs bg-primary flex items-center justify-center">
                     3
