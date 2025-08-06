@@ -8,6 +8,9 @@ import mikeAvatar from "@/assets/avatars/mike-avatar.png";
 import emmaAvatar from "@/assets/avatars/emma-avatar.png";
 import alexAvatar from "@/assets/avatars/alex-avatar.png";
 import jamesAvatar from "@/assets/avatars/james-avatar.png";
+import liverpoolFanAvatar from "@/assets/avatars/liverpool-fan-avatar.png";
+import f1FanAvatar from "@/assets/avatars/f1-fan-avatar.png";
+import golfFanAvatar from "@/assets/avatars/golf-fan-avatar.png";
 import liamAvatar from "@/assets/liam-avatar.png";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -80,7 +83,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Alex Chen",
       username: "alexc_sports",
-      avatar: alexAvatar,
+      avatar: liverpoolFanAvatar,
       verified: false
     },
     content: "The Bronze tier community forum is already so valuable - connecting with other investors and getting monthly newsletters with exclusive insights. Amazing how even the entry level benefits deliver real value! 📈",
@@ -93,7 +96,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "James Wilson",
       username: "jwilson_reds",
-      avatar: jamesAvatar,
+      avatar: f1FanAvatar,
       verified: true
     },
     content: "Silver tier perks are incredible! Quarterly video updates from Liverpool management and early access to new opportunities. The branded merchandise package was a nice touch too! You'll Never Walk Alone! 🔴 #YNWA #LiverpoolFC",

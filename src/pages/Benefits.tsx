@@ -22,7 +22,7 @@ const benefits: Benefit[] = [
   {
     id: "1",
     team: "Liverpool FC",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     status: "live",
     benefits: [
       {
@@ -60,7 +60,7 @@ const benefits: Benefit[] = [
   {
     id: "2",
     team: "McLaren F1",
-    logo: "/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png",
+    logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
     status: "live",
     benefits: [
       {
@@ -98,7 +98,7 @@ const benefits: Benefit[] = [
   {
     id: "3",
     team: "Ryder Cup",
-    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
     status: "live",
     benefits: [
       {
