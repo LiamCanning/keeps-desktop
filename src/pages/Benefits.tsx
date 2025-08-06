@@ -162,8 +162,8 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
   };
 
   return (
-    <Card className="investment-card">
-      <CardHeader className="pb-4">
+    <Card className="investment-card h-full flex flex-col">
+      <CardHeader className="pb-4 flex-shrink-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img 
@@ -172,7 +172,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
               className="w-12 h-12 rounded-lg object-cover"
             />
             <div>
-              <CardTitle className="text-lg">{benefit.team}</CardTitle>
+              <CardTitle className="text-lg text-left">{benefit.team}</CardTitle>
               <Badge variant={benefit.status} className="mt-1">
                 {benefit.status === "live" ? "Live" : 
                  benefit.status === "coming-soon" ? "Coming Soon" : "Completed"}
@@ -182,17 +182,17 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
         </div>
       </CardHeader>
       
-      <CardContent className="space-y-4">
-        <div className="space-y-3">
+      <CardContent className="space-y-3 flex-1 flex flex-col">
+        <div className="space-y-3 flex-1">
           {Object.entries(assetTiers[getAssetKey(benefit.team)]).map(([tierKey, tier]) => (
             <div 
               key={tierKey}
-              className={`p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+              className={`p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md h-full flex flex-col ${
                 tierColors[tierKey as keyof typeof tierColors]
               }`}
             >
-              <div className="flex items-start gap-3">
-                <div className={`p-2 rounded-lg ${tierBadgeColors[tierKey as keyof typeof tierBadgeColors]} text-white`}>
+              <div className="flex items-start gap-3 h-full">
+                <div className={`p-2 rounded-lg flex-shrink-0 ${tierBadgeColors[tierKey as keyof typeof tierBadgeColors]} text-white`}>
                   {tierKey === 'bronze' && <Gift className="w-4 h-4" />}
                   {tierKey === 'silver' && <Star className="w-4 h-4" />}
                   {tierKey === 'gold' && <Trophy className="w-4 h-4" />}
@@ -202,18 +202,18 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="font-semibold text-base capitalize text-left">{tier.name}</h4>
-                    <Badge variant="success" className="text-xs">
+                    <Badge variant="success" className="text-xs flex-shrink-0">
                       Available
                     </Badge>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3 text-left">
                     Investment Required: £{tier.investment.toLocaleString()} ({tier.available} available)
                   </p>
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {tier.benefits.map((benefit, index) => (
                       <div key={index} className="flex items-start gap-2 text-sm text-left">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="leading-5">{benefit}</span>
+                        <span className="leading-5 flex-1">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -320,9 +320,11 @@ export default function Benefits() {
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredBenefits.map((benefit) => (
-                <BenefitCard key={benefit.id} benefit={benefit} />
+                <div key={benefit.id} className="h-full">
+                  <BenefitCard benefit={benefit} />
+                </div>
               ))}
             </div>
           </div>
