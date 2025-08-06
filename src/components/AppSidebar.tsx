@@ -124,6 +124,13 @@ export function AppSidebar() {
                   <span>Market Trends</span>
                 </NavLink>
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <NavLink to="/login" className="flex items-center gap-3 py-3 w-full">
+                  <User className="w-4 h-4" />
+                  <span>Login</span>
+                </NavLink>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

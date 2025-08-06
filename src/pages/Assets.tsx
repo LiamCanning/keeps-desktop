@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TrendingUp, Calendar, MapPin, Users, Star, ArrowRight } from "lucide-react";
+import { TrendingUp, Calendar, MapPin, Users, Star, ArrowRight, Plus } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -66,26 +66,26 @@ const assets: Asset[] = [
     launchDate: "July 2025"
   },
   {
-    id: "tottenham-hotspur",
-    name: "Tottenham Hotspur",
-    logo: "/src/assets/brands/tottenham-logo.png",
-    banner: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=400&fit=crop",
+    id: "hexagon-cup",
+    name: "Hexagon Cup",
+    logo: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=100&h=100&fit=crop",
+    banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop",
     status: "coming-soon",
-    description: "Premier League powerhouse with new stadium infrastructure and growing commercial partnerships worldwide.",
+    description: "Prestigious multi-sport tournament featuring international competition with growing global viewership and sponsorship opportunities.",
     minInvestment: "£750",
     expectedReturn: "9-13%",
     fundingProgress: 0,
     totalFunding: "£40M",
-    category: "Football",
+    category: "Multi-Sport",
     launchDate: "September 2025"
   },
   {
-    id: "manchester-united",
-    name: "Manchester United",
-    logo: "/src/assets/brands/manchester-united-logo.png",
-    banner: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&h=400&fit=crop",
+    id: "cardiff-city",
+    name: "Cardiff City",
+    logo: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=100&h=100&fit=crop",
+    banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
-    description: "The world's most valuable football brand with massive global fanbase and commercial revenue potential.",
+    description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",
     minInvestment: "£1,000",
     expectedReturn: "12-18%",
     fundingProgress: 0,
@@ -94,18 +94,18 @@ const assets: Asset[] = [
     launchDate: "October 2025"
   },
   {
-    id: "british-cycling",
-    name: "British Cycling",
-    logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&fit=crop",
-    banner: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
-    status: "completed",
-    description: "Olympic cycling excellence with proven track record and sustainable growth in global cycling markets.",
+    id: "ohio-state",
+    name: "Ohio State",
+    logo: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=100&h=100&fit=crop",
+    banner: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=400&fit=crop",
+    status: "coming-soon",
+    description: "Elite American university athletics programme with massive revenue potential and nationwide following across multiple sports.",
     minInvestment: "£1,000",
     expectedReturn: "15%",
-    fundingProgress: 100,
+    fundingProgress: 0,
     totalFunding: "£20M",
-    category: "Cycling",
-    launchDate: "June 2025"
+    category: "University Sports",
+    launchDate: "November 2025"
   }
 ];
 
@@ -194,7 +194,8 @@ function AssetCard({ asset }: { asset: Asset }) {
 }
 
 export default function Assets() {
-  const [activeTab, setActiveTab] = useState("all");
+  const [activeTab, setActiveTab] = useState("live");
+  const navigate = useNavigate();
   
   const filteredAssets = assets.filter(asset => {
     if (activeTab === "all") return true;
@@ -213,20 +214,28 @@ export default function Assets() {
         <p className="text-lg text-muted-foreground">Discover and invest in world-class sports organisations</p>
       </div>
 
+      {/* Filter Tabs - Replacing the banner */}
+      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm">
+            <TabsTrigger value="live" className="flex items-center justify-center gap-2 text-sm font-medium">
+              <div className="w-2 h-2 bg-success rounded-full"></div>
+              Live Deals
+            </TabsTrigger>
+            <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-2 text-sm font-medium">
+              <div className="w-2 h-2 bg-warning rounded-full"></div>
+              Coming Soon
+            </TabsTrigger>
+            <TabsTrigger value="completed" className="flex items-center justify-center gap-2 text-sm font-medium">
+              <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
+              Completed
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
+
       {/* Assets Overview Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Total Assets</p>
-              <p className="font-semibold text-xl">{assets.length}</p>
-            </div>
-          </div>
-        </Card>
-        
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="p-4">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-success/20 rounded-lg">
@@ -264,40 +273,46 @@ export default function Assets() {
         </Card>
       </div>
 
-      {/* Assets Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
-          <TabsTrigger value="all">All Assets</TabsTrigger>
-          <TabsTrigger value="live" className="flex items-center justify-center gap-2">
-            <div className="w-2 h-2 bg-success rounded-full"></div>
-            Live
-          </TabsTrigger>
-          <TabsTrigger value="coming-soon">Coming Soon</TabsTrigger>
-          <TabsTrigger value="completed">Completed</TabsTrigger>
-        </TabsList>
+      {/* Assets Content */}
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold text-left">
+            {activeTab === "live" ? "Live Investment Assets" :
+             activeTab === "coming-soon" ? "Upcoming Assets" :
+             "Completed Assets"}
+          </h2>
+          <Badge variant={activeTab === "live" ? "success" : activeTab === "coming-soon" ? "warning" : "secondary"}>
+            {filteredAssets.length} Available
+          </Badge>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filteredAssets.map((asset) => (
+            <AssetCard key={asset.id} asset={asset} />
+          ))}
+        </div>
+      </div>
 
-        <TabsContent value={activeTab} className="mt-6">
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-left">
-                {activeTab === "all" ? "All Available Assets" :
-                 activeTab === "live" ? "Live Investment Assets" :
-                 activeTab === "coming-soon" ? "Upcoming Assets" :
-                 "Completed Assets"}
-              </h2>
-              <Badge variant={activeTab === "live" ? "success" : activeTab === "coming-soon" ? "warning" : "secondary"}>
-                {filteredAssets.length} Available
-              </Badge>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {filteredAssets.map((asset) => (
-                <AssetCard key={asset.id} asset={asset} />
-              ))}
-            </div>
+      {/* Request Your Team Section */}
+      <div className="mt-12 p-8 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-primary/20">
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
+            <Plus className="w-8 h-8 text-primary" />
           </div>
-        </TabsContent>
-      </Tabs>
+          <h3 className="text-2xl font-bold text-gradient">Request Your Team</h3>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Don't see your favourite sports organisation? Let us know which team or organisation you'd like to invest in and we'll consider adding them to our platform.
+          </p>
+          <Button 
+            size="lg" 
+            className="mt-6"
+            onClick={() => navigate('/request-team')}
+          >
+            Submit Team Request
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
