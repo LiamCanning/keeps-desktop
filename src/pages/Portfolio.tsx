@@ -152,14 +152,14 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           <Button 
             variant="outline" 
             className="flex-1 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white"
-            onClick={() => window.location.href = `/deal/${holding.name.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1')}`}
+            onClick={() => window.location.href = `/benefits`}
           >
             <Eye className="w-4 h-4 mr-2" />
             View Benefits
           </Button>
           <Button 
             className="btn-invest flex-1"
-            onClick={() => window.location.href = `/sell-asset`}
+            onClick={() => window.location.href = `/sell-shares`}
           >
             <Activity className="w-4 h-4 mr-2" />
             Sell {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}

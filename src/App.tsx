@@ -29,6 +29,10 @@ import InvestorRelations from "@/pages/InvestorRelations";
 import InvestorLeaderboard from "@/pages/InvestorLeaderboard";
 import Notifications from "@/pages/Notifications";
 import NotFound from "./pages/NotFound";
+import Assets from "./pages/Assets";
+import AssetDetails from "./pages/AssetDetails";
+import Login from "./pages/Login";
+import SellShares from "./pages/SellShares";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +67,10 @@ const App = () => (
             <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
             <Route path="/investor-relations" element={<InvestorRelations />} />
             <Route path="/notifications" element={<Notifications />} />
+            <Route path="/assets" element={<Assets />} />
+            <Route path="/assets/:assetId" element={<AssetDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/sell-shares" element={<SellShares />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
