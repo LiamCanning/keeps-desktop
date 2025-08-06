@@ -1,23 +1,18 @@
 import { useState } from "react";
-import { Gift, Star, Trophy, Calendar, MapPin, Ticket } from "lucide-react";
+import { Gift, Star, Trophy, Calendar, Crown, Diamond, ChevronDown, ChevronUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { assetTiers } from "@/components/BenefitsTiers";
-import { Crown, Diamond } from "lucide-react";
 
 interface Benefit {
   id: string;
   team: string;
   logo: string;
   status: "live" | "coming-soon" | "completed";
-  benefits: {
-    title: string;
-    description: string;
-    icon: React.ReactNode;
-    available: boolean;
-  }[];
+  description: string;
 }
 
 const benefits: Benefit[] = [
@@ -26,118 +21,27 @@ const benefits: Benefit[] = [
     team: "Liverpool FC",
     logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     status: "live",
-    benefits: [
-      {
-        title: "Season Ticket Priority",
-        description: "Priority access to season tickets and premium seating",
-        icon: <Ticket className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Stadium Tours",
-        description: "Exclusive behind-the-scenes stadium tours with player meet & greets",
-        icon: <MapPin className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Training Ground Access",
-        description: "Special access to training sessions and player interactions",
-        icon: <Star className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Merchandise Discounts",
-        description: "20% discount on all official Liverpool FC merchandise",
-        icon: <Gift className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "VIP Match Experience",
-        description: "Premium hospitality suites with gourmet dining and exclusive viewing areas",
-        icon: <Calendar className="w-5 h-5" />,
-        available: true
-      }
-    ]
+    description: "Exclusive access to Anfield experiences, player meet & greets, and premium hospitality packages for one of the world's most successful football clubs."
   },
   {
     id: "2",
     team: "McLaren F1",
     logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
     status: "live",
-    benefits: [
-      {
-        title: "Paddock Club Access",
-        description: "Exclusive access to McLaren Paddock Club at select races",
-        icon: <Trophy className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Driver Meet & Greets",
-        description: "Meet Lando Norris and Oscar Piastri at special events",
-        icon: <Star className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Factory Tours",
-        description: "Private tours of the McLaren Technology Centre",
-        icon: <MapPin className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Race Weekend Hospitality",
-        description: "VIP hospitality packages for Grand Prix weekends",
-        icon: <Calendar className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Technical Briefings",
-        description: "Exclusive technical sessions with McLaren engineers and team principals",
-        icon: <Gift className="w-5 h-5" />,
-        available: true
-      }
-    ]
+    description: "Behind-the-scenes access to McLaren Technology Centre, paddock club experiences, and exclusive meetings with drivers and team management."
   },
   {
     id: "3",
     team: "Ryder Cup",
     logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
     status: "live",
-    benefits: [
-      {
-        title: "Commemorative Merchandise",
-        description: "Limited edition Ryder Cup merchandise package and certificate",
-        icon: <Gift className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Premium Hospitality",
-        description: "Access to Silver Club hospitality areas during practice rounds",
-        icon: <Star className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Exclusive Tournament Access",
-        description: "Premium seating for all tournament days plus Gold Lounge Access",
-        icon: <Trophy className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Player Meet & Greet",
-        description: "Exclusive meet and greet with Ryder Cup players",
-        icon: <Calendar className="w-5 h-5" />,
-        available: true
-      },
-      {
-        title: "Captain's Dinner",
-        description: "Exclusive dinner with the Ryder Cup Captain and team members",
-        icon: <Ticket className="w-5 h-5" />,
-        available: true
-      }
-    ]
+    description: "Premium tournament access, commemorative merchandise, and exclusive dining experiences with golf's most prestigious team tournament."
   }
 ];
 
 function BenefitCard({ benefit }: { benefit: Benefit }) {
+  const [isOpen, setIsOpen] = useState(false);
+  
   const getAssetKey = (teamName: string) => {
     if (teamName.includes('Liverpool')) return 'liverpool';
     if (teamName.includes('McLaren')) return 'mclaren';
@@ -146,82 +50,142 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
   };
 
   const tierColors = {
-    bronze: "border-amber-600 bg-amber-50",
-    silver: "border-slate-400 bg-slate-50", 
-    gold: "border-yellow-500 bg-yellow-50",
-    platinum: "border-slate-300 bg-slate-50",
-    diamond: "border-blue-400 bg-blue-50"
+    bronze: "bg-gradient-to-r from-amber-50 to-amber-100 border-amber-200",
+    silver: "bg-gradient-to-r from-slate-50 to-slate-100 border-slate-200", 
+    gold: "bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-200",
+    platinum: "bg-gradient-to-r from-purple-50 to-purple-100 border-purple-200",
+    diamond: "bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200"
   };
 
-  const tierBadgeColors = {
-    bronze: "bg-amber-600",
-    silver: "bg-slate-400", 
-    gold: "bg-yellow-500",
-    platinum: "bg-slate-300",
-    diamond: "bg-blue-400"
+  const tierIconColors = {
+    bronze: "bg-amber-600 text-white",
+    silver: "bg-slate-400 text-white", 
+    gold: "bg-yellow-500 text-white",
+    platinum: "bg-purple-600 text-white",
+    diamond: "bg-blue-600 text-white"
   };
+
+  const tierOrder = ['bronze', 'silver', 'gold', 'platinum', 'diamond'];
 
   return (
-    <Card className="investment-card">
+    <Card className="card-professional overflow-hidden">
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <img 
               src={benefit.logo}
               alt={benefit.team}
               className="w-12 h-12 rounded-lg object-cover"
             />
             <div>
-              <CardTitle className="text-lg">{benefit.team}</CardTitle>
-              <Badge variant={benefit.status} className="mt-1">
+              <CardTitle className="text-xl text-left">{benefit.team}</CardTitle>
+              <Badge variant={benefit.status === "live" ? "success" : benefit.status === "coming-soon" ? "warning" : "secondary"} className="mt-1">
                 {benefit.status === "live" ? "Live" : 
                  benefit.status === "coming-soon" ? "Coming Soon" : "Completed"}
               </Badge>
             </div>
           </div>
         </div>
+        <p className="text-muted-foreground text-left mt-3">
+          {benefit.description}
+        </p>
       </CardHeader>
       
-      <CardContent className="space-y-4">
-        <div className="space-y-3">
-          {Object.entries(assetTiers[getAssetKey(benefit.team)]).map(([tierKey, tier]) => (
-            <div 
-              key={tierKey}
-              className={`p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
-                tierColors[tierKey as keyof typeof tierColors]
-              }`}
+      <CardContent className="pt-0">
+        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+          <CollapsibleTrigger asChild>
+            <Button 
+              variant="outline" 
+              className="w-full flex items-center justify-between p-4 h-auto"
             >
-              <div className="flex items-start gap-3">
-                <div className={`p-2 rounded-lg ${tierBadgeColors[tierKey as keyof typeof tierBadgeColors]} text-white`}>
-                  {tierKey === 'bronze' && <Gift className="w-4 h-4" />}
-                  {tierKey === 'silver' && <Star className="w-4 h-4" />}
-                  {tierKey === 'gold' && <Trophy className="w-4 h-4" />}
-                  {tierKey === 'platinum' && <Crown className="w-4 h-4" />}
-                  {tierKey === 'diamond' && <Diamond className="w-4 h-4" />}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-base capitalize text-left">{tier.name}</h4>
-                    <Badge variant="success" className="text-xs">
-                      Available
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-3 text-left">
-                    Investment Required: £{tier.investment.toLocaleString()} ({tier.available} available)
-                  </p>
-                  <div className="space-y-1">
-                    {tier.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-start gap-2 text-sm text-left">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="leading-5">{benefit}</span>
+              <span className="font-medium">View Investment Tiers & Benefits</span>
+              {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </Button>
+          </CollapsibleTrigger>
+          
+          <CollapsibleContent className="mt-4">
+            <div className="space-y-3">
+              {tierOrder.map((tierKey, index) => {
+                const tier = assetTiers[getAssetKey(benefit.team)][tierKey];
+                if (!tier) return null;
+                
+                return (
+                  <div 
+                    key={tierKey}
+                    className={`p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg ${
+                      tierColors[tierKey as keyof typeof tierColors]
+                    } relative overflow-hidden`}
+                    style={{
+                      transform: `scale(${1 + index * 0.01})`,
+                      zIndex: tierOrder.length - index
+                    }}
+                  >
+                    {/* Exclusive badge for higher tiers */}
+                    {(tierKey === 'platinum' || tierKey === 'diamond') && (
+                      <div className="absolute top-2 right-2">
+                        <Badge variant="secondary" className="text-xs bg-primary/20 text-primary border-primary/30">
+                          Exclusive
+                        </Badge>
                       </div>
-                    ))}
+                    )}
+                    
+                    <div className="flex items-start gap-4">
+                      <div className={`p-3 rounded-lg shadow-md ${tierIconColors[tierKey as keyof typeof tierIconColors]}`}>
+                        {tierKey === 'bronze' && <Gift className="w-5 h-5" />}
+                        {tierKey === 'silver' && <Star className="w-5 h-5" />}
+                        {tierKey === 'gold' && <Trophy className="w-5 h-5" />}
+                        {tierKey === 'platinum' && <Crown className="w-5 h-5" />}
+                        {tierKey === 'diamond' && <Diamond className="w-5 h-5" />}
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-3">
+                          <h4 className="font-bold text-lg capitalize text-left">{tier.name} Tier</h4>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="success" className="text-xs">
+                              {tier.available} Available
+                            </Badge>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4 p-3 bg-white/50 rounded-lg border">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-muted-foreground">Investment Required</span>
+                            <span className="text-lg font-bold text-foreground">£{tier.investment.toLocaleString()}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <h5 className="font-semibold text-sm text-left mb-2">Exclusive Benefits:</h5>
+                          {tier.benefits.map((benefit, index) => (
+                            <div key={index} className="flex items-start gap-3 text-sm text-left">
+                              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="leading-relaxed">{benefit}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Progressive enhancement visual cue */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
                   </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
+            
+            <div className="mt-6 p-4 bg-accent/10 rounded-lg border">
+              <div className="flex items-center gap-2 mb-2">
+                <Star className="w-4 h-4 text-primary" />
+                <span className="font-medium text-sm">Benefits Progression</span>
+              </div>
+              <p className="text-xs text-muted-foreground text-left">
+                Higher tiers include all benefits from previous tiers plus exclusive additional perks. 
+                Diamond tier offers the most exclusive experiences with personalised access and premium benefits.
+              </p>
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
       </CardContent>
     </Card>
   );
@@ -238,57 +202,60 @@ export default function Benefits() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="space-y-2 text-left">
-        <h1 className="text-3xl font-bold text-gradient">All Benefits</h1>
-        <p className="text-lg text-muted-foreground">Exclusive perks across all assets</p>
+      <div className="space-y-4 text-left">
+        <h1 className="text-4xl font-bold text-gradient">Investor Benefits</h1>
+        <p className="text-lg text-muted-foreground max-w-3xl">
+          Unlock exclusive experiences and perks with our tiered investment programme. 
+          From Bronze to Diamond, each tier offers progressively more exclusive access and benefits.
+        </p>
       </div>
 
       {/* Benefits Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4">
+        <Card className="p-4 card-professional">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-primary/20 rounded-lg">
               <Gift className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Total Benefits</p>
-              <p className="font-semibold text-xl">25</p>
+              <p className="text-sm text-muted-foreground">Total Assets</p>
+              <p className="font-semibold text-xl">3</p>
             </div>
           </div>
         </Card>
         
-        <Card className="p-4">
+        <Card className="p-4 card-professional">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-success/20 rounded-lg">
               <Star className="w-5 h-5 text-success" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Available Now</p>
-              <p className="font-semibold text-xl">25</p>
+              <p className="text-sm text-muted-foreground">Benefit Tiers</p>
+              <p className="font-semibold text-xl">5</p>
             </div>
           </div>
         </Card>
         
-        <Card className="p-4">
+        <Card className="p-4 card-professional">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-warning/20 rounded-lg">
               <Trophy className="w-5 h-5 text-warning" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Premium Access</p>
-              <p className="font-semibold text-xl">15</p>
+              <p className="text-sm text-muted-foreground">Min Investment</p>
+              <p className="font-semibold text-xl">£500</p>
             </div>
           </div>
         </Card>
         
-        <Card className="p-4">
+        <Card className="p-4 card-professional">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-primary/20 rounded-lg">
-              <Calendar className="w-5 h-5 text-primary" />
+              <Diamond className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Upcoming Events</p>
-              <p className="font-semibold text-xl">3</p>
+              <p className="text-sm text-muted-foreground">Exclusive Access</p>
+              <p className="font-semibold text-xl">Premium</p>
             </div>
           </div>
         </Card>
@@ -296,26 +263,26 @@ export default function Benefits() {
 
       {/* Benefits Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card">
           <TabsTrigger value="all">All Assets</TabsTrigger>
           <TabsTrigger value="live" className="flex items-center justify-center gap-2">
             <div className="w-2 h-2 bg-success rounded-full"></div>
             Live Assets
           </TabsTrigger>
-          <TabsTrigger value="coming-soon">Coming Soon Assets</TabsTrigger>
-          <TabsTrigger value="completed">Completed Assets</TabsTrigger>
+          <TabsTrigger value="coming-soon">Coming Soon</TabsTrigger>
+          <TabsTrigger value="completed">Completed</TabsTrigger>
         </TabsList>
 
         <TabsContent value={activeTab} className="mt-6">
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold text-left">
-                {activeTab === "all" ? "All Benefits" :
+                {activeTab === "all" ? "All Asset Benefits" :
                  activeTab === "live" ? "Live Asset Benefits" :
                  activeTab === "coming-soon" ? "Coming Soon Benefits" :
                  "Completed Asset Benefits"}
               </h2>
-              <Badge variant={activeTab === "live" ? "live" : activeTab === "coming-soon" ? "coming-soon" : "default"}>
+              <Badge variant={activeTab === "live" ? "success" : activeTab === "coming-soon" ? "warning" : "secondary"}>
                 {filteredBenefits.length} Available
               </Badge>
             </div>
@@ -325,6 +292,22 @@ export default function Benefits() {
                 <BenefitCard key={benefit.id} benefit={benefit} />
               ))}
             </div>
+            
+            {filteredBenefits.length === 0 && (
+              <Card className="card-professional p-8 text-center">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 bg-muted/20 rounded-full flex items-center justify-center mx-auto">
+                    <Gift className="w-8 h-8 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">No Benefits Available</h3>
+                    <p className="text-muted-foreground">
+                      There are currently no benefits available for this category.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            )}
           </div>
         </TabsContent>
       </Tabs>

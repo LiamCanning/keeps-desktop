@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TrendingUp, TrendingDown, Search, Filter, Clock, Users, DollarSign, ArrowUpDown } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -111,6 +112,7 @@ const marketListings: MarketListing[] = [
 ];
 
 function MarketCard({ listing }: { listing: MarketListing }) {
+  const navigate = useNavigate();
   const isPositive = listing.priceChange >= 0;
 
   return (
@@ -170,7 +172,7 @@ function MarketCard({ listing }: { listing: MarketListing }) {
           className="w-full btn-invest"
           onClick={() => {
             const assetId = listing.asset.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1');
-            window.location.href = `/trade/${assetId}`;
+            navigate(`/trade/${assetId}`, { state: { listing } });
           }}
         >
           Buy Now

@@ -114,23 +114,16 @@ function AssetCard({ asset }: { asset: Asset }) {
   
   return (
     <Card className="investment-card group cursor-pointer" onClick={() => navigate(`/assets/${asset.id}`)}>
-      <div className="relative overflow-hidden rounded-t-xl">
-        <OptimizedImage
-          src={asset.banner}
-          alt={asset.name}
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="absolute top-4 left-4">
-          <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"}>
-            {asset.status === "live" ? "Live" : asset.status === "coming-soon" ? "Coming Soon" : "Completed"}
-          </Badge>
-        </div>
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2">
+      <div className="relative overflow-hidden rounded-t-xl bg-gradient-to-br from-primary/10 to-accent/10 h-48 flex items-center justify-center">
+        <div className="text-center space-y-4">
           <OptimizedImage
             src={asset.logo}
             alt={`${asset.name} logo`}
-            className="w-8 h-8 object-contain"
+            className="w-20 h-20 object-contain mx-auto"
           />
+          <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"}>
+            {asset.status === "live" ? "Live" : asset.status === "coming-soon" ? "Coming Soon" : "Completed"}
+          </Badge>
         </div>
       </div>
       

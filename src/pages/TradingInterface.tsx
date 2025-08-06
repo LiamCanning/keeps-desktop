@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Calculator, TrendingUp, Shield, Trophy, Crown, Diamond as DiamondIcon, Star } from "lucide-react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { ArrowLeft, Calculator, TrendingUp, Shield, Trophy, Crown, Diamond as DiamondIcon, Star, AlertCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -73,13 +73,21 @@ const benefitTiers = [
 export default function TradingInterface() {
   const { assetId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   
   const [quantity, setQuantity] = useState("1");
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [currentTier, setCurrentTier] = useState("bronze");
   
+  // Get secondary market listing data from URL state
+  const listing = location.state?.listing;
   const asset = assetId ? assets[assetId] : null;
+  
+  // If this is a secondary market purchase, use listing data
+  const isSecondaryMarket = !!listing;
+  const pricePerShare = isSecondaryMarket ? parseFloat(listing.pricePerUnit.replace(/[£,]/g, '')) : asset?.pricePerShare || 0;
+  const originalPrice = asset?.pricePerShare || 0;
   
   if (!asset) {
     return (
@@ -99,9 +107,10 @@ export default function TradingInterface() {
   }
 
   const quantityNum = parseInt(quantity) || 0;
-  const subtotal = quantityNum * asset.pricePerShare;
-  const processingFee = subtotal * asset.processingFee;
+  const subtotal = quantityNum * pricePerShare;
+  const processingFee = subtotal * (asset?.processingFee || 0.025);
   const total = subtotal + processingFee;
+  const priceDifference = isSecondaryMarket ? ((pricePerShare - originalPrice) / originalPrice) * 100 : 0;
 
   useEffect(() => {
     const tier = benefitTiers
@@ -159,12 +168,27 @@ export default function TradingInterface() {
                 />
                 <div className="flex-1">
                   <CardTitle className="text-2xl font-bold text-gradient">{asset.name}</CardTitle>
-                  <p className="text-muted-foreground text-lg">{asset.type}</p>
-                  <p className="text-primary font-bold text-xl">£{asset.pricePerShare} per share</p>
+                   <p className="text-muted-foreground text-lg">{asset.type}</p>
+                   <p className="text-primary font-bold text-xl">£{pricePerShare} per share</p>
+                   {isSecondaryMarket && (
+                     <div className="flex items-center gap-2 mt-1">
+                       <Badge variant={priceDifference >= 0 ? "success" : "destructive"} className="text-xs">
+                         {priceDifference >= 0 ? "+" : ""}{priceDifference.toFixed(1)}% vs original
+                       </Badge>
+                       <span className="text-xs text-muted-foreground">Original: £{originalPrice}</span>
+                     </div>
+                   )}
                 </div>
-                <Badge variant="success" className="text-lg px-4 py-2">
-                  Available
-                </Badge>
+                 <div className="flex flex-col gap-2">
+                   <Badge variant="success" className="text-lg px-4 py-2">
+                     {isSecondaryMarket ? "Secondary Market" : "Primary Offering"}
+                   </Badge>
+                   {isSecondaryMarket && (
+                     <Badge variant="outline" className="text-sm">
+                       Seller: {listing.seller}
+                     </Badge>
+                   )}
+                 </div>
               </div>
             </CardHeader>
           </Card>
@@ -248,10 +272,34 @@ export default function TradingInterface() {
                   <span className="text-muted-foreground">Quantity:</span>
                   <span className="font-medium">{quantityNum} shares</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Unit Price:</span>
-                  <span className="font-medium">£{asset.pricePerShare}</span>
-                </div>
+                 <div className="flex justify-between">
+                   <span className="text-muted-foreground">Unit Price:</span>
+                   <span className="font-medium">£{pricePerShare}</span>
+                 </div>
+                 {isSecondaryMarket && (
+                   <div className="p-3 bg-accent/20 rounded-lg">
+                     <div className="flex items-center gap-2 mb-2">
+                       <AlertCircle className="w-4 h-4 text-warning" />
+                       <span className="text-sm font-medium">Secondary Market Purchase</span>
+                     </div>
+                     <div className="space-y-1 text-xs text-muted-foreground">
+                       <div className="flex justify-between">
+                         <span>Original Price:</span>
+                         <span>£{originalPrice}</span>
+                       </div>
+                       <div className="flex justify-between">
+                         <span>Current Price:</span>
+                         <span>£{pricePerShare}</span>
+                       </div>
+                       <div className="flex justify-between font-medium">
+                         <span>Price Difference:</span>
+                         <span className={priceDifference >= 0 ? "text-success" : "text-destructive"}>
+                           {priceDifference >= 0 ? "+" : ""}{priceDifference.toFixed(1)}%
+                         </span>
+                       </div>
+                     </div>
+                   </div>
+                 )}
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal:</span>
                   <span className="font-medium">£{subtotal.toLocaleString()}</span>

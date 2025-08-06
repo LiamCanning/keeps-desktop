@@ -13,7 +13,8 @@ import {
   Info,
   BarChart3,
   Menu,
-  Users
+  Users,
+  Book
 } from "lucide-react";
 import {
   Sidebar,
@@ -122,6 +123,12 @@ export function AppSidebar() {
                 <NavLink to="/market-trends" className="flex items-center gap-3 py-3 w-full">
                   <BarChart3 className="w-4 h-4" />
                   <span>Market Trends</span>
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <NavLink to="/knowledge-base" className="flex items-center gap-3 py-3 w-full">
+                  <Book className="w-4 h-4" />
+                  <span>Knowledge Base</span>
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
