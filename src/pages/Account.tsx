@@ -7,6 +7,7 @@ import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
+import { LogoImage } from "@/components/ui/logo-image";
 
 interface FavoriteTeam {
   id: string;
@@ -327,10 +328,10 @@ export default function Account() {
               {partners.map((partner) => (
                 <div key={partner.id} className="flex items-center justify-between p-4 border border-border rounded-lg">
                   <div className="flex items-center gap-3">
-                    <img 
+                    <LogoImage 
                       src={partner.logo}
                       alt={partner.name}
-                      className="w-12 h-12 rounded-lg object-cover"
+                      size="lg"
                     />
                     <div>
                       <p className="font-medium text-card-foreground">{partner.name}</p>

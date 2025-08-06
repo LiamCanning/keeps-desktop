@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { LogoImage } from "@/components/ui/logo-image";
 
 interface MarketListing {
   id: string;
@@ -117,10 +118,10 @@ function MarketCard({ listing }: { listing: MarketListing }) {
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <img 
+            <LogoImage 
               src={listing.logo}
               alt={listing.asset}
-              className="w-12 h-12 rounded-lg object-cover"
+              size="lg"
             />
             <div>
               <CardTitle className="text-lg text-card-foreground">{listing.asset}</CardTitle>
@@ -169,7 +170,7 @@ function MarketCard({ listing }: { listing: MarketListing }) {
           className="w-full btn-invest"
           onClick={() => {
             const assetId = listing.asset.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1');
-            window.open(`/trade/${assetId}`, '_blank');
+            window.location.href = `/trade/${assetId}`;
           }}
         >
           Buy Now
@@ -418,10 +419,10 @@ export default function Market() {
               <Card className="card-professional">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
-                    <img 
+                    <LogoImage 
                       src="/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png"
                       alt="Newcastle United"
-                      className="w-12 h-12 rounded-lg object-cover"
+                      size="lg"
                     />
                     <div>
                       <CardTitle className="text-lg text-card-foreground">Newcastle United</CardTitle>
@@ -447,10 +448,10 @@ export default function Market() {
               <Card className="card-professional">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
-                    <img 
+                    <LogoImage 
                       src="/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png"
                       alt="Real Madrid"
-                      className="w-12 h-12 rounded-lg object-cover"
+                      size="lg"
                     />
                     <div>
                       <CardTitle className="text-lg text-card-foreground">Real Madrid</CardTitle>

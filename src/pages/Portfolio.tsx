@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import { LogoImage } from "@/components/ui/logo-image";
 
 interface PortfolioHolding {
   id: string;
@@ -93,10 +95,11 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <img 
+            <LogoImage 
               src={holding.logo}
               alt={holding.name}
-              className="w-12 h-12 rounded-lg object-cover"
+              size="xl"
+              className="flex-shrink-0"
             />
             <div>
               <CardTitle className="text-lg text-card-foreground">{holding.name}</CardTitle>

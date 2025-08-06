@@ -36,6 +36,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { LogoImage } from "@/components/ui/logo-image";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 const navigationItems = [
   { title: "Dashboard", url: "/", icon: Home },
@@ -78,10 +80,12 @@ export function AppSidebar() {
                 variant="ghost" 
                 className="flex items-center gap-3 p-2 h-auto hover:bg-sidebar-accent rounded-lg text-sidebar-foreground"
               >
-                <img 
+                <LogoImage 
                   src="/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png" 
                   alt="Keeps" 
-                  className="w-8 h-8 flex-shrink-0"
+                  size="md"
+                  priority={true}
+                  className="flex-shrink-0"
                 />
                 {!isCollapsed && (
                   <>
@@ -153,7 +157,12 @@ export function AppSidebar() {
         {!isCollapsed && (
           <div className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="/src/assets/liam-avatar.png" />
+              <OptimizedImage 
+                src="/src/assets/liam-avatar.png" 
+                alt="Liam Canning"
+                className="w-full h-full rounded-full object-cover"
+                fallbackSrc="/placeholder.svg"
+              />
               <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
