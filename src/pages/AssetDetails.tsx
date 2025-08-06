@@ -26,7 +26,7 @@ export default function AssetDetails() {
           totalFunding: "£50M",
           category: "Football",
           launchDate: "July 2025",
-          logo: "/src/assets/brands/liverpool-fc-logo.png"
+          logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png"
         };
       case "mclaren-racing":
         return {
@@ -38,19 +38,19 @@ export default function AssetDetails() {
           totalFunding: "£100M",
           category: "Motorsport",
           launchDate: "July 2025",
-          logo: "/src/assets/brands/mclaren-logo.png"
+          logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png"
         };
       case "ryder-cup":
         return {
           name: "Ryder Cup",
           description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
-          minInvestment: "£5,000",
+          minInvestment: "£1,000",
           expectedReturn: "5% + Principal",
-          fundingProgress: 78,
-          totalFunding: "£25M",
+          fundingProgress: 90,
+          totalFunding: "£42.5M",
           category: "Golf",
           launchDate: "July 2025",
-          logo: "/public/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png"
+          logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png"
         };
       default:
         return {
@@ -187,9 +187,9 @@ export default function AssetDetails() {
 
           {/* Investment Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
-            <div className="text-center p-3 bg-muted/10 rounded-lg border">
+            <div className="text-center p-3 bg-muted/10 rounded-lg border cursor-pointer hover:bg-muted/20 transition-colors" onClick={() => navigate('/investor-leaderboard')}>
               <div className="text-lg font-bold text-foreground">{Math.floor(asset.fundingProgress * 50)}</div>
-              <div className="text-xs text-muted-foreground">Investors</div>
+              <div className="text-xs text-muted-foreground underline">Investors</div>
             </div>
             <div className="text-center p-3 bg-muted/10 rounded-lg border">
               <div className="text-lg font-bold text-foreground">{asset.category}</div>

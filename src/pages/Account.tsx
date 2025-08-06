@@ -98,105 +98,110 @@ export default function Account() {
 
   return (
     <div className="p-6 space-y-6 max-w-4xl mx-auto">
-      {/* Header Section */}
+      {/* Header */}
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-foreground">My Account</h1>
-        <p className="text-lg text-foreground/80">Manage your profile and preferences</p>
+        <h1 className="text-3xl font-bold text-gradient">Account Settings</h1>
+        <p className="text-lg text-muted-foreground">Manage your account preferences and settings</p>
       </div>
 
       {/* Account Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-card">
-          <TabsTrigger value="profile" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Profile</TabsTrigger>
-          <TabsTrigger value="settings" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Settings</TabsTrigger>
-          <TabsTrigger value="notifications" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Notifications</TabsTrigger>
-          <TabsTrigger value="security" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Security</TabsTrigger>
-          <TabsTrigger value="data" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Data</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+          <TabsTrigger value="profile">Profile</TabsTrigger>
+          <TabsTrigger value="notifications">Notifications</TabsTrigger>
+          <TabsTrigger value="security">Security</TabsTrigger>
+          <TabsTrigger value="data">Data</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile" className="mt-6">
-          <div className="space-y-6">
-            {/* Profile Header */}
-            <Card className="card-professional">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-6">
-                  <Avatar className="w-24 h-24">
-                    <AvatarImage src="/src/assets/liam-avatar.png" />
-                    <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">LC</AvatarFallback>
-                  </Avatar>
-                  <div className="space-y-2">
-                    <h2 className="text-2xl font-bold text-card-foreground">Liam Canning</h2>
-                    <p className="text-muted-foreground">@liam_canning</p>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <MapPin className="w-4 h-4" />
-                      <span>🇬🇧 London, United Kingdom</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">Joined March 2023</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Investment Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Card className="card-professional p-4">
-                <div className="text-center space-y-2">
-                  <p className="text-2xl font-bold text-primary">£250,000</p>
-                  <p className="text-sm text-muted-foreground">Total Invested</p>
-                </div>
-              </Card>
-              <Card className="card-professional p-4">
-                <div className="text-center space-y-2">
-                  <p className="text-2xl font-bold text-card-foreground">4</p>
-                  <p className="text-sm text-muted-foreground">Active Assets</p>
-                </div>
-              </Card>
-              <Card className="card-professional p-4">
-                <div className="text-center space-y-2">
-                  <p className="text-2xl font-bold text-success">+18.6%</p>
-                  <p className="text-sm text-muted-foreground">Portfolio Growth</p>
-                </div>
-              </Card>
-            </div>
-
-            {/* About Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Profile Information */}
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle className="text-card-foreground">About</CardTitle>
+                <CardTitle className="text-card-foreground">Profile Information</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-card-foreground leading-relaxed">
-                  Passionate sports investor and Liverpool FC supporter. Love backing innovative sports ventures 
-                  and connecting with fellow investors. Always looking for the next big opportunity in sports finance.
-                </p>
+              <CardContent className="space-y-6">
+                <div className="flex items-center gap-6">
+                  <Avatar className="w-24 h-24">
+                    <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam" />
+                    <AvatarFallback className="text-xl">L</AvatarFallback>
+                  </Avatar>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold text-card-foreground">Liam Harrison</h3>
+                    <p className="text-muted-foreground">Premium Investor</p>
+                    <Badge variant="warning" className="w-fit">
+                      <Star className="w-3 h-3 mr-1" />
+                      Gold Tier
+                    </Badge>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 text-sm">
+                    <MapPin className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-card-foreground">London, United Kingdom</span>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    <p>Member since: July 2024</p>
+                    <p>Total Investments: £250,000</p>
+                    <p>Portfolio Return: +20.9%</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
             {/* Favorite Teams */}
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle className="text-card-foreground">Favourite Sports Teams</CardTitle>
+                <CardTitle className="text-card-foreground">Favorite Teams</CardTitle>
+                <p className="text-sm text-muted-foreground">Teams you follow and invest in</p>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 gap-3">
                   {favoriteTeams.map((team) => (
-                    <div key={team.id} className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg">
-                      <span className="text-2xl">{team.emoji}</span>
-                      <div>
-                        <p className="font-medium text-card-foreground text-sm">{team.name}</p>
-                        <p className="text-xs text-muted-foreground">{team.sport}</p>
+                    <div key={team.id} className="p-3 bg-accent/20 rounded-lg border border-accent/30">
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg">{team.emoji}</span>
+                        <div>
+                          <p className="font-medium text-sm text-card-foreground">{team.name}</p>
+                          <p className="text-xs text-muted-foreground">{team.sport}</p>
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </TabsContent>
 
-        <TabsContent value="settings" className="mt-6">
-          <div className="space-y-6">
-            <Card className="card-professional">
+            {/* Investment Summary */}
+            <Card className="card-professional lg:col-span-2">
+              <CardHeader>
+                <CardTitle className="text-card-foreground">Investment Portfolio Summary</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="text-center p-4 bg-success/10 rounded-lg border border-success/20">
+                    <p className="text-2xl font-bold text-success">£302K</p>
+                    <p className="text-sm text-muted-foreground">Current Value</p>
+                  </div>
+                  <div className="text-center p-4 bg-primary/10 rounded-lg border border-primary/20">
+                    <p className="text-2xl font-bold text-primary">4</p>
+                    <p className="text-sm text-muted-foreground">Assets Owned</p>
+                  </div>
+                  <div className="text-center p-4 bg-warning/10 rounded-lg border border-warning/20">
+                    <p className="text-2xl font-bold text-warning">+£52K</p>
+                    <p className="text-sm text-muted-foreground">Total Return</p>
+                  </div>
+                  <div className="text-center p-4 bg-accent/10 rounded-lg border border-accent/20">
+                    <p className="text-2xl font-bold text-foreground">20.9%</p>
+                    <p className="text-sm text-muted-foreground">Return %</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Quick Actions */}
+            <Card className="card-professional lg:col-span-2">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-card-foreground">
                   <Settings className="w-5 h-5" />
@@ -329,10 +334,11 @@ export default function Account() {
               {partners.map((partner) => (
                 <div key={partner.id} className="flex items-center justify-between p-4 border border-border rounded-lg">
                   <div className="flex items-center gap-3">
-                    <img 
+                    <LogoImage 
                       src={partner.logo}
                       alt={partner.name}
-                      className="w-12 h-12 object-contain rounded-lg bg-white/50"
+                      size="md"
+                      className="rounded-lg"
                     />
                     <div>
                       <p className="font-medium text-card-foreground">{partner.name}</p>

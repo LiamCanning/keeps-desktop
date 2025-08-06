@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     investment: "£15,000",
     shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
@@ -264,10 +264,12 @@ export default function Portfolio() {
 
       {/* Portfolio Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
           <TabsTrigger value="overview">Your Investments</TabsTrigger>
           <TabsTrigger value="performance">Performance</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="watchlist">Watchlist</TabsTrigger>
+          <TabsTrigger value="list-asset" className="bg-orange-500 text-white data-[state=active]:bg-orange-600">List Asset</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="mt-6">
@@ -338,6 +340,110 @@ export default function Portfolio() {
                     </div>
                   );
                 })}
+              </div>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="watchlist" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-card-foreground text-left">Watchlist</h2>
+              <Badge variant="success">
+                3 Assets
+              </Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+              {[
+                {
+                  id: "liverpool-fc",
+                  name: "Liverpool FC",
+                  logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+                  price: "£575",
+                  change: "+15%",
+                  status: "Live"
+                },
+                {
+                  id: "mclaren-f1",
+                  name: "McLaren Racing",
+                  logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+                  price: "£1,220",
+                  change: "+22%",
+                  status: "Live"
+                },
+                {
+                  id: "ryder-cup",
+                  name: "Ryder Cup",
+                  logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+                  price: "£5,935",
+                  change: "+18.7%",
+                  status: "Live"
+                }
+              ].map((asset) => (
+                <Card key={asset.id} className="card-professional">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-3">
+                      <LogoImage 
+                        src={asset.logo}
+                        alt={asset.name}
+                        size="lg"
+                      />
+                      <div>
+                        <CardTitle className="text-lg text-card-foreground">{asset.name}</CardTitle>
+                        <Badge variant="success" className="mt-1">
+                          {asset.status}
+                        </Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Current Price</span>
+                      <span className="font-bold text-lg">{asset.price}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Performance</span>
+                      <span className="font-bold text-lg text-success">{asset.change}</span>
+                    </div>
+                    <Button 
+                      className="w-full btn-invest"
+                      onClick={() => window.location.href = `/trade/${asset.id}`}
+                    >
+                      Invest Now
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="list-asset" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-card-foreground text-left">List Asset for Sale</h2>
+              <Badge variant="secondary">
+                Secondary Market
+              </Badge>
+            </div>
+            
+            <Card className="card-professional p-6">
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
+                  <Target className="w-8 h-8 text-orange-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-card-foreground">Sell Your Assets</h3>
+                  <p className="text-muted-foreground">List your sports investments on the secondary market</p>
+                </div>
+                <Button 
+                  className="bg-orange-500 hover:bg-orange-600 text-white"
+                  onClick={() => window.location.href = '/list-asset'}
+                >
+                  Start Listing Process
+                </Button>
               </div>
             </Card>
           </div>

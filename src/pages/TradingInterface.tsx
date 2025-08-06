@@ -243,14 +243,14 @@ export default function TradingInterface() {
               <div className="space-y-4">
                 <Label className="text-lg font-semibold">Payment Method</Label>
                 <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
-                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
-                    <RadioGroupItem value="card" id="card" />
+                  <div className="flex items-center space-x-3 p-4 border rounded-lg bg-accent/20 border-accent/30">
+                    <RadioGroupItem value="card" id="card" checked />
                     <div className="flex-1">
                       <label htmlFor="card" className="font-medium cursor-pointer">
-                        Credit/Debit Card
+                        Visa **** 4829
                       </label>
                       <p className="text-sm text-muted-foreground">
-                        Instant processing with secure payment
+                        Expires 09/27 • Primary payment method
                       </p>
                     </div>
                   </div>
@@ -258,16 +258,16 @@ export default function TradingInterface() {
                     <RadioGroupItem value="bank" id="bank" />
                     <div className="flex-1">
                       <label htmlFor="bank" className="font-medium cursor-pointer">
-                        Bank Transfer
+                        Add New Payment Method
                       </label>
                       <p className="text-sm text-muted-foreground">
-                        Direct bank transfer (1-3 business days)
+                        Credit card, debit card, or bank transfer
                       </p>
                     </div>
                   </div>
                 </RadioGroup>
                 <p className="text-xs text-muted-foreground bg-accent/20 p-3 rounded-lg">
-                  Card and bank methods are saved in your account for quick payments.
+                  Your payment methods are securely saved and encrypted.
                 </p>
               </div>
             </CardContent>

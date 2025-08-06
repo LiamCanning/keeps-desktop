@@ -69,7 +69,7 @@ const comingSoonDeals: Investment[] = [
   {
     id: "4",
     name: "Ohio State",
-    logo: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
     amount: "£80,000,000",
     type: "Income Sharing Agreement",
     progress: 0,
@@ -82,7 +82,7 @@ const comingSoonDeals: Investment[] = [
   {
     id: "5",
     name: "Cardiff City", 
-    logo: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop",
+    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
     amount: "£4,000,000",
     type: "Equity",
     progress: 0,
@@ -95,7 +95,7 @@ const comingSoonDeals: Investment[] = [
   {
     id: "6",
     name: "Hexagon Fan Team",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
     amount: "£1,250,000",
     type: "Equity", 
     progress: 0,
@@ -124,11 +124,21 @@ function InvestmentCard({ investment }: { investment: Investment }) {
       onClick={handleCardClick}
     >
       <div className="relative overflow-hidden">
-        <img 
-          src={investment.logo}
-          alt={investment.name}
-          className="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-        />
+        {investment.status === "live" ? (
+          <img 
+            src={investment.logo}
+            alt={investment.name}
+            className="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="w-full h-64 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+            <img 
+              src={investment.logo}
+              alt={investment.name}
+              className="w-32 h-32 object-contain"
+            />
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {investment.featured && (

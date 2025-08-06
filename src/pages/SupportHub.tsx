@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: "What fees does Keeps charge?",
-    answer: "Keeps charges a transparent 2.5% processing fee on investments. There are no hidden charges, and all fees are clearly disclosed before you invest."
+    answer: "Keeps charges a 10% processing fee on primary investments and 2.5% on both buy and sell sides for secondary market transactions. All fees are transparent and clearly disclosed before you invest."
   },
   {
     question: "How do I track my investment performance?",

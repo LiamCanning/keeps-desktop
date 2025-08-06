@@ -3,6 +3,7 @@ import { Book, TrendingUp, FileText, PieChart, Banknote, Search } from "lucide-r
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface DealType {
@@ -318,6 +319,41 @@ export default function KnowledgeBase() {
           </div>
         </TabsContent>
       </Tabs>
+
+      {/* Getting Started Video CTA */}
+      <Card className="card-professional bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+        <CardContent className="p-8 text-center">
+          <div className="space-y-4">
+            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                <div className="w-0 h-0 border-l-[8px] border-l-white border-y-[6px] border-y-transparent ml-1"></div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-foreground mb-2">Getting Started with Keeps</h3>
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                New to sports investment? Watch our comprehensive introduction to understand how our platform works 
+                and discover the exciting opportunities available to you.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="btn-invest text-lg px-8 py-3">
+                <div className="w-5 h-5 mr-2">
+                  <div className="w-0 h-0 border-l-[6px] border-l-white border-y-[4px] border-y-transparent"></div>
+                </div>
+                Watch Introduction Video
+              </Button>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-3">
+                <Book className="w-5 h-5 mr-2" />
+                Browse Investment Guides
+              </Button>
+            </div>
+            <div className="pt-4 text-sm text-muted-foreground">
+              <p>💡 Learn about deal types, risk management, and investment strategies in just 10 minutes</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
