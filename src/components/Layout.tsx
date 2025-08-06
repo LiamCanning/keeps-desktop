@@ -47,11 +47,11 @@ export function Layout({ children }: LayoutProps) {
                   <Menu className="w-5 h-5" />
                 </SidebarTrigger>
                 
-                <div className="flex items-center gap-2 flex-1 max-w-2xl">
+                <div className="flex items-center gap-2 flex-1 max-w-4xl">
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input 
-                      placeholder="search sports assets (Liverpool FC, McLaren F1, Ryder Cup)" 
+                      placeholder="search sports assets Liverpool FC, McLaren F1, Ryder Cup" 
                       className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground w-full"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}

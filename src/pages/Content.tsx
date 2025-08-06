@@ -416,25 +416,12 @@ export default function Content() {
 
       {/* Content Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
           <TabsTrigger value="news">Latest News</TabsTrigger>
-          <TabsTrigger value="community">Community</TabsTrigger>
           <TabsTrigger value="reels">Reels</TabsTrigger>
           <TabsTrigger value="all">All Content</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="community" className="mt-6">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">Community Timeline</h2>
-              <Badge variant="success">
-                Live Updates
-              </Badge>
-            </div>
-            
-            <CommunityTimeline />
-          </div>
-        </TabsContent>
 
         <TabsContent value="news" className="mt-6">
           <div className="space-y-4">
