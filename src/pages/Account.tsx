@@ -329,10 +329,10 @@ export default function Account() {
               {partners.map((partner) => (
                 <div key={partner.id} className="flex items-center justify-between p-4 border border-border rounded-lg">
                   <div className="flex items-center gap-3">
-                    <LogoImage 
+                    <img 
                       src={partner.logo}
                       alt={partner.name}
-                      size="lg"
+                      className="w-12 h-12 object-contain rounded-lg bg-white/50"
                     />
                     <div>
                       <p className="font-medium text-card-foreground">{partner.name}</p>

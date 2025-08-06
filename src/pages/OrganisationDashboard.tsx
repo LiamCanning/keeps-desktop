@@ -174,71 +174,112 @@ export default function OrganisationDashboard() {
           </CardContent>
         </Card>
 
-        {/* Geographic Distribution */}
-        <Card className="card-professional">
-          <CardHeader>
-            <CardTitle className="text-xl flex items-center gap-2">
-              <MapPin className="w-5 h-5" />
-              Top Investor Locations
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-3">
-              {[
-                { location: "London, UK", percentage: 24, count: "683 investors" },
-                { location: "Manchester, UK", percentage: 18, count: "512 investors" },
-                { location: "Birmingham, UK", percentage: 12, count: "341 investors" },
-                { location: "Edinburgh, UK", percentage: 8, count: "228 investors" },
-                { location: "Bristol, UK", percentage: 6, count: "171 investors" }
-              ].map((item, index) => (
-                <div key={index} className="flex justify-between items-center">
-                  <div>
-                    <p className="text-sm font-medium">{item.location}</p>
-                    <p className="text-xs text-muted-foreground">{item.count}</p>
+          {/* Geographic Distribution */}
+          <Card className="card-professional">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <MapPin className="w-5 h-5" />
+                Global Investor Distribution
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                {[
+                  { location: "London, UK", percentage: 18, count: "512 investors", flag: "🇬🇧" },
+                  { location: "New York, USA", percentage: 15, count: "427 investors", flag: "🇺🇸" },
+                  { location: "Dubai, UAE", percentage: 12, count: "341 investors", flag: "🇦🇪" },
+                  { location: "Singapore", percentage: 10, count: "285 investors", flag: "🇸🇬" },
+                  { location: "Sydney, Australia", percentage: 8, count: "228 investors", flag: "🇦🇺" },
+                  { location: "Tokyo, Japan", percentage: 7, count: "199 investors", flag: "🇯🇵" },
+                  { location: "Toronto, Canada", percentage: 6, count: "171 investors", flag: "🇨🇦" }
+                ].map((item, index) => (
+                  <div key={index} className="flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">{item.flag}</span>
+                      <div>
+                        <p className="text-sm font-medium">{item.location}</p>
+                        <p className="text-xs text-muted-foreground">{item.count}</p>
+                      </div>
+                    </div>
+                    <Badge variant="secondary">{item.percentage}%</Badge>
                   </div>
-                  <Badge variant="secondary">{item.percentage}%</Badge>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
-        {/* Marketing Section */}
-        <Card className="card-professional">
-          <CardHeader>
-            <CardTitle className="text-xl flex items-center gap-2">
-              <MessageSquare className="w-5 h-5" />
-              Marketing Tools
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/20">
-              <div className="flex items-center gap-2 mb-3">
-                <Bell className="w-5 h-5 text-primary" />
-                <h4 className="font-semibold">Push Notifications</h4>
+          {/* Marketing Section */}
+          <Card className="card-professional">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <MessageSquare className="w-5 h-5" />
+                McLaren Store Marketing
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-6 bg-gradient-to-br from-primary/10 to-accent/5 rounded-xl border border-primary/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-primary/20 rounded-lg">
+                    <Bell className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg">Exclusive McLaren Store Offers</h4>
+                    <p className="text-sm text-muted-foreground">Send premium discounts to your investor community</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg border border-primary/10 mb-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-medium">Current Offer Available:</span>
+                    <Badge variant="success">20% OFF</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Exclusive 20% discount on McLaren team wear, F1 memorabilia, and limited edition merchandise from mclarenstore.com
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <span>Valid until: 31st August 2025</span>
+                    <span>•</span>
+                    <span>Minimum spend: £50</span>
+                  </div>
+                </div>
+                
+                <Button size="sm" className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
+                  Send Store Discount to All Investors
+                </Button>
               </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Send targeted merchandise offers and exclusive experiences directly to your investors.
-              </p>
-              <Button size="sm" className="w-full">
-                Send Notification to Investors
-              </Button>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-3">
-              <div className="p-3 bg-muted/20 rounded-lg text-center">
-                <p className="text-sm text-muted-foreground">This Month</p>
-                <p className="text-xl font-bold">12</p>
-                <p className="text-xs text-muted-foreground">Notifications Sent</p>
+              
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-4 bg-gradient-to-br from-success/10 to-success/5 rounded-lg text-center border border-success/20">
+                  <p className="text-sm text-muted-foreground">This Month</p>
+                  <p className="text-2xl font-bold text-success">8</p>
+                  <p className="text-xs text-muted-foreground">Store Promotions</p>
+                </div>
+                <div className="p-4 bg-gradient-to-br from-warning/10 to-warning/5 rounded-lg text-center border border-warning/20">
+                  <p className="text-sm text-muted-foreground">Redemption Rate</p>
+                  <p className="text-2xl font-bold text-warning">73%</p>
+                  <p className="text-xs text-muted-foreground">Above Average</p>
+                </div>
               </div>
-              <div className="p-3 bg-muted/20 rounded-lg text-center">
-                <p className="text-sm text-muted-foreground">Avg. Open Rate</p>
-                <p className="text-xl font-bold text-success">86%</p>
-                <p className="text-xs text-muted-foreground">Above Industry</p>
+              
+              <div className="p-4 bg-muted/10 rounded-lg border border-border/50">
+                <h5 className="font-medium mb-2">Recent Store Campaigns</h5>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Singapore GP Collection</span>
+                    <Badge variant="outline" className="text-xs">89% redeemed</Badge>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">McLaren Racing Jackets</span>
+                    <Badge variant="outline" className="text-xs">67% redeemed</Badge>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Limited Edition Caps</span>
+                    <Badge variant="outline" className="text-xs">91% redeemed</Badge>
+                  </div>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
       </div>
 
       {/* Recent Activity */}

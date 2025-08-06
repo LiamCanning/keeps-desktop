@@ -331,7 +331,7 @@ export default function Market() {
               </div>
               <Button 
                 className="btn-invest"
-                onClick={() => window.location.href = '/sell-asset'}
+                onClick={() => window.location.href = '/list-asset'}
               >
                 List Asset for Sale
               </Button>

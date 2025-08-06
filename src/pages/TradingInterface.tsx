@@ -88,6 +88,7 @@ export default function TradingInterface() {
   const isSecondaryMarket = !!listing;
   const pricePerShare = isSecondaryMarket ? parseFloat(listing.pricePerUnit.replace(/[£,]/g, '')) : asset?.pricePerShare || 0;
   const originalPrice = asset?.pricePerShare || 0;
+  const maxQuantity = isSecondaryMarket ? listing.quantity : asset?.maxShares || 0;
   
   if (!asset) {
     return (
@@ -106,7 +107,7 @@ export default function TradingInterface() {
     );
   }
 
-  const quantityNum = parseInt(quantity) || 0;
+  const quantityNum = isSecondaryMarket ? listing.quantity : parseInt(quantity) || 0;
   const subtotal = quantityNum * pricePerShare;
   const processingFee = subtotal * (asset?.processingFee || 0.025);
   const total = subtotal + processingFee;
@@ -198,28 +199,42 @@ export default function TradingInterface() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Calculator className="w-5 h-5" />
-                Investment Calculator
+                {isSecondaryMarket ? "Secondary Market Purchase" : "Investment Calculator"}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Quantity Input */}
               <div className="space-y-3">
                 <Label htmlFor="quantity" className="text-lg font-semibold">
-                  Quantity (shares)
+                  {isSecondaryMarket ? `Quantity Available from ${listing.seller}` : "Quantity (shares)"}
                 </Label>
-                <Input
-                  id="quantity"
-                  type="number"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  min="1"
-                  max={asset.maxShares}
-                  placeholder="Enter number of shares"
-                  className="text-lg py-3 h-14"
-                />
-                <p className="text-sm text-muted-foreground">
-                  Minimum: 1 share • Maximum: {asset.maxShares.toLocaleString()} shares
-                </p>
+                {isSecondaryMarket ? (
+                  <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-semibold">Fixed Quantity:</span>
+                      <span className="text-2xl font-bold text-primary">{listing.quantity} shares</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      You are purchasing the exact quantity listed by {listing.seller}
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    <Input
+                      id="quantity"
+                      type="number"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      min="1"
+                      max={maxQuantity}
+                      placeholder="Enter number of shares"
+                      className="text-lg py-3 h-14"
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      Minimum: 1 share • Maximum: {maxQuantity.toLocaleString()} shares
+                    </p>
+                  </>
+                )}
               </div>
 
               <Separator />

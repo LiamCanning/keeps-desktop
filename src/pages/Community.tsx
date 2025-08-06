@@ -8,7 +8,7 @@ import mikeAvatar from "@/assets/avatars/mike-avatar.png";
 import emmaAvatar from "@/assets/avatars/emma-avatar.png";
 import alexAvatar from "@/assets/avatars/alex-avatar.png";
 import jamesAvatar from "@/assets/avatars/james-avatar.png";
-import liverpoolFanAvatar from "@/assets/avatars/liverpool-fan-avatar.png";
+import mariaAvatar from "@/assets/avatars/maria-avatar.png";
 import f1FanAvatar from "@/assets/avatars/f1-fan-avatar.png";
 import golfFanAvatar from "@/assets/avatars/golf-fan-avatar.png";
 import liamAvatar from "@/assets/liam-avatar.png";
@@ -41,7 +41,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Sarah Mitchell",
       username: "sarahm_investor",
-      avatar: sarahAvatar,
+      avatar: mariaAvatar,
       verified: true
     },
     content: "Just invested in Liverpool FC through Keeps! The Diamond tier benefits are incredible - behind-the-scenes access and VIP hospitality make this feel like true ownership. This is the future of fan investment! ⚽️🔥",
@@ -55,7 +55,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Mike Rodriguez",
       username: "f1mike",
-      avatar: f1FanAvatar,
+      avatar: mikeAvatar,
       verified: false
     },
     content: "McLaren's technology centre tour was INSANE! Meeting the engineers and seeing the cars up close through my Platinum tier benefits. The income sharing returns are outperforming expectations too! 🏎️ #McLarenRacing",
@@ -69,7 +69,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Emma Thompson",
       username: "golf_emma",
-      avatar: golfFanAvatar, 
+      avatar: emmaAvatar, 
       verified: true
     },
     content: "Ryder Cup debentures are 90% funded already! The exclusive access to tournaments and pro-am events through the Gold tier is worth every penny. Plus the annual strategic briefings give real insight into golf's future ⛳️",
@@ -96,7 +96,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "James Wilson",
       username: "jwilson_reds",
-      avatar: f1FanAvatar,
+      avatar: jamesAvatar,
       verified: true
     },
     content: "Silver tier perks are incredible! Quarterly video updates from Liverpool management and early access to new opportunities. The branded merchandise package was a nice touch too! You'll Never Walk Alone! 🔴 #YNWA #LiverpoolFC",
@@ -121,7 +121,12 @@ function CommunityPost({ post }: { post: CommunityPost }) {
           />
           <div className="flex-1 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-card-foreground">{post.user.name}</span>
+              <span 
+                className="font-semibold text-card-foreground hover:text-primary cursor-pointer"
+                onClick={() => navigate(`/community/profile/${post.user.username}`)}
+              >
+                {post.user.name}
+              </span>
               {post.user.verified && (
                 <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center">
                   <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -129,7 +134,12 @@ function CommunityPost({ post }: { post: CommunityPost }) {
                   </svg>
                 </div>
               )}
-              <span className="text-muted-foreground text-sm">@{post.user.username}</span>
+              <span 
+                className="text-muted-foreground text-sm hover:text-primary cursor-pointer"
+                onClick={() => navigate(`/community/profile/${post.user.username}`)}
+              >
+                @{post.user.username}
+              </span>
               <span className="text-muted-foreground text-sm">·</span>
               <span className="text-muted-foreground text-sm">{post.timestamp}</span>
             </div>
