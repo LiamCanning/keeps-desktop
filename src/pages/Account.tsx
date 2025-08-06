@@ -9,6 +9,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { LogoImage } from "@/components/ui/logo-image";
 
+// Import brand logos
+import nikeLogo from "@/assets/brands/nike-logo.png";
+import rolexLogo from "@/assets/brands/rolex-logo.png";
+import axaLogo from "@/assets/brands/axa-logo.png";
+import santanderLogo from "@/assets/brands/santander-logo.png";
+import bmwLogo from "@/assets/brands/bmw-logo.png";
+import cadburyLogo from "@/assets/brands/cadbury-logo.png";
+
 interface FavoriteTeam {
   id: string;
   name: string;
@@ -35,42 +43,42 @@ const dataPartners: DataPartner[] = [
   {
     id: "1",
     name: "Nike",
-    logo: "/src/assets/brands/nike-logo.png",
+    logo: nikeLogo,
     description: "Sports gear discounts and exclusive athlete meet & greets",
     optedIn: true
   },
   {
     id: "2", 
     name: "Rolex",
-    logo: "/src/assets/brands/rolex-logo.png",
+    logo: rolexLogo,
     description: "Luxury timepiece experiences and VIP watch exhibitions",
     optedIn: true
   },
   {
     id: "3",
     name: "AXA",
-    logo: "/src/assets/brands/axa-logo.png",
+    logo: axaLogo,
     description: "Premium insurance benefits and financial planning services",
     optedIn: false
   },
   {
     id: "4",
     name: "Santander",
-    logo: "/src/assets/brands/santander-logo.png",
+    logo: santanderLogo,
     description: "Banking perks and investment opportunities",
     optedIn: true
   },
   {
     id: "5",
     name: "BMW",
-    logo: "/src/assets/brands/bmw-logo.png",
+    logo: bmwLogo,
     description: "Luxury vehicle test drives and motorsport experiences",
     optedIn: false
   },
   {
     id: "6",
     name: "Cadbury",
-    logo: "/src/assets/brands/cadbury-logo.png",
+    logo: cadburyLogo,
     description: "Chocolate tastings and exclusive confectionery collections",
     optedIn: true
   }
