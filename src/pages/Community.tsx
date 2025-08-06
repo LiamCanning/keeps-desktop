@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MessageCircle, Users, Heart, Send, Plus, Edit3, Calendar, Star } from "lucide-react";
+import { MessageCircle, Users, Heart, Send, Plus, Edit3, Calendar, Star, Search } from "lucide-react";
 
 // Import avatar images
 import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
@@ -53,117 +53,89 @@ const communityPosts: CommunityPost[] = [
   {
     id: "2", 
     user: {
-      name: "Mike Rodriguez",
-      username: "f1mike",
+      name: "Mike Johnson",
+      username: "mike_sports",
       avatar: mikeAvatar,
       verified: false
     },
-    content: "McLaren's technology centre tour was INSANE! Meeting the engineers and seeing the cars up close through my Platinum tier benefits. The income sharing returns are outperforming expectations too! 🏎️ #McLarenRacing",
+    content: "McLaren's performance this season has been outstanding! My F1 investment is already showing solid returns. The revenue sharing model is brilliant for sports fans who want to be more than just spectators 🏎️📈",
     timestamp: "4h",
     likes: 89,
-    replies: 8,
-    dealMention: "McLaren F1"
+    replies: 23,
+    dealMention: "McLaren Racing"
   },
   {
     id: "3",
     user: {
-      name: "Emma Thompson",
-      username: "golf_emma",
-      avatar: emmaAvatar, 
+      name: "Emma Watson",
+      username: "emma_invests", 
+      avatar: emmaAvatar,
       verified: true
     },
-    content: "Ryder Cup debentures are 90% funded already! The exclusive access to tournaments and pro-am events through the Gold tier is worth every penny. Plus the annual strategic briefings give real insight into golf's future ⛳️",
+    content: "Diversification is key! I'm now invested across Liverpool FC, McLaren F1, and considering the Ryder Cup. Sports investment gives me exposure to sectors I'm passionate about while building wealth 💰⛳",
     timestamp: "6h",
     likes: 156,
-    replies: 23,
-    dealMention: "Ryder Cup"
-  },
-  {
-    id: "4",
-    user: {
-      name: "Alex Chen",
-      username: "alexc_sports",
-      avatar: alexAvatar,
-      verified: false
-    },
-    content: "The Bronze tier community forum is already so valuable - connecting with other investors and getting monthly newsletters with exclusive insights. Amazing how even the entry level benefits deliver real value! 📈",
-    timestamp: "8h", 
-    likes: 92,
-    replies: 12
-  },
-  {
-    id: "5",
-    user: {
-      name: "James Wilson",
-      username: "jwilson_reds",
-      avatar: jamesAvatar,
-      verified: true
-    },
-    content: "Silver tier perks are incredible! Quarterly video updates from Liverpool management and early access to new opportunities. The branded merchandise package was a nice touch too! You'll Never Walk Alone! 🔴 #YNWA #LiverpoolFC",
-    timestamp: "12h",
-    likes: 234,
-    replies: 34,
-    dealMention: "Liverpool FC"
+    replies: 31
   }
 ];
 
-function CommunityPost({ post }: { post: CommunityPost }) {
-  const navigate = useNavigate();
-
+function CommunityPost({ 
+  post, 
+  onUserClick, 
+  onCommentsClick 
+}: { 
+  post: CommunityPost; 
+  onUserClick: (username: string) => void;
+  onCommentsClick: (postId: string) => void;
+}) {
   return (
     <Card className="card-professional">
       <CardContent className="p-6">
-        <div className="flex gap-4">
+        <div className="flex items-start gap-4">
           <img 
-            src={post.user.avatar}
+            src={post.user.avatar} 
             alt={post.user.name}
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-12 h-12 rounded-full cursor-pointer hover:ring-2 hover:ring-primary/20 transition-all"
+            onClick={() => onUserClick(post.user.username)}
           />
           <div className="flex-1 space-y-3">
             <div className="flex items-center gap-2">
-              <span 
-                className="font-semibold text-card-foreground hover:text-primary cursor-pointer"
-                onClick={() => navigate(`/community/profile/${post.user.username}`)}
+              <h4 
+                className="font-semibold text-card-foreground cursor-pointer hover:text-primary transition-colors"
+                onClick={() => onUserClick(post.user.username)}
               >
                 {post.user.name}
-              </span>
+              </h4>
               {post.user.verified && (
-                <div className="w-4 h-4 bg-primary rounded-full flex items-center justify-center">
-                  <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
+                <Badge variant="success" className="text-xs">✓</Badge>
               )}
-              <span 
-                className="text-muted-foreground text-sm hover:text-primary cursor-pointer"
-                onClick={() => navigate(`/community/profile/${post.user.username}`)}
-              >
-                @{post.user.username}
-              </span>
-              <span className="text-muted-foreground text-sm">·</span>
-              <span className="text-muted-foreground text-sm">{post.timestamp}</span>
+              <span className="text-sm text-muted-foreground">@{post.user.username}</span>
+              <span className="text-sm text-muted-foreground">•</span>
+              <span className="text-sm text-muted-foreground">{post.timestamp}</span>
             </div>
             
             <p className="text-card-foreground leading-relaxed">{post.content}</p>
             
             {post.dealMention && (
-              <Badge variant="secondary" className="text-xs">
-                {post.dealMention}
+              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+                #{post.dealMention}
               </Badge>
             )}
             
-            <div className="flex items-center gap-6 pt-2 text-muted-foreground">
-              <button 
-                className="flex items-center gap-1 hover:text-primary transition-colors text-sm"
-                onClick={() => navigate(`/community/comments/${post.id}`)}
+            <div className="flex items-center gap-6 pt-2">
+              <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
+                <Heart className="w-4 h-4" />
+                {post.likes}
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary"
+                onClick={() => onCommentsClick(post.id)}
               >
                 <MessageCircle className="w-4 h-4" />
                 {post.replies}
-              </button>
-              <button className="flex items-center gap-1 hover:text-destructive transition-colors text-sm">
-                <Heart className="w-4 h-4" />
-                {post.likes}
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -173,43 +145,77 @@ function CommunityPost({ post }: { post: CommunityPost }) {
 }
 
 export default function Community() {
-  const [activeTab, setActiveTab] = useState("timeline");
-  const [newPost, setNewPost] = useState("");
-  const [posts, setPosts] = useState(communityPosts);
+  const navigate = useNavigate();
   const { toast } = useToast();
+  const [activeTab, setActiveTab] = useState("timeline");
+  const [newPostContent, setNewPostContent] = useState("");
+  const [posts, setPosts] = useState(communityPosts);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handlePostSubmit = () => {
-    if (!newPost.trim()) return;
+    if (!newPostContent.trim()) return;
 
-    const post: CommunityPost = {
-      id: String(Date.now()),
+    const newPost: CommunityPost = {
+      id: Date.now().toString(),
       user: {
-        name: "Liam Canning",
-        username: "liamcanning",
+        name: "Liam Thompson",
+        username: "liam_investor",
         avatar: liamAvatar,
         verified: true
       },
-      content: newPost,
+      content: newPostContent,
       timestamp: "now",
       likes: 0,
       replies: 0
     };
 
-    setPosts([post, ...posts]);
-    setNewPost("");
-    
+    setPosts([newPost, ...posts]);
+    setNewPostContent("");
     toast({
-      title: "Post published!",
+      title: "Post shared!",
       description: "Your post has been shared with the community.",
     });
   };
 
+  const filteredPosts = posts.filter(post => 
+    post.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    post.user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="p-6 space-y-6 max-w-4xl mx-auto">
-      {/* Header Section */}
-      <div className="space-y-2 text-left">
-        <h1 className="text-3xl font-bold text-foreground">Community</h1>
+    <div className="space-y-6 p-6 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="space-y-2 text-center">
+        <h1 className="text-3xl font-bold text-gradient">Community Hub</h1>
         <p className="text-lg text-foreground/80">Connect with fellow sports investors</p>
+      </div>
+
+      {/* Modern Community Features Bar */}
+      <div className="flex items-center gap-4 p-4 bg-card rounded-lg border">
+        <div className="flex-1 relative">
+          <Input 
+            placeholder="Search posts, users, or topics..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="pl-10"
+          />
+          <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
+        </div>
+        
+        <Button variant="outline" className="flex items-center gap-2">
+          <MessageCircle className="w-4 h-4" />
+          Messages
+        </Button>
+        
+        <Button variant="outline" className="flex items-center gap-2">
+          <Star className="w-4 h-4" />
+          Saved Posts
+        </Button>
+        
+        <Button variant="outline" className="flex items-center gap-2">
+          <Users className="w-4 h-4" />
+          Find People
+        </Button>
       </div>
 
       {/* Community Stats */}
@@ -221,7 +227,7 @@ export default function Community() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Members</p>
-              <p className="font-semibold text-xl text-card-foreground">12,847</p>
+              <p className="font-semibold text-xl text-card-foreground">2,847</p>
             </div>
           </div>
         </Card>
@@ -233,7 +239,7 @@ export default function Community() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Posts Today</p>
-              <p className="font-semibold text-xl text-card-foreground">247</p>
+              <p className="font-semibold text-xl text-card-foreground">156</p>
             </div>
           </div>
         </Card>
@@ -244,20 +250,20 @@ export default function Community() {
               <Heart className="w-5 h-5 text-warning" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Total Likes</p>
-              <p className="font-semibold text-xl text-card-foreground">8.9k</p>
+              <p className="text-sm text-muted-foreground">Active Now</p>
+              <p className="font-semibold text-xl text-card-foreground">234</p>
             </div>
           </div>
         </Card>
         
         <Card className="card-professional p-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Star className="w-5 h-5 text-primary" />
+            <div className="p-2 bg-accent/20 rounded-lg">
+              <Star className="w-5 h-5 text-accent" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Active Now</p>
-              <p className="font-semibold text-xl text-card-foreground">1,247</p>
+              <p className="text-sm text-muted-foreground">Top Discussions</p>
+              <p className="font-semibold text-xl text-card-foreground">42</p>
             </div>
           </div>
         </Card>
@@ -265,115 +271,116 @@ export default function Community() {
 
       {/* Community Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="timeline" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-            Community Timeline
-          </TabsTrigger>
-          <TabsTrigger value="post" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-            Create Post
-          </TabsTrigger>
-          <TabsTrigger value="peoples-posts" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-            People's Posts
-          </TabsTrigger>
+        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+          <TabsTrigger value="timeline">Community Timeline</TabsTrigger>
+          <TabsTrigger value="create">Create Post</TabsTrigger>
+          <TabsTrigger value="people">People</TabsTrigger>
         </TabsList>
 
         <TabsContent value="timeline" className="mt-6">
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground text-left">Community Timeline</h2>
-              <Badge variant="success">Live Updates</Badge>
+              <h2 className="text-xl font-semibold text-card-foreground">Community Timeline</h2>
+              <Badge variant="success">
+                {filteredPosts.length} Posts
+              </Badge>
             </div>
             
-            <div className="space-y-6">
-              {posts.map((post) => (
-                <CommunityPost key={post.id} post={post} />
+            <div className="space-y-4">
+              {filteredPosts.map((post) => (
+                <CommunityPost 
+                  key={post.id} 
+                  post={post} 
+                  onUserClick={(username) => navigate(`/community-profile/${username}`)}
+                  onCommentsClick={(postId) => navigate(`/community-comments/${postId}`)}
+                />
               ))}
             </div>
           </div>
         </TabsContent>
 
-        <TabsContent value="post" className="mt-6">
-          <Card className="card-professional">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Edit3 className="w-5 h-5" />
-                Create a New Post
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex gap-3">
-            <img 
-              src={liamAvatar}
-              alt="Your avatar"
-              className="w-12 h-12 rounded-full object-cover"
-            />
-                <div className="flex-1 space-y-4">
-                  <Textarea
-                    placeholder="Share your thoughts about sports investments, benefits you've received, or ask questions to the community..."
-                    value={newPost}
-                    onChange={(e) => setNewPost(e.target.value)}
-                    className="min-h-[120px] resize-none"
-                  />
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">
-                      {newPost.length}/280 characters
-                    </span>
-                    <Button 
-                      onClick={handlePostSubmit}
-                      disabled={!newPost.trim()}
-                      className="btn-invest"
-                    >
-                      <Send className="w-4 h-4 mr-2" />
-                      Post
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="peoples-posts" className="mt-6">
+        <TabsContent value="create" className="mt-6">
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground text-left">All Community Posts</h2>
-              <Badge variant="secondary">{posts.length} Posts</Badge>
+              <h2 className="text-xl font-semibold text-card-foreground">Share Your Thoughts</h2>
+              <Badge variant="outline">
+                New Post
+              </Badge>
             </div>
             
-            <div className="grid grid-cols-1 gap-6">
-              {posts.map((post) => (
-                <Card key={post.id} className="card-professional p-4">
-                  <div className="flex items-start gap-3">
-                    <img 
-                      src={post.user.avatar}
-                      alt={post.user.name}
-                      className="w-10 h-10 rounded-full object-cover"
+            <Card className="card-professional">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <img 
+                    src={liamAvatar} 
+                    alt="Liam Thompson"
+                    className="w-12 h-12 rounded-full"
+                  />
+                  <div className="flex-1 space-y-4">
+                    <Textarea
+                      placeholder="What's on your mind about sports investing? Share your insights, experiences, or questions with the community..."
+                      value={newPostContent}
+                      onChange={(e) => setNewPostContent(e.target.value)}
+                      className="min-h-[120px] resize-none"
                     />
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="font-medium text-sm text-card-foreground">{post.user.name}</span>
-                        {post.user.verified && (
-                          <div className="w-3 h-3 bg-primary rounded-full flex items-center justify-center">
-                            <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                        )}
-                        <span className="text-xs text-muted-foreground">{post.timestamp}</span>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <span>{newPostContent.length}/500 characters</span>
                       </div>
-                      <p className="text-sm text-card-foreground leading-relaxed">{post.content}</p>
-                      <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Heart className="w-3 h-3" />
-                          {post.likes}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MessageCircle className="w-3 h-3" />
-                          {post.replies}
-                        </span>
-                      </div>
+                      
+                      <Button 
+                        onClick={handlePostSubmit}
+                        className="btn-invest"
+                        disabled={!newPostContent.trim()}
+                      >
+                        <Send className="w-4 h-4 mr-2" />
+                        Share Post
+                      </Button>
                     </div>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="people" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-card-foreground">Active Community Members</h2>
+              <Badge variant="success">
+                2,847 Members
+              </Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { name: "Sarah Mitchell", username: "sarahm_investor", avatar: mariaAvatar, followers: "1.2K", verified: true },
+                { name: "Mike Johnson", username: "mike_sports", avatar: mikeAvatar, followers: "987", verified: false },
+                { name: "Emma Watson", username: "emma_invests", avatar: emmaAvatar, followers: "2.1K", verified: true },
+                { name: "Alex Rodriguez", username: "alex_trader", avatar: alexAvatar, followers: "843", verified: false },
+                { name: "James Liu", username: "james_portfolio", avatar: jamesAvatar, followers: "1.5K", verified: true },
+                { name: "Maria Garcia", username: "maria_investor", avatar: f1FanAvatar, followers: "692", verified: false }
+              ].map((member) => (
+                <Card key={member.username} className="card-professional cursor-pointer hover:bg-accent/50 transition-colors"
+                      onClick={() => navigate(`/community-profile/${member.username}`)}>
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <img src={member.avatar} alt={member.name} className="w-12 h-12 rounded-full object-cover" />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-1">
+                          <h3 className="font-semibold text-card-foreground">{member.name}</h3>
+                          {member.verified && <Badge variant="success" className="text-xs">✓</Badge>}
+                        </div>
+                        <p className="text-sm text-muted-foreground">@{member.username}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">{member.followers} followers</span>
+                      <Button size="sm" variant="outline">Follow</Button>
+                    </div>
+                  </CardContent>
                 </Card>
               ))}
             </div>

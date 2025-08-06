@@ -21,6 +21,7 @@ import SellAsset from "@/pages/SellAsset";
 import SectorPerformance from "@/pages/SectorPerformance";
 import Community from "@/pages/Community";
 import CommunityContent from "@/pages/CommunityContent";
+import CommunityProfile from "@/pages/CommunityProfile";
 import CommunityComments from "@/pages/CommunityComments";
 import Article from "@/pages/Article";
 import TradingInterface from "@/pages/TradingInterface";
@@ -63,7 +64,9 @@ const App = () => (
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="/sector-performance" element={<SectorPerformance />} />
-            <Route path="/community" element={<CommunityContent />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/community-profile/:userId" element={<CommunityProfile />} />
+          <Route path="/community-comments/:postId" element={<CommunityComments />} />
             <Route path="/article/:id" element={<Article />} />
             <Route path="/community-comments/:id" element={<CommunityComments />} />
             <Route path="/trade/:assetId" element={<TradingInterface />} />

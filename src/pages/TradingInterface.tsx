@@ -282,85 +282,138 @@ export default function TradingInterface() {
               <CardTitle>Order Summary</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Quantity:</span>
-                  <span className="font-medium">{quantityNum} shares</span>
-                </div>
+               <div className="space-y-3">
                  <div className="flex justify-between">
-                   <span className="text-muted-foreground">Unit Price:</span>
-                   <span className="font-medium">£{pricePerShare}</span>
+                   <span className="text-muted-foreground">Quantity:</span>
+                   <span className="font-medium">{quantityNum} shares</span>
                  </div>
-                 {isSecondaryMarket && (
-                   <div className="p-3 bg-accent/20 rounded-lg">
-                     <div className="flex items-center gap-2 mb-2">
-                       <AlertCircle className="w-4 h-4 text-warning" />
-                       <span className="text-sm font-medium">Secondary Market Purchase</span>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Unit Price:</span>
+                    <span className="font-medium">£{pricePerShare}</span>
+                  </div>
+                  {isSecondaryMarket && (
+                    <div className="p-3 bg-accent/20 rounded-lg">
+                      <div className="flex items-center gap-2 mb-2">
+                        <AlertCircle className="w-4 h-4 text-warning" />
+                        <span className="text-sm font-medium">Secondary Market Purchase</span>
+                      </div>
+                      <div className="space-y-1 text-xs text-muted-foreground">
+                        <div className="flex justify-between">
+                          <span>Original Price:</span>
+                          <span>£{originalPrice}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Current Price:</span>
+                          <span>£{pricePerShare}</span>
+                        </div>
+                        <div className="flex justify-between font-medium">
+                          <span>Price Difference:</span>
+                          <span className={priceDifference >= 0 ? "text-success" : "text-destructive"}>
+                            {priceDifference >= 0 ? "+" : ""}{priceDifference.toFixed(1)}%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                 <div className="flex justify-between">
+                   <span className="text-muted-foreground">Subtotal:</span>
+                   <span className="font-medium">£{subtotal.toLocaleString()}</span>
+                 </div>
+                 <div className="flex justify-between">
+                   <span className="text-muted-foreground">Processing Fee ({(asset.processingFee * 100).toFixed(0)}%):</span>
+                   <span className="font-medium">£{processingFee.toFixed(0)}</span>
+                 </div>
+                 <Separator />
+                 <div className="flex justify-between text-xl font-bold">
+                   <span>Total:</span>
+                   <span className="text-primary">£{total.toLocaleString()}</span>
+                 </div>
+               </div>
+               {/* Investment Tier */}
+               {currentTierData && (
+                 <div className="p-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-lg border">
+                   <div className="flex items-center gap-3 mb-2">
+                     <div className={`p-2 rounded-lg bg-background/50 ${currentTierData.color}`}>
+                       <TierIcon className="w-5 h-5" />
                      </div>
-                     <div className="space-y-1 text-xs text-muted-foreground">
-                       <div className="flex justify-between">
-                         <span>Original Price:</span>
-                         <span>£{originalPrice}</span>
-                       </div>
-                       <div className="flex justify-between">
-                         <span>Current Price:</span>
-                         <span>£{pricePerShare}</span>
-                       </div>
-                       <div className="flex justify-between font-medium">
-                         <span>Price Difference:</span>
-                         <span className={priceDifference >= 0 ? "text-success" : "text-destructive"}>
-                           {priceDifference >= 0 ? "+" : ""}{priceDifference.toFixed(1)}%
-                         </span>
-                       </div>
+                     <div>
+                       <h4 className="font-semibold">{currentTierData.name} Tier</h4>
+                       <p className="text-sm text-muted-foreground">Investment tier benefits</p>
                      </div>
                    </div>
-                 )}
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Subtotal:</span>
-                  <span className="font-medium">£{subtotal.toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Processing Fee ({(asset.processingFee * 100).toFixed(0)}%):</span>
-                  <span className="font-medium">£{processingFee.toFixed(0)}</span>
-                </div>
-                <Separator />
-                <div className="flex justify-between text-xl font-bold">
-                  <span>Total:</span>
-                  <span className="text-primary">£{total.toLocaleString()}</span>
-                </div>
-              </div>
+                 </div>
+               )}
 
-              {/* Investment Tier */}
-              {currentTierData && (
-                <div className="p-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-lg border">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className={`p-2 rounded-lg bg-background/50 ${currentTierData.color}`}>
-                      <TierIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">{currentTierData.name} Tier</h4>
-                      <p className="text-sm text-muted-foreground">Investment tier benefits</p>
-                    </div>
-                  </div>
-                </div>
-              )}
+               {/* Investment Round Info */}
+               <div className="status-coming-soon p-4 rounded-lg">
+                 <h4 className="font-semibold mb-1">Investment Round Percentage</h4>
+                 <p className="text-sm">
+                   £{total.toLocaleString()} = {((total / 10000000) * 100).toFixed(4)}% of the investment round
+                 </p>
+               </div>
 
-              {/* Investment Round Info */}
-              <div className="status-coming-soon p-4 rounded-lg">
-                <h4 className="font-semibold mb-1">Investment Round Percentage</h4>
-                <p className="text-sm">
-                  £{total.toLocaleString()} = {((total / 10000000) * 100).toFixed(4)}% of the investment round
-                </p>
-              </div>
+               {/* Payment Method */}
+               <div className="space-y-3">
+                 <h4 className="font-semibold">Payment Method</h4>
+                 <div className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg border">
+                   <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">
+                     VISA
+                   </div>
+                   <div className="flex-1">
+                     <p className="font-medium">**** **** **** 4532</p>
+                     <p className="text-sm text-muted-foreground">Expires 12/26</p>
+                   </div>
+                   <Button variant="outline" size="sm">
+                     Change
+                   </Button>
+                 </div>
+                 
+                 <div className="p-3 bg-muted/10 rounded-lg border border-dashed">
+                   <Button variant="outline" size="sm" className="w-full mb-3" onClick={() => {
+                     const form = document.getElementById('new-payment-form');
+                     if (form) form.classList.toggle('hidden');
+                   }}>
+                     + Add New Payment Method
+                   </Button>
+                   
+                   <div className="space-y-3 hidden" id="new-payment-form">
+                     <select className="w-full p-2 border rounded bg-background">
+                       <option value="">Select Payment Type</option>
+                       <option value="credit">Credit Card</option>
+                       <option value="debit">Debit Card</option>
+                       <option value="bank">Bank Transfer</option>
+                     </select>
+                     
+                     <div id="card-details" className="space-y-2">
+                       <input type="text" placeholder="Card Number (1234 5678 9012 3456)" className="w-full p-2 border rounded bg-background" />
+                       <div className="grid grid-cols-2 gap-2">
+                         <input type="text" placeholder="MM/YY" className="p-2 border rounded bg-background" />
+                         <input type="text" placeholder="CVV" className="p-2 border rounded bg-background" />
+                       </div>
+                       <input type="text" placeholder="Cardholder Name" className="w-full p-2 border rounded bg-background" />
+                     </div>
+                     
+                     <div id="bank-details" className="space-y-2 hidden">
+                       <input type="text" placeholder="Account Number" className="w-full p-2 border rounded bg-background" />
+                       <input type="text" placeholder="Sort Code" className="w-full p-2 border rounded bg-background" />
+                       <input type="text" placeholder="Account Holder Name" className="w-full p-2 border rounded bg-background" />
+                     </div>
+                     
+                     <Button size="sm" className="w-full">
+                       Add Payment Method
+                     </Button>
+                   </div>
+                 </div>
+               </div>
 
-              <Button 
-                onClick={handleTrade}
-                className="w-full btn-invest text-lg py-4 h-14"
-                disabled={quantityNum < 1}
-              >
-                <TrendingUp className="w-5 h-5 mr-2" />
-                Complete Purchase
-              </Button>
+               <Button 
+                 onClick={handleTrade}
+                 className="w-full btn-invest text-lg py-4 h-14"
+                 disabled={quantityNum < 1}
+               >
+                 <TrendingUp className="w-5 h-5 mr-2" />
+                 Complete Purchase
+               </Button>
             </CardContent>
           </Card>
 

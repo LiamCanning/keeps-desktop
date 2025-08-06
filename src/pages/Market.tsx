@@ -28,7 +28,7 @@ const marketListings: MarketListing[] = [
   {
     id: "1",
     asset: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/src/assets/brands/liverpool-fc-logo.png",
     seller: "JohnD",
     quantity: 5,
     pricePerUnit: "£550",
@@ -42,7 +42,7 @@ const marketListings: MarketListing[] = [
   {
     id: "2",
     asset: "Liverpool FC", 
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/src/assets/brands/liverpool-fc-logo.png",
     seller: "SarahM",
     quantity: 10,
     pricePerUnit: "£525",
@@ -56,7 +56,7 @@ const marketListings: MarketListing[] = [
   {
     id: "3",
     asset: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/src/assets/brands/mclaren-logo.png",
     seller: "RacingFan22",
     quantity: 20,
     pricePerUnit: "£1,200",
