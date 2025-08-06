@@ -196,7 +196,7 @@ export default function Portfolio() {
 
       <div className="p-6 space-y-6 max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="space-y-2">
+        <div className="space-y-2 text-left">
           <h1 className="text-3xl font-bold text-gradient">Portfolio Overview</h1>
           <p className="text-lg text-foreground/80">Track your sports investments</p>
         </div>
@@ -271,15 +271,15 @@ export default function Portfolio() {
         </TabsList>
 
         <TabsContent value="overview" className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-card-foreground">Your Investments</h2>
+              <h2 className="text-xl font-semibold text-card-foreground text-left">Your Investments</h2>
               <Badge variant="success">
                 4 Holdings
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
               {portfolioHoldings.map((holding) => (
                 <HoldingCard key={holding.id} holding={holding} />
               ))}

@@ -197,7 +197,7 @@ export default function Community() {
   return (
     <div className="p-6 space-y-6 max-w-4xl mx-auto">
       {/* Header Section */}
-      <div className="space-y-2">
+      <div className="space-y-2 text-left">
         <h1 className="text-3xl font-bold text-foreground">Community</h1>
         <p className="text-lg text-foreground/80">Connect with fellow sports investors</p>
       </div>
@@ -268,13 +268,13 @@ export default function Community() {
         </TabsList>
 
         <TabsContent value="timeline" className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">Community Timeline</h2>
+              <h2 className="text-xl font-semibold text-foreground text-left">Community Timeline</h2>
               <Badge variant="success">Live Updates</Badge>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-6">
               {posts.map((post) => (
                 <CommunityPost key={post.id} post={post} />
               ))}
@@ -324,13 +324,13 @@ export default function Community() {
         </TabsContent>
 
         <TabsContent value="peoples-posts" className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">All Community Posts</h2>
+              <h2 className="text-xl font-semibold text-foreground text-left">All Community Posts</h2>
               <Badge variant="secondary">{posts.length} Posts</Badge>
             </div>
             
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-6">
               {posts.map((post) => (
                 <Card key={post.id} className="card-professional p-4">
                   <div className="flex items-start gap-3">

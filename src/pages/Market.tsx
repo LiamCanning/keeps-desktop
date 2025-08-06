@@ -208,7 +208,7 @@ export default function Market() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="space-y-2">
+      <div className="space-y-2 text-left">
         <h1 className="text-3xl font-bold text-foreground">Secondary Market</h1>
         <p className="text-lg text-foreground/80">Buy and sell sports assets</p>
       </div>
@@ -301,15 +301,15 @@ export default function Market() {
         </TabsList>
 
         <TabsContent value="market" className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">All Available Assets</h2>
+              <h2 className="text-xl font-semibold text-foreground text-left">All Available Assets</h2>
               <Badge variant="secondary">
                 {filteredListings.length} Listings
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
               {filteredListings.map((listing) => (
                 <MarketCard key={listing.id} listing={listing} />
               ))}

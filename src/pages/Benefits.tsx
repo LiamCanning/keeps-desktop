@@ -201,19 +201,19 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-base capitalize">{tier.name}</h4>
+                    <h4 className="font-semibold text-base capitalize text-left">{tier.name}</h4>
                     <Badge variant="success" className="text-xs">
                       Available
                     </Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">
+                  <p className="text-sm text-muted-foreground mb-3 text-left">
                     Investment Required: £{tier.investment.toLocaleString()} ({tier.available} available)
                   </p>
                   <div className="space-y-1">
                     {tier.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-center gap-2 text-sm">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                        <span>{benefit}</span>
+                      <div key={index} className="flex items-start gap-2 text-sm text-left">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="leading-5">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -238,7 +238,7 @@ export default function Benefits() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="space-y-2">
+      <div className="space-y-2 text-left">
         <h1 className="text-3xl font-bold text-gradient">All Benefits</h1>
         <p className="text-lg text-muted-foreground">Exclusive perks across all assets</p>
       </div>
@@ -298,7 +298,7 @@ export default function Benefits() {
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
           <TabsTrigger value="all">All Assets</TabsTrigger>
-          <TabsTrigger value="live" className="flex items-center gap-2">
+          <TabsTrigger value="live" className="flex items-center justify-center gap-2">
             <div className="w-2 h-2 bg-success rounded-full"></div>
             Live Assets
           </TabsTrigger>
@@ -307,9 +307,9 @@ export default function Benefits() {
         </TabsList>
 
         <TabsContent value={activeTab} className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">
+              <h2 className="text-xl font-semibold text-left">
                 {activeTab === "all" ? "All Benefits" :
                  activeTab === "live" ? "Live Asset Benefits" :
                  activeTab === "coming-soon" ? "Coming Soon Benefits" :
@@ -320,7 +320,7 @@ export default function Benefits() {
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
               {filteredBenefits.map((benefit) => (
                 <BenefitCard key={benefit.id} benefit={benefit} />
               ))}

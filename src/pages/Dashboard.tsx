@@ -220,11 +220,11 @@ export default function Dashboard() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="space-y-2">
+      <div className="space-y-2 text-left">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Welcome Back <span className="text-primary">Liam</span></h1>
-            <p className="text-lg text-foreground/80">Ready to invest?</p>
+            <h1 className="text-3xl font-bold text-foreground text-left">Welcome Back <span className="text-primary">Liam</span></h1>
+            <p className="text-lg text-foreground/80 text-left">Ready to invest?</p>
           </div>
         </div>
       </div>
@@ -246,13 +246,13 @@ export default function Dashboard() {
         </TabsList>
 
         <TabsContent value="live" className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">Featured Investment Opportunities</h2>
-              <p className="text-foreground/70">Premium sports assets with proven track records</p>
+              <h2 className="text-xl font-semibold text-foreground text-left">Featured Investment Opportunities</h2>
+              <p className="text-foreground/70 text-right">Premium sports assets with proven track records</p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
               {liveDeals.map((investment) => (
                 <InvestmentCard key={investment.id} investment={investment} />
               ))}
@@ -261,15 +261,15 @@ export default function Dashboard() {
         </TabsContent>
 
         <TabsContent value="coming-soon" className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Coming Soon</h2>
+              <h2 className="text-xl font-semibold text-left">Coming Soon</h2>
               <Badge variant="coming-soon">
                 {comingSoonDeals.length} Upcoming
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
               {comingSoonDeals.map((investment) => (
                 <InvestmentCard key={investment.id} investment={investment} />
               ))}
