@@ -54,7 +54,7 @@ const assets: Asset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/public/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+    logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
@@ -68,7 +68,7 @@ const assets: Asset[] = [
   {
     id: "hexagon-cup",
     name: "Hexagon Cup",
-    logo: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=100&h=100&fit=crop",
+    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
     banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Prestigious multi-sport tournament featuring international competition with growing global viewership and sponsorship opportunities.",
@@ -82,7 +82,7 @@ const assets: Asset[] = [
   {
     id: "cardiff-city",
     name: "Cardiff City",
-    logo: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=100&h=100&fit=crop",
+    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",
@@ -96,7 +96,7 @@ const assets: Asset[] = [
   {
     id: "ohio-state",
     name: "Ohio State",
-    logo: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=100&h=100&fit=crop",
+    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
     banner: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Elite American university athletics programme with massive revenue potential and nationwide following across multiple sports.",
@@ -114,14 +114,17 @@ function AssetCard({ asset }: { asset: Asset }) {
   
   return (
     <Card className="investment-card group cursor-pointer" onClick={() => navigate(`/assets/${asset.id}`)}>
-      <div className="relative overflow-hidden rounded-t-xl bg-gradient-to-br from-primary/10 to-accent/10 h-48 flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <OptimizedImage
-            src={asset.logo}
-            alt={`${asset.name} logo`}
-            className="w-20 h-20 object-contain mx-auto"
-          />
-          <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"}>
+      <div className="relative overflow-hidden rounded-t-xl h-48 flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100 border-b border-slate-200">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div className="relative text-center space-y-4 z-10">
+          <div className="p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/40">
+            <OptimizedImage
+              src={asset.logo}
+              alt={`${asset.name} logo`}
+              className="w-24 h-24 object-contain mx-auto"
+            />
+          </div>
+          <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"} className="shadow-md">
             {asset.status === "live" ? "Live" : asset.status === "coming-soon" ? "Coming Soon" : "Completed"}
           </Badge>
         </div>

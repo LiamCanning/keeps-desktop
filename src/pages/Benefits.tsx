@@ -36,6 +36,27 @@ const benefits: Benefit[] = [
     logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
     status: "live",
     description: "Premium tournament access, commemorative merchandise, and exclusive dining experiences with golf's most prestigious team tournament."
+  },
+  {
+    id: "4",
+    team: "Cardiff City FC",
+    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+    status: "coming-soon",
+    description: "Welsh football club with passionate fanbase offering premium match experiences, player meet & greets, and exclusive Cardiff City Stadium access."
+  },
+  {
+    id: "5",
+    team: "Hexagon Cup",
+    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
+    status: "coming-soon",
+    description: "Prestigious multi-sport tournament featuring exclusive access to international competitions, VIP hospitality, and athlete interactions."
+  },
+  {
+    id: "6",
+    team: "Ohio State",
+    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+    status: "coming-soon",
+    description: "Elite American university athletics programme offering premium game experiences, campus access, and exclusive Buckeyes community benefits."
   }
 ];
 
@@ -46,6 +67,9 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
     if (teamName.includes('Liverpool')) return 'liverpool';
     if (teamName.includes('McLaren')) return 'mclaren';
     if (teamName.includes('Ryder')) return 'rydercup';
+    if (teamName.includes('Cardiff')) return 'cardiff';
+    if (teamName.includes('Hexagon')) return 'hexagon';
+    if (teamName.includes('Ohio')) return 'ohio';
     return 'liverpool';
   };
 
@@ -120,14 +144,6 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
                       zIndex: tierOrder.length - index
                     }}
                   >
-                    {/* Exclusive badge for higher tiers */}
-                    {(tierKey === 'platinum' || tierKey === 'diamond') && (
-                      <div className="absolute top-2 right-2">
-                        <Badge variant="secondary" className="text-xs bg-primary/20 text-primary border-primary/30">
-                          Exclusive
-                        </Badge>
-                      </div>
-                    )}
                     
                     <div className="flex items-start gap-4">
                       <div className={`p-3 rounded-lg shadow-md ${tierIconColors[tierKey as keyof typeof tierIconColors]}`}>

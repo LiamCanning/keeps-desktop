@@ -110,13 +110,109 @@ export const assetTiers = {
       available: 100,
       benefits: ["Captain's Dinner", "Exclusive dinner with the Ryder Cup Captain and team members", "✓ Includes all benefits from previous tiers"]
     }
+  },
+  cardiff: {
+    bronze: {
+      name: "Bronze",
+      investment: 750,
+      available: 4000,
+      benefits: ["Community forum access", "Monthly newsletters with club insights", "Cardiff City FC digital magazine subscription"]
+    },
+    silver: {
+      name: "Silver",
+      investment: 3000,
+      available: 1800,
+      benefits: ["Quarterly video updates from management", "Early access to new opportunities", "Official Cardiff City FC merchandise package"]
+    },
+    gold: {
+      name: "Gold",
+      investment: 12000,
+      available: 600,
+      benefits: ["VIP match day experiences at Cardiff City Stadium", "Behind-the-scenes content access", "Annual strategic briefings with club leadership"]
+    },
+    platinum: {
+      name: "Platinum",
+      investment: 30000,
+      available: 200,
+      benefits: ["Exclusive stadium and training ground tours", "Player meet & greet opportunities", "Premium hospitality for select matches"]
+    },
+    diamond: {
+      name: "Diamond",
+      investment: 60000,
+      available: 75,
+      benefits: ["Private dinners with club ownership", "Season ticket priority access", "Personalized relationship manager and Welsh heritage experiences"]
+    }
+  },
+  hexagon: {
+    bronze: {
+      name: "Bronze",
+      investment: 750,
+      available: 3500,
+      benefits: ["Community forum access", "Monthly tournament newsletters", "Digital access to Hexagon Cup content"]
+    },
+    silver: {
+      name: "Silver",
+      investment: 3500,
+      available: 1500,
+      benefits: ["Quarterly video updates from tournament directors", "Early access to new opportunities", "Official Hexagon Cup merchandise package"]
+    },
+    gold: {
+      name: "Gold",
+      investment: 15000,
+      available: 400,
+      benefits: ["VIP tournament experiences", "Behind-the-scenes content access", "Annual strategic briefings with tournament leadership"]
+    },
+    platinum: {
+      name: "Platinum",
+      investment: 35000,
+      available: 150,
+      benefits: ["Exclusive venue and facility tours", "Athlete meet & greet opportunities", "Premium hospitality for tournament events"]
+    },
+    diamond: {
+      name: "Diamond",
+      investment: 70000,
+      available: 50,
+      benefits: ["Private dinners with tournament leadership", "VIP access to all tournament events", "Personalized relationship manager and global sports experiences"]
+    }
+  },
+  ohio: {
+    bronze: {
+      name: "Bronze",
+      investment: 1000,
+      available: 5000,
+      benefits: ["Community forum access", "Monthly newsletters with athletics insights", "Ohio State digital content subscription"]
+    },
+    silver: {
+      name: "Silver",
+      investment: 4000,
+      available: 2000,
+      benefits: ["Quarterly video updates from athletics department", "Early access to new opportunities", "Official Ohio State merchandise package"]
+    },
+    gold: {
+      name: "Gold",
+      investment: 18000,
+      available: 500,
+      benefits: ["VIP game day experiences", "Behind-the-scenes campus and athletics content", "Annual strategic briefings with athletics leadership"]
+    },
+    platinum: {
+      name: "Platinum",
+      investment: 40000,
+      available: 200,
+      benefits: ["Exclusive campus and athletics facility tours", "Student-athlete meet & greet opportunities", "Premium hospitality for select games"]
+    },
+    diamond: {
+      name: "Diamond",
+      investment: 80000,
+      available: 75,
+      benefits: ["Private dinners with athletics leadership", "VIP access to all sporting events", "Personalized relationship manager and college sports experiences"]
+    }
   }
 };
 
 interface BenefitsTiersProps {
   selectedTier?: string;
   compact?: boolean;
-  asset?: 'liverpool' | 'mclaren' | 'rydercup';
+  asset?: 'liverpool' | 'mclaren' | 'rydercup' | 'cardiff' | 'hexagon' | 'ohio';
 }
 
 export function BenefitsTiers({ selectedTier, compact = false, asset }: BenefitsTiersProps) {

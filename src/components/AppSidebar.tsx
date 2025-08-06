@@ -14,7 +14,7 @@ import {
   BarChart3,
   Menu,
   Users,
-  Book
+  BookOpen
 } from "lucide-react";
 import {
   Sidebar,
@@ -107,6 +107,18 @@ export function AppSidebar() {
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
+                <NavLink to="/organisation-dashboard" className="flex items-center gap-3 py-3 w-full">
+                  <TrendingUp className="w-4 h-4" />
+                  <span>Organisation Dashboard</span>
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <NavLink to="/knowledge-base" className="flex items-center gap-3 py-3 w-full">
+                  <BookOpen className="w-4 h-4" />
+                  <span>Knowledge Base</span>
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
                 <NavLink to="/support-hub" className="flex items-center gap-3 py-3 w-full">
                   <HelpCircle className="w-4 h-4" />
                   <span>Support Hub</span>
@@ -123,12 +135,6 @@ export function AppSidebar() {
                 <NavLink to="/market-trends" className="flex items-center gap-3 py-3 w-full">
                   <BarChart3 className="w-4 h-4" />
                   <span>Market Trends</span>
-                </NavLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <NavLink to="/knowledge-base" className="flex items-center gap-3 py-3 w-full">
-                  <Book className="w-4 h-4" />
-                  <span>Knowledge Base</span>
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuSeparator />

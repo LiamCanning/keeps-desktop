@@ -35,6 +35,7 @@ import Login from "./pages/Login";
 import SellShares from "./pages/SellShares";
 import RequestTeam from "./pages/RequestTeam";
 import KnowledgeBase from "./pages/KnowledgeBase";
+import OrganisationDashboard from "./pages/OrganisationDashboard";
 
 const queryClient = new QueryClient();
 
@@ -73,7 +74,10 @@ const App = () => (
             <Route path="/assets/:assetId" element={<AssetDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/sell-shares" element={<SellShares />} />
-        <Route path="/request-team" element={<RequestTeam />} />
+          <Route path="/request-team" element={<RequestTeam />} />
+          <Route path="/for-organisations" element={<ForOrganisations />} />
+          <Route path="/organisation-dashboard" element={<OrganisationDashboard />} />
+          <Route path="/market-trends" element={<MarketTrends />} />
         <Route path="/knowledge-base" element={<KnowledgeBase />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
