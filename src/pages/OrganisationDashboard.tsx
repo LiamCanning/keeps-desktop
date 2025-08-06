@@ -208,57 +208,8 @@ export default function OrganisationDashboard() {
             </CardContent>
           </Card>
 
-          {/* Performance Insights */}
+          {/* McLaren Store Marketing */}
           <Card className="card-professional lg:col-span-1">
-            <CardHeader>
-              <CardTitle className="text-xl flex items-center gap-2">
-                <BarChart className="w-5 h-5" />
-                Performance Insights
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-4">
-                <div className="p-4 bg-gradient-to-r from-success/10 to-success/5 rounded-lg border border-success/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="font-medium text-success">Championship Standing</span>
-                  </div>
-                  <p className="text-2xl font-bold">4th Place</p>
-                  <p className="text-xs text-muted-foreground">Constructors Championship 2024</p>
-                </div>
-                
-                <div className="p-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="font-medium text-primary">Podium Finishes</span>
-                  </div>
-                  <p className="text-2xl font-bold">8</p>
-                  <p className="text-xs text-muted-foreground">This season</p>
-                </div>
-                
-                <div className="p-4 bg-gradient-to-r from-warning/10 to-warning/5 rounded-lg border border-warning/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-warning rounded-full"></div>
-                    <span className="font-medium text-warning">Revenue Growth</span>
-                  </div>
-                  <p className="text-2xl font-bold">+23%</p>
-                  <p className="text-xs text-muted-foreground">Year over year</p>
-                </div>
-                
-                <div className="p-4 bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg border border-accent/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-accent rounded-full"></div>
-                    <span className="font-medium">Fan Engagement</span>
-                  </div>
-                  <p className="text-2xl font-bold">12.4M</p>
-                  <p className="text-xs text-muted-foreground">Social media followers</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Marketing Section */}
-          <Card className="card-professional">
             <CardHeader>
               <CardTitle className="text-xl flex items-center gap-2">
                 <MessageSquare className="w-5 h-5" />
@@ -298,33 +249,62 @@ export default function OrganisationDashboard() {
               </div>
               
               <div className="grid grid-cols-2 gap-3">
-                <div className="p-4 bg-gradient-to-br from-success/10 to-success/5 rounded-lg text-center border border-success/20">
-                  <p className="text-sm text-muted-foreground">This Month</p>
-                  <p className="text-2xl font-bold text-success">8</p>
-                  <p className="text-xs text-muted-foreground">Store Promotions</p>
+                <div className="p-3 bg-muted/10 rounded-lg border">
+                  <p className="text-sm font-medium">Total Sent</p>
+                  <p className="text-xl font-bold text-primary">1,247</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-warning/10 to-warning/5 rounded-lg text-center border border-warning/20">
-                  <p className="text-sm text-muted-foreground">Redemption Rate</p>
-                  <p className="text-2xl font-bold text-warning">73%</p>
-                  <p className="text-xs text-muted-foreground">Above Average</p>
+                <div className="p-3 bg-muted/10 rounded-lg border">
+                  <p className="text-sm font-medium">Click Rate</p>
+                  <p className="text-xl font-bold text-success">34.2%</p>
                 </div>
               </div>
-              
-              <div className="p-4 bg-muted/10 rounded-lg border border-border/50">
-                <h5 className="font-medium mb-2">Recent Store Campaigns</h5>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Singapore GP Collection</span>
-                    <Badge variant="outline" className="text-xs">89% redeemed</Badge>
+            </CardContent>
+          </Card>
+
+          {/* New Investor Performance Section */}
+          <Card className="card-professional">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-2">
+                <TrendingUp className="w-5 h-5" />
+                Investor Performance Metrics
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-gradient-to-r from-success/10 to-success/5 rounded-lg border border-success/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <span className="font-medium text-success">Retention Rate</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">McLaren Racing Jackets</span>
-                    <Badge variant="outline" className="text-xs">67% redeemed</Badge>
+                  <p className="text-2xl font-bold">92.4%</p>
+                  <p className="text-xs text-muted-foreground">12-month investor retention</p>
+                </div>
+                
+                <div className="p-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span className="font-medium text-primary">Avg Investment</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Limited Edition Caps</span>
-                    <Badge variant="outline" className="text-xs">91% redeemed</Badge>
+                  <p className="text-2xl font-bold">£84K</p>
+                  <p className="text-xs text-muted-foreground">Per investor</p>
+                </div>
+                
+                <div className="p-4 bg-gradient-to-r from-warning/10 to-warning/5 rounded-lg border border-warning/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 bg-warning rounded-full"></div>
+                    <span className="font-medium text-warning">Engagement Score</span>
                   </div>
+                  <p className="text-2xl font-bold">8.7/10</p>
+                  <p className="text-xs text-muted-foreground">Platform engagement</p>
+                </div>
+                
+                <div className="p-4 bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg border border-accent/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 bg-accent rounded-full"></div>
+                    <span className="font-medium">ROI Satisfaction</span>
+                  </div>
+                  <p className="text-2xl font-bold">94%</p>
+                  <p className="text-xs text-muted-foreground">Satisfied with returns</p>
                 </div>
               </div>
             </CardContent>

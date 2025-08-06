@@ -26,7 +26,8 @@ import Article from "@/pages/Article";
 import TradingInterface from "@/pages/TradingInterface";
 import RegulatoryCompliance from "@/pages/RegulatoryCompliance";
 import InvestorRelations from "@/pages/InvestorRelations";
-import InvestorLeaderboard from "@/pages/InvestorLeaderboard";
+import InvestorLeaderboard from "./pages/InvestorLeaderboard";
+import ListAsset from "./pages/ListAsset";
 import Notifications from "@/pages/Notifications";
 import NotFound from "./pages/NotFound";
 import Assets from "./pages/Assets";
@@ -68,18 +69,18 @@ const App = () => (
             <Route path="/trade/:assetId" element={<TradingInterface />} />
             <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
             <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
-            <Route path="/investor-relations" element={<InvestorRelations />} />
-            <Route path="/notifications" element={<Notifications />} />
-            <Route path="/assets" element={<Assets />} />
-            <Route path="/assets/:assetId" element={<AssetDetails />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/sell-shares" element={<SellShares />} />
+          <Route path="/investor-relations" element={<InvestorRelations />} />
+          <Route path="/investor-leaderboard" element={<InvestorLeaderboard />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/assets" element={<Assets />} />
+          <Route path="/assets/:assetId" element={<AssetDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/sell-shares" element={<SellShares />} />
           <Route path="/request-team" element={<RequestTeam />} />
-          <Route path="/for-organisations" element={<ForOrganisations />} />
           <Route path="/organisation-dashboard" element={<OrganisationDashboard />} />
-          <Route path="/market-trends" element={<MarketTrends />} />
-        <Route path="/knowledge-base" element={<KnowledgeBase />} />
-            <Route path="*" element={<NotFound />} />
+          <Route path="/list-asset" element={<ListAsset />} />
+          <Route path="/knowledge-base" element={<KnowledgeBase />} />
+          <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
       </BrowserRouter>

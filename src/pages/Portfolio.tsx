@@ -28,7 +28,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "1",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/src/assets/brands/liverpool-fc-logo.png",
     investment: "£25,000",
     shares: "50 (£500 per share)",
     purchaseDate: "15/07/2025",
@@ -43,7 +43,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "2",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/src/assets/brands/mclaren-logo.png",
     investment: "£200,000",
     shares: "200 (£1000 per share)",
     purchaseDate: "10/07/2025",
@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/public/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     investment: "£15,000",
     shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
@@ -73,7 +73,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "4",
     name: "British Cycling",
-    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
+    logo: "/public/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     investment: "£10,000",
     shares: "10 (£1000 per share)",
     purchaseDate: "01/07/2025",
@@ -229,7 +229,7 @@ export default function Portfolio() {
           </div>
         </Card>
         
-        <Card className="card-professional p-4">
+        <Card className="card-professional p-4 relative">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-success/20 rounded-lg">
               <PieChart className="w-5 h-5 text-success" />
@@ -239,6 +239,12 @@ export default function Portfolio() {
               <p className="font-semibold text-xl text-card-foreground">4</p>
             </div>
           </div>
+          <Button 
+            className="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white text-xs px-2 py-1 h-auto"
+            onClick={() => window.location.href = '/list-asset'}
+          >
+            List Asset
+          </Button>
         </Card>
       </div>
 
@@ -264,12 +270,11 @@ export default function Portfolio() {
 
       {/* Portfolio Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
+        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
           <TabsTrigger value="overview">Your Investments</TabsTrigger>
           <TabsTrigger value="performance">Performance</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
           <TabsTrigger value="watchlist">Watchlist</TabsTrigger>
-          <TabsTrigger value="list-asset" className="bg-orange-500 text-white data-[state=active]:bg-orange-600">List Asset</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="mt-6">
@@ -359,7 +364,7 @@ export default function Portfolio() {
                 {
                   id: "liverpool-fc",
                   name: "Liverpool FC",
-                  logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+                  logo: "/src/assets/brands/liverpool-fc-logo.png",
                   price: "£575",
                   change: "+15%",
                   status: "Live"
@@ -367,7 +372,7 @@ export default function Portfolio() {
                 {
                   id: "mclaren-f1",
                   name: "McLaren Racing",
-                  logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+                  logo: "/src/assets/brands/mclaren-logo.png",
                   price: "£1,220",
                   change: "+22%",
                   status: "Live"
@@ -375,7 +380,7 @@ export default function Portfolio() {
                 {
                   id: "ryder-cup",
                   name: "Ryder Cup",
-                  logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+                  logo: "/public/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
                   price: "£5,935",
                   change: "+18.7%",
                   status: "Live"
@@ -420,34 +425,6 @@ export default function Portfolio() {
           </div>
         </TabsContent>
 
-        <TabsContent value="list-asset" className="mt-6">
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-card-foreground text-left">List Asset for Sale</h2>
-              <Badge variant="secondary">
-                Secondary Market
-              </Badge>
-            </div>
-            
-            <Card className="card-professional p-6">
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
-                  <Target className="w-8 h-8 text-orange-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-card-foreground">Sell Your Assets</h3>
-                  <p className="text-muted-foreground">List your sports investments on the secondary market</p>
-                </div>
-                <Button 
-                  className="bg-orange-500 hover:bg-orange-600 text-white"
-                  onClick={() => window.location.href = '/list-asset'}
-                >
-                  Start Listing Process
-                </Button>
-              </div>
-            </Card>
-          </div>
-        </TabsContent>
       </Tabs>
       </div>
     </div>
