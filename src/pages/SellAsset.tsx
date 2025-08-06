@@ -17,7 +17,7 @@ const userHoldings = [
   {
     id: "liverpool-fc",
     asset: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     quantity: 15,
     avgPurchasePrice: 500,
     currentPrice: 550,
@@ -27,7 +27,7 @@ const userHoldings = [
   {
     id: "mclaren-f1",
     asset: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
     quantity: 8,
     avgPurchasePrice: 1000,
     currentPrice: 1200,
@@ -37,7 +37,7 @@ const userHoldings = [
   {
     id: "ryder-cup",
     asset: "Ryder Cup",
-    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
     quantity: 1,
     avgPurchasePrice: 5000,
     currentPrice: 5900,

@@ -15,7 +15,7 @@ const deals = {
   "liverpool-fc": {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     title: "Equity Investment Opportunity",
     pricePerShare: 550,
     minimumInvestment: 500,
@@ -29,7 +29,7 @@ const deals = {
   "mclaren-f1": {
     id: "mclaren-f1",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
     title: "Income Sharing Agreement",
     pricePerShare: 1200,
     minimumInvestment: 1000,
@@ -43,7 +43,7 @@ const deals = {
   "ryder-cup": {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
     title: "Debenture Investment Programme",
     pricePerShare: 5900,
     minimumInvestment: 5900,

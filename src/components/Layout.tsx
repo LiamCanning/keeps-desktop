@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
@@ -13,6 +13,25 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const assets = [
+    { name: "Liverpool FC", path: "/deal/liverpoolfc" },
+    { name: "McLaren F1", path: "/deal/mclarenf1" },
+    { name: "Ryder Cup", path: "/deal/rydercup" }
+  ];
+
+  const handleSearch = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      const asset = assets.find(a => 
+        a.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      if (asset) {
+        navigate(asset.path);
+        setSearchQuery("");
+      }
+    }
+  };
 
   return (
     <SidebarProvider defaultOpen>
@@ -32,8 +51,11 @@ export function Layout({ children }: LayoutProps) {
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input 
-                      placeholder="search sports assets" 
+                      placeholder="search sports assets (Liverpool FC, McLaren F1, Ryder Cup)" 
                       className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground w-full"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onKeyDown={handleSearch}
                     />
                   </div>
                 </div>
