@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { BenefitsTiers } from "@/components/BenefitsTiers";
 
 interface Benefit {
   id: string;
@@ -218,7 +219,7 @@ export default function Benefits() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Benefits</p>
-              <p className="font-semibold text-xl">15</p>
+              <p className="font-semibold text-xl">25</p>
             </div>
           </div>
         </Card>
@@ -230,7 +231,7 @@ export default function Benefits() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Available Now</p>
-              <p className="font-semibold text-xl">15</p>
+              <p className="font-semibold text-xl">25</p>
             </div>
           </div>
         </Card>
@@ -242,7 +243,7 @@ export default function Benefits() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Premium Access</p>
-              <p className="font-semibold text-xl">10</p>
+              <p className="font-semibold text-xl">15</p>
             </div>
           </div>
         </Card>

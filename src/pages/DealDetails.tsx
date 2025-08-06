@@ -286,7 +286,9 @@ export default function DealDetails() {
               <CardTitle>Benefits Tiers</CardTitle>
             </CardHeader>
             <CardContent>
-              <BenefitsTiers selectedTier={deal.benefitsTier} compact={true} />
+              <BenefitsTiers 
+                asset={dealId?.replace('-fc', '').replace('-f1', '').replace('-cup', 'cup') as 'liverpool' | 'mclaren' | 'rydercup'} 
+              />
             </CardContent>
           </Card>
 
