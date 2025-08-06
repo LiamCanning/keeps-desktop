@@ -34,45 +34,45 @@ const favoriteTeams: FavoriteTeam[] = [
 const dataPartners: DataPartner[] = [
   {
     id: "1",
-    name: "Liverpool FC",
-    logo: "/src/assets/brands/liverpool-fc-logo.png",
-    description: "Football club experiences and exclusive match day benefits",
+    name: "Nike",
+    logo: "/src/assets/brands/nike-logo.png",
+    description: "Sports gear discounts and exclusive athlete meet & greets",
     optedIn: true
   },
   {
     id: "2", 
-    name: "McLaren Racing",
-    logo: "/src/assets/brands/mclaren-logo.png",
-    description: "Formula 1 paddock access and racing experiences",
+    name: "Rolex",
+    logo: "/src/assets/brands/rolex-logo.png",
+    description: "Luxury timepiece experiences and VIP watch exhibitions",
     optedIn: true
   },
   {
     id: "3",
-    name: "Tottenham Hotspur",
-    logo: "/src/assets/brands/tottenham-logo.png",
-    description: "Stadium tours and exclusive fan experiences",
-    optedIn: true
+    name: "AXA",
+    logo: "/src/assets/brands/axa-logo.png",
+    description: "Premium insurance benefits and financial planning services",
+    optedIn: false
   },
   {
     id: "4",
-    name: "Manchester United",
-    logo: "/src/assets/brands/manchester-united-logo.png",
-    description: "Old Trafford experiences and club merchandise",
+    name: "Santander",
+    logo: "/src/assets/brands/santander-logo.png",
+    description: "Banking perks and investment opportunities",
     optedIn: true
   },
   {
     id: "5",
-    name: "British Cycling",
-    logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=64&h=64&fit=crop",
-    description: "Cycling events and training programme access",
+    name: "BMW",
+    logo: "/src/assets/brands/bmw-logo.png",
+    description: "Luxury vehicle test drives and motorsport experiences",
     optedIn: false
   },
   {
     id: "6",
-    name: "Ryder Cup",
-    logo: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=64&h=64&fit=crop",
-    description: "Golf tournament hospitality and exclusive access",
-    optedIn: false
+    name: "Cadbury",
+    logo: "/src/assets/brands/cadbury-logo.png",
+    description: "Chocolate tastings and exclusive confectionery collections",
+    optedIn: true
   }
 ];
 
