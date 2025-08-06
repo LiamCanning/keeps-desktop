@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BenefitsTiers } from "@/components/BenefitsTiers";
+import { assetTiers } from "@/components/BenefitsTiers";
+import { Crown, Diamond } from "lucide-react";
 
 interface Benefit {
   id: string;
@@ -137,6 +138,29 @@ const benefits: Benefit[] = [
 ];
 
 function BenefitCard({ benefit }: { benefit: Benefit }) {
+  const getAssetKey = (teamName: string) => {
+    if (teamName.includes('Liverpool')) return 'liverpool';
+    if (teamName.includes('McLaren')) return 'mclaren';
+    if (teamName.includes('Ryder')) return 'rydercup';
+    return 'liverpool';
+  };
+
+  const tierColors = {
+    bronze: "border-amber-600 bg-amber-50",
+    silver: "border-slate-400 bg-slate-50", 
+    gold: "border-yellow-500 bg-yellow-50",
+    platinum: "border-slate-300 bg-slate-50",
+    diamond: "border-blue-400 bg-blue-50"
+  };
+
+  const tierBadgeColors = {
+    bronze: "bg-amber-600",
+    silver: "bg-slate-400", 
+    gold: "bg-yellow-500",
+    platinum: "bg-slate-300",
+    diamond: "bg-blue-400"
+  };
+
   return (
     <Card className="investment-card">
       <CardHeader className="pb-4">
@@ -160,35 +184,44 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
       
       <CardContent className="space-y-4">
         <div className="space-y-3">
-          {benefit.benefits.map((item, index) => (
+          {Object.entries(assetTiers[getAssetKey(benefit.team)]).map(([tierKey, tier]) => (
             <div 
-              key={index}
-              className={`p-4 rounded-lg border transition-all duration-200 ${
-                item.available 
-                  ? 'bg-success/10 border-success/30 hover:bg-success/20' 
-                  : 'bg-muted/20 border-border opacity-60'
+              key={tierKey}
+              className={`p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+                tierColors[tierKey as keyof typeof tierColors]
               }`}
             >
               <div className="flex items-start gap-3">
-                <div className={`p-2 rounded-lg ${
-                  item.available ? 'bg-success/20 text-success' : 'bg-muted text-muted-foreground'
-                }`}>
-                  {item.icon}
+                <div className={`p-2 rounded-lg ${tierBadgeColors[tierKey as keyof typeof tierBadgeColors]} text-white`}>
+                  {tierKey === 'bronze' && <Gift className="w-4 h-4" />}
+                  {tierKey === 'silver' && <Star className="w-4 h-4" />}
+                  {tierKey === 'gold' && <Trophy className="w-4 h-4" />}
+                  {tierKey === 'platinum' && <Crown className="w-4 h-4" />}
+                  {tierKey === 'diamond' && <Diamond className="w-4 h-4" />}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-medium text-sm">{item.title}</h4>
-                  <p className="text-xs text-muted-foreground mt-1">{item.description}</p>
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-base capitalize">{tier.name}</h4>
+                    <Badge variant="success" className="text-xs">
+                      Available
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Investment Required: £{tier.investment.toLocaleString()} ({tier.available} available)
+                  </p>
+                  <div className="space-y-1">
+                    {tier.benefits.map((benefit, index) => (
+                      <div key={index} className="flex items-center gap-2 text-sm">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                        <span>{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                {item.available && (
-                  <Badge variant="success" className="text-xs">
-                    Available
-                  </Badge>
-                )}
               </div>
             </div>
           ))}
         </div>
-        
       </CardContent>
     </Card>
   );

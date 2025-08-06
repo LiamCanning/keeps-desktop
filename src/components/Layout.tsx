@@ -14,12 +14,17 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const assets = [
-    { name: "Liverpool FC", path: "/deal/liverpoolfc" },
-    { name: "McLaren F1", path: "/deal/mclarenf1" },
-    { name: "Ryder Cup", path: "/deal/rydercup" }
+    { name: "Liverpool FC", path: "/deal/liverpool-fc" },
+    { name: "McLaren F1", path: "/deal/mclaren-f1" },
+    { name: "Ryder Cup", path: "/deal/ryder-cup" }
   ];
+
+  const filteredAssets = assets.filter(asset =>
+    asset.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleSearch = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && searchQuery.trim()) {
@@ -29,8 +34,15 @@ export function Layout({ children }: LayoutProps) {
       if (asset) {
         navigate(asset.path);
         setSearchQuery("");
+        setShowDropdown(false);
       }
     }
+  };
+
+  const handleAssetSelect = (asset: typeof assets[0]) => {
+    navigate(asset.path);
+    setSearchQuery("");
+    setShowDropdown(false);
   };
 
   return (
@@ -47,16 +59,35 @@ export function Layout({ children }: LayoutProps) {
                   <Menu className="w-5 h-5" />
                 </SidebarTrigger>
                 
-                <div className="flex items-center gap-2 flex-1 max-w-4xl">
-                  <div className="relative flex-1">
+                <div className="flex items-center gap-2 flex-1 max-w-full">
+                  <div className="relative flex-1 max-w-2xl">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input 
-                      placeholder="search sports assets Liverpool FC, McLaren F1, Ryder Cup" 
+                      placeholder="search sports assets" 
                       className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground w-full"
                       value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onChange={(e) => {
+                        setSearchQuery(e.target.value);
+                        setShowDropdown(e.target.value.length > 0);
+                      }}
                       onKeyDown={handleSearch}
+                      onFocus={() => setShowDropdown(searchQuery.length > 0)}
+                      onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
                     />
+                    
+                    {showDropdown && filteredAssets.length > 0 && (
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-md shadow-lg z-50">
+                        {filteredAssets.map((asset) => (
+                          <button
+                            key={asset.path}
+                            className="w-full px-4 py-2 text-left hover:bg-accent hover:text-accent-foreground text-card-foreground"
+                            onClick={() => handleAssetSelect(asset)}
+                          >
+                            {asset.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

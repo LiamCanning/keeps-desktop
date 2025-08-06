@@ -55,7 +55,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Mike Rodriguez",
       username: "f1mike",
-      avatar: mikeAvatar,
+      avatar: f1FanAvatar,
       verified: false
     },
     content: "McLaren's technology centre tour was INSANE! Meeting the engineers and seeing the cars up close through my Platinum tier benefits. The income sharing returns are outperforming expectations too! 🏎️ #McLarenRacing",
@@ -69,7 +69,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Emma Thompson",
       username: "golf_emma",
-      avatar: emmaAvatar, 
+      avatar: golfFanAvatar, 
       verified: true
     },
     content: "Ryder Cup debentures are 90% funded already! The exclusive access to tournaments and pro-am events through the Gold tier is worth every penny. Plus the annual strategic briefings give real insight into golf's future ⛳️",
@@ -83,7 +83,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Alex Chen",
       username: "alexc_sports",
-      avatar: liverpoolFanAvatar,
+      avatar: alexAvatar,
       verified: false
     },
     content: "The Bronze tier community forum is already so valuable - connecting with other investors and getting monthly newsletters with exclusive insights. Amazing how even the entry level benefits deliver real value! 📈",

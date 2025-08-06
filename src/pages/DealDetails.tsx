@@ -280,17 +280,6 @@ export default function DealDetails() {
             </CardContent>
           </Card>
 
-          {/* Benefits Overview */}
-          <Card className="card-professional">
-            <CardHeader>
-              <CardTitle>Benefits Tiers</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <BenefitsTiers 
-                asset={dealId?.replace('-fc', '').replace('-f1', '').replace('-cup', 'cup') as 'liverpool' | 'mclaren' | 'rydercup'} 
-              />
-            </CardContent>
-          </Card>
 
           {/* Security Notice */}
           <Card className="card-professional">
