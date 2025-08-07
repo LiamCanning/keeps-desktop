@@ -54,7 +54,7 @@ const assets: Asset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
@@ -67,8 +67,8 @@ const assets: Asset[] = [
   },
   {
     id: "hexagon-cup",
-    name: "Hexagon Fan Team",
-    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
+    name: "Hexagon Cup",
+    logo: "/lovable-uploads/6e897916-7050-40ca-a142-0d028232a4b7.png",
     banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Prestigious multi-sport tournament featuring international competition with growing global viewership and sponsorship opportunities.",
@@ -82,7 +82,7 @@ const assets: Asset[] = [
   {
     id: "cardiff-city",
     name: "Cardiff City",
-    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
+    logo: "/lovable-uploads/32e5079c-7a6a-4a36-9545-a4faa7411f89.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",
@@ -96,7 +96,7 @@ const assets: Asset[] = [
   {
     id: "ohio-state",
     name: "Ohio State",
-    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
+    logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png",
     banner: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Elite American university athletics programme with massive revenue potential and nationwide following across multiple sports.",
@@ -121,7 +121,7 @@ function AssetCard({ asset }: { asset: Asset }) {
             <OptimizedImage
               src={asset.logo}
               alt={`${asset.name} logo`}
-              className={asset.name === "Hexagon Fan Team" ? "w-16 h-16 object-contain mx-auto" : "w-24 h-24 object-contain mx-auto"}
+              className={asset.name === "McLaren Racing" ? "w-20 h-20 object-contain mx-auto" : asset.name === "Hexagon Cup" ? "w-16 h-16 object-contain mx-auto" : "w-24 h-24 object-contain mx-auto"}
             />
           </div>
           <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"} className="shadow-md">

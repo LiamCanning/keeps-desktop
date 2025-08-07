@@ -46,6 +46,8 @@ import PersonalInformation from "./pages/PersonalInformation";
 import PaymentMethods from "./pages/PaymentMethods";
 import DocumentsVerification from "./pages/DocumentsVerification";
 import ConnectedDevices from "./pages/ConnectedDevices";
+import PortfolioPerformance from "./pages/PortfolioPerformance";
+import InvestmentHistory from "./pages/InvestmentHistory";
 
 const queryClient = new QueryClient();
 
@@ -98,6 +100,9 @@ const App = () => (
           <Route path="/payment-methods" element={<PaymentMethods />} />
           <Route path="/documents-verification" element={<DocumentsVerification />} />
           <Route path="/connected-devices" element={<ConnectedDevices />} />
+          <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
+          <Route path="/investment-history" element={<InvestmentHistory />} />
+          <Route path="/community-profile" element={<CommunityProfile />} />
           <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

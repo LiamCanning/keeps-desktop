@@ -54,7 +54,7 @@ const assets: { [key: string]: Asset } = {
     name: "Ryder Cup",
     type: "Tournament Investment",
     pricePerShare: 750,
-    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     currency: "GBP", 
     description: "Golf tournament revenue sharing and hospitality access",
     minInvestment: 750,

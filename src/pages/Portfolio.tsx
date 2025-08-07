@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     investment: "£15,000",
     shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
@@ -73,7 +73,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "4",
     name: "Ohio State",
-    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
+    logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png",
     investment: "£10,000",
     shares: "10 (£1000 per share)",
     purchaseDate: "01/07/2025",

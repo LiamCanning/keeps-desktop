@@ -44,7 +44,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     totalShares: 3,
     purchasePrice: 5000,
     currentPrice: 5935,

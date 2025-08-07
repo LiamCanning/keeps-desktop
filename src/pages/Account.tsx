@@ -210,19 +210,19 @@ export default function Account() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/benefits'}>
                   <Building2 className="w-4 h-4 mr-2" />
                   View Benefits
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/portfolio-performance'}>
                   <CreditCard className="w-4 h-4 mr-2" />
                   Portfolio Performance
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/investment-history'}>
                   <FileText className="w-4 h-4 mr-2" />
                   Investment History
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/community-profile'}>
                   <Smartphone className="w-4 h-4 mr-2" />
                   Community Profile
                 </Button>
