@@ -26,35 +26,35 @@ const benefits: Benefit[] = [
   {
     id: "2",
     team: "McLaren F1",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     status: "live",
     description: "Behind-the-scenes access to McLaren Technology Centre, paddock club experiences, and exclusive meetings with drivers and team management."
   },
   {
     id: "3",
     team: "Ryder Cup",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ryder-cup-logo.png",
     status: "live",
     description: "Premium tournament access, commemorative merchandise, and exclusive dining experiences with golf's most prestigious team tournament."
   },
   {
     id: "4",
     team: "Cardiff City FC",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/cardiff-city-logo.png",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase offering premium match experiences, player meet & greets, and exclusive Cardiff City Stadium access."
   },
   {
     id: "5",
     team: "Hexagon Cup",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
     status: "coming-soon",
     description: "Prestigious multi-sport tournament featuring exclusive access to international competitions, VIP hospitality, and athlete interactions."
   },
   {
     id: "6",
     team: "Ohio State",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ohio-state-logo.png",
     status: "coming-soon",
     description: "Elite American university athletics programme offering premium game experiences, campus access, and exclusive Buckeyes community benefits."
   }

@@ -56,7 +56,7 @@ const marketListings: MarketListing[] = [
   {
     id: "3",
     asset: "McLaren Racing",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     seller: "RacingFan22",
     quantity: 20,
     pricePerUnit: "£1,200",
@@ -70,7 +70,7 @@ const marketListings: MarketListing[] = [
   {
     id: "4",
     asset: "McLaren Racing",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     seller: "F1Investor", 
     quantity: 15,
     pricePerUnit: "£1,180",
@@ -84,7 +84,7 @@ const marketListings: MarketListing[] = [
   {
     id: "5",
     asset: "Ryder Cup",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ryder-cup-logo.png",
     seller: "GolfPro",
     quantity: 1,
     pricePerUnit: "£5,935",
@@ -98,7 +98,7 @@ const marketListings: MarketListing[] = [
   {
     id: "6",
     asset: "Ryder Cup",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ryder-cup-logo.png",
     seller: "GolfFan88",
     quantity: 2,
     pricePerUnit: "£5,850",
@@ -430,7 +430,7 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/placeholder.svg"
+                      src="src/assets/logos/ohio-state-logo.png"
                       alt="Ohio State Buckeyes"
                       size="lg"
                     />
@@ -461,7 +461,7 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/placeholder.svg"
+                      src="src/assets/logos/cardiff-city-logo.png"
                       alt="Cardiff City FC"
                       size="lg"
                     />
@@ -492,8 +492,8 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/placeholder.svg"
-                      alt="Exeter Chiefs"
+                      src="/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
+                      alt="Hexagon Cup"
                       size="lg"
                     />
                      <div>

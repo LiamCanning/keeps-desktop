@@ -43,7 +43,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "2",
     name: "McLaren Racing",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     investment: "£200,000",
     shares: "200 (£1000 per share)",
     purchaseDate: "10/07/2025",
@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ryder-cup-logo.png",
     investment: "£15,000",
     shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
@@ -73,7 +73,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "4",
     name: "Ohio State",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ohio-state-logo.png",
     investment: "£10,000",
     shares: "10 (£1000 per share)",
     purchaseDate: "01/07/2025",

@@ -35,7 +35,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "mclaren-f1",
     name: "McLaren Racing",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     totalShares: 200,
     purchasePrice: 1000,
     currentPrice: 1220,
@@ -44,7 +44,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ryder-cup-logo.png",
     totalShares: 3,
     purchasePrice: 5000,
     currentPrice: 5935,

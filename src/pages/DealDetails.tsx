@@ -29,7 +29,7 @@ const deals = {
   "mclaren-f1": {
     id: "2",
     name: "McLaren F1",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     title: "McLaren Racing Technology Development",
     type: "ISA Investment",
     amount: "£50,000,000",
@@ -48,7 +48,7 @@ const deals = {
   "ryder-cup": {
     id: "3",
     name: "Ryder Cup",
-    logo: "/placeholder.svg",
+    logo: "src/assets/logos/ryder-cup-logo.png",
     title: "Ryder Cup 2025 Debenture Programme",
     type: "Debenture Programme",
     amount: "£42,500,000",
