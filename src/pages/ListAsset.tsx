@@ -26,7 +26,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     totalShares: 50,
     purchasePrice: 500,
     currentPrice: 575,
@@ -254,14 +254,14 @@ export default function ListAsset() {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors opacity-50">
-                      <RadioGroupItem value="auction" id="auction" disabled />
+                    <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
+                      <RadioGroupItem value="auction" id="auction" />
                       <div className="flex-1">
                         <label htmlFor="auction" className="font-medium cursor-pointer">
                           Auction Sale
                         </label>
                         <p className="text-sm text-muted-foreground">
-                          Let investors bid on your shares (Coming Soon)
+                          Let investors bid on your shares
                         </p>
                       </div>
                     </div>

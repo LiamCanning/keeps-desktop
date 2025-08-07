@@ -167,8 +167,17 @@ function InvestmentCard({ investment }: { investment: Investment }) {
       <CardContent className="p-6 space-y-4">
         {/* Asset Name, Amount, and Type */}
         <div className="space-y-2 border-b border-border pb-4">
-          <h3 className="text-2xl font-bold text-card-foreground">{investment.name}</h3>
-          <p className="text-xl font-semibold text-primary">{investment.amount}</p>
+          <div className="flex items-center gap-3">
+            <img 
+              src={investment.logo}
+              alt={investment.name}
+              className="w-8 h-8 object-contain"
+            />
+            <div>
+              <h3 className="text-2xl font-bold text-card-foreground">{investment.name}</h3>
+              <p className="text-xl font-semibold text-primary">{investment.amount}</p>
+            </div>
+          </div>
           <p className="text-sm text-muted-foreground">{investment.type}</p>
         </div>
         
