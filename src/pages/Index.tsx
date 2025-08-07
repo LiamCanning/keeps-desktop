@@ -94,40 +94,31 @@ export default function Index() {
             {featuredDeals.map((deal) => (
               <Card 
                 key={deal.id} 
-                className="card-professional group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
+                className="card-professional group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden h-[520px]"
                 onClick={() => navigate(`/assets/${deal.id}`)}
               >
-                {/* Image Header */}
-                <div className="h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border-b">
+                {/* Image Header - Logo Only */}
+                <div className="h-56 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border-b">
                   <img 
                     src={deal.logo} 
                     alt={`${deal.name} logo`}
-                    className="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
+                    className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 
-                {/* Content Box */}
-                <div className="p-6 space-y-4 bg-white">
-                  {/* Asset Name and Amount */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <img 
-                        src={deal.logo} 
-                        alt={`${deal.name} logo`}
-                        className="w-10 h-10 object-contain"
-                      />
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                          {deal.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">{deal.type}</p>
-                      </div>
-                    </div>
+                {/* Content Box - All Text Content */}
+                <div className="p-6 space-y-4 bg-white flex-1 flex flex-col">
+                  {/* Asset Name and Type */}
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {deal.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground font-medium">{deal.type}</p>
                   </div>
                   
-                  {/* Amount and Entry */}
-                  <div className="text-center space-y-2 py-3 bg-gradient-to-r from-muted/20 to-muted/10 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">{deal.amount}</div>
+                  {/* Amount */}
+                  <div className="text-center space-y-2 py-4 bg-gradient-to-r from-muted/20 to-muted/10 rounded-lg">
+                    <div className="text-3xl font-bold text-primary">{deal.amount}</div>
                     <div className="text-sm text-muted-foreground">Target Raise</div>
                   </div>
                   
@@ -157,7 +148,7 @@ export default function Index() {
 
                   {/* Action Button */}
                   <Button 
-                    className="w-full btn-invest group-hover:scale-[1.02] transition-transform"
+                    className="w-full btn-invest group-hover:scale-[1.02] transition-transform mt-auto"
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/assets/${deal.id}`);
