@@ -19,44 +19,44 @@ export default function AssetDetails() {
       case "liverpool-fc":
         return {
           name: "Liverpool FC",
-          description: "Own a stake in one of the world's most successful football clubs with global reach and consistent performance.",
+          description: "Fund the expansion of Anfield stadium capacity from 54,000 to 75,000 seats, creating additional premium hospitality and enhanced fan experiences.",
           minInvestment: "£500",
           expectedReturn: "8-12%",
-          fundingProgress: 85,
-          totalFunding: "£50M",
+          fundingProgress: 75,
+          totalFunding: "£40M",
           category: "Equity",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
-          investmentThesis: "Liverpool FC represents a unique opportunity to invest in Premier League excellence. With 6 European Cups, 19 League titles, and a global fanbase of 580 million supporters, Liverpool offers unparalleled brand value and revenue diversification through broadcasting, commercial partnerships, and matchday revenues.",
-          detailedAnalysis: "Liverpool's financial performance shows consistent growth with revenue reaching £594m in 2023. The club's strategic investments in Anfield expansion, player development, and global marketing initiatives position it for long-term value creation. The Premier League's £5bn broadcast deal and Liverpool's Champions League qualification history provide stable income streams."
+          logo: "/src/assets/brands/liverpool-fc-logo.png",
+          investmentThesis: "Liverpool FC represents a unique opportunity to invest in Premier League excellence through direct equity participation. With 6 European Cups, 19 League titles, and a global fanbase of 580 million supporters, Liverpool offers unparalleled brand value. The Anfield expansion project will generate additional matchday revenue of £15-20M annually through premium seating, hospitality packages, and increased general admission capacity. Revenue diversification through broadcasting rights (£150M+ annually), commercial partnerships, and player trading provides multiple income streams.",
+          detailedAnalysis: "Liverpool's financial performance shows consistent growth with revenue reaching £594m in 2023. The Anfield expansion represents a strategic investment in long-term revenue generation, with premium hospitality commanding £200-400 per match and general admission generating £35-50 per seat. The club's Champions League qualification rate of 80% over the past decade ensures European competition revenue. Player asset appreciation has averaged 15% annually, with key signings like Salah (£37M) now valued at £80M+. The Premier League's new £5bn broadcast deal guarantees minimum £100M annually regardless of league position."
         };
-      case "mclaren-racing":
+      case "mclaren-f1":
         return {
           name: "McLaren Racing",
-          description: "Invest in Formula 1 excellence with McLaren's racing team, technology innovation, and global partnerships.",
+          description: "Income sharing agreement providing direct participation in McLaren F1's commercial success, technology development, and global racing operations.",
           minInvestment: "£1,000",
           expectedReturn: "10-15%",
           fundingProgress: 92,
-          totalFunding: "£100M",
+          totalFunding: "£50M",
           category: "Income Sharing Agreement",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
-          investmentThesis: "McLaren Racing offers exposure to Formula 1's fastest-growing revenue streams through an income sharing agreement. With F1's global viewership reaching 1.5 billion fans and the sport's expansion into new markets, McLaren's heritage brand and competitive performance create compelling investment returns.",
-          detailedAnalysis: "McLaren's revenue sharing model provides direct participation in F1's commercial success including TV rights, sponsorship deals, and prize money. The team's technology partnerships with Mercedes and strategic alliances with luxury brands drive additional revenue streams beyond racing performance."
+          logo: "/src/assets/brands/mclaren-logo.png",
+          investmentThesis: "McLaren Racing offers exposure to Formula 1's fastest-growing revenue streams through a structured income sharing agreement. With F1's global viewership reaching 1.5 billion fans and the sport's expansion into new markets (Las Vegas, Miami, Saudi Arabia), McLaren's 60-year heritage and current competitive performance create compelling investment returns. Income sharing participants receive proportional returns from prize money, sponsorship deals, technology licensing, and McLaren's automotive partnerships. The agreement provides exposure to F1's $3bn annual revenue pool with McLaren typically capturing 8-12% market share.",
+          detailedAnalysis: "McLaren's income sharing model provides direct participation in multiple revenue streams: Prize money (£80-120M annually based on championship position), primary sponsorships (£40M+ from key partners), technology licensing to automotive sector (£15M annually), and hospitality/merchandise (£25M annually). The team's Mercedes power unit partnership ensures competitive performance while F1's cost cap regulations create more level competition field. McLaren's 2024 constructor championship challenge demonstrates renewed competitiveness, with higher championship positions yielding exponentially higher prize money distributions."
         };
       case "ryder-cup":
         return {
           name: "Ryder Cup",
-          description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
-          minInvestment: "£1,000",
+          description: "Secured debenture investment in golf's most prestigious biennial team tournament, providing guaranteed annual returns plus exclusive tournament access and hospitality rights.",
+          minInvestment: "£2,500",
           expectedReturn: "5% + Principal",
           fundingProgress: 90,
           totalFunding: "£42.5M",
           category: "Debentures",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
-          investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament. With guaranteed 5% annual returns plus full principal repayment, this investment provides stable income backed by the tournament's established revenue model and global broadcasting rights.",
-          detailedAnalysis: "The Ryder Cup generates over £100m in economic impact per event with corporate hospitality commanding premium prices. Debenture holders receive priority access to all tournament tickets, exclusive hospitality areas, and potential capital appreciation through the secondary debenture market."
+          logo: "/src/assets/logos/ryder-cup-logo.png",
+          investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament with guaranteed financial returns and unparalleled access benefits. Each debenture provides 5% annual coupon payments plus full principal repayment after the 10-year term. The investment is backed by the tournament's established revenue model including global broadcasting rights (£200M+ per event), corporate hospitality (£50M+ per event), and merchandise sales. Debenture holders receive priority access to all tournament rounds, exclusive hospitality areas, practice round access, and transferable benefits. The secondary debenture market has shown consistent appreciation with 2023 trades at 15-20% premiums to face value.",
+          detailedAnalysis: "The Ryder Cup generates over £150M in direct economic impact per event with corporate hospitality packages selling for £2,000-5,000 per person. Debentures are secured against tournament assets and revenue streams, providing downside protection unavailable in traditional sports investments. The biennial format creates scarcity value while alternating European/US venues ensure global market demand. Historical data shows 100% repayment rate for golf tournament debentures with average annual returns of 6-8% including capital appreciation. 2025 debentures include access to Bethpage Black (NY) with 2027 rights to European venue TBD."
         };
       default:
         return {
@@ -87,29 +87,50 @@ export default function AssetDetails() {
       </Button>
       
       {/* Hero Section */}
-      <Card className="p-6 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
-        <div className="flex items-center gap-6">
-          {asset.logo && (
-            <img 
-              src={asset.logo}
-              alt={`${asset.name} logo`}
-              className="w-20 h-20 object-contain rounded-lg bg-white/50 p-2"
-            />
-          )}
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-2">
-              <h1 className="text-3xl font-bold text-gradient">{asset.name}</h1>
-              <Badge variant="success" className="text-sm">Live</Badge>
-            </div>
-            <p className="text-lg text-muted-foreground mb-4">{asset.description}</p>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1">
-                <Building className="w-4 h-4" />
-                <span>{asset.category}</span>
+      <Card className="p-8 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+        <div className="space-y-6">
+          <div className="flex items-center gap-6">
+            {asset.logo && (
+              <img 
+                src={asset.logo}
+                alt={`${asset.name} logo`}
+                className="w-20 h-20 object-contain rounded-lg bg-white/50 p-2"
+              />
+            )}
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                <h1 className="text-3xl font-bold text-gradient">{asset.name}</h1>
+                <Badge variant="success" className="text-sm">Live</Badge>
               </div>
-              <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                <span>Launch: {asset.launchDate}</span>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <Building className="w-4 h-4" />
+                  <span>{asset.category}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  <span>Launch: {asset.launchDate}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Investment Overview Section */}
+          <div className="p-6 bg-white/50 backdrop-blur-sm rounded-xl border border-primary/20">
+            <h2 className="text-xl font-bold mb-4 text-foreground">Investment Overview</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">{asset.description}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border">
+                <div className="text-sm text-muted-foreground">Investment Type</div>
+                <div className="font-bold text-lg text-primary">{asset.category}</div>
+              </div>
+              <div className="p-3 bg-gradient-to-br from-success/10 to-success/5 rounded-lg border">
+                <div className="text-sm text-muted-foreground">Expected Returns</div>
+                <div className="font-bold text-lg text-success">{asset.expectedReturn}</div>
+              </div>
+              <div className="p-3 bg-gradient-to-br from-warning/10 to-warning/5 rounded-lg border">
+                <div className="text-sm text-muted-foreground">Min. Investment</div>
+                <div className="font-bold text-lg text-warning">{asset.minInvestment}</div>
               </div>
             </div>
           </div>

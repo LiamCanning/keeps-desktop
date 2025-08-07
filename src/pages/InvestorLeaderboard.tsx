@@ -93,6 +93,76 @@ const topInvestors: Investor[] = [
     assetsOwned: 7,
     joinDate: "May 2024",
     location: "Barcelona, ES"
+  },
+  {
+    id: "6",
+    name: "Mike Johnson",
+    avatar: "/src/assets/avatars/mike-avatar.png",
+    totalInvested: "£875,000",
+    portfolioValue: "£1,032,500",
+    returns: "+£157,500",
+    returnPercent: 18.0,
+    rank: 6,
+    tier: "Platinum",
+    assetsOwned: 5,
+    joinDate: "Jun 2024",
+    location: "Toronto, CA"
+  },
+  {
+    id: "7",
+    name: "Liverpool Fan",
+    avatar: "/src/assets/avatars/liverpool-fan-avatar.png",
+    totalInvested: "£750,000",
+    portfolioValue: "£870,000",
+    returns: "+£120,000",
+    returnPercent: 16.0,
+    rank: 7,
+    tier: "Gold",
+    assetsOwned: 4,
+    joinDate: "Apr 2024",
+    location: "Liverpool, UK"
+  },
+  {
+    id: "8",
+    name: "F1 Enthusiast",
+    avatar: "/src/assets/avatars/f1-fan-avatar.png",
+    totalInvested: "£625,000",
+    portfolioValue: "£718,750",
+    returns: "+£93,750",
+    returnPercent: 15.0,
+    rank: 8,
+    tier: "Gold",
+    assetsOwned: 3,
+    joinDate: "May 2024",
+    location: "Monaco"
+  },
+  {
+    id: "9",
+    name: "Golf Fan Pro",
+    avatar: "/src/assets/avatars/golf-fan-avatar.png",
+    totalInvested: "£500,000",
+    portfolioValue: "£570,000",
+    returns: "+£70,000",
+    returnPercent: 14.0,
+    rank: 9,
+    tier: "Gold",
+    assetsOwned: 2,
+    joinDate: "Jun 2024",
+    location: "Augusta, US"
+  },
+  {
+    id: "10",
+    name: "Liam Canning",
+    avatar: "/src/assets/liam-avatar.png",
+    totalInvested: "£425,000",
+    portfolioValue: "£480,250",
+    returns: "+£55,250",
+    returnPercent: 13.0,
+    rank: 10,
+    tier: "Gold",
+    assetsOwned: 4,
+    joinDate: "Jul 2024",
+    location: "Dublin, IE"
   }
 ];
 
@@ -179,10 +249,13 @@ export default function InvestorLeaderboard() {
   return (
     <div className="space-y-6 p-6 max-w-7xl mx-auto">
       {/* Navigation */}
-      <div className="flex items-center gap-4">
-        <Button variant="ghost" onClick={() => navigate(-1)}>
+      <div className="flex items-center justify-between">
+        <Button variant="ghost" onClick={() => navigate('/')}>
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back
+          Back to Dashboard
+        </Button>
+        <Button variant="outline" onClick={() => navigate('/assets')}>
+          View Assets
         </Button>
       </div>
 
@@ -474,13 +547,24 @@ export default function InvestorLeaderboard() {
             <Card className="card-professional">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Medal className="w-5 h-5 text-blue-500" />
+                  <Medal className="w-5 h-5 text-yellow-600" />
                   Gold Tier
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-center py-8">
-                  <p className="text-muted-foreground">No Gold tier investors in top rankings</p>
+                <div className="space-y-4">
+                  {topInvestors.filter(i => i.tier === "Gold").map((investor) => (
+                    <div key={investor.id} className="flex items-center gap-3 p-3 bg-gradient-to-r from-yellow-600/10 to-yellow-700/5 rounded-lg">
+                      <Avatar className="h-10 w-10">
+                        <AvatarImage src={investor.avatar} alt={investor.name} />
+                        <AvatarFallback>{investor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1">
+                        <p className="font-semibold text-sm">{investor.name}</p>
+                        <p className="text-xs text-muted-foreground">{investor.portfolioValue}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>

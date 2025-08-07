@@ -261,8 +261,8 @@ export default function OrganisationDashboard() {
             </CardContent>
           </Card>
 
-          {/* New Investor Performance Section - Made landscape */}
-          <Card className="card-professional lg:col-span-2">
+          {/* Investor Performance Section - Made landscape to match Recent Activity */}
+          <Card className="card-professional lg:col-span-1">
             <CardHeader>
               <CardTitle className="text-xl flex items-center gap-2">
                 <TrendingUp className="w-5 h-5" />
@@ -270,41 +270,57 @@ export default function OrganisationDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-4 gap-4">
-                <div className="p-4 bg-gradient-to-r from-success/10 to-success/5 rounded-lg border border-success/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="font-medium text-success">Retention Rate</span>
+              <div className="space-y-3">
+                <div className="p-3 bg-gradient-to-r from-success/10 to-success/5 rounded-lg border border-success/20">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-2 h-2 bg-success rounded-full"></div>
+                        <span className="font-medium text-success text-sm">Retention Rate</span>
+                      </div>
+                      <p className="text-xl font-bold">92.4%</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground">12-month retention</p>
                   </div>
-                  <p className="text-2xl font-bold">92.4%</p>
-                  <p className="text-xs text-muted-foreground">12-month investor retention</p>
                 </div>
                 
-                <div className="p-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="font-medium text-primary">Avg Investment</span>
+                <div className="p-3 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span className="font-medium text-primary text-sm">Avg Investment</span>
+                      </div>
+                      <p className="text-xl font-bold">£84K</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Per investor</p>
                   </div>
-                  <p className="text-2xl font-bold">£84K</p>
-                  <p className="text-xs text-muted-foreground">Per investor</p>
                 </div>
                 
-                <div className="p-4 bg-gradient-to-r from-warning/10 to-warning/5 rounded-lg border border-warning/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-warning rounded-full"></div>
-                    <span className="font-medium text-warning">Engagement Score</span>
+                <div className="p-3 bg-gradient-to-r from-warning/10 to-warning/5 rounded-lg border border-warning/20">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-2 h-2 bg-warning rounded-full"></div>
+                        <span className="font-medium text-warning text-sm">Engagement Score</span>
+                      </div>
+                      <p className="text-xl font-bold">8.7/10</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Platform engagement</p>
                   </div>
-                  <p className="text-2xl font-bold">8.7/10</p>
-                  <p className="text-xs text-muted-foreground">Platform engagement</p>
                 </div>
                 
-                <div className="p-4 bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg border border-accent/20">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-accent rounded-full"></div>
-                    <span className="font-medium">ROI Satisfaction</span>
+                <div className="p-3 bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg border border-accent/20">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-2 h-2 bg-accent rounded-full"></div>
+                        <span className="font-medium text-sm">ROI Satisfaction</span>
+                      </div>
+                      <p className="text-xl font-bold">94%</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Satisfied with returns</p>
                   </div>
-                  <p className="text-2xl font-bold">94%</p>
-                  <p className="text-xs text-muted-foreground">Satisfied with returns</p>
                 </div>
               </div>
             </CardContent>

@@ -53,7 +53,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary/10 to-accent/10 py-20">
+      <section className="relative py-20">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-6 max-w-4xl mx-auto">
             <Badge variant="success" className="text-lg px-6 py-2">
@@ -69,7 +69,7 @@ export default function Index() {
               Own a piece of legendary teams and tournaments. Access exclusive benefits while building your sports investment portfolio.
             </p>
             <div className="flex items-center justify-center gap-4 pt-4">
-              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/dashboard')}>
+              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/')}>
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Start Investing
               </Button>
@@ -91,6 +91,24 @@ export default function Index() {
             </p>
           </div>
 
+          {/* Image Hero Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+            {featuredDeals.map((deal) => (
+              <div key={deal.id} className="text-center">
+                <div className="p-6 bg-white rounded-2xl shadow-lg border mb-4 hover:shadow-xl transition-all duration-300">
+                  <img 
+                    src={deal.logo} 
+                    alt={`${deal.name} logo`}
+                    className="w-24 h-24 mx-auto object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">{deal.name}</h3>
+                <p className="text-sm text-muted-foreground">{deal.type}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Deal Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {featuredDeals.map((deal) => (
               <Card 
@@ -98,56 +116,43 @@ export default function Index() {
                 className="card-professional group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
                 onClick={() => navigate(`/assets/${deal.id}`)}
               >
-                <div className="p-6 space-y-6">
-                  {/* Asset Header */}
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-white rounded-xl shadow-sm border">
-                      <img 
-                        src={deal.logo} 
-                        alt={`${deal.name} logo`}
-                        className="w-12 h-12 object-contain"
-                      />
+                <div className="p-6 space-y-4">
+                  {/* Investment Title */}
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                      {deal.title}
+                    </h3>
+                    <Badge variant="success" className="mb-3">Live Investment</Badge>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {deal.description}
+                    </p>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-3 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg">
+                      <div className="text-sm text-muted-foreground">Target Amount</div>
+                      <div className="font-bold text-lg text-primary">{deal.amount}</div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                        {deal.name}
-                      </h3>
-                      <Badge variant="success" className="mt-1">Live Investment</Badge>
+                    <div className="p-3 bg-gradient-to-br from-success/5 to-success/10 rounded-lg">
+                      <div className="text-sm text-muted-foreground">Min. Entry</div>
+                      <div className="font-bold text-lg text-success">{deal.minEntry}</div>
                     </div>
                   </div>
 
-                  {/* Investment Details */}
-                  <div className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {deal.description}
-                    </p>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg">
-                        <div className="text-sm text-muted-foreground">Target Amount</div>
-                        <div className="font-bold text-lg text-primary">{deal.amount}</div>
-                      </div>
-                      <div className="p-3 bg-gradient-to-br from-success/5 to-success/10 rounded-lg">
-                        <div className="text-sm text-muted-foreground">Min. Entry</div>
-                        <div className="font-bold text-lg text-success">{deal.minEntry}</div>
-                      </div>
+                  <div className="p-3 bg-muted/20 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium">Investment Progress</span>
+                      <span className="text-sm text-muted-foreground">{deal.progress}%</span>
                     </div>
-
-                    <div className="p-3 bg-muted/20 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium">Investment Progress</span>
-                        <span className="text-sm text-muted-foreground">{deal.progress}%</span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2">
-                        <div 
-                          className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full transition-all duration-1000"
-                          style={{ width: `${deal.progress}%` }}
-                        />
-                      </div>
-                      <div className="flex justify-between items-center mt-2 text-xs text-muted-foreground">
-                        <span>{deal.investors} investors</span>
-                        <span>{deal.type}</span>
-                      </div>
+                    <div className="w-full bg-muted rounded-full h-2">
+                      <div 
+                        className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full transition-all duration-1000"
+                        style={{ width: `${deal.progress}%` }}
+                      />
+                    </div>
+                    <div className="flex justify-between items-center mt-2 text-xs text-muted-foreground">
+                      <span>{deal.investors} investors</span>
+                      <span>{deal.type}</span>
                     </div>
                   </div>
 
@@ -222,7 +227,7 @@ export default function Index() {
               Join thousands of investors already backing the world's greatest sports assets
             </p>
             <div className="flex items-center justify-center gap-4 pt-4">
-              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/dashboard')}>
+              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/')}>
                 <Star className="w-5 h-5 mr-2" />
                 View Live Deals
               </Button>
