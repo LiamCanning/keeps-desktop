@@ -42,12 +42,12 @@ const liveDeals: Investment[] = [
     name: "McLaren F1",
     logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     amount: "£50,000,000",
-    type: "ISA",
+    type: "Income Sharing Agreement",
     progress: 70,
     investors: "8,750",
     timeRemaining: "2 weeks",
     status: "live",
-    dividendPotential: "6-12% annually",
+    dividendPotential: "7% annually",
     tier: "Diamond"
   },
   {
@@ -76,7 +76,7 @@ const comingSoonDeals: Investment[] = [
     investors: "0",
     timeRemaining: "1 day",
     status: "coming-soon",
-    dividendPotential: "8% annual dividends from stadium revenues",
+    dividendPotential: "10% of future stadium revenues",
     tier: "Bronze"
   },
   {
@@ -89,12 +89,12 @@ const comingSoonDeals: Investment[] = [
     investors: "0", 
     timeRemaining: "2 weeks",
     status: "coming-soon",
-    dividendPotential: "12% annual dividends from club profits",
+    dividendPotential: "10% equity stake",
     tier: "Silver"
   },
   {
     id: "6",
-    name: "Hexagon Cup",
+    name: "Hexagon Fan Team",
     logo: "/lovable-uploads/6e897916-7050-40ca-a142-0d028232a4b7.png",
     amount: "£1,250,000",
     type: "Equity", 
@@ -102,7 +102,7 @@ const comingSoonDeals: Investment[] = [
     investors: "0",
     timeRemaining: "3 weeks",
     status: "coming-soon",
-    dividendPotential: "15% annual returns from tournament winnings",
+    dividendPotential: "75% equity in Hexagon Fan Team",
     tier: "Platinum"
   }
 ];

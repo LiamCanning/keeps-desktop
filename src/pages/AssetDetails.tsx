@@ -7,11 +7,13 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { EarlyAccessModal } from "@/components/EarlyAccessModal";
 
 export default function AssetDetails() {
   const { assetId } = useParams<{ assetId: string }>();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("overview");
+  const [showEarlyAccess, setShowEarlyAccess] = useState(false);
   
   // Mock asset data based on assetId
   const getAssetData = (id: string) => {
@@ -21,7 +23,7 @@ export default function AssetDetails() {
           name: "Liverpool FC",
           description: "Fund the expansion of Anfield stadium capacity from 54,000 to 75,000 seats, creating additional premium hospitality and enhanced fan experiences.",
           minInvestment: "£500",
-          expectedReturn: "8-12%",
+          expectedReturn: "4-8%",
           fundingProgress: 75,
           totalFunding: "£40M",
           category: "Equity",
@@ -30,25 +32,25 @@ export default function AssetDetails() {
           investmentThesis: "Liverpool FC represents a unique opportunity to invest in Premier League excellence through direct equity participation. With 6 European Cups, 19 League titles, and a global fanbase of 580 million supporters, Liverpool offers unparalleled brand value. The Anfield expansion project will generate additional matchday revenue of £15-20M annually through premium seating, hospitality packages, and increased general admission capacity. Revenue diversification through broadcasting rights (£150M+ annually), commercial partnerships, and player trading provides multiple income streams.",
           detailedAnalysis: "Liverpool's financial performance shows consistent growth with revenue reaching £594m in 2023. The Anfield expansion represents a strategic investment in long-term revenue generation, with premium hospitality commanding £200-400 per match and general admission generating £35-50 per seat. The club's Champions League qualification rate of 80% over the past decade ensures European competition revenue. Player asset appreciation has averaged 15% annually, with key signings like Salah (£37M) now valued at £80M+. The Premier League's new £5bn broadcast deal guarantees minimum £100M annually regardless of league position."
         };
-      case "mclaren-f1":
+      case "mclaren-racing":
         return {
           name: "McLaren Racing",
-          description: "Income sharing agreement providing direct participation in McLaren F1's commercial success, technology development, and global racing operations.",
-          minInvestment: "£1,000",
-          expectedReturn: "10-15%",
-          fundingProgress: 92,
+          description: "£50,000,000 raise via Income Sharing Agreement factored against commercial revenues over 10 years. 7% annual return providing direct participation in F1's commercial success.",
+          minInvestment: "£2,000",
+          expectedReturn: "7%",
+          fundingProgress: 70,
           totalFunding: "£50M",
           category: "Income Sharing Agreement",
           launchDate: "July 2025",
           logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
-          investmentThesis: "McLaren Racing offers exposure to Formula 1's fastest-growing revenue streams through a structured income sharing agreement. With F1's global viewership reaching 1.5 billion fans and the sport's expansion into new markets (Las Vegas, Miami, Saudi Arabia), McLaren's 60-year heritage and current competitive performance create compelling investment returns. Income sharing participants receive proportional returns from prize money, sponsorship deals, technology licensing, and McLaren's automotive partnerships. The agreement provides exposure to F1's $3bn annual revenue pool with McLaren typically capturing 8-12% market share.",
-          detailedAnalysis: "McLaren's income sharing model provides direct participation in multiple revenue streams: Prize money (£80-120M annually based on championship position), primary sponsorships (£40M+ from key partners), technology licensing to automotive sector (£15M annually), and hospitality/merchandise (£25M annually). The team's Mercedes power unit partnership ensures competitive performance while F1's cost cap regulations create more level competition field. McLaren's 2024 constructor championship challenge demonstrates renewed competitiveness, with higher championship positions yielding exponentially higher prize money distributions."
+          investmentThesis: "McLaren Racing offers exposure to Formula 1's fastest-growing revenue streams through a structured income sharing agreement factored against commercial revenues over 10 years. With F1's global viewership reaching 1.5 billion fans and the sport's expansion into new markets (Las Vegas, Miami, Saudi Arabia), McLaren's 60-year heritage and current competitive performance create compelling investment returns. Income sharing participants receive 7% annual returns from prize money, sponsorship deals, technology licensing, and McLaren's automotive partnerships. The agreement provides exposure to F1's $3bn annual revenue pool with McLaren typically capturing 8-12% market share.",
+          detailedAnalysis: "McLaren's income sharing model provides direct participation in multiple revenue streams: Prize money (£80-120M annually based on championship position), primary sponsorships (£40M+ from key partners including Google, Velas), technology licensing to automotive sector (£15M annually), and hospitality/merchandise (£25M annually). The team's Mercedes power unit partnership ensures competitive performance while F1's cost cap regulations create more level competition field. McLaren's 2024 constructor championship challenge demonstrates renewed competitiveness, with higher championship positions yielding exponentially higher prize money distributions. Commercial revenues have grown 35% year-over-year, supporting sustainable 7% annual returns."
         };
       case "ryder-cup":
         return {
           name: "Ryder Cup",
           description: "Secured debenture investment in golf's most prestigious biennial team tournament, providing guaranteed annual returns plus exclusive tournament access and hospitality rights.",
-          minInvestment: "£2,500",
+          minInvestment: "£1,000",
           expectedReturn: "5% + Principal",
           fundingProgress: 90,
           totalFunding: "£42.5M",
@@ -57,6 +59,51 @@ export default function AssetDetails() {
           logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
           investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament with guaranteed financial returns and unparalleled access benefits. Each debenture provides 5% annual coupon payments plus full principal repayment after the 10-year term. The investment is backed by the tournament's established revenue model including global broadcasting rights (£200M+ per event), corporate hospitality (£50M+ per event), and merchandise sales. Debenture holders receive priority access to all tournament rounds, exclusive hospitality areas, practice round access, and transferable benefits. The secondary debenture market has shown consistent appreciation with 2023 trades at 15-20% premiums to face value.",
           detailedAnalysis: "The Ryder Cup generates over £150M in direct economic impact per event with corporate hospitality packages selling for £2,000-5,000 per person. Debentures are secured against tournament assets and revenue streams, providing downside protection unavailable in traditional sports investments. The biennial format creates scarcity value while alternating European/US venues ensure global market demand. Historical data shows 100% repayment rate for golf tournament debentures with average annual returns of 6-8% including capital appreciation. 2025 debentures include access to Bethpage Black (NY) with 2027 rights to European venue TBD."
+        };
+      case "hexagon-fan-team":
+        return {
+          name: "Hexagon Fan Team",
+          description: "£1,250,000 round for 75% equity in Hexagon Fan Team - innovative fan engagement platform with global tournament integration and revenue sharing opportunities.",
+          minInvestment: "£500",
+          expectedReturn: "20%+",
+          fundingProgress: 0,
+          totalFunding: "£1.25M",
+          category: "Equity",
+          launchDate: "September 2025",
+          status: "coming-soon",
+          logo: "/lovable-uploads/6e897916-7050-40ca-a142-0d028232a4b7.png",
+          investmentThesis: "Hexagon Fan Team represents the future of sports fan engagement through blockchain-powered community ownership and revenue sharing. The platform enables fans to collectively own stakes in tournament outcomes, player partnerships, and merchandise revenues. With 75% equity available for £1.25M, early investors gain significant ownership in a revolutionary sports technology platform. The Hexagon ecosystem integrates with major tournaments worldwide, creating multiple revenue streams from fan participation, NFT trading, prediction markets, and exclusive content access.",
+          detailedAnalysis: "The global sports betting market exceeds £200bn annually while fan engagement platforms show 300%+ growth rates. Hexagon Fan Team's unique model combines legal sports investment with gamified fan experiences, targeting the £50bn global sports memorabilia and fan engagement market. Revenue projections show £5M+ annual gross revenue by year 3 through transaction fees (2-5%), premium memberships (£50-200 annually), and tournament partnerships. The 75% equity stake provides significant upside potential as the platform scales across multiple sports and geographic markets."
+        };
+      case "cardiff-city":
+        return {
+          name: "Cardiff City",
+          description: "£40,000,000 valuation with £4,000,000 funding round providing 10% equity stake in Welsh football club with Championship growth potential.",
+          minInvestment: "£1,000",
+          expectedReturn: "12%+",
+          fundingProgress: 0,
+          totalFunding: "£4M",
+          category: "Equity",
+          launchDate: "October 2025",
+          status: "coming-soon",
+          logo: "/lovable-uploads/32e5079c-7a6a-4a36-9545-a4faa7411f89.png",
+          investmentThesis: "Cardiff City offers compelling value in the Championship with strong fundamentals and promotion potential. The club's £40M valuation reflects significant undervaluation compared to Premier League peers, with 10% equity available for £4M. Cardiff's 33,000-capacity stadium, passionate Welsh fanbase, and recent Premier League experience (2018-19) provide solid foundations for growth. Championship clubs achieving promotion typically see 300-500% valuation increases, while Cardiff's sustainable financial model and youth development program ensure long-term viability.",
+          detailedAnalysis: "Cardiff City generates £25-30M annual revenue through gate receipts, broadcasting rights, and commercial partnerships. The Championship playoff system provides clear promotion pathway, with promoted clubs receiving £170M+ in Premier League revenue guarantees. Cardiff's player trading model has generated £40M+ in transfer profits over five years, demonstrating strong asset management. The club's Welsh identity creates unique marketing opportunities in growing Asian markets, while stadium naming rights and commercial partnerships offer additional revenue growth potential."
+        };
+      case "ohio-state":
+        return {
+          name: "Ohio State",
+          description: "Income sharing agreement on stadium revenues - £80,000,000 raise for 10% of future stadium revenues from elite university athletics programme.",
+          minInvestment: "£2,500",
+          expectedReturn: "8-12%",
+          fundingProgress: 0,
+          totalFunding: "£80M",
+          category: "Income Sharing Agreement",
+          launchDate: "November 2025",
+          status: "coming-soon",
+          logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png",
+          investmentThesis: "Ohio State University athletics represents America's most valuable college sports program with guaranteed revenue streams from stadium operations. The income sharing agreement provides 10% participation in future stadium revenues from Ohio Stadium (105,000 capacity), generating £8-12M annually for investors. Ohio State's football program consistently ranks #1-3 nationally in revenue generation (£150M+ annually), with stadium revenues representing 40-50% of total athletics income. The agreement covers all stadium-generated revenue including tickets, concessions, hospitality, naming rights, and special events.",
+          detailedAnalysis: "Ohio Stadium generates £60-80M annually through seven home games, concerts, and special events. Season ticket waiting lists exceed 40,000 names while premium seating commands £2,000-5,000 per season. Ohio State's national championship aspirations ensure consistent sell-outs and premium pricing power. The university's £7bn endowment and AAA credit rating provide financial stability, while Big Ten Conference revenue sharing adds £50M+ annually. College football's expansion through playoffs and media rights creates additional revenue growth potential, with Ohio State positioned as a primary beneficiary."
         };
       default:
         return {
@@ -117,9 +164,15 @@ export default function AssetDetails() {
               <Button 
                 size="lg"
                 className="btn-invest px-8 py-3 text-lg font-semibold"
-                onClick={() => navigate(`/trade/${assetId}`)}
+                onClick={() => {
+                  if (asset.status === "coming-soon") {
+                    setShowEarlyAccess(true);
+                  } else {
+                    navigate(`/trade/${assetId}`);
+                  }
+                }}
               >
-                Invest Now
+                {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
               </Button>
             </div>
           </div>
@@ -463,6 +516,12 @@ export default function AssetDetails() {
           </div>
         </div>
       </Card>
+
+      <EarlyAccessModal 
+        isOpen={showEarlyAccess} 
+        onClose={() => setShowEarlyAccess(false)} 
+        assetName={asset.name} 
+      />
     </div>
   );
 }
