@@ -128,15 +128,6 @@ function InvestmentCard({ investment }: { investment: Investment }) {
           <div className="w-full h-64 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')] bg-cover bg-center"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <div className="relative z-10 text-center space-y-4">
-              <div className="p-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/40">
-                <img 
-                  src={investment.logo}
-                  alt={investment.name}
-                  className="w-16 h-16 object-contain mx-auto"
-                />
-              </div>
-            </div>
           </div>
         ) : (
           <div className="w-full h-64 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
@@ -167,11 +158,11 @@ function InvestmentCard({ investment }: { investment: Investment }) {
       <CardContent className="p-6 space-y-4">
         {/* Asset Name, Amount, and Type */}
         <div className="space-y-2 border-b border-border pb-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <img 
               src={investment.logo}
               alt={investment.name}
-              className="w-8 h-8 object-contain"
+              className="w-16 h-16 object-contain"
             />
             <div>
               <h3 className="text-2xl font-bold text-card-foreground">{investment.name}</h3>

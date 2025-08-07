@@ -56,7 +56,11 @@ export default function ListAsset() {
   const navigate = useNavigate();
   const { toast } = useToast();
   
-  const [selectedAsset, setSelectedAsset] = useState<string>("");
+  // Get pre-selected asset from URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const preselectedAsset = urlParams.get('asset') || "";
+  
+  const [selectedAsset, setSelectedAsset] = useState<string>(preselectedAsset);
   const [quantity, setQuantity] = useState<string>("");
   const [pricePerShare, setPricePerShare] = useState<string>("");
   const [saleType, setSaleType] = useState<string>("fixed");
@@ -227,7 +231,7 @@ export default function ListAsset() {
                     <Button 
                       variant="outline" 
                       onClick={() => setPricePerShare(suggestedPrice.toString())}
-                      className="px-6"
+                      className="px-6 bg-success/10 border-success text-success hover:bg-success hover:text-white"
                     >
                       Use Suggested: £{suggestedPrice}
                     </Button>

@@ -158,7 +158,7 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           </Button>
           <Button 
             className="btn-invest flex-1"
-            onClick={() => window.location.href = `/sell-shares`}
+            onClick={() => window.location.href = `/list-asset?asset=${holding.id}`}
           >
             <Activity className="w-4 h-4 mr-2" />
             Sell {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}
