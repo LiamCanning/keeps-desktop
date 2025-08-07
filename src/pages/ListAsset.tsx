@@ -44,7 +44,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "src/assets/logos/ryder-cup-logo.png",
+    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
     totalShares: 3,
     purchasePrice: 5000,
     currentPrice: 5935,
@@ -137,7 +137,7 @@ export default function ListAsset() {
                           <div>
                             <p className="font-medium">{asset.name}</p>
                             <p className="text-sm text-muted-foreground">
-                              {asset.totalShares} shares owned • Current: £{asset.currentPrice}
+                              {asset.totalShares} {asset.name === "Ryder Cup" ? "debentures" : "shares"} owned • Current: £{asset.currentPrice}
                             </p>
                           </div>
                         </div>
@@ -291,7 +291,7 @@ export default function ListAsset() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Quantity:</span>
-                    <span className="font-medium">{quantityNum} shares</span>
+                    <span className="font-medium">{quantityNum} {asset.name === "Ryder Cup" ? "debentures" : "shares"}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Price per Share:</span>

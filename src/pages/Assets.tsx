@@ -54,7 +54,7 @@ const assets: Asset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "src/assets/logos/ryder-cup-logo.png",
+    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
@@ -82,7 +82,7 @@ const assets: Asset[] = [
   {
     id: "cardiff-city",
     name: "Cardiff City",
-    logo: "src/assets/logos/cardiff-city-logo.png",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",
@@ -96,7 +96,7 @@ const assets: Asset[] = [
   {
     id: "ohio-state",
     name: "Ohio State",
-    logo: "src/assets/logos/ohio-state-logo.png",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     banner: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Elite American university athletics programme with massive revenue potential and nationwide following across multiple sports.",

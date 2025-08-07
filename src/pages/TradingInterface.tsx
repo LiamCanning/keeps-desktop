@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
+import { LogoImage } from "@/components/ui/logo-image";
 
 interface Asset {
   id: string;
@@ -53,7 +54,7 @@ const assets: { [key: string]: Asset } = {
     name: "Ryder Cup",
     type: "Tournament Investment",
     pricePerShare: 750,
-    logo: "src/assets/logos/ryder-cup-logo.png",
+    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
     currency: "GBP", 
     description: "Golf tournament revenue sharing and hospitality access",
     minInvestment: 750,
@@ -162,10 +163,10 @@ export default function TradingInterface() {
           <Card className="card-professional">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-4">
-                <img 
+                <LogoImage 
                   src={asset.logo}
                   alt={asset.name}
-                  className="w-16 h-16 rounded-xl object-cover"
+                  size="xl"
                 />
                 <div className="flex-1">
                   <CardTitle className="text-2xl font-bold text-gradient">{asset.name}</CardTitle>

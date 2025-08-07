@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "src/assets/logos/ryder-cup-logo.png",
+    logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png",
     investment: "£15,000",
     shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
@@ -73,7 +73,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "4",
     name: "Ohio State",
-    logo: "src/assets/logos/ohio-state-logo.png",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     investment: "£10,000",
     shares: "10 (£1000 per share)",
     purchaseDate: "01/07/2025",
@@ -95,10 +95,10 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <img 
+            <LogoImage 
               src={holding.logo}
               alt={holding.name}
-              className="w-16 h-16 object-contain flex-shrink-0"
+              size="xl"
             />
             <div>
               <CardTitle className="text-lg text-card-foreground">{holding.name}</CardTitle>
