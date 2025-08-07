@@ -28,7 +28,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "1",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     investment: "£25,000",
     shares: "50 (£500 per share)",
     purchaseDate: "15/07/2025",
@@ -43,7 +43,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "2",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     investment: "£200,000",
     shares: "200 (£1000 per share)",
     purchaseDate: "10/07/2025",
@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/placeholder.svg",
     investment: "£15,000",
     shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
@@ -73,7 +73,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "4",
     name: "Ohio State",
-    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
+    logo: "/placeholder.svg",
     investment: "£10,000",
     shares: "10 (£1000 per share)",
     purchaseDate: "01/07/2025",
@@ -344,7 +344,7 @@ export default function Portfolio() {
                 {
                   id: "liverpool-fc",
                   name: "Liverpool FC",
-                  logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+                  logo: "/placeholder.svg",
                   price: "£575",
                   change: "+15%",
                   status: "Live"
@@ -352,7 +352,7 @@ export default function Portfolio() {
                 {
                   id: "mclaren-f1",
                   name: "McLaren Racing",
-                  logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+                  logo: "/placeholder.svg",
                   price: "£1,220",
                   change: "+22%",
                   status: "Live"
@@ -360,7 +360,7 @@ export default function Portfolio() {
                 {
                   id: "ryder-cup",
                   name: "Ryder Cup",
-                  logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+                  logo: "/placeholder.svg",
                   price: "£5,935",
                   change: "+18.7%",
                   status: "Live"

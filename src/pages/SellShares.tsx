@@ -23,7 +23,7 @@ const holdings: Holding[] = [
   {
     id: "1",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     shares: 50,
     currentPrice: 575,
     purchasePrice: 500,
@@ -32,7 +32,7 @@ const holdings: Holding[] = [
   {
     id: "2",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     shares: 200,
     currentPrice: 1220,
     purchasePrice: 1000,
@@ -41,7 +41,7 @@ const holdings: Holding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    logo: "/placeholder.svg",
     shares: 3,
     currentPrice: 5935,
     purchasePrice: 5000,

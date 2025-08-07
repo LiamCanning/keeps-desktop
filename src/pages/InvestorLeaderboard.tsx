@@ -77,7 +77,9 @@ const topInvestors: Investor[] = [
     returnPercent: 18.0,
     rank: 4,
     tier: "Silver",
-    badges: ["Rising Star"]
+    assetsOwned: 6,
+    joinDate: "Apr 2024",
+    location: "Birmingham, UK"
   },
   {
     id: "5",
@@ -89,7 +91,9 @@ const topInvestors: Investor[] = [
     returnPercent: 17.0,
     rank: 5,
     tier: "Silver",
-    badges: ["Strategic Investor"]
+    assetsOwned: 5,
+    joinDate: "May 2024",
+    location: "Edinburgh, UK"
   },
   {
     id: "6",
@@ -101,7 +105,9 @@ const topInvestors: Investor[] = [
     returnPercent: 16.0,
     rank: 6,
     tier: "Silver",
-    badges: ["Diversified Portfolio"]
+    assetsOwned: 4,
+    joinDate: "Jun 2024",
+    location: "Cardiff, UK"
   },
   {
     id: "7",
@@ -113,7 +119,9 @@ const topInvestors: Investor[] = [
     returnPercent: 15.0,
     rank: 7,
     tier: "Bronze",
-    badges: ["Growth Investor"]
+    assetsOwned: 3,
+    joinDate: "Jul 2024",
+    location: "Bristol, UK"
   },
   {
     id: "8",
@@ -125,7 +133,9 @@ const topInvestors: Investor[] = [
     returnPercent: 14.0,
     rank: 8,
     tier: "Bronze",
-    badges: ["Long-term Holder"]
+    assetsOwned: 2,
+    joinDate: "Aug 2024",
+    location: "Newcastle, UK"
   },
   {
     id: "9",
@@ -137,7 +147,9 @@ const topInvestors: Investor[] = [
     returnPercent: 13.0,
     rank: 9,
     tier: "Bronze",
-    badges: ["Risk Manager"]
+    assetsOwned: 1,
+    joinDate: "Sep 2024",
+    location: "Glasgow, UK"
   },
   {
     id: "10",
@@ -149,7 +161,9 @@ const topInvestors: Investor[] = [
     returnPercent: 12.0,
     rank: 10,
     tier: "Bronze",
-    badges: ["Steady Growth"]
+    assetsOwned: 1,
+    joinDate: "Oct 2024",
+    location: "Leeds, UK"
   }
 ];
 
@@ -164,7 +178,9 @@ const monthlyTopPerformers: Investor[] = [
     returnPercent: 27.7,
     rank: 1,
     tier: "Diamond",
-    badges: ["Monthly Leader", "Top Performer"]
+    assetsOwned: 10,
+    joinDate: "Jan 2024",
+    location: "London, UK"
   },
   {
     id: "12", 
@@ -176,7 +192,9 @@ const monthlyTopPerformers: Investor[] = [
     returnPercent: 13.0,
     rank: 2,
     tier: "Bronze",
-    badges: ["Rising Fast"]
+    assetsOwned: 3,
+    joinDate: "Feb 2024",
+    location: "Liverpool, UK"
   },
   {
     id: "13",
@@ -188,11 +206,13 @@ const monthlyTopPerformers: Investor[] = [
     returnPercent: 14.0,
     rank: 3,
     tier: "Bronze",
-    badges: ["Momentum Builder"]
+    assetsOwned: 4,
+    joinDate: "Mar 2024",
+    location: "Manchester, UK"
   },
   {
     id: "14",
-    name: "James Parker",
+    name: "Real Madrid CF",
     avatar: "/placeholder.svg",
     totalInvested: "£6,200,000",
     portfolioValue: "£7,440,000",

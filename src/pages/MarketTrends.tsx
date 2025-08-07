@@ -54,7 +54,7 @@ const hotDeals = [
     progress: 92,
     investors: 2847,
     roi: "18.7%",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     trend: "+22%",
     tags: ["🔥 Hot", "Almost Funded"]
   },
@@ -66,7 +66,7 @@ const hotDeals = [
     progress: 97,
     investors: 5200,
     roi: "15.2%",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     trend: "+15%",
     tags: ["⚡ Trending", "97% Funded"]
   },
@@ -78,7 +78,7 @@ const hotDeals = [
     progress: 90,
     investors: 1800,
     roi: "12.8%",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/placeholder.svg",
     trend: "+13%",
     tags: ["⭐ Premium", "Limited Access"]
   }

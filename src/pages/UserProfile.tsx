@@ -58,21 +58,21 @@ const userProfiles: Record<string, UserProfile> = {
     publicHoldings: [
       {
         asset: "Liverpool FC",
-        logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+        logo: "/placeholder.svg",
         quantity: 15,
         currentValue: "£8,250",
         returns: 10.0
       },
       {
         asset: "McLaren Racing",
-        logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+        logo: "/placeholder.svg",
         quantity: 8,
         currentValue: "£9,600",
         returns: 20.0
       },
       {
         asset: "Ryder Cup",
-        logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+        logo: "/placeholder.svg",
         quantity: 1,
         currentValue: "£5,900",
         returns: 18.7
@@ -121,7 +121,7 @@ const userProfiles: Record<string, UserProfile> = {
     publicHoldings: [
       {
         asset: "McLaren Racing",
-        logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+        logo: "/placeholder.svg",
         quantity: 25,
         currentValue: "£30,000",
         returns: 20.0

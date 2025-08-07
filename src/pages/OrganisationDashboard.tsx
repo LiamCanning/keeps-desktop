@@ -15,7 +15,7 @@ export default function OrganisationDashboard() {
       <div className="flex items-center gap-6">
         <div className="p-4 bg-white rounded-2xl shadow-lg border">
           <OptimizedImage
-            src="/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png"
+            src="/placeholder.svg"
             alt="McLaren F1 logo"
             className="w-16 h-16 object-contain"
           />
