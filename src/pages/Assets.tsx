@@ -26,7 +26,7 @@ const assets: Asset[] = [
   {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "live",
     description: "Own a stake in one of the world's most successful football clubs with global reach and consistent performance.",
@@ -40,7 +40,7 @@ const assets: Asset[] = [
   {
     id: "mclaren-racing",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     banner: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
     status: "live",
     description: "Invest in Formula 1 excellence with McLaren's racing team, technology innovation, and global partnerships.",
@@ -54,7 +54,7 @@ const assets: Asset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/placeholder.svg",
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
@@ -68,7 +68,7 @@ const assets: Asset[] = [
   {
     id: "hexagon-cup",
     name: "Hexagon Fan Team",
-    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+    logo: "/placeholder.svg",
     banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Prestigious multi-sport tournament featuring international competition with growing global viewership and sponsorship opportunities.",
@@ -82,7 +82,7 @@ const assets: Asset[] = [
   {
     id: "cardiff-city",
     name: "Cardiff City",
-    logo: "/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png",
+    logo: "/placeholder.svg",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",
@@ -96,7 +96,7 @@ const assets: Asset[] = [
   {
     id: "ohio-state",
     name: "Ohio State",
-    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
+    logo: "/placeholder.svg",
     banner: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Elite American university athletics programme with massive revenue potential and nationwide following across multiple sports.",

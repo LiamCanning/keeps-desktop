@@ -36,42 +36,42 @@ const dataPartners: DataPartner[] = [
   {
     id: "1",
     name: "Nike",
-    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
+    logo: "/placeholder.svg",
     description: "Sports gear discounts and exclusive athlete meet & greets",
     optedIn: true
   },
   {
     id: "2", 
     name: "Rolex",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     description: "Luxury timepiece experiences and VIP watch exhibitions",
     optedIn: true
   },
   {
     id: "3",
     name: "AXA",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     description: "Premium insurance benefits and financial planning services",
     optedIn: false
   },
   {
     id: "4",
     name: "Santander",
-    logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
+    logo: "/placeholder.svg",
     description: "Banking perks and investment opportunities",
     optedIn: true
   },
   {
     id: "5",
     name: "BMW",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/placeholder.svg",
     description: "Luxury vehicle test drives and motorsport experiences",
     optedIn: false
   },
   {
     id: "6",
     name: "Cadbury",
-    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    logo: "/placeholder.svg",
     description: "Chocolate tastings and exclusive confectionery collections",
     optedIn: true
   }
@@ -124,7 +124,7 @@ export default function Account() {
               <CardContent className="space-y-6">
                 <div className="flex items-center gap-6">
                   <Avatar className="w-24 h-24">
-                    <AvatarImage src="/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png" alt="Liam" />
+                    <AvatarImage src="/placeholder.svg" alt="Liam" />
                     <AvatarFallback className="text-xl">L</AvatarFallback>
                   </Avatar>
                   <div className="space-y-2">

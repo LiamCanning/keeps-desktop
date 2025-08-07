@@ -27,7 +27,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Liverpool FC has unveiled a new investment program allowing fans to purchase equity shares in the club for the first time.",
     source: "Sports Business Journal",
     date: "2025-07-10",
-    image: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    image: "/placeholder.svg",
     category: "news",
     readTime: "3 min read"
   },
@@ -37,7 +37,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Formula 1 team McLaren Racing has successfully raised £50,000,000 through a unique income sharing agreement with fans and investors.",
     source: "Financial Times",
     date: "2025-07-05",
-    image: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    image: "/placeholder.svg",
     category: "news",
     readTime: "5 min read"
   },
@@ -47,7 +47,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Golf Digest",
     date: "2025-06-28",
-    image: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    image: "/placeholder.svg",
     category: "news",
     readTime: "4 min read"
   },
@@ -89,7 +89,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Digital sports entertainment collective Hexagon Fan Team announces plans for innovative fan ownership structure launching in 2026.",
     source: "Sports Tech Weekly",
     date: "2025-05-15",
-    image: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    image: "/placeholder.svg",
     category: "reels",
     readTime: "4 min read",
     likes: 892,

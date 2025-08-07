@@ -19,42 +19,42 @@ const benefits: Benefit[] = [
   {
     id: "1",
     team: "Liverpool FC",
-    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
+    logo: "/placeholder.svg",
     status: "live",
     description: "Exclusive access to Anfield experiences, player meet & greets, and premium hospitality packages for one of the world's most successful football clubs."
   },
   {
     id: "2",
     team: "McLaren F1",
-    logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
+    logo: "/placeholder.svg",
     status: "live",
     description: "Behind-the-scenes access to McLaren Technology Centre, paddock club experiences, and exclusive meetings with drivers and team management."
   },
   {
     id: "3",
     team: "Ryder Cup",
-    logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+    logo: "/placeholder.svg",
     status: "live",
     description: "Premium tournament access, commemorative merchandise, and exclusive dining experiences with golf's most prestigious team tournament."
   },
   {
     id: "4",
     team: "Cardiff City FC",
-    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+    logo: "/placeholder.svg",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase offering premium match experiences, player meet & greets, and exclusive Cardiff City Stadium access."
   },
   {
     id: "5",
     team: "Hexagon Cup",
-    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
+    logo: "/placeholder.svg",
     status: "coming-soon",
     description: "Prestigious multi-sport tournament featuring exclusive access to international competitions, VIP hospitality, and athlete interactions."
   },
   {
     id: "6",
     team: "Ohio State",
-    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+    logo: "/placeholder.svg",
     status: "coming-soon",
     description: "Elite American university athletics programme offering premium game experiences, campus access, and exclusive Buckeyes community benefits."
   }

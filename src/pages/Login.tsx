@@ -94,7 +94,7 @@ export default function Login() {
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
             <OptimizedImage
-              src="/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png"
+              src="/placeholder.svg"
               alt="Keeps"
               className="w-16 h-16"
             />

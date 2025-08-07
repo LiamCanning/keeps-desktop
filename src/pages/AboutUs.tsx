@@ -66,7 +66,7 @@ export default function AboutUs() {
       {/* Hero Section */}
       <div className="text-center space-y-6 py-12">
         <img 
-          src="/lovable-uploads/2e9f480e-345c-4c8d-aab7-8e3ee7df4056.png" 
+          src="/placeholder.svg" 
           alt="Keeps Logo" 
           className="h-16 mx-auto mb-8"
         />

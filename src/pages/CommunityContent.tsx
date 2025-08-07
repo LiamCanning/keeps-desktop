@@ -30,7 +30,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Sarah Mitchell",
       username: "@sarahm_investor",
-      avatar: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+      avatar: "/placeholder.svg",
       verified: true
     },
     content: "Just invested in Liverpool FC through @keeps! The 4-8% annual dividends plus being part of the club's journey is incredible. This is the future of sports investment! ⚽🔥",
@@ -44,7 +44,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Mike Rodriguez",
       username: "@f1mike",
-      avatar: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+      avatar: "/placeholder.svg",
       verified: false
     },
     content: "McLaren's technology centre tour was INSANE! Meeting Lando Norris was a dream come true. The Keeps platform benefits are next level 🏎️ #McLarenRacing",
@@ -58,7 +58,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Emma Thompson",
       username: "@golf_emma",
-      avatar: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+      avatar: "/placeholder.svg",
       verified: true
     },
     content: "Ryder Cup debentures are 90% funded already! The exclusive access to tournaments and pro-am events is worth every penny. Golf investment at its finest ⛳",
@@ -72,7 +72,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Alex Chen",
       username: "@alexc_sports",
-      avatar: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+      avatar: "/placeholder.svg",
       verified: false
     },
     content: "The AI portfolio analysis on Keeps is spot on! Recommended diversifying away from my heavy McLaren position. 18.4% returns beating the market by 2.1% 📊",
@@ -168,7 +168,7 @@ export default function CommunityContent() {
       user: {
         name: "Liam Canning",
         username: "@liam_investor",
-        avatar: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+        avatar: "/placeholder.svg",
         verified: true
       },
       content: newPost,
@@ -246,7 +246,7 @@ export default function CommunityContent() {
         <CardHeader>
           <div className="flex items-center gap-3">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png" alt="Liam" />
+              <AvatarImage src="/placeholder.svg" alt="Liam" />
               <AvatarFallback>LC</AvatarFallback>
             </Avatar>
             <h3 className="font-semibold text-card-foreground">Share with the community</h3>

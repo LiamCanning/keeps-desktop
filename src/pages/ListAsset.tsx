@@ -26,7 +26,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     totalShares: 50,
     purchasePrice: 500,
     currentPrice: 575,
@@ -35,7 +35,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "mclaren-f1",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     totalShares: 200,
     purchasePrice: 1000,
     currentPrice: 1220,
@@ -44,7 +44,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/placeholder.svg",
     totalShares: 3,
     purchasePrice: 5000,
     currentPrice: 5935,

@@ -28,7 +28,7 @@ const marketListings: MarketListing[] = [
   {
     id: "1",
     asset: "Liverpool FC",
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     seller: "JohnD",
     quantity: 5,
     pricePerUnit: "£550",
@@ -42,7 +42,7 @@ const marketListings: MarketListing[] = [
   {
     id: "2",
     asset: "Liverpool FC", 
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "/placeholder.svg",
     seller: "SarahM",
     quantity: 10,
     pricePerUnit: "£525",
@@ -56,7 +56,7 @@ const marketListings: MarketListing[] = [
   {
     id: "3",
     asset: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     seller: "RacingFan22",
     quantity: 20,
     pricePerUnit: "£1,200",
@@ -70,7 +70,7 @@ const marketListings: MarketListing[] = [
   {
     id: "4",
     asset: "McLaren Racing",
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "/placeholder.svg",
     seller: "F1Investor", 
     quantity: 15,
     pricePerUnit: "£1,180",
@@ -84,7 +84,7 @@ const marketListings: MarketListing[] = [
   {
     id: "5",
     asset: "Ryder Cup",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/placeholder.svg",
     seller: "GolfPro",
     quantity: 1,
     pricePerUnit: "£5,935",
@@ -98,7 +98,7 @@ const marketListings: MarketListing[] = [
   {
     id: "6",
     asset: "Ryder Cup",
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "/placeholder.svg",
     seller: "GolfFan88",
     quantity: 2,
     pricePerUnit: "£5,850",

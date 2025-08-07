@@ -13,7 +13,7 @@ export default function Index() {
     {
       id: "liverpool-fc",
       name: "Liverpool FC",
-      logo: "/lovable-uploads/2e9f480e-345c-4c8d-aab7-8e3ee7df4056.png",
+      logo: "/placeholder.svg",
       title: "Fund Anfield stadium capacity to 75,000",
       type: "Equity Investment",
       amount: "£40,000,000",
@@ -25,7 +25,7 @@ export default function Index() {
     {
       id: "mclaren-f1",
       name: "McLaren Racing",
-      logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+      logo: "/placeholder.svg",
       title: "McLaren Racing Technology Development",
       type: "Income Sharing Agreement",
       amount: "£50,000,000",
@@ -37,7 +37,7 @@ export default function Index() {
     {
       id: "ryder-cup",
       name: "Ryder Cup",
-      logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+      logo: "/placeholder.svg",
       title: "Ryder Cup 2025 Debenture Programme",
       type: "Debentures",
       amount: "£42,500,000",

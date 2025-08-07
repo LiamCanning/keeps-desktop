@@ -10,7 +10,7 @@ const deals = {
   "liverpool-fc": {
     id: "1",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
+    logo: "/placeholder.svg",
     title: "Fund Anfield stadium capacity to 75,000",
     type: "Equity Investment",
     amount: "£40,000,000",
@@ -29,7 +29,7 @@ const deals = {
   "mclaren-f1": {
     id: "2",
     name: "McLaren F1",
-    logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
+    logo: "/placeholder.svg",
     title: "McLaren Racing Technology Development",
     type: "ISA Investment",
     amount: "£50,000,000",
@@ -48,7 +48,7 @@ const deals = {
   "ryder-cup": {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+    logo: "/placeholder.svg",
     title: "Ryder Cup 2025 Debenture Programme",
     type: "Debenture Programme",
     amount: "£42,500,000",
