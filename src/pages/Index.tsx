@@ -89,24 +89,7 @@ export default function Index() {
             </p>
           </div>
 
-          {/* Image Hero Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            {featuredDeals.map((deal) => (
-              <div key={deal.id} className="text-center">
-                <div className="p-6 bg-white rounded-2xl shadow-lg border mb-4 hover:shadow-xl transition-all duration-300">
-                  <img 
-                    src={deal.logo} 
-                    alt={`${deal.name} logo`}
-                    className="w-24 h-24 mx-auto object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{deal.name}</h3>
-                <p className="text-sm text-muted-foreground">{deal.type}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Deal Cards */}
+          {/* Deal Cards with Image Headers */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {featuredDeals.map((deal) => (
               <Card 
@@ -114,26 +97,48 @@ export default function Index() {
                 className="card-professional group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
                 onClick={() => navigate(`/assets/${deal.id}`)}
               >
-                <div className="p-6 space-y-4">
-                  {/* Investment Title */}
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
-                      {deal.title}
-                    </h3>
-                    <Badge variant="success" className="mb-3">Live Investment</Badge>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {deal.description}
-                    </p>
+                {/* Image Header */}
+                <div className="h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border-b">
+                  <img 
+                    src={deal.logo} 
+                    alt={`${deal.name} logo`}
+                    className="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                
+                {/* Content Box */}
+                <div className="p-6 space-y-4 bg-white">
+                  {/* Asset Name and Amount */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src={deal.logo} 
+                        alt={`${deal.name} logo`}
+                        className="w-10 h-10 object-contain"
+                      />
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                          {deal.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">{deal.type}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Amount and Entry */}
+                  <div className="text-center space-y-2 py-3 bg-gradient-to-r from-muted/20 to-muted/10 rounded-lg">
+                    <div className="text-2xl font-bold text-primary">{deal.amount}</div>
+                    <div className="text-sm text-muted-foreground">Target Raise</div>
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg">
-                      <div className="text-sm text-muted-foreground">Target Amount</div>
-                      <div className="font-bold text-lg text-primary">{deal.amount}</div>
-                    </div>
-                    <div className="p-3 bg-gradient-to-br from-success/5 to-success/10 rounded-lg">
+                    <div className="text-center p-3 bg-gradient-to-br from-success/5 to-success/10 rounded-lg">
                       <div className="text-sm text-muted-foreground">Min. Entry</div>
-                      <div className="font-bold text-lg text-success">{deal.minEntry}</div>
+                      <div className="font-bold text-success">{deal.minEntry}</div>
+                    </div>
+                    <div className="text-center p-3 bg-gradient-to-br from-warning/5 to-warning/10 rounded-lg">
+                      <div className="text-sm text-muted-foreground">Investors</div>
+                      <div className="font-bold text-warning">{deal.investors}</div>
                     </div>
                   </div>
 
@@ -147,10 +152,6 @@ export default function Index() {
                         className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full transition-all duration-1000"
                         style={{ width: `${deal.progress}%` }}
                       />
-                    </div>
-                    <div className="flex justify-between items-center mt-2 text-xs text-muted-foreground">
-                      <span>{deal.investors} investors</span>
-                      <span>{deal.type}</span>
                     </div>
                   </div>
 

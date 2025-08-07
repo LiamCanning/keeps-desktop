@@ -47,7 +47,7 @@ const marketData = [
 
 const hotDeals = [
   {
-    name: "McLaren F1 Racing",
+    name: "🏎️ McLaren F1 Racing",
     type: "Revenue Share",
     raised: "£92M",
     target: "£100M",
@@ -59,7 +59,7 @@ const hotDeals = [
     tags: ["🔥 Hot", "Almost Funded"]
   },
   {
-    name: "Liverpool FC Equity",
+    name: "⚽ Liverpool FC Equity",
     type: "Team Equity",
     raised: "£78M",
     target: "£80M", 
@@ -71,7 +71,7 @@ const hotDeals = [
     tags: ["⚡ Trending", "97% Funded"]
   },
   {
-    name: "Ryder Cup 2025",
+    name: "⛳ Ryder Cup 2025",
     type: "Event Rights",
     raised: "£45M",
     target: "£50M",
