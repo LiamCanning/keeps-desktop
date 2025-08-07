@@ -29,7 +29,7 @@ const assets: { [key: string]: Asset } = {
     name: "Liverpool FC",
     type: "Equity Investment",
     pricePerShare: 500,
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
     currency: "GBP",
     description: "Premier League football club equity shares with dividend potential",
     minInvestment: 500,

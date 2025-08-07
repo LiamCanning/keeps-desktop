@@ -28,7 +28,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "1",
     name: "Liverpool FC",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
     investment: "£25,000",
     shares: "50 (£500 per share)",
     purchaseDate: "15/07/2025",
@@ -344,7 +344,7 @@ export default function Portfolio() {
                 {
                   id: "liverpool-fc",
                   name: "Liverpool FC",
-                  logo: "/placeholder.svg",
+                  logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
                   price: "£575",
                   change: "+15%",
                   status: "Live"

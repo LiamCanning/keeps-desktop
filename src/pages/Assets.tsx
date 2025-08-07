@@ -26,7 +26,7 @@ const assets: Asset[] = [
   {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "live",
     description: "Own a stake in one of the world's most successful football clubs with global reach and consistent performance.",

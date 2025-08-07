@@ -10,7 +10,7 @@ const deals = {
   "liverpool-fc": {
     id: "1",
     name: "Liverpool FC",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
     title: "Fund Anfield stadium capacity to 75,000",
     type: "Equity Investment",
     amount: "£40,000,000",

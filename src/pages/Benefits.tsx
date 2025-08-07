@@ -19,7 +19,7 @@ const benefits: Benefit[] = [
   {
     id: "1",
     team: "Liverpool FC",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
     status: "live",
     description: "Exclusive access to Anfield experiences, player meet & greets, and premium hospitality packages for one of the world's most successful football clubs."
   },
