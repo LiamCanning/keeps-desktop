@@ -430,7 +430,7 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/src/assets/logos/ohio-state-logo.png"
+                      src="/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png"
                       alt="Ohio State Buckeyes"
                       size="lg"
                     />
@@ -461,7 +461,7 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/src/assets/logos/cardiff-city-logo.png"
+                      src="/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png"
                       alt="Cardiff City FC"
                       size="lg"
                     />
@@ -492,14 +492,14 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/src/assets/logos/exeter-chiefs-logo.png"
+                      src="/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png"
                       alt="Exeter Chiefs"
                       size="lg"
                     />
-                    <div>
-                      <CardTitle className="text-lg text-card-foreground">Exeter Chiefs</CardTitle>
-                      <p className="text-sm text-muted-foreground">Premiership Rugby</p>
-                    </div>
+                     <div>
+                       <CardTitle className="text-lg text-card-foreground">Hexagon Cup</CardTitle>
+                       <p className="text-sm text-muted-foreground">eSports Tournament</p>
+                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>

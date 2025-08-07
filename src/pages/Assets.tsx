@@ -26,7 +26,7 @@ const assets: Asset[] = [
   {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/src/assets/brands/liverpool-fc-logo.png",
+    logo: "/lovable-uploads/2e9f480e-345c-4c8d-aab7-8e3ee7df4056.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "live",
     description: "Own a stake in one of the world's most successful football clubs with global reach and consistent performance.",
@@ -40,7 +40,7 @@ const assets: Asset[] = [
   {
     id: "mclaren-racing",
     name: "McLaren Racing",
-    logo: "/src/assets/brands/mclaren-logo.png",
+    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
     banner: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
     status: "live",
     description: "Invest in Formula 1 excellence with McLaren's racing team, technology innovation, and global partnerships.",

@@ -508,7 +508,7 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/src/assets/logos/mclaren-racing-logo.png"
+                    src="/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png"
                     alt="McLaren F1 Spotlight"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />

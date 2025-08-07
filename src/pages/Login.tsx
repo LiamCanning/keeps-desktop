@@ -18,9 +18,9 @@ export default function Login() {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check if user has already logged in from this IP
+    // Always redirect to home if already authenticated
     const hasLoggedIn = localStorage.getItem("keeps_user_authenticated");
-    if (hasLoggedIn) {
+    if (hasLoggedIn && window.location.pathname === '/login') {
       navigate("/");
     }
   }, [navigate]);

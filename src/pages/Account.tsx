@@ -36,42 +36,42 @@ const dataPartners: DataPartner[] = [
   {
     id: "1",
     name: "Nike",
-    logo: "/src/assets/brands/nike-logo.png",
+    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
     description: "Sports gear discounts and exclusive athlete meet & greets",
     optedIn: true
   },
   {
     id: "2", 
     name: "Rolex",
-    logo: "/src/assets/brands/rolex-logo.png",
+    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
     description: "Luxury timepiece experiences and VIP watch exhibitions",
     optedIn: true
   },
   {
     id: "3",
     name: "AXA",
-    logo: "/src/assets/brands/axa-logo.png",
+    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
     description: "Premium insurance benefits and financial planning services",
     optedIn: false
   },
   {
     id: "4",
     name: "Santander",
-    logo: "/src/assets/brands/santander-logo.png",
+    logo: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
     description: "Banking perks and investment opportunities",
     optedIn: true
   },
   {
     id: "5",
     name: "BMW",
-    logo: "/src/assets/brands/bmw-logo.png",
+    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     description: "Luxury vehicle test drives and motorsport experiences",
     optedIn: false
   },
   {
     id: "6",
     name: "Cadbury",
-    logo: "/src/assets/brands/cadbury-logo.png",
+    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
     description: "Chocolate tastings and exclusive confectionery collections",
     optedIn: true
   }
@@ -108,7 +108,7 @@ export default function Account() {
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
           <TabsTrigger value="profile">Profile</TabsTrigger>
-          <TabsTrigger value="account-settings">Account Settings</TabsTrigger>
+          <TabsTrigger value="account-settings">Settings</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
           <TabsTrigger value="data">Data</TabsTrigger>
@@ -124,7 +124,7 @@ export default function Account() {
               <CardContent className="space-y-6">
                 <div className="flex items-center gap-6">
                   <Avatar className="w-24 h-24">
-                    <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam" />
+                    <AvatarImage src="/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png" alt="Liam" />
                     <AvatarFallback className="text-xl">L</AvatarFallback>
                   </Avatar>
                   <div className="space-y-2">
@@ -239,24 +239,24 @@ export default function Account() {
                 Account Settings
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <Button variant="outline" className="w-full justify-start">
-                <Building2 className="w-4 h-4 mr-2" />
-                Personal Information
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                <CreditCard className="w-4 h-4 mr-2" />
-                Payment Methods
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                <FileText className="w-4 h-4 mr-2" />
-                Documents & Verification
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                <Smartphone className="w-4 h-4 mr-2" />
-                Connected Devices
-              </Button>
-            </CardContent>
+              <CardContent className="space-y-4">
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/personal-information'}>
+                  <Building2 className="w-4 h-4 mr-2" />
+                  Personal Information
+                </Button>
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/payment-methods'}>
+                  <CreditCard className="w-4 h-4 mr-2" />
+                  Payment Methods
+                </Button>
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/documents-verification'}>
+                  <FileText className="w-4 h-4 mr-2" />
+                  Documents & Verification
+                </Button>
+                <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/connected-devices'}>
+                  <Smartphone className="w-4 h-4 mr-2" />
+                  Connected Devices
+                </Button>
+              </CardContent>
           </Card>
         </TabsContent>
 

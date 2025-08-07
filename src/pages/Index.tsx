@@ -4,9 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-import liverpoolLogo from "@/assets/brands/liverpool-fc-logo.png";
-import mclarenLogo from "@/assets/brands/mclaren-logo.png";
-import ryderCupLogo from "@/assets/logos/ryder-cup-logo.png";
+// Image imports moved to direct paths for better compatibility
 
 export default function Index() {
   const navigate = useNavigate();
@@ -15,7 +13,7 @@ export default function Index() {
     {
       id: "liverpool-fc",
       name: "Liverpool FC",
-      logo: liverpoolLogo,
+      logo: "/lovable-uploads/2e9f480e-345c-4c8d-aab7-8e3ee7df4056.png",
       title: "Fund Anfield stadium capacity to 75,000",
       type: "Equity Investment",
       amount: "£40,000,000",
@@ -27,7 +25,7 @@ export default function Index() {
     {
       id: "mclaren-f1",
       name: "McLaren Racing",
-      logo: mclarenLogo,
+      logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
       title: "McLaren Racing Technology Development",
       type: "Income Sharing Agreement",
       amount: "£50,000,000",
@@ -39,7 +37,7 @@ export default function Index() {
     {
       id: "ryder-cup",
       name: "Ryder Cup",
-      logo: ryderCupLogo,
+      logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
       title: "Ryder Cup 2025 Debenture Programme",
       type: "Debentures",
       amount: "£42,500,000",

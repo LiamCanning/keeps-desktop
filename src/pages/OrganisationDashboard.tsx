@@ -262,7 +262,7 @@ export default function OrganisationDashboard() {
           </Card>
 
           {/* Investor Performance Section - Made landscape to match Recent Activity */}
-          <Card className="card-professional lg:col-span-1">
+          <Card className="card-professional lg:col-span-2">
             <CardHeader>
               <CardTitle className="text-xl flex items-center gap-2">
                 <TrendingUp className="w-5 h-5" />
