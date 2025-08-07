@@ -28,7 +28,7 @@ const marketListings: MarketListing[] = [
   {
     id: "1",
     asset: "Liverpool FC",
-    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     seller: "JohnD",
     quantity: 5,
     pricePerUnit: "£550",
@@ -42,7 +42,7 @@ const marketListings: MarketListing[] = [
   {
     id: "2",
     asset: "Liverpool FC", 
-    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     seller: "SarahM",
     quantity: 10,
     pricePerUnit: "£525",

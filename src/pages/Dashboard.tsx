@@ -26,7 +26,7 @@ const liveDeals: Investment[] = [
   {
     id: "1",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/1fb754c3-b31b-4c0f-a408-bd31310d7927.png",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     amount: "£40,000,000",
     type: "Equity Raise",
     progress: 75,
