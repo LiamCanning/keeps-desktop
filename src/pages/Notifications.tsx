@@ -15,8 +15,9 @@ import mariaAvatar from "@/assets/avatars/maria-avatar.png";
 // Import brand logos
 import nikeLogo from "@/assets/brands/nike-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
-import liverpoolLogo from "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png";
-import mclarenLogo from "/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png";
+// Placeholder until new logos are uploaded
+const liverpoolLogo = "/placeholder.svg";
+const mclarenLogo = "/placeholder.svg";
 
 interface Notification {
   id: string;
