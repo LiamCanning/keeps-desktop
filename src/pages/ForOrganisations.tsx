@@ -142,21 +142,21 @@ export default function ForOrganisations() {
               type: "Football Club",
               amount: "£80M Raised",
               description: "Successfully raised capital through equity offering, expanding global fanbase and commercial opportunities.",
-              logo: "/src/assets/logos/Liverpool FC Logo.png"
+              logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png"
             },
             {
               name: "McLaren Racing",
               type: "F1 Team",
               amount: "£100M Raised",
               description: "Innovative income sharing agreement providing fans exclusive access while funding technology development.",
-              logo: "/src/assets/logos/mclaren-racing-logo.png"
+              logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png"
             },
             {
               name: "Ryder Cup",
               type: "Golf Tournament",
               amount: "£50M Raised",
               description: "Premium debenture programme offering guaranteed returns and exclusive tournament access to investors.",
-              logo: "/src/assets/logos/Ryder Cup Logo.png"
+              logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png"
             }
           ].map((client, index) => (
             <Card key={index} className="bg-card border-0 shadow-lg">

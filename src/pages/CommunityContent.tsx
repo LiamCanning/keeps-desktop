@@ -168,7 +168,7 @@ export default function CommunityContent() {
       user: {
         name: "Liam Canning",
         username: "@liam_investor",
-        avatar: "/src/assets/liam-avatar.png",
+        avatar: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
         verified: true
       },
       content: newPost,

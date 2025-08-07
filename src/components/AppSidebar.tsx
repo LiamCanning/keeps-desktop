@@ -174,7 +174,7 @@ export function AppSidebar() {
         {!isCollapsed && (
           <div className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="/src/assets/liam-avatar.png" />
+              <AvatarImage src="/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png" />
               <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">

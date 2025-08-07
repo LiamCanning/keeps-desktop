@@ -26,7 +26,7 @@ const assets: Asset[] = [
   {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/src/assets/logos/Liverpool FC Logo.png",
+    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "live",
     description: "Own a stake in one of the world's most successful football clubs with global reach and consistent performance.",
@@ -40,7 +40,7 @@ const assets: Asset[] = [
   {
     id: "mclaren-racing",
     name: "McLaren Racing",
-    logo: "/src/assets/logos/mclaren-racing-logo.png",
+    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
     banner: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
     status: "live",
     description: "Invest in Formula 1 excellence with McLaren's racing team, technology innovation, and global partnerships.",
@@ -54,7 +54,7 @@ const assets: Asset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/src/assets/logos/Ryder Cup Logo.png",
+    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
@@ -82,7 +82,7 @@ const assets: Asset[] = [
   {
     id: "cardiff-city",
     name: "Cardiff City",
-    logo: "/src/assets/logos/cardiff-city-logo.png",
+    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",
@@ -96,7 +96,7 @@ const assets: Asset[] = [
   {
     id: "ohio-state",
     name: "Ohio State",
-    logo: "/src/assets/logos/ohio-state-logo.png",
+    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     banner: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Elite American university athletics programme with massive revenue potential and nationwide following across multiple sports.",

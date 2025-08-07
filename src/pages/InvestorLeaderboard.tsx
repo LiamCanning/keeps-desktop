@@ -27,7 +27,7 @@ const topInvestors: Investor[] = [
   {
     id: "1",
     name: "Alexander Thompson",
-    avatar: "/src/assets/avatars/alex-avatar.png",
+    avatar: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
     totalInvested: "£2,450,000",
     portfolioValue: "£3,127,500",
     returns: "+£677,500",
@@ -41,7 +41,7 @@ const topInvestors: Investor[] = [
   {
     id: "2", 
     name: "Emma Rodriguez",
-    avatar: "/src/assets/avatars/emma-avatar.png",
+    avatar: "/lovable-uploads/2e9f480e-345c-4c8d-aab7-8e3ee7df4056.png",
     totalInvested: "£1,890,000",
     portfolioValue: "£2,361,300",
     returns: "+£471,300",
@@ -55,7 +55,7 @@ const topInvestors: Investor[] = [
   {
     id: "3",
     name: "James Wilson",
-    avatar: "/src/assets/avatars/james-avatar.png",
+    avatar: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
     totalInvested: "£1,650,000",
     portfolioValue: "£2,014,500",
     returns: "+£364,500",
@@ -69,7 +69,7 @@ const topInvestors: Investor[] = [
   {
     id: "4",
     name: "Sarah Kim",
-    avatar: "/src/assets/avatars/sarah-avatar.png",
+    avatar: "/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png",
     totalInvested: "£1,200,000",
     portfolioValue: "£1,452,000",
     returns: "+£252,000",
@@ -83,7 +83,7 @@ const topInvestors: Investor[] = [
   {
     id: "5",
     name: "Maria Garcia",
-    avatar: "/src/assets/avatars/maria-avatar.png",
+    avatar: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
     totalInvested: "£980,000",
     portfolioValue: "£1,176,000",
     returns: "+£196,000",
@@ -97,7 +97,7 @@ const topInvestors: Investor[] = [
   {
     id: "6",
     name: "Mike Johnson",
-    avatar: "/src/assets/avatars/mike-avatar.png",
+    avatar: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
     totalInvested: "£875,000",
     portfolioValue: "£1,032,500",
     returns: "+£157,500",
@@ -111,7 +111,7 @@ const topInvestors: Investor[] = [
   {
     id: "7",
     name: "Liverpool Fan",
-    avatar: "/src/assets/avatars/liverpool-fan-avatar.png",
+    avatar: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
     totalInvested: "£750,000",
     portfolioValue: "£870,000",
     returns: "+£120,000",
@@ -125,7 +125,7 @@ const topInvestors: Investor[] = [
   {
     id: "8",
     name: "F1 Enthusiast",
-    avatar: "/src/assets/avatars/f1-fan-avatar.png",
+    avatar: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
     totalInvested: "£625,000",
     portfolioValue: "£718,750",
     returns: "+£93,750",
@@ -139,7 +139,7 @@ const topInvestors: Investor[] = [
   {
     id: "9",
     name: "Golf Fan Pro",
-    avatar: "/src/assets/avatars/golf-fan-avatar.png",
+    avatar: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     totalInvested: "£500,000",
     portfolioValue: "£570,000",
     returns: "+£70,000",
@@ -153,7 +153,7 @@ const topInvestors: Investor[] = [
   {
     id: "10",
     name: "Liam Canning",
-    avatar: "/src/assets/liam-avatar.png",
+    avatar: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
     totalInvested: "£425,000",
     portfolioValue: "£480,250",
     returns: "+£55,250",
@@ -170,7 +170,7 @@ const corporateSponsors: Investor[] = [
   {
     id: "c1",
     name: "Nike Inc.",
-    avatar: "/src/assets/brands/nike-logo.png",
+    avatar: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
     totalInvested: "£15,000,000",
     portfolioValue: "£18,750,000",
     returns: "+£3,750,000",
@@ -185,7 +185,7 @@ const corporateSponsors: Investor[] = [
   {
     id: "c2",
     name: "BMW Group",
-    avatar: "/src/assets/brands/bmw-logo.png",
+    avatar: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     totalInvested: "£12,500,000",
     portfolioValue: "£15,000,000",
     returns: "+£2,500,000",
@@ -200,7 +200,7 @@ const corporateSponsors: Investor[] = [
   {
     id: "c3",
     name: "Rolex",
-    avatar: "/src/assets/brands/rolex-logo.png",
+    avatar: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
     totalInvested: "£8,750,000",
     portfolioValue: "£10,500,000",
     returns: "+£1,750,000",
@@ -215,7 +215,7 @@ const corporateSponsors: Investor[] = [
   {
     id: "c4",
     name: "Santander",
-    avatar: "/src/assets/brands/santander-logo.png",
+    avatar: "/lovable-uploads/6ce10e58-9e3e-4723-a481-326f200edc4e.png",
     totalInvested: "£6,200,000",
     portfolioValue: "£7,440,000",
     returns: "+£1,240,000",
