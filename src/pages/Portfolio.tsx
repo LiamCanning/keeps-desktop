@@ -72,7 +72,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   },
   {
     id: "4",
-    name: "British Cycling",
+    name: "Ohio State",
     logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     investment: "£10,000",
     shares: "10 (£1000 per share)",

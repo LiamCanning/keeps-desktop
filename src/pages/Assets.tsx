@@ -68,7 +68,7 @@ const assets: Asset[] = [
   {
     id: "hexagon-cup",
     name: "Hexagon Fan Team",
-    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
+    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
     banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Prestigious multi-sport tournament featuring international competition with growing global viewership and sponsorship opportunities.",
@@ -82,7 +82,7 @@ const assets: Asset[] = [
   {
     id: "cardiff-city",
     name: "Cardiff City",
-    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+    logo: "/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",

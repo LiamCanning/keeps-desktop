@@ -53,7 +53,7 @@ const liveDeals: Investment[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/1075da4a-349e-420a-b050-72aad7295b63.png",
+    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
     amount: "£42,500,000", 
     type: "Debenture Programme",
     progress: 90,
@@ -69,7 +69,7 @@ const comingSoonDeals: Investment[] = [
   {
     id: "4",
     name: "Ohio State",
-    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+    logo: "/lovable-uploads/b30a6bed-fd89-4147-8f94-67de21d47c97.png",
     amount: "£80,000,000",
     type: "Income Sharing Agreement",
     progress: 0,
@@ -82,7 +82,7 @@ const comingSoonDeals: Investment[] = [
   {
     id: "5",
     name: "Cardiff City", 
-    logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
+    logo: "/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png",
     amount: "£4,000,000",
     type: "Equity",
     progress: 0,
