@@ -26,7 +26,7 @@ export default function AssetDetails() {
           totalFunding: "£40M",
           category: "Equity",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/2e9f480e-345c-4c8d-aab7-8e3ee7df4056.png",
+          logo: "/src/assets/logos/Liverpool FC Logo.png",
           investmentThesis: "Liverpool FC represents a unique opportunity to invest in Premier League excellence through direct equity participation. With 6 European Cups, 19 League titles, and a global fanbase of 580 million supporters, Liverpool offers unparalleled brand value. The Anfield expansion project will generate additional matchday revenue of £15-20M annually through premium seating, hospitality packages, and increased general admission capacity. Revenue diversification through broadcasting rights (£150M+ annually), commercial partnerships, and player trading provides multiple income streams.",
           detailedAnalysis: "Liverpool's financial performance shows consistent growth with revenue reaching £594m in 2023. The Anfield expansion represents a strategic investment in long-term revenue generation, with premium hospitality commanding £200-400 per match and general admission generating £35-50 per seat. The club's Champions League qualification rate of 80% over the past decade ensures European competition revenue. Player asset appreciation has averaged 15% annually, with key signings like Salah (£37M) now valued at £80M+. The Premier League's new £5bn broadcast deal guarantees minimum £100M annually regardless of league position."
         };
@@ -40,7 +40,7 @@ export default function AssetDetails() {
           totalFunding: "£50M",
           category: "Income Sharing Agreement",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+          logo: "/src/assets/logos/mclaren-racing-logo.png",
           investmentThesis: "McLaren Racing offers exposure to Formula 1's fastest-growing revenue streams through a structured income sharing agreement. With F1's global viewership reaching 1.5 billion fans and the sport's expansion into new markets (Las Vegas, Miami, Saudi Arabia), McLaren's 60-year heritage and current competitive performance create compelling investment returns. Income sharing participants receive proportional returns from prize money, sponsorship deals, technology licensing, and McLaren's automotive partnerships. The agreement provides exposure to F1's $3bn annual revenue pool with McLaren typically capturing 8-12% market share.",
           detailedAnalysis: "McLaren's income sharing model provides direct participation in multiple revenue streams: Prize money (£80-120M annually based on championship position), primary sponsorships (£40M+ from key partners), technology licensing to automotive sector (£15M annually), and hospitality/merchandise (£25M annually). The team's Mercedes power unit partnership ensures competitive performance while F1's cost cap regulations create more level competition field. McLaren's 2024 constructor championship challenge demonstrates renewed competitiveness, with higher championship positions yielding exponentially higher prize money distributions."
         };
@@ -54,7 +54,7 @@ export default function AssetDetails() {
           totalFunding: "£42.5M",
           category: "Debentures",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+          logo: "/src/assets/logos/Ryder Cup Logo.png",
           investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament with guaranteed financial returns and unparalleled access benefits. Each debenture provides 5% annual coupon payments plus full principal repayment after the 10-year term. The investment is backed by the tournament's established revenue model including global broadcasting rights (£200M+ per event), corporate hospitality (£50M+ per event), and merchandise sales. Debenture holders receive priority access to all tournament rounds, exclusive hospitality areas, practice round access, and transferable benefits. The secondary debenture market has shown consistent appreciation with 2023 trades at 15-20% premiums to face value.",
           detailedAnalysis: "The Ryder Cup generates over £150M in direct economic impact per event with corporate hospitality packages selling for £2,000-5,000 per person. Debentures are secured against tournament assets and revenue streams, providing downside protection unavailable in traditional sports investments. The biennial format creates scarcity value while alternating European/US venues ensure global market demand. Historical data shows 100% repayment rate for golf tournament debentures with average annual returns of 6-8% including capital appreciation. 2025 debentures include access to Bethpage Black (NY) with 2027 rights to European venue TBD."
         };
@@ -94,7 +94,7 @@ export default function AssetDetails() {
               <img 
                 src={asset.logo}
                 alt={`${asset.name} logo`}
-                className="w-20 h-20 object-contain rounded-lg bg-white/50 p-2"
+                className="w-16 h-16 object-contain rounded-lg bg-white/80 p-1.5 shadow-sm"
               />
             )}
             <div className="flex-1">
@@ -346,10 +346,11 @@ export default function AssetDetails() {
                     )}
                     {assetId === 'mclaren-f1' && (
                       <>
-                        <li>Q1 2024 Revenue: +52% YoY</li>
-                        <li>EBITDA Q1 2024: £3M (+£30M YoY)</li>
-                        <li>F1 Prize Money: £80-120M annually</li>
-                        <li>Global F1 Viewership: 1.5B fans</li>
+                        <li>2024 Revenue: £253M (+18% YoY)</li>
+                        <li>Prize Money 2024: £95M (P4 WCC)</li>
+                        <li>Commercial Revenue: £180M+</li>
+                        <li>Technology Licensing: £15M annually</li>
+                        <li>Cost Cap Efficiency: 95%</li>
                       </>
                     )}
                     {assetId === 'ryder-cup' && (
@@ -375,10 +376,11 @@ export default function AssetDetails() {
                     )}
                     {assetId === 'mclaren-f1' && (
                       <>
-                        <li>F1 Championships: 8 Constructors</li>
-                        <li>2024 Performance: 4th in WCC</li>
-                        <li>Technology Licensing: £15M annually</li>
-                        <li>Mercedes Partnership: Competitive edge</li>
+                        <li>Constructors Championships: 8 total</li>
+                        <li>2024 WCC Standing: P4 (Strong)</li>
+                        <li>Driver Market Value: £200M+</li>
+                        <li>F1 Global Market Share: 8-12%</li>
+                        <li>Mercedes PU Partnership: Premium tech</li>
                       </>
                     )}
                     {assetId === 'ryder-cup' && (

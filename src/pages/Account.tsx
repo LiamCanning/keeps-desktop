@@ -124,7 +124,7 @@ export default function Account() {
               <CardContent className="space-y-6">
                 <div className="flex items-center gap-6">
                   <Avatar className="w-24 h-24">
-                    <AvatarImage src="/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png" alt="Liam" />
+                    <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam" />
                     <AvatarFallback className="text-xl">L</AvatarFallback>
                   </Avatar>
                   <div className="space-y-2">

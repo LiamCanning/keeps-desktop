@@ -42,6 +42,10 @@ import OrganisationDashboard from "./pages/OrganisationDashboard";
 import CommunityMessages from "./pages/CommunityMessages";
 import CommunitySavedPosts from "./pages/CommunitySavedPosts";
 import CommunityFindPeople from "./pages/CommunityFindPeople";
+import PersonalInformation from "./pages/PersonalInformation";
+import PaymentMethods from "./pages/PaymentMethods";
+import DocumentsVerification from "./pages/DocumentsVerification";
+import ConnectedDevices from "./pages/ConnectedDevices";
 
 const queryClient = new QueryClient();
 
@@ -90,6 +94,10 @@ const App = () => (
           <Route path="/community-messages" element={<CommunityMessages />} />
           <Route path="/community-saved-posts" element={<CommunitySavedPosts />} />
           <Route path="/community-find-people" element={<CommunityFindPeople />} />
+          <Route path="/personal-information" element={<PersonalInformation />} />
+          <Route path="/payment-methods" element={<PaymentMethods />} />
+          <Route path="/documents-verification" element={<DocumentsVerification />} />
+          <Route path="/connected-devices" element={<ConnectedDevices />} />
           <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
