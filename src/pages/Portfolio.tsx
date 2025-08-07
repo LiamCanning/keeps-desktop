@@ -95,11 +95,10 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
       <CardHeader className="pb-4">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <LogoImage 
+            <img 
               src={holding.logo}
               alt={holding.name}
-              size="xl"
-              className="flex-shrink-0"
+              className="w-16 h-16 object-contain flex-shrink-0"
             />
             <div>
               <CardTitle className="text-lg text-card-foreground">{holding.name}</CardTitle>

@@ -125,11 +125,19 @@ function InvestmentCard({ investment }: { investment: Investment }) {
     >
       <div className="relative overflow-hidden">
         {investment.status === "live" ? (
-          <img 
-            src={investment.logo}
-            alt={investment.name}
-            className="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-          />
+          <div className="w-full h-64 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')] bg-cover bg-center"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div className="relative z-10 text-center space-y-4">
+              <div className="p-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/40">
+                <img 
+                  src={investment.logo}
+                  alt={investment.name}
+                  className="w-16 h-16 object-contain mx-auto"
+                />
+              </div>
+            </div>
+          </div>
         ) : (
           <div className="w-full h-64 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
             <img 
