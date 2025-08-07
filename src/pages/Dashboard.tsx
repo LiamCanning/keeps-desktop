@@ -115,7 +115,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
   };
 
   const handleCardClick = () => {
-    navigate(`/deal/${getDealSlug(investment.name)}`);
+    navigate(`/assets/${getDealSlug(investment.name)}`);
   };
 
   return (
@@ -210,7 +210,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
           onClick={(e) => {
             e.stopPropagation();
             if (investment.status === "live") {
-              navigate(`/deal/${getDealSlug(investment.name)}`);
+              navigate(`/assets/${getDealSlug(investment.name)}`);
             } else {
               navigate('/buy-asset', { state: { dealId: investment.id, dealName: investment.name } });
             }

@@ -24,9 +24,11 @@ export default function AssetDetails() {
           expectedReturn: "8-12%",
           fundingProgress: 85,
           totalFunding: "£50M",
-          category: "Football",
+          category: "Equity",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png"
+          logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+          investmentThesis: "Liverpool FC represents a unique opportunity to invest in Premier League excellence. With 6 European Cups, 19 League titles, and a global fanbase of 580 million supporters, Liverpool offers unparalleled brand value and revenue diversification through broadcasting, commercial partnerships, and matchday revenues.",
+          detailedAnalysis: "Liverpool's financial performance shows consistent growth with revenue reaching £594m in 2023. The club's strategic investments in Anfield expansion, player development, and global marketing initiatives position it for long-term value creation. The Premier League's £5bn broadcast deal and Liverpool's Champions League qualification history provide stable income streams."
         };
       case "mclaren-racing":
         return {
@@ -36,9 +38,11 @@ export default function AssetDetails() {
           expectedReturn: "10-15%",
           fundingProgress: 92,
           totalFunding: "£100M",
-          category: "Motorsport",
+          category: "Income Sharing Agreement",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png"
+          logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+          investmentThesis: "McLaren Racing offers exposure to Formula 1's fastest-growing revenue streams through an income sharing agreement. With F1's global viewership reaching 1.5 billion fans and the sport's expansion into new markets, McLaren's heritage brand and competitive performance create compelling investment returns.",
+          detailedAnalysis: "McLaren's revenue sharing model provides direct participation in F1's commercial success including TV rights, sponsorship deals, and prize money. The team's technology partnerships with Mercedes and strategic alliances with luxury brands drive additional revenue streams beyond racing performance."
         };
       case "ryder-cup":
         return {
@@ -48,9 +52,11 @@ export default function AssetDetails() {
           expectedReturn: "5% + Principal",
           fundingProgress: 90,
           totalFunding: "£42.5M",
-          category: "Golf",
+          category: "Debentures",
           launchDate: "July 2025",
-          logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png"
+          logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+          investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament. With guaranteed 5% annual returns plus full principal repayment, this investment provides stable income backed by the tournament's established revenue model and global broadcasting rights.",
+          detailedAnalysis: "The Ryder Cup generates over £100m in economic impact per event with corporate hospitality commanding premium prices. Debenture holders receive priority access to all tournament tickets, exclusive hospitality areas, and potential capital appreciation through the secondary debenture market."
         };
       default:
         return {
@@ -219,13 +225,25 @@ export default function AssetDetails() {
             <CardHeader>
               <CardTitle>Investment Overview</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed">
-                {asset.name} represents a unique opportunity to invest in one of the world's premier sports organisations. 
-                With a proven track record of success and global recognition, this investment offers both financial returns 
-                and exclusive access to premium experiences.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mt-6">
+            <CardContent className="space-y-6">
+              <div className="p-6 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/20">
+                <h4 className="text-xl font-bold mb-4">Investment Offering</h4>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  {asset.description}
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-4 bg-white/50 rounded-lg border">
+                    <h5 className="font-semibold text-primary mb-2">Investment Type</h5>
+                    <p className="text-lg font-bold">{asset.category}</p>
+                  </div>
+                  <div className="p-4 bg-white/50 rounded-lg border">
+                    <h5 className="font-semibold text-success mb-2">Expected Returns</h5>
+                    <p className="text-lg font-bold text-success">{asset.expectedReturn}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 bg-accent/10 rounded-lg">
                   <h4 className="font-semibold mb-2">Key Highlights</h4>
                   <ul className="space-y-1 text-sm text-muted-foreground">
@@ -238,7 +256,7 @@ export default function AssetDetails() {
                 <div className="p-4 bg-accent/10 rounded-lg">
                   <h4 className="font-semibold mb-2">Investment Structure</h4>
                   <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• Equity participation</li>
+                    <li>• {asset.category}</li>
                     <li>• Dividend potential</li>
                     <li>• Capital appreciation</li>
                     <li>• Exclusive benefits access</li>
@@ -256,9 +274,7 @@ export default function AssetDetails() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                Our investment thesis is built on the fundamental belief that premium sports organisations 
-                represent undervalued assets with significant growth potential driven by globalisation, 
-                digital transformation, and evolving fan engagement models.
+                {(asset as any).investmentThesis || "Our investment thesis is built on the fundamental belief that premium sports organisations represent undervalued assets with significant growth potential driven by globalisation, digital transformation, and evolving fan engagement models."}
               </p>
               <div className="space-y-4">
                 <div className="p-4 border rounded-lg">
@@ -293,8 +309,7 @@ export default function AssetDetails() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                Our comprehensive analysis considers historical performance, market trends, and future projections 
-                to provide transparent investment insights.
+                {(asset as any).detailedAnalysis || "Our comprehensive analysis considers historical performance, market trends, and future projections to provide transparent investment insights."}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 bg-success/5 rounded-lg border border-success/20">

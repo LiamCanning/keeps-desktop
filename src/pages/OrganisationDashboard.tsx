@@ -261,8 +261,8 @@ export default function OrganisationDashboard() {
             </CardContent>
           </Card>
 
-          {/* New Investor Performance Section */}
-          <Card className="card-professional">
+          {/* New Investor Performance Section - Made landscape */}
+          <Card className="card-professional lg:col-span-2">
             <CardHeader>
               <CardTitle className="text-xl flex items-center gap-2">
                 <TrendingUp className="w-5 h-5" />
@@ -270,7 +270,7 @@ export default function OrganisationDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-4 gap-4">
                 <div className="p-4 bg-gradient-to-r from-success/10 to-success/5 rounded-lg border border-success/20">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-2 h-2 bg-success rounded-full"></div>

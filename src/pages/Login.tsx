@@ -21,7 +21,7 @@ export default function Login() {
     // Check if user has already logged in from this IP
     const hasLoggedIn = localStorage.getItem("keeps_user_authenticated");
     if (hasLoggedIn) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [navigate]);
 
@@ -47,7 +47,7 @@ export default function Login() {
         description: "You've been successfully logged in.",
       });
       
-      navigate("/");
+      navigate("/dashboard");
       setIsLoading(false);
     }, 1500);
   };
@@ -65,7 +65,7 @@ export default function Login() {
         description: `Successfully logged in with ${provider}.`,
       });
       
-      navigate("/");
+      navigate("/dashboard");
       setIsLoading(false);
     }, 2000);
   };
@@ -83,7 +83,7 @@ export default function Login() {
         description: "You've been authenticated via Single Sign-On.",
       });
       
-      navigate("/");
+      navigate("/dashboard");
       setIsLoading(false);
     }, 2500);
   };
