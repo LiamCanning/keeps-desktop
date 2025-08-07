@@ -39,6 +39,9 @@ import SellShares from "./pages/SellShares";
 import RequestTeam from "./pages/RequestTeam";
 import KnowledgeBase from "./pages/KnowledgeBase";
 import OrganisationDashboard from "./pages/OrganisationDashboard";
+import CommunityMessages from "./pages/CommunityMessages";
+import CommunitySavedPosts from "./pages/CommunitySavedPosts";
+import CommunityFindPeople from "./pages/CommunityFindPeople";
 
 const queryClient = new QueryClient();
 
@@ -84,6 +87,9 @@ const App = () => (
           <Route path="/organisation-dashboard" element={<OrganisationDashboard />} />
           <Route path="/list-asset" element={<ListAsset />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
+          <Route path="/community-messages" element={<CommunityMessages />} />
+          <Route path="/community-saved-posts" element={<CommunitySavedPosts />} />
+          <Route path="/community-find-people" element={<CommunityFindPeople />} />
           <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

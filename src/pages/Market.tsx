@@ -210,9 +210,17 @@ export default function Market() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="space-y-2 text-left">
-        <h1 className="text-3xl font-bold text-foreground">Secondary Market</h1>
-        <p className="text-lg text-foreground/80">Buy and sell sports assets</p>
+      <div className="flex items-center justify-between">
+        <div className="space-y-2 text-left">
+          <h1 className="text-3xl font-bold text-foreground">Secondary Market</h1>
+          <p className="text-lg text-foreground/80">Buy and sell sports assets</p>
+        </div>
+        <Button 
+          className="btn-invest text-lg px-6 py-3 h-auto"
+          onClick={() => window.location.href = '/list-asset'}
+        >
+          List Asset
+        </Button>
       </div>
 
       {/* Market Stats */}

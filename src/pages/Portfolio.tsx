@@ -180,24 +180,10 @@ export default function Portfolio() {
 
   return (
     <div className="space-y-6">
-      {/* Sticky Portfolio Banner */}
-      <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border p-4 shadow-sm">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div>
-            <h2 className="text-lg font-bold text-gradient">Liam's Portfolio</h2>
-            <p className="text-sm text-muted-foreground">Total Value: £{totalValue.toLocaleString()}</p>
-          </div>
-          <div className="text-right">
-            <p className="text-lg font-bold text-success">+£{totalReturn.toLocaleString()}</p>
-            <p className="text-sm text-success">+{returnPercent.toFixed(1)}%</p>
-          </div>
-        </div>
-      </div>
-
       <div className="p-6 space-y-6 max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="space-y-2 text-left">
-          <h1 className="text-3xl font-bold text-gradient">Portfolio Overview</h1>
+          <h1 className="text-3xl font-bold text-gradient">Liam's Portfolio Overview</h1>
           <p className="text-lg text-foreground/80">Track your sports investments</p>
         </div>
 
@@ -239,12 +225,6 @@ export default function Portfolio() {
               <p className="font-semibold text-xl text-card-foreground">4</p>
             </div>
           </div>
-          <Button 
-            className="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600 text-white text-xs px-2 py-1 h-auto"
-            onClick={() => window.location.href = '/list-asset'}
-          >
-            List Asset
-          </Button>
         </Card>
       </div>
 

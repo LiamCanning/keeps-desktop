@@ -100,7 +100,7 @@ export default function Account() {
     <div className="p-6 space-y-6 max-w-4xl mx-auto">
       {/* Header */}
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">Account Settings</h1>
+        <h1 className="text-3xl font-bold text-gradient">Account</h1>
         <p className="text-lg text-muted-foreground">Manage your account preferences and settings</p>
       </div>
 
@@ -110,7 +110,7 @@ export default function Account() {
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
-          <TabsTrigger value="data">Data</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile" className="mt-6">
@@ -150,11 +150,11 @@ export default function Account() {
               </CardContent>
             </Card>
 
-            {/* Favorite Teams */}
+            {/* Favourite Assets */}
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle className="text-card-foreground">Favorite Teams</CardTitle>
-                <p className="text-sm text-muted-foreground">Teams you follow and invest in</p>
+                <CardTitle className="text-card-foreground">Favourite Assets</CardTitle>
+                <p className="text-sm text-muted-foreground">Assets you follow and invest in</p>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-3">
@@ -321,7 +321,7 @@ export default function Account() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="data" className="mt-6">
+        <TabsContent value="settings" className="mt-6">
           <Card className="card-professional">
             <CardHeader>
               <CardTitle className="text-card-foreground">Data Sharing Partners</CardTitle>

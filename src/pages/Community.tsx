@@ -202,17 +202,17 @@ export default function Community() {
           <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
         </div>
         
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="outline" className="flex items-center gap-2" onClick={() => navigate("/community-messages")}>
           <MessageCircle className="w-4 h-4" />
           Messages
         </Button>
         
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="outline" className="flex items-center gap-2" onClick={() => navigate("/community-saved-posts")}>
           <Star className="w-4 h-4" />
           Saved Posts
         </Button>
         
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="outline" className="flex items-center gap-2" onClick={() => navigate("/community-find-people")}>
           <Users className="w-4 h-4" />
           Find People
         </Button>
