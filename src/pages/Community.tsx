@@ -354,6 +354,60 @@ export default function Community() {
               </Badge>
             </div>
             
+            {/* Top Investors to Follow Section */}
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="text-card-foreground">Top Investors to Follow</CardTitle>
+                <p className="text-sm text-muted-foreground">Featured investors with proven performance and insights</p>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    { name: "Sarah Mitchell", username: "sarahm_investor", avatar: mariaAvatar, performance: "+24.3%", assets: "Liverpool FC, McLaren F1", verified: true },
+                    { name: "Emma Thompson", username: "golf_emma", avatar: emmaAvatar, performance: "+31.2%", assets: "Ryder Cup, British Cycling", verified: true },
+                    { name: "James Wilson", username: "jwilson_reds", avatar: jamesAvatar, performance: "+28.9%", assets: "Liverpool FC", verified: true },
+                    { name: "Mike Rodriguez", username: "f1mike", avatar: mikeAvatar, performance: "+19.7%", assets: "McLaren F1, Ryder Cup", verified: false },
+                    { name: "Maria Garcia", username: "maria_portfolio", avatar: f1FanAvatar, performance: "+22.1%", assets: "McLaren F1, Ryder Cup, British Cycling", verified: false }
+                  ].map((investor) => (
+                    <Card key={investor.username} className="card-professional border border-primary/20 bg-primary/5">
+                      <CardContent className="p-4">
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex items-center gap-3">
+                            <img src={investor.avatar} alt={investor.name} className="w-12 h-12 rounded-full object-cover" />
+                            <div>
+                              <div className="flex items-center gap-1">
+                                <h3 className="font-semibold text-card-foreground text-sm">{investor.name}</h3>
+                                {investor.verified && <Badge variant="success" className="text-xs">✓</Badge>}
+                              </div>
+                              <p className="text-xs text-muted-foreground">@{investor.username}</p>
+                            </div>
+                          </div>
+                          <Badge variant="success" className="text-xs">
+                            {investor.performance}
+                          </Badge>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div>
+                            <p className="text-xs text-muted-foreground">Focus Assets:</p>
+                            <p className="text-xs font-medium text-card-foreground">{investor.assets}</p>
+                          </div>
+                          
+                          <Button 
+                            size="sm" 
+                            className="w-full text-xs h-8"
+                            onClick={() => navigate(`/community-profile/${investor.username}`)}
+                          >
+                            Track Investor
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 { name: "Sarah Mitchell", username: "sarahm_investor", avatar: mariaAvatar, followers: "1.2K", verified: true },

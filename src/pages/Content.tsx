@@ -416,9 +416,10 @@ export default function Content() {
 
       {/* Content Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
           <TabsTrigger value="news">Latest News</TabsTrigger>
           <TabsTrigger value="reels">Reels</TabsTrigger>
+          <TabsTrigger value="analysis">Keeps Analysis</TabsTrigger>
           <TabsTrigger value="all">All Content</TabsTrigger>
         </TabsList>
 
@@ -443,7 +444,7 @@ export default function Content() {
         <TabsContent value="reels" className="mt-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">Reels & Videos</h2>
+              <h2 className="text-xl font-semibold text-foreground">Fans enjoy behind the scenes look at Hexagon Cup</h2>
               <Badge variant="warning">
                 {filteredArticles.length} Videos
               </Badge>
@@ -451,8 +452,118 @@ export default function Content() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredArticles.map((article) => (
-                <NewsCard key={article.id} article={article} />
+                <div key={article.id} className="relative">
+                  <NewsCard article={article} />
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/50 rounded-full p-4 cursor-pointer hover:bg-black/70 transition-colors">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
               ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="analysis" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">Keeps Analysis</h2>
+              <Badge variant="secondary">
+                Investment Team Insights
+              </Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop"
+                    alt="Sports Market Analysis"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <Badge variant="success" className="absolute top-4 left-4">
+                    Market Analysis
+                  </Badge>
+                </div>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                    Sports Industry Market Outlook Q4 2025
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
+                    Comprehensive analysis of the global sports investment market, featuring emerging opportunities and sector performance trends for the coming quarter.
+                  </p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                    <span className="font-medium">Keeps Investment Team</span>
+                    <span>5 min read</span>
+                  </div>
+                  <Button className="btn-invest w-full">
+                    Read Analysis
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <img 
+                    src="/src/assets/logos/mclaren-racing-logo.png"
+                    alt="McLaren F1 Spotlight"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <Badge variant="warning" className="absolute top-4 left-4">
+                    Asset Spotlight
+                  </Badge>
+                </div>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                    McLaren F1: Performance Analysis & Investment Thesis
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
+                    Deep dive into McLaren's competitive position, revenue streams, and investment potential following their strong 2025 season performance.
+                  </p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                    <span className="font-medium">Keeps Investment Team</span>
+                    <span>8 min read</span>
+                  </div>
+                  <Button className="btn-invest w-full">
+                    Read Analysis
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop"
+                    alt="Assets to Watch"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <Badge variant="default" className="absolute top-4 left-4">
+                    Market Trends
+                  </Badge>
+                </div>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                    Assets to Watch: Emerging Opportunities in 2026
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
+                    Investment team identifies the most promising upcoming sports assets and market trends that could deliver exceptional returns for early investors.
+                  </p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                    <span className="font-medium">Keeps Investment Team</span>
+                    <span>6 min read</span>
+                  </div>
+                  <Button className="btn-invest w-full">
+                    Read Analysis
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </TabsContent>

@@ -430,27 +430,29 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/lovable-uploads/18dc1b24-b06f-48f9-a2b9-1f6133e2eed7.png"
-                      alt="Newcastle United"
+                      src="/src/assets/logos/ohio-state-logo.png"
+                      alt="Ohio State Buckeyes"
                       size="lg"
                     />
                     <div>
-                      <CardTitle className="text-lg text-card-foreground">Newcastle United</CardTitle>
-                      <p className="text-sm text-muted-foreground">Premier League</p>
+                      <CardTitle className="text-lg text-card-foreground">Ohio State Buckeyes</CardTitle>
+                      <p className="text-sm text-muted-foreground">US College Football</p>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Target Price</span>
-                      <span className="font-semibold text-card-foreground">£750</span>
+                      <span className="text-muted-foreground">Launching</span>
+                      <span className="font-bold text-lg">Q4 2025</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Current Offers</span>
-                      <span className="font-semibold text-card-foreground">£820</span>
+                      <span className="text-muted-foreground">Expected Returns</span>
+                      <span className="font-bold text-lg text-success">12-18%</span>
                     </div>
-                    <Badge variant="success" className="w-full justify-center">Above Target</Badge>
+                    <Button className="w-full btn-invest mt-4">
+                      Add to Watchlist
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -459,27 +461,29 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png"
-                      alt="Real Madrid"
+                      src="/src/assets/logos/cardiff-city-logo.png"
+                      alt="Cardiff City FC"
                       size="lg"
                     />
                     <div>
-                      <CardTitle className="text-lg text-card-foreground">Real Madrid</CardTitle>
-                      <p className="text-sm text-muted-foreground">La Liga</p>
+                      <CardTitle className="text-lg text-card-foreground">Cardiff City FC</CardTitle>
+                      <p className="text-sm text-muted-foreground">EFL Championship</p>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Target Price</span>
-                      <span className="font-semibold text-card-foreground">£2,500</span>
+                      <span className="text-muted-foreground">Launching</span>
+                      <span className="font-bold text-lg">Early 2026</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Current Offers</span>
-                      <span className="font-semibold text-card-foreground">£2,350</span>
+                      <span className="text-muted-foreground">Expected Returns</span>
+                      <span className="font-bold text-lg text-success">8-14%</span>
                     </div>
-                    <Badge variant="warning" className="w-full justify-center">Below Target</Badge>
+                    <Button className="w-full btn-invest mt-4">
+                      Add to Watchlist
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -487,33 +491,38 @@ export default function Market() {
               <Card className="card-professional">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-blue-600 rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold text-xs">PSG</span>
-                    </div>
+                    <LogoImage 
+                      src="/src/assets/logos/exeter-chiefs-logo.png"
+                      alt="Exeter Chiefs"
+                      size="lg"
+                    />
                     <div>
-                      <CardTitle className="text-lg text-card-foreground">Paris Saint-Germain</CardTitle>
-                      <p className="text-sm text-muted-foreground">Ligue 1</p>
+                      <CardTitle className="text-lg text-card-foreground">Exeter Chiefs</CardTitle>
+                      <p className="text-sm text-muted-foreground">Premiership Rugby</p>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Target Price</span>
-                      <span className="font-semibold text-card-foreground">£1,800</span>
+                      <span className="text-muted-foreground">Launching</span>
+                      <span className="font-bold text-lg">Mid 2026</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">No Offers</span>
-                      <span className="font-semibold text-muted-foreground">-</span>
+                      <span className="text-muted-foreground">Expected Returns</span>
+                      <span className="font-bold text-lg text-success">10-16%</span>
                     </div>
-                    <Badge variant="secondary" className="w-full justify-center">Awaiting Offers</Badge>
+                    <Button className="w-full btn-invest mt-4">
+                      Add to Watchlist
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             </div>
           </div>
         </TabsContent>
+
       </Tabs>
-    </div>
-  );
+      </div>
+    );
 }

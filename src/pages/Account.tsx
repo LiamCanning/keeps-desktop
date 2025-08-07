@@ -106,11 +106,12 @@ export default function Account() {
 
       {/* Account Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
           <TabsTrigger value="profile">Profile</TabsTrigger>
+          <TabsTrigger value="account-settings">Account Settings</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
-          <TabsTrigger value="settings">Settings</TabsTrigger>
+          <TabsTrigger value="data">Data</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile" className="mt-6">
@@ -127,11 +128,11 @@ export default function Account() {
                     <AvatarFallback className="text-xl">L</AvatarFallback>
                   </Avatar>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold text-card-foreground">Liam Harrison</h3>
+                    <h3 className="text-xl font-semibold text-card-foreground">Liam Canning</h3>
                     <p className="text-muted-foreground">Premium Investor</p>
                     <Badge variant="warning" className="w-fit">
                       <Star className="w-3 h-3 mr-1" />
-                      Gold Tier
+                      Keeps Diamond Tier
                     </Badge>
                   </div>
                 </div>
@@ -205,29 +206,58 @@ export default function Account() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-card-foreground">
                   <Settings className="w-5 h-5" />
-                  Account Settings
+                  Quick Actions
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button variant="outline" className="w-full justify-start">
                   <Building2 className="w-4 h-4 mr-2" />
-                  Personal Information
+                  View Benefits
                 </Button>
                 <Button variant="outline" className="w-full justify-start">
                   <CreditCard className="w-4 h-4 mr-2" />
-                  Payment Methods
+                  Portfolio Performance
                 </Button>
                 <Button variant="outline" className="w-full justify-start">
                   <FileText className="w-4 h-4 mr-2" />
-                  Documents & Verification
+                  Investment History
                 </Button>
                 <Button variant="outline" className="w-full justify-start">
                   <Smartphone className="w-4 h-4 mr-2" />
-                  Connected Devices
+                  Community Profile
                 </Button>
               </CardContent>
             </Card>
           </div>
+        </TabsContent>
+
+        <TabsContent value="account-settings" className="mt-6">
+          <Card className="card-professional lg:col-span-2">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-card-foreground">
+                <Settings className="w-5 h-5" />
+                Account Settings
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <Button variant="outline" className="w-full justify-start">
+                <Building2 className="w-4 h-4 mr-2" />
+                Personal Information
+              </Button>
+              <Button variant="outline" className="w-full justify-start">
+                <CreditCard className="w-4 h-4 mr-2" />
+                Payment Methods
+              </Button>
+              <Button variant="outline" className="w-full justify-start">
+                <FileText className="w-4 h-4 mr-2" />
+                Documents & Verification
+              </Button>
+              <Button variant="outline" className="w-full justify-start">
+                <Smartphone className="w-4 h-4 mr-2" />
+                Connected Devices
+              </Button>
+            </CardContent>
+          </Card>
         </TabsContent>
 
         <TabsContent value="notifications" className="mt-6">
@@ -321,7 +351,7 @@ export default function Account() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="settings" className="mt-6">
+        <TabsContent value="data" className="mt-6">
           <Card className="card-professional">
             <CardHeader>
               <CardTitle className="text-card-foreground">Data Sharing Partners</CardTitle>
