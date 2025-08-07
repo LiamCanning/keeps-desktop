@@ -5,34 +5,34 @@ import { Badge } from "@/components/ui/badge";
 
 const features = [
   {
-    icon: Building2,
-    title: "Corporate Investment Solutions",
-    description: "Tailored investment opportunities for corporate entities and institutional investors."
+    icon: TrendingUp,
+    title: "Sustainable Capital Raising",
+    description: "Raise capital from passionate fans and investors who believe in your organisation's future."
   },
   {
     icon: Users,
-    title: "Team Management",
-    description: "Advanced portfolio management tools for investment teams and fund managers."
+    title: "Audience Growth",
+    description: "Connect with new fans and expand your global reach through our investment community."
   },
   {
-    icon: TrendingUp,
-    title: "Market Analytics",
-    description: "Comprehensive market data and analytics for informed investment decisions."
+    icon: Building2,
+    title: "Data Utilisation",
+    description: "Access comprehensive analytics and insights to drive commercial decision-making."
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "Bank-level security and compliance for institutional-grade transactions."
+    title: "Brand Commercialisation",
+    description: "Unlock new revenue streams and monetise your brand through innovative partnerships."
   }
 ];
 
 const benefits = [
-  "Priority access to exclusive deals",
-  "Dedicated relationship manager",
-  "Custom investment minimums",
-  "Advanced reporting and analytics",
-  "White-label investment platform",
-  "API integration capabilities"
+  "Direct access to passionate fan investors",
+  "Transparent and regulated fundraising process",
+  "Comprehensive investor relations support", 
+  "Real-time analytics and performance tracking",
+  "Global reach through digital platform",
+  "Ongoing commercial partnership opportunities"
 ];
 
 export default function ForOrganisations() {
@@ -41,14 +41,14 @@ export default function ForOrganisations() {
       {/* Header Section */}
       <div className="text-center space-y-4 py-12">
         <Badge variant="secondary" className="mb-4">
-          Enterprise Solutions
+          Capital Raising Solutions
         </Badge>
         <h1 className="text-4xl font-bold text-foreground">
-          Investment Solutions for Organisations
+          Raise Capital Sustainably with Keeps
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Unlock exclusive sports investment opportunities with our enterprise-grade platform 
-          designed for institutional investors, corporations, and investment teams.
+          Partner with leading sports organisations to raise capital sustainably, grow your audience, 
+          and leverage data utilisation to further commercialise your brand.
         </p>
       </div>
 
@@ -73,7 +73,7 @@ export default function ForOrganisations() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 className="text-3xl font-bold text-foreground mb-6">
-            Why Choose Keeps for Your Organisation?
+            Why Partner with Keeps?
           </h2>
           <div className="space-y-4">
             {benefits.map((benefit, index) => (
@@ -85,46 +85,46 @@ export default function ForOrganisations() {
           </div>
           <div className="mt-8 space-y-4">
             <Button size="lg" className="w-full sm:w-auto">
-              Schedule a Demo
+              Partner with Keeps
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <p className="text-sm text-muted-foreground">
-              Or call us at +44 20 7946 0958
+              Or email us at partnerships@keeps.sport
             </p>
           </div>
         </div>
 
         <Card className="bg-card border-0 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-center">Enterprise Package</CardTitle>
+            <CardTitle className="text-center">Partnership Package</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="text-center">
-              <p className="text-3xl font-bold text-primary">Custom Pricing</p>
-              <p className="text-muted-foreground">Based on your requirements</p>
+              <p className="text-3xl font-bold text-primary">Custom Terms</p>
+              <p className="text-muted-foreground">Tailored to your organisation</p>
             </div>
             
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span>Minimum Investment</span>
-                <span className="font-medium">£100,000+</span>
+                <span>Fundraising Target</span>
+                <span className="font-medium">£1M - £100M+</span>
               </div>
               <div className="flex justify-between">
-                <span>Access Level</span>
-                <span className="font-medium">Tier 1 (All Deals)</span>
+                <span>Investor Access</span>
+                <span className="font-medium">Global Platform</span>
               </div>
               <div className="flex justify-between">
-                <span>Support</span>
-                <span className="font-medium">24/7 Priority</span>
+                <span>Support Level</span>
+                <span className="font-medium">Dedicated Team</span>
               </div>
               <div className="flex justify-between">
-                <span>Reporting</span>
-                <span className="font-medium">Advanced Analytics</span>
+                <span>Data & Analytics</span>
+                <span className="font-medium">Real-time Dashboard</span>
               </div>
             </div>
 
             <Button className="w-full" size="lg">
-              Contact Sales Team
+              Start Partnership
             </Button>
           </CardContent>
         </Card>
@@ -138,28 +138,40 @@ export default function ForOrganisations() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              name: "Premier Investment Group",
-              type: "Investment Fund",
-              amount: "£50M+ Invested",
-              description: "Successfully diversified portfolio with sports assets across 15 different deals."
+              name: "Liverpool FC",
+              type: "Football Club",
+              amount: "£80M Raised",
+              description: "Successfully raised capital through equity offering, expanding global fanbase and commercial opportunities.",
+              logo: "/src/assets/logos/Liverpool FC Logo.png"
             },
             {
-              name: "Corporate Pension Fund",
-              type: "Pension Fund",
-              amount: "£25M+ Invested",
-              description: "Achieved 12% annual returns through strategic sports infrastructure investments."
+              name: "McLaren Racing",
+              type: "F1 Team",
+              amount: "£100M Raised",
+              description: "Innovative income sharing agreement providing fans exclusive access while funding technology development.",
+              logo: "/src/assets/logos/mclaren-racing-logo.png"
             },
             {
-              name: "Family Office Partners",
-              type: "Family Office",
-              amount: "£100M+ Invested",
-              description: "Built comprehensive sports investment portfolio spanning multiple continents."
+              name: "Ryder Cup",
+              type: "Golf Tournament",
+              amount: "£50M Raised",
+              description: "Premium debenture programme offering guaranteed returns and exclusive tournament access to investors.",
+              logo: "/src/assets/logos/Ryder Cup Logo.png"
             }
           ].map((client, index) => (
             <Card key={index} className="bg-card border-0 shadow-lg">
               <CardContent className="p-6">
-                <h3 className="font-bold text-lg text-foreground mb-2">{client.name}</h3>
-                <Badge variant="secondary" className="mb-3">{client.type}</Badge>
+                <div className="flex items-center gap-3 mb-4">
+                  <img 
+                    src={client.logo} 
+                    alt={client.name}
+                    className="w-12 h-12 object-contain"
+                  />
+                  <div>
+                    <h3 className="font-bold text-lg text-foreground">{client.name}</h3>
+                    <Badge variant="secondary">{client.type}</Badge>
+                  </div>
+                </div>
                 <p className="text-primary font-semibold mb-3">{client.amount}</p>
                 <p className="text-muted-foreground text-sm">{client.description}</p>
               </CardContent>

@@ -13,7 +13,7 @@ const marketData = [
     trend: "up",
     volume: "£125M",
     deals: 12,
-    logo: "/lovable-uploads/001420e5-847e-4145-addb-8bec6a73c63e.png",
+    logo: "⚽",
     description: "Premier League and Championship clubs showing strong growth"
   },
   {
@@ -22,7 +22,7 @@ const marketData = [
     trend: "up",
     volume: "£67M",
     deals: 5,
-    logo: "/lovable-uploads/e0b86990-9fbb-421a-b689-b9e7ac420908.png",
+    logo: "🏎️",
     description: "McLaren and other F1 teams driving exceptional returns"
   },
   {
@@ -31,7 +31,7 @@ const marketData = [
     trend: "up",
     volume: "£89M",
     deals: 8,
-    logo: "/lovable-uploads/3c841089-35f1-4a8e-bb45-856c04bcd5fe.png",
+    logo: "⛳",
     description: "Ryder Cup and premium golf events in high demand"
   },
   {
@@ -40,7 +40,7 @@ const marketData = [
     trend: "up",
     volume: "£34M",
     deals: 4,
-    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+    logo: "🏀",
     description: "US college basketball opportunities emerging"
   }
 ];
@@ -232,12 +232,9 @@ export default function MarketTrends() {
                 {marketData.slice(0, 3).map((sector, index) => (
                   <div key={index} className="p-6 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300">
                     <div className="flex items-center gap-4 mb-4">
-                      <LogoImage 
-                        src={sector.logo}
-                        alt={sector.sector}
-                        size="lg"
-                        className="bg-white/50"
-                      />
+                      <div className="w-12 h-12 bg-white/50 rounded-lg flex items-center justify-center text-2xl">
+                        {sector.logo}
+                      </div>
                       <div>
                         <h3 className="font-bold text-lg text-card-foreground">{sector.sector}</h3>
                         <Badge variant="success" className="mt-1">
@@ -273,11 +270,9 @@ export default function MarketTrends() {
                 {marketData.map((sector, index) => (
                   <div key={index} className="flex items-center justify-between p-4 bg-gradient-to-r from-muted/10 to-transparent rounded-lg border border-border/30">
                     <div className="flex items-center gap-4">
-                      <LogoImage 
-                        src={sector.logo}
-                        alt={sector.sector}
-                        size="md"
-                      />
+                      <div className="w-8 h-8 flex items-center justify-center text-xl">
+                        {sector.logo}
+                      </div>
                       <div>
                         <p className="font-medium text-card-foreground">{sector.sector}</p>
                         <p className="text-sm text-muted-foreground">{sector.description}</p>
@@ -311,12 +306,9 @@ export default function MarketTrends() {
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-4">
-                        <LogoImage 
-                          src={sector.logo}
-                          alt={sector.sector}
-                          size="xl"
-                          className="bg-white/80"
-                        />
+                        <div className="w-16 h-16 bg-white/80 rounded-lg flex items-center justify-center text-3xl">
+                          {sector.logo}
+                        </div>
                         <div>
                           <CardTitle className="text-xl text-gradient">{sector.sector}</CardTitle>
                           <p className="text-sm text-muted-foreground">{sector.description}</p>

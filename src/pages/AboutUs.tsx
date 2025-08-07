@@ -166,11 +166,18 @@ export default function AboutUs() {
             Have questions about our mission or want to learn more about our team?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="flex items-center gap-2">
+            <Button 
+              className="flex items-center gap-2"
+              onClick={() => window.location.href = "mailto:info@keeps.sport"}
+            >
               <Mail className="w-4 h-4" />
               Contact Us
             </Button>
-            <Button variant="outline" className="flex items-center gap-2">
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-2"
+              onClick={() => window.open("https://www.linkedin.com/company/keeps-sport/posts/?feedView=all", "_blank")}
+            >
               <Linkedin className="w-4 h-4" />
               LinkedIn
             </Button>

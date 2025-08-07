@@ -508,8 +508,8 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png"
-                    alt="McLaren F1 Spotlight"
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+                    alt="McLaren F1 Car"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <Badge variant="warning" className="absolute top-4 left-4">
@@ -538,8 +538,8 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop"
-                    alt="Assets to Watch"
+                    src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=600&fit=crop"
+                    alt="Sports Arena"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <Badge variant="default" className="absolute top-4 left-4">

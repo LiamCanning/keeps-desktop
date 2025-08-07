@@ -26,7 +26,7 @@ const assets: Asset[] = [
   {
     id: "liverpool-fc",
     name: "Liverpool FC",
-    logo: "/lovable-uploads/2e9f480e-345c-4c8d-aab7-8e3ee7df4056.png",
+    logo: "/src/assets/logos/Liverpool FC Logo.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "live",
     description: "Own a stake in one of the world's most successful football clubs with global reach and consistent performance.",
@@ -40,7 +40,7 @@ const assets: Asset[] = [
   {
     id: "mclaren-racing",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+    logo: "/src/assets/logos/mclaren-racing-logo.png",
     banner: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
     status: "live",
     description: "Invest in Formula 1 excellence with McLaren's racing team, technology innovation, and global partnerships.",
@@ -54,7 +54,7 @@ const assets: Asset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/c23214c5-7f7c-4f20-9656-38c43a09385e.png",
+    logo: "/src/assets/logos/Ryder Cup Logo.png",
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
@@ -67,7 +67,7 @@ const assets: Asset[] = [
   },
   {
     id: "hexagon-cup",
-    name: "Hexagon Cup",
+    name: "Hexagon Fan Team",
     logo: "/lovable-uploads/89d65a52-5638-46de-9e90-4c80fafc47a1.png",
     banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop",
     status: "coming-soon",
@@ -76,13 +76,13 @@ const assets: Asset[] = [
     expectedReturn: "9-13%",
     fundingProgress: 0,
     totalFunding: "£40M",
-    category: "Multi-Sport",
+    category: "Equity",
     launchDate: "September 2025"
   },
   {
     id: "cardiff-city",
     name: "Cardiff City",
-    logo: "/lovable-uploads/54e78447-8491-4ae5-9260-8f5a4ce6a8f0.png",
+    logo: "/src/assets/logos/cardiff-city-logo.png",
     banner: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase and strong community ties, offering excellent growth potential in the Championship.",
@@ -90,13 +90,13 @@ const assets: Asset[] = [
     expectedReturn: "12-18%",
     fundingProgress: 0,
     totalFunding: "£75M",
-    category: "Football",
+    category: "Equity",
     launchDate: "October 2025"
   },
   {
     id: "ohio-state",
     name: "Ohio State",
-    logo: "/lovable-uploads/6a8fabb5-8bea-4444-90e6-00bab260b29c.png",
+    logo: "/src/assets/logos/ohio-state-logo.png",
     banner: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=400&fit=crop",
     status: "coming-soon",
     description: "Elite American university athletics programme with massive revenue potential and nationwide following across multiple sports.",
@@ -104,7 +104,7 @@ const assets: Asset[] = [
     expectedReturn: "15%",
     fundingProgress: 0,
     totalFunding: "£20M",
-    category: "University Sports",
+    category: "ISA",
     launchDate: "November 2025"
   }
 ];
@@ -121,7 +121,7 @@ function AssetCard({ asset }: { asset: Asset }) {
             <OptimizedImage
               src={asset.logo}
               alt={`${asset.name} logo`}
-              className="w-24 h-24 object-contain mx-auto"
+              className={asset.name === "Hexagon Fan Team" ? "w-16 h-16 object-contain mx-auto" : "w-24 h-24 object-contain mx-auto"}
             />
           </div>
           <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"} className="shadow-md">
