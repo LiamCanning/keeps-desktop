@@ -105,9 +105,10 @@ const App = () => (
           <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
           <Route path="/investment-history" element={<InvestmentHistory />} />
           <Route path="/community-profile" element={<CommunityProfile />} />
-          <Route path="/order-confirmation" element={<OrderConfirmation />} />
-          <Route path="/sale-confirmation" element={<SaleConfirmation />} />
-          <Route path="*" element={<NotFound />} />
+            <Route path="/order-confirmation" element={<OrderConfirmation />} />
+            <Route path="/sale-confirmation" element={<SaleConfirmation />} />
+            <Route path="/transaction/:id" element={<TransactionDetails />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
       </BrowserRouter>

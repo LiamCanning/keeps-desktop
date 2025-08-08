@@ -47,40 +47,40 @@ const marketData = [
 
 const hotDeals = [
   {
-    name: "🏎️ McLaren F1 Racing",
+    name: "McLaren F1 Racing",
     type: "Revenue Share",
     raised: "£92M",
     target: "£100M",
     progress: 92,
     investors: 2847,
     roi: "18.7%",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
     trend: "+22%",
-    tags: ["🔥 Hot", "Almost Funded"]
+    tags: ["Hot", "Almost Funded"]
   },
   {
-    name: "⚽ Liverpool FC Equity",
+    name: "Liverpool FC Equity",
     type: "Team Equity",
     raised: "£78M",
     target: "£80M", 
     progress: 97,
     investors: 5200,
     roi: "15.2%",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     trend: "+15%",
-    tags: ["⚡ Trending", "97% Funded"]
+    tags: ["Trending", "97% Funded"]
   },
   {
-    name: "⛳ Ryder Cup 2025",
+    name: "Ryder Cup 2025",
     type: "Event Rights",
     raised: "£45M",
     target: "£50M",
     progress: 90,
     investors: 1800,
     roi: "12.8%",
-    logo: "/placeholder.svg",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     trend: "+13%",
-    tags: ["⭐ Premium", "Limited Access"]
+    tags: ["Premium", "Limited Access"]
   }
 ];
 
@@ -102,7 +102,7 @@ const marketInsights = [
     category: "Market Leader"
   },
   {
-    title: "Golf Market Expansion",
+    title: "⛳ Golf Market Expansion",
     description: "Ryder Cup 2025 showing strong investor interest with premium hospitality packages sold out. Golf's affluent demographic and exclusive access benefits are driving demand beyond expectations.",
     impact: "Medium",
     date: "1 week ago", 
@@ -110,7 +110,7 @@ const marketInsights = [
     category: "Opportunity"
   },
   {
-    title: "Emerging Basketball Opportunities",
+    title: "🏀 Emerging Basketball Opportunities",
     description: "Ohio State basketball programs entering the platform present new investment categories. College sports offer unique revenue sharing models with high engagement audiences.",
     impact: "Medium",
     date: "1 week ago",

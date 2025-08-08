@@ -174,7 +174,8 @@ export default function AssetDetails() {
                   if (asset.status === "coming-soon") {
                     setShowEarlyAccess(true);
                   } else {
-                    navigate(`/trade/${assetId}`);
+                    const tradeId = assetId === "mclaren-racing" ? "mclaren-f1" : assetId;
+                    navigate(`/trade/${tradeId}`);
                   }
                 }}
               >
@@ -284,7 +285,7 @@ export default function AssetDetails() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
             <div className="text-center p-3 bg-muted/10 rounded-lg border cursor-pointer hover:bg-muted/20 transition-colors" onClick={() => navigate('/investor-leaderboard')}>
               <div className="text-lg font-bold text-foreground">
-                {assetId === 'ryder-cup' ? '2,340' : Math.floor(asset.fundingProgress * 50)}
+                {assetId === 'liverpool-fc' ? '10,250' : assetId === 'mclaren-racing' ? '8,750' : assetId === 'ryder-cup' ? '2,340' : Math.floor(asset.fundingProgress * 50)}
               </div>
               <div className="text-xs text-muted-foreground underline">Investors</div>
             </div>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
+import { Link } from "react-router-dom";
 interface Investment {
   id: string;
   asset: string;
@@ -219,15 +219,17 @@ export default function InvestmentHistory() {
                     
                     {investment.currentValue && (
                       <div className="mt-3 pt-3 border-t">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm text-muted-foreground">Return</span>
-                          <span className={`text-sm font-semibold ${
-                            (investment.currentValue - investment.amount) > 0 ? 'text-success' : 'text-destructive'
-                          }`}>
-                            {(investment.currentValue - investment.amount) > 0 ? '+' : ''}
-                            £{(investment.currentValue - investment.amount).toLocaleString()} 
-                            ({(((investment.currentValue - investment.amount) / investment.amount) * 100).toFixed(1)}%)
-                          </span>
+                        <div className="flex items-center justify-between">
+                          <div className="text-sm font-semibold">
+                            <span className="text-muted-foreground mr-2">Return</span>
+                            <span className={(investment.currentValue - investment.amount) > 0 ? 'text-success' : 'text-destructive'}>
+                              {(investment.currentValue - investment.amount) > 0 ? '+' : ''}
+                              £{(investment.currentValue - investment.amount).toLocaleString()} ({(((investment.currentValue - investment.amount) / investment.amount) * 100).toFixed(1)}%)
+                            </span>
+                          </div>
+                          <Button asChild variant="outline" size="sm">
+                            <Link to={`/transaction/${investment.id}`}>Download Confirmation</Link>
+                          </Button>
                         </div>
                       </div>
                     )}
