@@ -52,17 +52,6 @@ const investmentHistory: Investment[] = [
     status: "completed",
     currentValue: 17805
   },
-  {
-    id: "4",
-    asset: "Ohio State",
-    type: "Primary Purchase", 
-    date: "2025-07-01",
-    amount: 10000,
-    shares: 10,
-    pricePerShare: 1000,
-    status: "completed",
-    currentValue: 11800
-  }
 ];
 
 export default function InvestmentHistory() {

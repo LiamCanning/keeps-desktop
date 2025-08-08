@@ -101,15 +101,9 @@ export function AppSidebar() {
               className="w-56 bg-popover border border-border shadow-dropdown"
             >
               <DropdownMenuItem asChild>
-                <NavLink to="/for-organisations" className="flex items-center gap-3 py-3 w-full">
-                  <Building2 className="w-4 h-4" />
-                  <span>For Organisations</span>
-                </NavLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <NavLink to="/organisation-dashboard" className="flex items-center gap-3 py-3 w-full">
-                  <TrendingUp className="w-4 h-4" />
-                  <span>Organisation Dashboard</span>
+                <NavLink to="/about-us" className="flex items-center gap-3 py-3 w-full">
+                  <Info className="w-4 h-4" />
+                  <span>About Us</span>
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
@@ -125,12 +119,17 @@ export function AppSidebar() {
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <NavLink to="/about-us" className="flex items-center gap-3 py-3 w-full">
-                  <Info className="w-4 h-4" />
-                  <span>About Us</span>
+                <NavLink to="/for-organisations" className="flex items-center gap-3 py-3 w-full">
+                  <Building2 className="w-4 h-4" />
+                  <span>For Organisations</span>
                 </NavLink>
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <NavLink to="/organisation-dashboard" className="flex items-center gap-3 py-3 w-full">
+                  <TrendingUp className="w-4 h-4" />
+                  <span>Organisation Dashboard</span>
+                </NavLink>
+              </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <NavLink to="/market-trends" className="flex items-center gap-3 py-3 w-full">
                   <BarChart3 className="w-4 h-4" />

@@ -109,6 +109,21 @@ export default function SellAsset() {
       description: `Your ${selectedHolding?.asset} shares have been listed on the secondary market.`,
     });
     setCurrentStep("success");
+    setTimeout(() => {
+      navigate('/sale-confirmation', {
+        state: {
+          assetId: selectedHolding?.id,
+          assetName: selectedHolding?.asset,
+          quantity: quantityToSell,
+          pricePerShare,
+          totalSaleValue,
+          platformFee,
+          netProceeds,
+          listingType: listingData.listingType,
+          expiryDays: listingData.expiryDays,
+        }
+      });
+    }, 800);
   };
 
   return (

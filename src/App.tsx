@@ -48,6 +48,8 @@ import DocumentsVerification from "./pages/DocumentsVerification";
 import ConnectedDevices from "./pages/ConnectedDevices";
 import PortfolioPerformance from "./pages/PortfolioPerformance";
 import InvestmentHistory from "./pages/InvestmentHistory";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import SaleConfirmation from "./pages/SaleConfirmation";
 
 const queryClient = new QueryClient();
 
@@ -103,6 +105,8 @@ const App = () => (
           <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
           <Route path="/investment-history" element={<InvestmentHistory />} />
           <Route path="/community-profile" element={<CommunityProfile />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
+          <Route path="/sale-confirmation" element={<SaleConfirmation />} />
           <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

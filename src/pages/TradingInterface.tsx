@@ -141,8 +141,20 @@ export default function TradingInterface() {
 
     // Navigate to portfolio or confirmation page
     setTimeout(() => {
-      navigate('/portfolio');
-    }, 2000);
+      navigate('/order-confirmation', {
+        state: {
+          type: isSecondaryMarket ? 'secondary' : 'primary',
+          assetId: asset.id,
+          assetName: asset.name,
+          quantity: quantityNum,
+          unitPrice: pricePerShare,
+          subtotal,
+          processingFee,
+          total,
+          seller: listing?.seller || null,
+        }
+      });
+    }, 800);
   };
 
   const currentTierData = benefitTiers.find(tier => tier.id === currentTier);

@@ -116,8 +116,8 @@ function AssetCard({ asset }: { asset: Asset }) {
   
   return (
     <Card className="investment-card group cursor-pointer" onClick={() => navigate(`/assets/${asset.id}`)}>
-      <div className="relative overflow-hidden rounded-t-xl h-48 flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100 border-b border-slate-200">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+      <div className="relative overflow-hidden rounded-t-xl h-48 flex items-center justify-center bg-gradient-to-br from-primary/10 via-white to-accent/10 border-b border-primary/20">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
         <div className="relative text-center space-y-4 z-10">
           <div className="p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/40">
             <LogoImage

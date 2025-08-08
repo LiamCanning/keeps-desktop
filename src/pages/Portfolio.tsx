@@ -72,21 +72,6 @@ const portfolioHoldings: PortfolioHolding[] = [
     dividendPotential: "5% + Principal",
     type: "Debenture"
   },
-  {
-    id: "4",
-    name: "Ohio State",
-    logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png",
-    investment: "£10,000",
-    shares: "10 (£1000 per share)",
-    purchaseDate: "01/07/2025",
-    purchasePrice: "£1000.00 per share",
-    currentPrice: "£1180.00 per share",
-    return: "+£1,800",
-    returnPercent: 18.0,
-    tier: "Gold",
-    dividendPotential: "6% + Principal Return",
-    type: "Equity"
-  }
 ];
 
 function HoldingCard({ holding }: { holding: PortfolioHolding }) {
@@ -223,7 +208,7 @@ export default function Portfolio() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Teams</p>
-              <p className="font-semibold text-xl text-card-foreground">4</p>
+              <p className="font-semibold text-xl text-card-foreground">{portfolioHoldings.length}</p>
             </div>
           </div>
         </Card>
@@ -263,7 +248,7 @@ export default function Portfolio() {
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold text-card-foreground text-left">Your Investments</h2>
               <Badge variant="success">
-                4 Holdings
+                {portfolioHoldings.length} Holdings
               </Badge>
             </div>
             

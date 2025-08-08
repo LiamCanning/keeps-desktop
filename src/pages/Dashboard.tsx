@@ -111,7 +111,10 @@ function InvestmentCard({ investment }: { investment: Investment }) {
   const navigate = useNavigate();
   
   const getDealSlug = (name: string) => {
-    return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    const slug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    // Special-case mapping
+    if (slug === 'mclaren-f1' || name.toLowerCase().includes('mclaren')) return 'mclaren-racing';
+    return slug;
   };
 
   const handleCardClick = () => {
@@ -143,7 +146,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
         {investment.featured && (
           <Badge variant="warning" className="absolute top-4 left-4 flex items-center gap-1 text-xs z-10">
             <Star className="w-3 h-3" />
-            Featured
+            Trending
           </Badge>
         )}
         
@@ -248,77 +251,18 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Investment Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-card">
-          <TabsTrigger value="live" className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-            <div className="w-2 h-2 bg-success rounded-full animate-glow-pulse"></div>
-            Live Deals
-          </TabsTrigger>
-          <TabsTrigger value="coming-soon" className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-            <Calendar className="w-4 h-4" />
-            Coming Soon
-          </TabsTrigger>
-          <TabsTrigger value="completed" className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-            Completed Deals
-          </TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="live" className="mt-6">
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground text-left">Featured Investment Opportunities</h2>
-              <p className="text-foreground/70 text-right">Premium sports assets with proven track records</p>
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-              {liveDeals.map((investment) => (
-                <InvestmentCard key={investment.id} investment={investment} />
-              ))}
-            </div>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="coming-soon" className="mt-6">
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-left">Coming Soon</h2>
-              <Badge variant="coming-soon">
-                {comingSoonDeals.length} Upcoming
-              </Badge>
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
-              {comingSoonDeals.map((investment) => (
-                <InvestmentCard key={investment.id} investment={investment} />
-              ))}
-            </div>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="completed" className="mt-6">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Completed Deals</h2>
-              <Badge variant="completed">
-                View Archive
-              </Badge>
-            </div>
-            
-            <Card className="p-8 text-center">
-              <div className="space-y-4">
-                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
-                  <BarChart3 className="w-8 h-8 text-muted-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">No Completed Deals Yet</h3>
-                  <p className="text-muted-foreground">Completed investments will appear here once deals close.</p>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </TabsContent>
-      </Tabs>
+      {/* Featured Investment Opportunities */}
+      <div className="mt-6 space-y-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold text-foreground text-left">Featured Investment Opportunities</h2>
+          <p className="text-foreground/70 text-right">Premium sports assets with proven track records</p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+          {liveDeals.map((investment) => (
+            <InvestmentCard key={investment.id} investment={investment} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

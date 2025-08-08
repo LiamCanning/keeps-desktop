@@ -14,6 +14,12 @@ export default function AssetDetails() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("overview");
   const [showEarlyAccess, setShowEarlyAccess] = useState(false);
+
+  // Redirect old slug to new route
+  if (assetId === "mclaren-f1") {
+    navigate("/assets/mclaren-racing", { replace: true });
+    return null;
+  }
   
   // Mock asset data based on assetId
   const getAssetData = (id: string) => {

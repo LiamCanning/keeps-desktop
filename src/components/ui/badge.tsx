@@ -20,6 +20,9 @@ const badgeVariants = cva(
         live: "status-live",
         "coming-soon": "status-coming-soon",
         completed: "status-completed",
+        gold: "bg-gradient-to-r from-warning/20 to-warning/10 text-warning border border-warning/30",
+        silver: "bg-gradient-to-r from-muted/40 to-muted/20 text-foreground border border-border",
+        diamond: "bg-gradient-to-r from-primary/20 to-primary/10 text-primary border border-primary/30",
       },
     },
     defaultVariants: {

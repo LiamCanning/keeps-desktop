@@ -10,6 +10,7 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   priority?: boolean;
   skeleton?: boolean;
   className?: string;
+  imgClassName?: string;
 }
 
 export function OptimizedImage({
@@ -81,9 +82,10 @@ export function OptimizedImage({
         onLoad={handleLoad}
         onError={handleError}
         className={cn(
-          "w-full h-full object-cover transition-opacity duration-300",
+          "w-full h-full object-contain transition-opacity duration-300",
           isLoaded ? "opacity-100" : "opacity-0",
-          !isVisible && "invisible"
+          !isVisible && "invisible",
+          props.imgClassName
         )}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
