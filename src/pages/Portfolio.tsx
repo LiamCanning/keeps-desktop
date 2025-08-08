@@ -98,7 +98,7 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
             <LogoImage 
               src={holding.logo}
               alt={holding.name}
-              size="xl"
+              size="lg"
             />
             <div>
               <CardTitle className="text-lg text-card-foreground">{holding.name}</CardTitle>
@@ -351,7 +351,7 @@ export default function Portfolio() {
                 {
                   id: "mclaren-f1",
                   name: "McLaren Racing",
-                  logo: "/placeholder.svg",
+                  logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
                   price: "£1,220",
                   change: "+22%",
                   status: "Live"
@@ -359,7 +359,7 @@ export default function Portfolio() {
                 {
                   id: "ryder-cup",
                   name: "Ryder Cup",
-                  logo: "/placeholder.svg",
+                  logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
                   price: "£5,935",
                   change: "+18.7%",
                   status: "Live"

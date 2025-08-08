@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { assetTiers } from "@/components/BenefitsTiers";
-
+import { LogoImage } from "@/components/ui/logo-image";
 interface Benefit {
   id: string;
   team: string;
@@ -33,14 +33,14 @@ const benefits: Benefit[] = [
   {
     id: "3",
     team: "Ryder Cup",
-    logo: "src/assets/logos/ryder-cup-logo.png",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     status: "live",
     description: "Premium tournament access, commemorative merchandise, and exclusive dining experiences with golf's most prestigious team tournament."
   },
   {
     id: "4",
     team: "Cardiff City FC",
-    logo: "src/assets/logos/cardiff-city-logo.png",
+    logo: "/lovable-uploads/32e5079c-7a6a-4a36-9545-a4faa7411f89.png",
     status: "coming-soon",
     description: "Welsh football club with passionate fanbase offering premium match experiences, player meet & greets, and exclusive Cardiff City Stadium access."
   },
@@ -54,7 +54,7 @@ const benefits: Benefit[] = [
   {
     id: "6",
     team: "Ohio State",
-    logo: "src/assets/logos/ohio-state-logo.png",
+    logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png",
     status: "coming-soon",
     description: "Elite American university athletics programme offering premium game experiences, campus access, and exclusive Buckeyes community benefits."
   }
@@ -96,10 +96,10 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <img 
+            <LogoImage 
               src={benefit.logo}
-              alt={benefit.team}
-              className="w-12 h-12 rounded-lg object-cover"
+              alt={`${benefit.team} logo`}
+              size="lg"
             />
             <div>
               <CardTitle className="text-xl text-left">{benefit.team}</CardTitle>

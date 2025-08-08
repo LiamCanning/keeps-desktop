@@ -121,7 +121,7 @@ function AssetCard({ asset }: { asset: Asset }) {
             <OptimizedImage
               src={asset.logo}
               alt={`${asset.name} logo`}
-              className={asset.name === "McLaren Racing" ? "w-20 h-20 object-contain mx-auto" : asset.name === "Hexagon Cup" ? "w-16 h-16 object-contain mx-auto" : "w-24 h-24 object-contain mx-auto"}
+              className={`object-contain mx-auto ${asset.id === "mclaren-racing" ? "w-16 h-16" : asset.id === "hexagon-fan-team" ? "w-14 h-14" : "w-20 h-20"}`}
             />
           </div>
           <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"} className="shadow-md">

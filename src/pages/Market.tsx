@@ -84,7 +84,7 @@ const marketListings: MarketListing[] = [
   {
     id: "5",
     asset: "Ryder Cup",
-    logo: "src/assets/logos/ryder-cup-logo.png",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     seller: "GolfPro",
     quantity: 1,
     pricePerUnit: "£5,935",
@@ -98,7 +98,7 @@ const marketListings: MarketListing[] = [
   {
     id: "6",
     asset: "Ryder Cup",
-    logo: "src/assets/logos/ryder-cup-logo.png",
+    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
     seller: "GolfFan88",
     quantity: 2,
     pricePerUnit: "£5,850",
@@ -123,7 +123,7 @@ function MarketCard({ listing }: { listing: MarketListing }) {
             <LogoImage 
               src={listing.logo}
               alt={listing.asset}
-              size="lg"
+              size="md"
             />
             <div>
               <CardTitle className="text-lg text-card-foreground">{listing.asset}</CardTitle>
@@ -430,9 +430,9 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="src/assets/logos/ohio-state-logo.png"
+                      src="/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png"
                       alt="Ohio State Buckeyes"
-                      size="lg"
+                      size="md"
                     />
                     <div>
                       <CardTitle className="text-lg text-card-foreground">Ohio State Buckeyes</CardTitle>
@@ -461,9 +461,9 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="src/assets/logos/cardiff-city-logo.png"
+                      src="/lovable-uploads/32e5079c-7a6a-4a36-9545-a4faa7411f89.png"
                       alt="Cardiff City FC"
-                      size="lg"
+                      size="md"
                     />
                     <div>
                       <CardTitle className="text-lg text-card-foreground">Cardiff City FC</CardTitle>
@@ -494,7 +494,7 @@ export default function Market() {
                     <LogoImage 
                       src="/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
                       alt="Hexagon Cup"
-                      size="lg"
+                      size="md"
                     />
                      <div>
                        <CardTitle className="text-lg text-card-foreground">Hexagon Cup</CardTitle>
