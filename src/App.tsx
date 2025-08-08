@@ -50,6 +50,7 @@ import PortfolioPerformance from "./pages/PortfolioPerformance";
 import InvestmentHistory from "./pages/InvestmentHistory";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import SaleConfirmation from "./pages/SaleConfirmation";
+import TransactionDetails from "./pages/TransactionDetails";
 
 const queryClient = new QueryClient();
 

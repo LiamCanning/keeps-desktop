@@ -98,7 +98,7 @@ export default function TransactionDetails() {
             <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
               <li>Your order is recorded and visible in your Portfolio and Investment History.</li>
               <li>You'll receive an email confirmation with this summary attached.</li>
-              <li>All documents are available in My Account > Documents.</li>
+              <li>All documents are available in My Account &gt; Documents.</li>
             </ul>
           </div>
 
