@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { OptimizedImage } from "@/components/ui/optimized-image";
+import { LogoImage } from "@/components/ui/logo-image";
 
 interface Asset {
   id: string;
@@ -40,7 +40,7 @@ const assets: Asset[] = [
   {
     id: "mclaren-racing",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+    logo: mclarenLogo,
     banner: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop",
     status: "live",
     description: "Income sharing agreement providing direct participation in McLaren F1's commercial success over 10 years.",
@@ -54,7 +54,7 @@ const assets: Asset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+    logo: ryderLogo,
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
@@ -118,10 +118,10 @@ function AssetCard({ asset }: { asset: Asset }) {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
         <div className="relative text-center space-y-4 z-10">
           <div className="p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/40">
-            <OptimizedImage
+            <LogoImage
               src={asset.logo}
               alt={`${asset.name} logo`}
-              className={`object-contain mx-auto ${asset.id === "mclaren-racing" ? "w-16 h-16" : asset.id === "hexagon-fan-team" ? "w-14 h-14" : "w-20 h-20"}`}
+              size="xl"
             />
           </div>
           <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"} className="shadow-md">

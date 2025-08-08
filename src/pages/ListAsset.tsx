@@ -35,7 +35,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "mclaren-f1",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+    logo: mclarenLogo,
     totalShares: 200,
     purchasePrice: 1000,
     currentPrice: 1220,
@@ -44,7 +44,7 @@ const portfolioAssets: PortfolioAsset[] = [
   {
     id: "ryder-cup",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+    logo: ryderLogo,
     totalShares: 3,
     purchasePrice: 5000,
     currentPrice: 5935,
@@ -153,7 +153,7 @@ export default function ListAsset() {
                     <LogoImage 
                       src={asset.logo}
                       alt={asset.name}
-                      size="md"
+                      size="lg"
                     />
                     <div>
                       <h3 className="font-semibold">{asset.name}</h3>

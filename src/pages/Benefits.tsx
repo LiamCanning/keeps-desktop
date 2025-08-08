@@ -26,14 +26,14 @@ const benefits: Benefit[] = [
   {
     id: "2",
     team: "McLaren F1",
-    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+    logo: mclarenLogo,
     status: "live",
     description: "Behind-the-scenes access to McLaren Technology Centre, paddock club experiences, and exclusive meetings with drivers and team management."
   },
   {
     id: "3",
     team: "Ryder Cup",
-    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+    logo: ryderLogo,
     status: "live",
     description: "Premium tournament access, commemorative merchandise, and exclusive dining experiences with golf's most prestigious team tournament."
   },

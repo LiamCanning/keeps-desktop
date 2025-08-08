@@ -56,7 +56,7 @@ const marketListings: MarketListing[] = [
   {
     id: "3",
     asset: "McLaren Racing",
-    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+    logo: mclarenLogo,
     seller: "RacingFan22",
     quantity: 20,
     pricePerUnit: "£1,200",
@@ -70,7 +70,7 @@ const marketListings: MarketListing[] = [
   {
     id: "4",
     asset: "McLaren Racing",
-    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+    logo: mclarenLogo,
     seller: "F1Investor", 
     quantity: 15,
     pricePerUnit: "£1,180",
@@ -84,7 +84,7 @@ const marketListings: MarketListing[] = [
   {
     id: "5",
     asset: "Ryder Cup",
-    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+    logo: ryderLogo,
     seller: "GolfPro",
     quantity: 1,
     pricePerUnit: "£5,935",
@@ -98,7 +98,7 @@ const marketListings: MarketListing[] = [
   {
     id: "6",
     asset: "Ryder Cup",
-    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+    logo: ryderLogo,
     seller: "GolfFan88",
     quantity: 2,
     pricePerUnit: "£5,850",
@@ -303,9 +303,8 @@ export default function Market() {
 
       {/* Market Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card">
+        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-card">
           <TabsTrigger value="market" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Market</TabsTrigger>
-          <TabsTrigger value="list-asset" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">List Asset</TabsTrigger>
           <TabsTrigger value="analysis" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Analysis</TabsTrigger>
           <TabsTrigger value="watchlist" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Watchlist</TabsTrigger>
         </TabsList>
@@ -327,25 +326,6 @@ export default function Market() {
           </div>
         </TabsContent>
 
-        <TabsContent value="list-asset" className="mt-6">
-          <Card className="card-professional p-8 text-center">
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
-                <TrendingUp className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-card-foreground">List Your Assets</h3>
-                <p className="text-muted-foreground">Sell your sports investments to other investors on the secondary market.</p>
-              </div>
-              <Button 
-                className="btn-invest"
-                onClick={() => window.location.href = '/list-asset'}
-              >
-                List Asset for Sale
-              </Button>
-            </div>
-          </Card>
-        </TabsContent>
 
         <TabsContent value="analysis" className="mt-6">
           <div className="space-y-6">
@@ -492,13 +472,13 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
-                      alt="Hexagon Cup"
+                      src="/lovable-uploads/6e897916-7050-40ca-a142-0d028232a4b7.png"
+                      alt="Hexagon Fan Team"
                       size="md"
                     />
                      <div>
-                       <CardTitle className="text-lg text-card-foreground">Hexagon Cup</CardTitle>
-                       <p className="text-sm text-muted-foreground">eSports Tournament</p>
+                       <CardTitle className="text-lg text-card-foreground">Hexagon Fan Team</CardTitle>
+                       <p className="text-sm text-muted-foreground">Padel Tournament</p>
                      </div>
                   </div>
                 </CardHeader>

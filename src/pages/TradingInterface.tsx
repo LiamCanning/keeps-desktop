@@ -42,7 +42,7 @@ const assets: { [key: string]: Asset } = {
     name: "McLaren F1",
     type: "Income Share Agreement",
     pricePerShare: 1000,
-    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+    logo: mclarenLogo,
     currency: "GBP",
     description: "Formula 1 team revenue sharing with performance-based returns",
     minInvestment: 1000,
@@ -54,7 +54,7 @@ const assets: { [key: string]: Asset } = {
     name: "Ryder Cup",
     type: "Tournament Investment",
     pricePerShare: 750,
-    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+    logo: ryderLogo,
     currency: "GBP", 
     description: "Golf tournament revenue sharing and hospitality access",
     minInvestment: 750,
@@ -245,7 +245,7 @@ export default function TradingInterface() {
                 <Label className="text-lg font-semibold">Payment Method</Label>
                 <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
                   <div className="flex items-center space-x-3 p-4 border rounded-lg bg-accent/20 border-accent/30">
-                    <RadioGroupItem value="card" id="card" checked />
+                    <RadioGroupItem value="card" id="card" />
                     <div className="flex-1">
                       <label htmlFor="card" className="font-medium cursor-pointer">
                         Visa **** 4829
@@ -267,6 +267,17 @@ export default function TradingInterface() {
                     </div>
                   </div>
                 </RadioGroup>
+                {paymentMethod === "bank" && (
+                  <div className="mt-4 space-y-3 p-4 rounded-lg border bg-background/60">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <Input placeholder="Cardholder Name" />
+                      <Input placeholder="Card Number (1234 5678 9012 3456)" />
+                      <Input placeholder="MM/YY" />
+                      <Input placeholder="CVV" />
+                    </div>
+                    <Button variant="outline" className="w-full">Save Payment Method</Button>
+                  </div>
+                )}
                 <p className="text-xs text-muted-foreground bg-accent/20 p-3 rounded-lg">
                   Your payment methods are securely saved and encrypted.
                 </p>
@@ -369,42 +380,7 @@ export default function TradingInterface() {
                    </Button>
                  </div>
                  
-                 <div className="p-3 bg-muted/10 rounded-lg border border-dashed">
-                   <Button variant="outline" size="sm" className="w-full mb-3" onClick={() => {
-                     const form = document.getElementById('new-payment-form');
-                     if (form) form.classList.toggle('hidden');
-                   }}>
-                     + Add New Payment Method
-                   </Button>
-                   
-                   <div className="space-y-3 hidden" id="new-payment-form">
-                     <select className="w-full p-2 border rounded bg-background">
-                       <option value="">Select Payment Type</option>
-                       <option value="credit">Credit Card</option>
-                       <option value="debit">Debit Card</option>
-                       <option value="bank">Bank Transfer</option>
-                     </select>
-                     
-                     <div id="card-details" className="space-y-2">
-                       <input type="text" placeholder="Card Number (1234 5678 9012 3456)" className="w-full p-2 border rounded bg-background" />
-                       <div className="grid grid-cols-2 gap-2">
-                         <input type="text" placeholder="MM/YY" className="p-2 border rounded bg-background" />
-                         <input type="text" placeholder="CVV" className="p-2 border rounded bg-background" />
-                       </div>
-                       <input type="text" placeholder="Cardholder Name" className="w-full p-2 border rounded bg-background" />
-                     </div>
-                     
-                     <div id="bank-details" className="space-y-2 hidden">
-                       <input type="text" placeholder="Account Number" className="w-full p-2 border rounded bg-background" />
-                       <input type="text" placeholder="Sort Code" className="w-full p-2 border rounded bg-background" />
-                       <input type="text" placeholder="Account Holder Name" className="w-full p-2 border rounded bg-background" />
-                     </div>
-                     
-                     <Button size="sm" className="w-full">
-                       Add Payment Method
-                     </Button>
-                   </div>
-                 </div>
+                  {/* New payment method form moved to main section; no permanent side form */
                </div>
 
                <Button 

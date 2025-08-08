@@ -43,7 +43,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "2",
     name: "McLaren Racing",
-    logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+    logo: mclarenLogo,
     investment: "£200,000",
     shares: "200 (£1000 per share)",
     purchaseDate: "10/07/2025",
@@ -58,7 +58,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "3",
     name: "Ryder Cup",
-    logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+    logo: ryderLogo,
     investment: "£15,000",
     shares: "3 debentures (£5000 per debenture)",
     purchaseDate: "05/07/2025",
@@ -351,7 +351,7 @@ export default function Portfolio() {
                 {
                   id: "mclaren-f1",
                   name: "McLaren Racing",
-                  logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+                  logo: mclarenLogo,
                   price: "£1,220",
                   change: "+22%",
                   status: "Live"
@@ -359,7 +359,7 @@ export default function Portfolio() {
                 {
                   id: "ryder-cup",
                   name: "Ryder Cup",
-                  logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
+                  logo: ryderLogo,
                   price: "£5,935",
                   change: "+18.7%",
                   status: "Live"
