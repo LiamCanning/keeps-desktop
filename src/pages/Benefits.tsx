@@ -7,6 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { assetTiers } from "@/components/BenefitsTiers";
 import { LogoImage } from "@/components/ui/logo-image";
+import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
+import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 interface Benefit {
   id: string;
   team: string;

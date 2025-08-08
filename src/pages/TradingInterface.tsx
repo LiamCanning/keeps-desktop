@@ -10,6 +10,8 @@ import { Separator } from "@/components/ui/separator";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { LogoImage } from "@/components/ui/logo-image";
+import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
+import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 
 interface Asset {
   id: string;
@@ -378,9 +380,8 @@ export default function TradingInterface() {
                    <Button variant="outline" size="sm">
                      Change
                    </Button>
-                 </div>
-                 
-                  {/* New payment method form moved to main section; no permanent side form */
+                  </div>
+                  {/* New payment method form moved to main section; no permanent side form */}
                </div>
 
                <Button 

@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LogoImage } from "@/components/ui/logo-image";
+import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
+import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 
 interface Asset {
   id: string;

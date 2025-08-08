@@ -11,6 +11,8 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { LogoImage } from "@/components/ui/logo-image";
+import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
+import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 
 interface PortfolioAsset {
   id: string;

@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { LogoImage } from "@/components/ui/logo-image";
+import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
+import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 
 interface MarketListing {
   id: string;
@@ -325,8 +327,6 @@ export default function Market() {
             </div>
           </div>
         </TabsContent>
-
-
         <TabsContent value="analysis" className="mt-6">
           <div className="space-y-6">
             <h2 className="text-xl font-semibold text-foreground">Secondary Market Analysis</h2>
