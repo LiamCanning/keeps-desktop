@@ -53,6 +53,7 @@ import SaleConfirmation from "./pages/SaleConfirmation";
 import TransactionDetails from "./pages/TransactionDetails";
 import ReferralProgram from "./pages/ReferralProgram";
 import CommunityForum from "./pages/CommunityForum";
+import CommunityTopicDetail from "./pages/CommunityTopicDetail";
 import SupportChat from "./pages/SupportChat";
 
 const queryClient = new QueryClient();
@@ -117,7 +118,9 @@ const App = () => (
             <Route path="/sell/ryder-cup" element={<SellShares />} />
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/sale-confirmation" element={<SaleConfirmation />} />
-            <Route path="/community-forum" element={<CommunityForum />} />
+        <Route path="/community-forum" element={<CommunityForum />} />
+        <Route path="/community-forum/:topicId" element={<CommunityTopicDetail />} />
+        <Route path="/sale-confirmation" element={<SaleConfirmation />} />
             <Route path="/transaction-details/:id" element={<TransactionDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

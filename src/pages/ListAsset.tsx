@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { LogoImage } from "@/components/ui/logo-image";
+import bannerImage from "@/assets/list-asset-banner.png";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 
@@ -109,9 +110,22 @@ export default function ListAsset() {
         </Button>
       </div>
 
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">List Asset for Sale</h1>
-        <p className="text-lg text-muted-foreground">Sell your sports investments on the secondary market</p>
+      {/* Header Banner */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-8 border border-primary/20">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${bannerImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
+        <div className="relative z-10 text-center space-y-4">
+          <h1 className="text-4xl font-bold text-gradient">List Asset for Sale</h1>
+          <p className="text-xl text-foreground/90 font-medium">Sell your sports investments on the secondary market</p>
+          <div className="flex justify-center gap-2">
+            <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse delay-100"></div>
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse delay-200"></div>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -59,7 +59,7 @@ export default function PersonalInformation() {
         <CardContent className="space-y-6">
           <div className="flex items-center gap-6">
             <Avatar className="w-24 h-24">
-              <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam" />
+              <AvatarImage src="/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png" alt="Liam" />
               <AvatarFallback className="text-xl">LC</AvatarFallback>
             </Avatar>
             <div className="space-y-2">

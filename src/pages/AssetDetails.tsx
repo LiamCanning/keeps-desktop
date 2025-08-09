@@ -132,7 +132,7 @@ export default function AssetDetails() {
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       <Button 
         variant="ghost" 
-        onClick={() => navigate("/assets")}
+        onClick={() => navigate(-1)}
         className="flex items-center gap-2"
       >
         <ArrowLeft className="w-4 h-4" />
@@ -518,9 +518,15 @@ export default function AssetDetails() {
             </Button>
             <Button 
               className="btn-invest"
-              onClick={() => navigate(`/trade/${assetId}`)}
+              onClick={() => {
+                if (asset.status === "coming-soon") {
+                  setShowEarlyAccess(true);
+                } else {
+                  navigate(`/trade/${assetId}`);
+                }
+              }}
             >
-              Invest Now
+              {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
             </Button>
           </div>
         </div>

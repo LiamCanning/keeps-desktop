@@ -62,7 +62,7 @@ const portfolioHoldings: PortfolioHolding[] = [
     name: "Ryder Cup",
     logo: ryderLogo,
     investment: "£15,000",
-    shares: "3 debentures (£5000 per debenture)",
+    shares: "3 (£5000 per debenture)",
     purchaseDate: "05/07/2025",
     purchasePrice: "£5000.00 per debenture",
     currentPrice: "£5935.00 per debenture",
@@ -146,12 +146,13 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           <Button 
             className="btn-invest flex-1"
             onClick={() => {
-              const assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+              let assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+              if (assetSlug === 'mclaren-racing') assetSlug = 'mclaren-f1';
               window.location.href = `/list-asset?preselected=${assetSlug}`;
             }}
           >
             <Activity className="w-4 h-4 mr-2" />
-            Sell {holding.name === 'Ryder Cup' ? 'Debentures' : 'Shares'}
+            Sell {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}
           </Button>
         </div>
       </CardContent>
@@ -265,33 +266,11 @@ export default function Portfolio() {
 
         <TabsContent value="performance" className="mt-6">
           <div className="space-y-6">
-            <h2 className="text-xl font-semibold text-card-foreground">Performance Overview</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Card className="card-professional p-4">
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Best Performer</p>
-                  <p className="font-semibold text-card-foreground">McLaren Racing</p>
-                  <Badge variant="success">+22.0%</Badge>
-                </div>
-              </Card>
-              
-              <Card className="card-professional p-4">
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Avg Annual Yield</p>
-                  <p className="font-semibold text-card-foreground">18.4%</p>
-                  <Badge variant="success">Above Market</Badge>
-                </div>
-              </Card>
-              
-              <Card className="card-professional p-4">
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Portfolio Risk</p>
-                  <p className="font-semibold text-card-foreground">Medium</p>
-                  <Badge variant="warning">Diversify</Badge>
-                </div>
-              </Card>
-            </div>
+            <iframe 
+              src="/portfolio-performance" 
+              className="w-full h-[800px] border-0 rounded-lg bg-background"
+              title="Portfolio Performance Charts"
+            />
           </div>
         </TabsContent>
 
