@@ -138,10 +138,8 @@ function InvestmentCard({ investment }: { investment: Investment }) {
                 ? "bg-[url('/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png')]"
                 : "bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')]"
             }`}></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-accent/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-accent/20"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            {/* Enhanced gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-xl"></div>
           </div>
         ) : (
           <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-accent/20 to-accent/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-primary/20">
@@ -173,11 +171,13 @@ function InvestmentCard({ investment }: { investment: Investment }) {
         {/* Asset Name, Amount, and Type */}
         <div className="space-y-2 border-b border-border pb-4">
           <div className="flex items-center gap-4">
-            <img 
-              src={investment.logo}
-              alt={investment.name}
-              className="w-16 h-16 object-contain"
-            />
+            <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20">
+              <img 
+                src={investment.logo}
+                alt={investment.name}
+                className="w-12 h-12 object-contain"
+              />
+            </div>
             <div>
               <h3 className="text-2xl font-bold text-card-foreground">{investment.name}</h3>
               <p className="text-xl font-semibold text-primary">{investment.amount}</p>

@@ -70,7 +70,7 @@ export default function SellShares() {
     if (parseInt(sharesToSell) > selectedHolding.shares) {
       toast({
         title: "Insufficient Shares",
-        description: `You only own ${selectedHolding.shares} ${selectedHolding.type.toLowerCase()}s.`,
+        description: `You only own ${selectedHolding.shares} ${selectedHolding.name === "Ryder Cup" ? "debentures" : selectedHolding.type.toLowerCase() + "s"}.`,
         variant: "destructive",
       });
       return;
@@ -82,7 +82,7 @@ export default function SellShares() {
     setTimeout(() => {
       toast({
         title: "Sell Order Submitted",
-        description: `Your order to sell ${sharesToSell} ${selectedHolding.name} ${selectedHolding.type.toLowerCase()}s has been submitted successfully.`,
+        description: `Your order to sell ${sharesToSell} ${selectedHolding.name} ${selectedHolding.name === "Ryder Cup" ? "debentures" : selectedHolding.type.toLowerCase() + "s"} has been submitted successfully.`,
       });
       
       // Reset form
@@ -170,7 +170,7 @@ export default function SellShares() {
                           <div>
                             <h3 className="font-semibold">{holding.name}</h3>
                             <p className="text-sm text-muted-foreground">
-                              {holding.shares} {holding.type.toLowerCase()}s owned
+                              {holding.shares} {holding.name === "Ryder Cup" ? "debentures" : holding.type.toLowerCase() + "s"} owned
                             </p>
                             <Badge variant="outline" className="text-xs mt-1">
                               {holding.type}
@@ -199,7 +199,7 @@ export default function SellShares() {
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="shares">
-                    Number of {selectedHolding.type.toLowerCase()}s to sell
+                    Number of {selectedHolding.name === "Ryder Cup" ? "debentures" : selectedHolding.type.toLowerCase() + "s"} to sell
                   </Label>
                   <Input
                     id="shares"
@@ -211,7 +211,7 @@ export default function SellShares() {
                     onChange={(e) => setSharesToSell(e.target.value)}
                   />
                   <p className="text-xs text-muted-foreground">
-                    You own {selectedHolding.shares} {selectedHolding.type.toLowerCase()}s
+                    You own {selectedHolding.shares} {selectedHolding.name === "Ryder Cup" ? "debentures" : selectedHolding.type.toLowerCase() + "s"}
                   </p>
                 </div>
 
@@ -243,7 +243,7 @@ export default function SellShares() {
                 <>
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">{selectedHolding.type}s to sell</span>
+                      <span className="text-muted-foreground">{selectedHolding.name === "Ryder Cup" ? "Debentures" : selectedHolding.type + "s"} to sell</span>
                       <span className="font-semibold">{sharesToSell}</span>
                     </div>
                     <div className="flex justify-between">
