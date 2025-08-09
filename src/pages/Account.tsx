@@ -8,6 +8,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { LogoImage } from "@/components/ui/logo-image";
+import liamAvatar from "@/assets/liam-avatar.png";
+import axaLogo from "@/assets/brands/axa-logo.png";
+import bmwLogo from "@/assets/brands/bmw-logo.png";
+import cadburyLogo from "@/assets/brands/cadbury-logo.png";
+import nikeLogo from "@/assets/brands/nike-logo.png";
+import rolexLogo from "@/assets/brands/rolex-logo.png";
+import santanderLogo from "@/assets/brands/santander-logo.png";
 
 
 interface FavoriteTeam {
@@ -32,46 +39,56 @@ const favoriteTeams: FavoriteTeam[] = [
   { id: "4", name: "England Cricket", emoji: "🏏", sport: "Cricket" }
 ];
 
+// Brand logos mapping
+const brandLogos: Record<string, string> = {
+  "Nike": nikeLogo,
+  "Rolex": rolexLogo,
+  "AXA": axaLogo,
+  "Santander": santanderLogo,
+  "BMW": bmwLogo,
+  "Cadbury": cadburyLogo
+};
+
 const dataPartners: DataPartner[] = [
   {
     id: "1",
     name: "Nike",
-    logo: "/placeholder.svg",
+    logo: nikeLogo,
     description: "Sports gear discounts and exclusive athlete meet & greets",
     optedIn: true
   },
   {
     id: "2", 
     name: "Rolex",
-    logo: "/placeholder.svg",
+    logo: rolexLogo,
     description: "Luxury timepiece experiences and VIP watch exhibitions",
     optedIn: true
   },
   {
     id: "3",
     name: "AXA",
-    logo: "/placeholder.svg",
+    logo: axaLogo,
     description: "Premium insurance benefits and financial planning services",
     optedIn: false
   },
   {
     id: "4",
     name: "Santander",
-    logo: "/placeholder.svg",
+    logo: santanderLogo,
     description: "Banking perks and investment opportunities",
     optedIn: true
   },
   {
     id: "5",
     name: "BMW",
-    logo: "/placeholder.svg",
+    logo: bmwLogo,
     description: "Luxury vehicle test drives and motorsport experiences",
     optedIn: false
   },
   {
     id: "6",
     name: "Cadbury",
-    logo: "/placeholder.svg",
+    logo: cadburyLogo,
     description: "Chocolate tastings and exclusive confectionery collections",
     optedIn: true
   }
@@ -125,7 +142,7 @@ export default function Account() {
               <CardContent className="space-y-6">
                 <div className="flex items-center gap-6">
                   <Avatar className="w-24 h-24">
-                    <AvatarImage src="/placeholder.svg" alt="Liam" />
+                    <AvatarImage src={liamAvatar} alt="Liam" />
                     <AvatarFallback className="text-xl">L</AvatarFallback>
                   </Avatar>
                   <div className="space-y-2">
@@ -513,13 +530,11 @@ export default function Account() {
               {partners.map((partner) => (
                 <div key={partner.id} className="flex items-center justify-between p-4 border border-border rounded-lg">
                   <div className="flex items-center gap-3">
-                     <img 
-                      src={`/src/assets/brands/${partner.name.toLowerCase().replace(/\s+/g, '-')}-logo.png`}
+                     <LogoImage 
+                      src={partner.logo}
                       alt={partner.name}
-                      className="w-12 h-12 object-contain rounded-lg"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = "/placeholder.svg";
-                      }}
+                      size="lg"
+                      className="border border-border"
                     />
                     <div>
                       <p className="font-medium text-card-foreground">{partner.name}</p>
