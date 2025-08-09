@@ -187,18 +187,18 @@ function InvestmentCard({ investment }: { investment: Investment }) {
         
         {/* Key metrics in cards */}
         <div className="grid grid-cols-3 gap-3">
-          <div className="text-center p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20">
-            <p className="text-xs text-muted-foreground mb-1">Min Entry</p>
-            <p className="font-bold text-sm text-card-foreground">£500</p>
-          </div>
-          <div className="text-center p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20">
-            <Users className="w-4 h-4 mx-auto text-primary mb-1" />
-            <p className="font-bold text-sm text-card-foreground">{investment.investors}</p>
-          </div>
-          <div className="text-center p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20">
-            <Clock className="w-4 h-4 mx-auto text-destructive mb-1" />
-            <p className="font-bold text-sm text-card-foreground">{investment.timeRemaining}</p>
-          </div>
+            <div className="text-center p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20">
+              <p className="text-xs text-muted-foreground mb-1">Min Entry</p>
+              <p className="font-bold text-sm text-card-foreground">£500</p>
+            </div>
+            <div className="text-center p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20">
+              <Users className="w-4 h-4 mx-auto text-primary mb-1" />
+              <p className="font-bold text-sm text-card-foreground">{investment.investors}</p>
+            </div>
+            <div className="text-center p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20">
+              <Clock className="w-4 h-4 mx-auto text-destructive mb-1" />
+              <p className="font-bold text-sm text-card-foreground">{investment.timeRemaining}</p>
+            </div>
         </div>
 
         {/* Progress section */}

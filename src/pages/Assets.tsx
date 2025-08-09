@@ -194,6 +194,12 @@ function AssetCard({ asset }: { asset: Asset }) {
 export default function Assets() {
   const [activeTab, setActiveTab] = useState("live");
   const navigate = useNavigate();
+
+  // Store current section in sessionStorage when tab changes
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    sessionStorage.setItem('assetsSection', tab);
+  };
   
   const filteredAssets = assets.filter(asset => {
     if (activeTab === "all") return true;
@@ -214,7 +220,7 @@ export default function Assets() {
 
       {/* Filter Tabs - Replacing the banner */}
       <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
           <TabsList className="grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm">
             <TabsTrigger value="live" className="flex items-center justify-center gap-2 text-sm font-medium">
               <div className="w-2 h-2 bg-success rounded-full"></div>
@@ -304,9 +310,9 @@ export default function Assets() {
           <Button 
             size="lg" 
             className="mt-6"
-            onClick={() => navigate('/request-team')}
+            onClick={() => navigate('/early-access')}
           >
-            Submit Team Request
+            Get Early Access
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </div>

@@ -153,7 +153,9 @@ export default function AssetDetails() {
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 <h1 className="text-3xl font-bold text-gradient">{asset.name}</h1>
-                <Badge variant="success" className="text-sm">Live</Badge>
+                <Badge variant={asset.status === "coming-soon" ? "warning" : "success"} className="text-sm">
+                  {asset.status === "coming-soon" ? "Pre-Sale" : "Live"}
+                </Badge>
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
