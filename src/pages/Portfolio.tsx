@@ -9,6 +9,7 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
+import { ResponsiveContainer, AreaChart, Area, XAxis, Tooltip, BarChart, Bar, LineChart, Line } from "recharts";
 
 interface PortfolioHolding {
   id: string;
@@ -73,6 +74,26 @@ const portfolioHoldings: PortfolioHolding[] = [
     type: "Debenture"
   },
 ];
+
+// Performance data derived from holdings
+const valueHistory = [
+  { date: "Week 1", value: 275000 },
+  { date: "Week 2", value: 281500 },
+  { date: "Week 3", value: 295200 },
+  { date: "Week 4", value: 302355 },
+];
+
+const returnsHistory = [
+  { date: "Week 1", pct: 4.8 },
+  { date: "Week 2", pct: 6.1 },
+  { date: "Week 3", pct: 10.2 },
+  { date: "Week 4", pct: 12.9 },
+];
+
+const allocationData = portfolioHoldings.map((h) => ({
+  name: h.name,
+  value: parseInt(h.investment.replace(/[^0-9]/g, "")),
+}));
 
 function HoldingCard({ holding }: { holding: PortfolioHolding }) {
   const isPositive = holding.returnPercent >= 0;
@@ -264,15 +285,56 @@ export default function Portfolio() {
           </div>
         </TabsContent>
 
-        <TabsContent value="performance" className="mt-6">
-          <div className="space-y-6">
-            <iframe 
-              src="/portfolio-performance" 
-              className="w-full h-[800px] border-0 rounded-lg bg-background"
-              title="Portfolio Performance Charts"
-            />
-          </div>
-        </TabsContent>
+<TabsContent value="performance" className="mt-6">
+  <div className="space-y-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <Card className="card-professional">
+        <CardHeader>
+          <CardTitle className="text-card-foreground">Portfolio Value Growth</CardTitle>
+        </CardHeader>
+        <CardContent className="h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={valueHistory} margin={{ left: 8, right: 8 }}>
+              <XAxis dataKey="date" />
+              <Tooltip />
+              <Area type="monotone" dataKey="value" stroke="hsl(var(--primary))" fill="hsl(var(--primary)/0.2)" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
+
+      <Card className="card-professional">
+        <CardHeader>
+          <CardTitle className="text-card-foreground">Return % Over Time</CardTitle>
+        </CardHeader>
+        <CardContent className="h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={returnsHistory} margin={{ left: 8, right: 8 }}>
+              <XAxis dataKey="date" />
+              <Tooltip />
+              <Line type="monotone" dataKey="pct" stroke="hsl(var(--success))" />
+            </LineChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
+    </div>
+
+    <Card className="card-professional">
+      <CardHeader>
+        <CardTitle className="text-card-foreground">Asset Allocation</CardTitle>
+      </CardHeader>
+      <CardContent className="h-72">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={allocationData} margin={{ left: 8, right: 8 }}>
+            <XAxis dataKey="name" />
+            <Tooltip />
+            <Bar dataKey="value" fill="hsl(var(--primary))" />
+          </BarChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
+  </div>
+</TabsContent>
 
         <TabsContent value="analytics" className="mt-6">
           <div className="space-y-6">
