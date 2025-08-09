@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import liamAvatar from "@/assets/liam-avatar.png";
 import { 
   Home, 
   Gift, 
@@ -180,7 +181,7 @@ export function AppSidebar() {
         {!isCollapsed && (
           <NavLink to="/my-account" className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg hover:bg-sidebar-accent/80 transition-colors cursor-pointer">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam Canning" />
+              <AvatarImage src={liamAvatar} alt="Liam Canning" />
               <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">

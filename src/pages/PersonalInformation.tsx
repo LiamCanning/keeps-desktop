@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import liamAvatar from "@/assets/liam-avatar.png";
 
 export default function PersonalInformation() {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ export default function PersonalInformation() {
         <CardContent className="space-y-6">
           <div className="flex items-center gap-6">
             <Avatar className="w-24 h-24">
-              <AvatarImage src="/lovable-uploads/dc831468-4f46-45d2-9dc9-6253f84112be.png" alt="Liam" />
+              <AvatarImage src={liamAvatar} alt="Liam" />
               <AvatarFallback className="text-xl">LC</AvatarFallback>
             </Avatar>
             <div className="space-y-2">
