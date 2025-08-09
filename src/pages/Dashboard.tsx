@@ -129,7 +129,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
       <div className="relative overflow-hidden">
         {investment.status === "live" ? (
           <div className="w-full h-64 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
-            <div className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${
+            <div className={`absolute inset-0 bg-cover bg-center ${
               investment.name === 'Liverpool FC' 
                 ? "bg-[url('/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png')]" 
                 : investment.name === 'McLaren F1' 
@@ -137,12 +137,8 @@ function InvestmentCard({ investment }: { investment: Investment }) {
                 : investment.name === 'Ryder Cup'
                 ? "bg-[url('/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png')]"
                 : "bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')]"
-            }`} style={{
-              filter: 'brightness(1.1) contrast(1.1)',
-              backgroundSize: 'contain'
-            }}></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 mix-blend-multiply"></div>
+            }`}></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           </div>
         ) : (
           <div className="w-full h-64 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
@@ -268,8 +264,8 @@ export default function Dashboard() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
         <div className="relative z-10 space-y-6">
           <div className="text-center space-y-3">
-            <h2 className="text-4xl font-bold text-gradient">Premium Investment Opportunities</h2>
-            <p className="text-xl text-foreground/90 font-medium">Elite sports assets with proven track records • Limited availability</p>
+            <h2 className="text-4xl font-bold text-gradient">🔥 Featured Investment Opportunities</h2>
+            <p className="text-xl text-foreground/90 font-medium">Premium sports assets with proven track records • Limited availability</p>
             <div className="flex justify-center gap-2">
               <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse delay-100"></div>

@@ -147,7 +147,7 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
             className="btn-invest flex-1"
             onClick={() => {
               const assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-              window.location.href = `/list-asset?asset=${assetSlug}`;
+              window.location.href = `/sell/${assetSlug}`;
             }}
           >
             <Activity className="w-4 h-4 mr-2" />

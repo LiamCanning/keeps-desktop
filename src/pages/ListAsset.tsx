@@ -62,17 +62,7 @@ export default function ListAsset() {
   const urlParams = new URLSearchParams(window.location.search);
   const preselectedAsset = urlParams.get('asset') || "";
   
-  // Map asset names to IDs
-  const getAssetIdFromSlug = (slug: string) => {
-    const mapping: { [key: string]: string } = {
-      'liverpool-fc': 'liverpool-fc',
-      'mclaren-racing': 'mclaren-f1',
-      'ryder-cup': 'ryder-cup'
-    };
-    return mapping[slug] || slug;
-  };
-  
-  const [selectedAsset, setSelectedAsset] = useState<string>(getAssetIdFromSlug(preselectedAsset));
+  const [selectedAsset, setSelectedAsset] = useState<string>(preselectedAsset);
   const [quantity, setQuantity] = useState<string>("");
   const [pricePerShare, setPricePerShare] = useState<string>("");
   const [saleType, setSaleType] = useState<string>("fixed");
