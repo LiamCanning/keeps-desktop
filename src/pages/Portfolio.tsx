@@ -261,10 +261,9 @@ export default function Portfolio() {
 
       {/* Portfolio Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
           <TabsTrigger value="overview">Your Investments</TabsTrigger>
-          <TabsTrigger value="performance">Performance</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="performance">Performance & Analytics</TabsTrigger>
           <TabsTrigger value="watchlist">Watchlist</TabsTrigger>
         </TabsList>
 
@@ -287,6 +286,9 @@ export default function Portfolio() {
 
 <TabsContent value="performance" className="mt-6">
   <div className="space-y-6">
+    <h2 className="text-xl font-semibold text-card-foreground">Performance & Analytics</h2>
+    
+    {/* Performance Charts */}
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <Card className="card-professional">
         <CardHeader>
@@ -333,32 +335,28 @@ export default function Portfolio() {
         </ResponsiveContainer>
       </CardContent>
     </Card>
+
+    {/* Analytics Section */}
+    <Card className="card-professional p-6">
+      <h3 className="font-semibold mb-4 text-card-foreground">Asset Allocation Breakdown</h3>
+      <div className="space-y-4">
+        {portfolioHoldings.map((holding) => {
+          const percentage = (parseInt(holding.investment.replace(/[£,]/g, '')) / totalInvested) * 100;
+          return (
+            <div key={holding.id} className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span className="text-card-foreground">{holding.name}</span>
+                <span className="text-muted-foreground">{percentage.toFixed(1)}%</span>
+              </div>
+              <Progress value={percentage} className="h-2" />
+            </div>
+          );
+        })}
+      </div>
+    </Card>
   </div>
 </TabsContent>
 
-        <TabsContent value="analytics" className="mt-6">
-          <div className="space-y-6">
-            <h2 className="text-xl font-semibold text-card-foreground">Portfolio Analytics</h2>
-            
-            <Card className="card-professional p-6">
-              <h3 className="font-semibold mb-4 text-card-foreground">Asset Allocation</h3>
-              <div className="space-y-4">
-                {portfolioHoldings.map((holding) => {
-                  const percentage = (parseInt(holding.investment.replace(/[£,]/g, '')) / totalInvested) * 100;
-                  return (
-                    <div key={holding.id} className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-card-foreground">{holding.name}</span>
-                        <span className="text-muted-foreground">{percentage.toFixed(1)}%</span>
-                      </div>
-                      <Progress value={percentage} className="h-2" />
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
-          </div>
-        </TabsContent>
 
         <TabsContent value="watchlist" className="mt-6">
           <div className="space-y-6">

@@ -54,12 +54,12 @@ const assets: { [key: string]: Asset } = {
   "ryder-cup": {
     id: "ryder-cup",
     name: "Ryder Cup",
-    type: "Tournament Investment",
-    pricePerShare: 750,
+    type: "Debenture Programme",
+    pricePerShare: 5850,
     logo: ryderLogo,
     currency: "GBP", 
-    description: "Golf tournament revenue sharing and hospitality access",
-    minInvestment: 750,
+    description: "Golf tournament debenture investment with hospitality access",
+    minInvestment: 5850,
     maxShares: 200,
     processingFee: 0.10
   }
@@ -112,7 +112,7 @@ export default function TradingInterface() {
 
   const quantityNum = isSecondaryMarket ? listing.quantity : parseInt(quantity) || 0;
   const subtotal = quantityNum * pricePerShare;
-  const processingFee = subtotal * (asset?.processingFee || 0.025);
+  const processingFee = subtotal * (isSecondaryMarket ? 0.025 : (asset?.processingFee || 0.10));
   const total = subtotal + processingFee;
   const priceDifference = isSecondaryMarket ? ((pricePerShare - originalPrice) / originalPrice) * 100 : 0;
 
@@ -185,7 +185,7 @@ export default function TradingInterface() {
                 <div className="flex-1">
                   <CardTitle className="text-2xl font-bold text-gradient">{asset.name}</CardTitle>
                    <p className="text-muted-foreground text-lg">{asset.type}</p>
-                   <p className="text-primary font-bold text-xl">£{pricePerShare} per share</p>
+                   <p className="text-primary font-bold text-xl">£{pricePerShare} per {asset.id === 'ryder-cup' ? 'debenture' : 'share'}</p>
                    {isSecondaryMarket && (
                      <div className="flex items-center gap-2 mt-1">
                        <Badge variant={priceDifference >= 0 ? "success" : "destructive"} className="text-xs">
@@ -221,13 +221,13 @@ export default function TradingInterface() {
               {/* Quantity Input */}
               <div className="space-y-3">
                 <Label htmlFor="quantity" className="text-lg font-semibold">
-                  {isSecondaryMarket ? `Quantity Available from ${listing.seller}` : "Quantity (shares)"}
+                  {isSecondaryMarket ? `Quantity Available from ${listing.seller}` : `Quantity (${asset.id === 'ryder-cup' ? 'debentures' : 'shares'})`}
                 </Label>
                 {isSecondaryMarket ? (
                   <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-semibold">Fixed Quantity:</span>
-                      <span className="text-2xl font-bold text-primary">{listing.quantity} shares</span>
+                      <span className="text-2xl font-bold text-primary">{listing.quantity} {asset.id === 'ryder-cup' ? 'debentures' : 'shares'}</span>
                     </div>
                     <p className="text-sm text-muted-foreground mt-2">
                       You are purchasing the exact quantity listed by {listing.seller}
@@ -246,7 +246,7 @@ export default function TradingInterface() {
                       className="text-lg py-3 h-14"
                     />
                     <p className="text-sm text-muted-foreground">
-                      Minimum: 1 share • Maximum: {maxQuantity.toLocaleString()} shares
+                      Minimum: 1 {asset.id === 'ryder-cup' ? 'debenture' : 'share'} • Maximum: {maxQuantity.toLocaleString()} {asset.id === 'ryder-cup' ? 'debentures' : 'shares'}
                     </p>
                   </>
                 )}
@@ -309,10 +309,10 @@ export default function TradingInterface() {
             </CardHeader>
             <CardContent className="space-y-4">
                <div className="space-y-3">
-                 <div className="flex justify-between">
-                   <span className="text-muted-foreground">Quantity:</span>
-                   <span className="font-medium">{quantityNum} shares</span>
-                 </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Quantity:</span>
+                    <span className="font-medium">{quantityNum} {asset.id === 'ryder-cup' ? 'debentures' : 'shares'}</span>
+                  </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Unit Price:</span>
                     <span className="font-medium">£{pricePerShare}</span>
@@ -345,10 +345,10 @@ export default function TradingInterface() {
                    <span className="text-muted-foreground">Subtotal:</span>
                    <span className="font-medium">£{subtotal.toLocaleString()}</span>
                  </div>
-                 <div className="flex justify-between">
-                   <span className="text-muted-foreground">Processing Fee ({(asset.processingFee * 100).toFixed(0)}%):</span>
-                   <span className="font-medium">£{processingFee.toFixed(0)}</span>
-                 </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Processing Fee ({isSecondaryMarket ? '2.5' : (asset.processingFee * 100).toFixed(0)}%):</span>
+                    <span className="font-medium">£{processingFee.toFixed(0)}</span>
+                  </div>
                  <Separator />
                  <div className="flex justify-between text-xl font-bold">
                    <span>Total:</span>

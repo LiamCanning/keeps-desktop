@@ -45,8 +45,8 @@ const deals = {
     name: "Ryder Cup",
     logo: "/placeholder.svg",
     title: "Debenture Investment Programme",
-    pricePerShare: 5900,
-    minimumInvestment: 5900,
+    pricePerShare: 5850,
+    minimumInvestment: 5850,
     availableShares: 500,
     fundingGoal: 10000000,
     currentRaised: 8850000,
@@ -229,12 +229,12 @@ export default function BuyAsset() {
                 {investmentData.shares > 0 && (
                   <div className="p-4 bg-muted/50 rounded-lg space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Price per share:</span>
-                      <span className="font-medium">£{deal.pricePerShare}</span>
+                     <span className="text-muted-foreground">Price per {deal.id === 'ryder-cup' ? 'debenture' : 'share'}:</span>
+                     <span className="font-medium">£{deal.pricePerShare}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Number of shares:</span>
-                      <span className="font-medium">{investmentData.shares}</span>
+                     <span className="text-muted-foreground">Number of {deal.id === 'ryder-cup' ? 'debentures' : 'shares'}:</span>
+                     <span className="font-medium">{investmentData.shares}</span>
                     </div>
                     <div className="flex justify-between font-semibold text-lg">
                       <span>Total investment:</span>
@@ -504,26 +504,42 @@ export default function BuyAsset() {
                 <div className="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle className="w-10 h-10 text-success" />
                 </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-card-foreground mb-2">Investment Successful!</h2>
-                  <p className="text-muted-foreground">
-                    Congratulations! You have successfully invested £{(investmentData.shares * deal.pricePerShare).toLocaleString()} in {deal.name}.
-                  </p>
-                </div>
-                <div className="p-4 bg-muted/50 rounded-lg space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Investment Amount:</span>
-                    <span className="font-medium">£{(investmentData.shares * deal.pricePerShare).toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Shares Acquired:</span>
-                    <span className="font-medium">{investmentData.shares}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Expected Dividend Yield:</span>
-                    <span className="font-medium">{deal.dividendYield} annually</span>
-                  </div>
-                </div>
+                 <div>
+                   <h2 className="text-2xl font-bold text-card-foreground mb-2">Investment Successful!</h2>
+                   <p className="text-muted-foreground mb-4">
+                     Congratulations! You have successfully invested £{(investmentData.shares * deal.pricePerShare).toLocaleString()} in {deal.name}.
+                   </p>
+                   <div className="p-4 bg-primary/5 rounded-lg border border-primary/20 mb-4">
+                     <p className="text-sm font-medium text-primary">
+                       Reference Number: KEEP-{Math.random().toString(36).substr(2, 9).toUpperCase()}
+                     </p>
+                   </div>
+                 </div>
+                 
+                 <div className="p-4 bg-muted/50 rounded-lg space-y-2">
+                   <div className="flex justify-between">
+                     <span className="text-muted-foreground">Investment Amount:</span>
+                     <span className="font-medium">£{(investmentData.shares * deal.pricePerShare).toLocaleString()}</span>
+                   </div>
+                   <div className="flex justify-between">
+                     <span className="text-muted-foreground">{deal.id === 'ryder-cup' ? 'Debentures' : 'Shares'} Acquired:</span>
+                     <span className="font-medium">{investmentData.shares}</span>
+                   </div>
+                   <div className="flex justify-between">
+                     <span className="text-muted-foreground">Expected Dividend Yield:</span>
+                     <span className="font-medium">{deal.dividendYield} annually</span>
+                   </div>
+                 </div>
+                 
+                 <div className="p-4 bg-success/5 rounded-lg border border-success/20">
+                   <h4 className="font-semibold text-success mb-2">What happens next?</h4>
+                   <ul className="space-y-2 text-sm text-muted-foreground">
+                     <li>• You'll receive a confirmation email within 5 minutes</li>
+                     <li>• Your investment certificate will be available in your account within 24 hours</li>
+                     <li>• Dividend payments will begin according to the investment schedule</li>
+                     <li>• You can download your order confirmation from My Account → Investment History</li>
+                   </ul>
+                 </div>
                 <div className="flex gap-3">
                   <Button 
                     className="btn-invest flex-1"

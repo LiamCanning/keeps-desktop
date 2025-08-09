@@ -1,3 +1,85 @@
+import sarahAvatar from '@/assets/avatars/sarah-avatar.png';
+import mikeAvatar from '@/assets/avatars/mike-avatar.png';
+import emmaAvatar from '@/assets/avatars/emma-avatar.png';
+import jamesAvatar from '@/assets/avatars/james-avatar.png';
+import lisaAvatar from '@/assets/avatars/lisa-avatar.png';
+import davidAvatar from '@/assets/avatars/david-avatar.png';
+
+export const forumPosts = [
+  {
+    id: "1",
+    title: "Liverpool FC valuation concerns - thoughts?",
+    content: "I've been looking at the Liverpool FC investment opportunity and I'm a bit concerned about the current valuation compared to recent club sales. What are your thoughts on the £40M raise at this price point?",
+    author: "Sarah Thompson",
+    avatar: sarahAvatar,
+    timestamp: "2 hours ago",
+    category: "Football",
+    replies: 12,
+    likes: 8,
+    verified: true
+  },
+  {
+    id: "2", 
+    title: "McLaren F1 - Best performing investment this quarter",
+    content: "Just wanted to share that McLaren has been absolutely crushing it this quarter. Up 22% and looking strong for the rest of the season. Anyone else holding McLaren shares?",
+    author: "Mike Johnson",
+    avatar: mikeAvatar,
+    timestamp: "4 hours ago",
+    category: "Formula 1",
+    replies: 18,
+    likes: 15,
+    verified: false
+  },
+  {
+    id: "3",
+    title: "Ryder Cup debentures - worth the premium?",
+    content: "Looking at the Ryder Cup investment - the returns look good but it's quite a high entry point at £5,935 per debenture. Has anyone done the math on whether this beats traditional golf investments?",
+    author: "Emma Wilson",
+    avatar: emmaAvatar,
+    timestamp: "6 hours ago",
+    category: "Golf",
+    replies: 7,
+    likes: 5,
+    verified: true
+  },
+  {
+    id: "4",
+    title: "Secondary market opportunities - what to watch",
+    content: "I've been tracking the secondary market and there are some interesting opportunities emerging. Liverpool shares trading above par, McLaren holding steady. Worth keeping an eye on.",
+    author: "James Carter",
+    avatar: jamesAvatar,
+    timestamp: "8 hours ago",
+    category: "Market Analysis",
+    replies: 23,
+    likes: 19,
+    verified: true
+  },
+  {
+    id: "5",
+    title: "Portfolio diversification - mixing sports investments",
+    content: "Currently holding Liverpool and McLaren. Thinking about adding some golf exposure through Ryder Cup. How are others diversifying across different sports?",
+    author: "Lisa Anderson",
+    avatar: lisaAvatar, 
+    timestamp: "12 hours ago",
+    category: "Strategy",
+    replies: 31,
+    likes: 24,
+    verified: false
+  },
+  {
+    id: "6",
+    title: "Tax implications of sports investments - advice needed",
+    content: "Can anyone share insights on the tax treatment of sports investments vs traditional equity? Particularly interested in ISA eligibility for some of these offerings.",
+    author: "David Roberts",
+    avatar: davidAvatar,
+    timestamp: "1 day ago", 
+    category: "Tax & Legal",
+    replies: 14,
+    likes: 11,
+    verified: true
+  }
+];
+
 // Forum topics data
 export const forumTopics = [
   {
