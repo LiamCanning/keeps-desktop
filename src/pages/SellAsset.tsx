@@ -226,15 +226,26 @@ export default function SellAsset() {
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="quantity">Number of Shares to Sell</Label>
-                    <Input
-                      id="quantity"
-                      type="number"
-                      placeholder="Enter quantity"
-                      value={listingData.quantityToSell}
-                      onChange={(e) => setListingData(prev => ({ ...prev, quantityToSell: e.target.value }))}
-                      max={selectedHolding.quantity}
-                      min={1}
-                    />
+                    <div className="flex gap-2">
+                      <Input
+                        id="quantity"
+                        type="number"
+                        placeholder="Enter quantity"
+                        value={listingData.quantityToSell}
+                        onChange={(e) => setListingData(prev => ({ ...prev, quantityToSell: e.target.value }))}
+                        max={selectedHolding.quantity}
+                        min={1}
+                        className="flex-1"
+                      />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => setListingData(prev => ({ ...prev, quantityToSell: selectedHolding.quantity.toString() }))}
+                        className="px-4"
+                      >
+                        Max
+                      </Button>
+                    </div>
                     <div className="p-3 bg-muted/20 rounded-lg border">
                       <p className="text-sm text-muted-foreground mb-1">Suggested Price</p>
                       <p className="text-lg font-semibold text-card-foreground">£{selectedHolding.currentPrice} per share</p>

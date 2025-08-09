@@ -89,7 +89,7 @@ export const forumTopics = [
     category: "Liverpool FC",
     author: {
       name: "Marcus Chen",
-      avatar: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
+      avatar: ""
     },
     timestamp: "2 hours ago",
     replies: 8,
@@ -103,7 +103,7 @@ export const forumTopics = [
     category: "McLaren Racing",
     author: {
       name: "Sarah Williams",
-      avatar: "/lovable-uploads/dc831468-4f46-45d2-9dc9-6253f84112be.png"
+      avatar: ""
     },
     timestamp: "4 hours ago",
     replies: 15,
@@ -117,7 +117,7 @@ export const forumTopics = [
     category: "Ryder Cup",
     author: {
       name: "David Thompson", 
-      avatar: "/lovable-uploads/79ef8bce-417b-43cb-b149-7668c95e2606.png"
+      avatar: ""
     },
     timestamp: "6 hours ago",
     replies: 6,
@@ -131,7 +131,7 @@ export const forumTopics = [
     category: "General", 
     author: {
       name: "Emma Rodriguez",
-      avatar: "/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png"
+      avatar: ""
     },
     timestamp: "1 day ago",
     replies: 22,
@@ -145,7 +145,7 @@ export const forumTopics = [
     category: "General",
     author: {
       name: "James Wilson",
-      avatar: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png"
+      avatar: ""
     },
     timestamp: "1 day ago", 
     replies: 11,
@@ -159,7 +159,7 @@ export const forumTopics = [
     category: "General",
     author: {
       name: "Alex Turner",
-      avatar: "/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png"
+      avatar: ""
     },
     timestamp: "2 days ago",
     replies: 18,
@@ -177,7 +177,7 @@ export const forumReplies = [
     content: "I've been DCA-ing into Liverpool for 6 months now. The volatility around transfer windows can be significant, so spreading purchases helps smooth out the price swings. Just my experience!",
     author: {
       name: "Tom Harrison",
-      avatar: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png"
+      avatar: ""
     },
     timestamp: "1 hour ago",
     likes: 5
@@ -188,7 +188,7 @@ export const forumReplies = [
     content: "£5k is a decent chunk. I'd probably do 60% upfront and 40% over next 3 months. Liverpool's fundamentals are strong but Champions League qualification can affect short-term pricing.",
     author: {
       name: "Lisa Chang",
-      avatar: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png"
+      avatar: ""
     },
     timestamp: "45 minutes ago",
     likes: 8
@@ -199,7 +199,7 @@ export const forumReplies = [
     content: "Don't forget about the Anfield expansion completion timeline. That should boost revenue significantly once finished. Might be worth timing some purchases around that announcement.",
     author: {
       name: "Mike O'Connor",
-      avatar: "/lovable-uploads/6e897916-7050-40ca-a142-0d028232a4b7.png"
+      avatar: ""
     },
     timestamp: "30 minutes ago",
     likes: 3
@@ -212,7 +212,7 @@ export const forumReplies = [
     content: "P4 is actually quite good for McLaren historically. The ISA is structured around total commercial revenue, not just prize money, so the Google and other sponsorship deals matter more than championship position.",
     author: {
       name: "Rachel Green",
-      avatar: "/lovable-uploads/32e5079c-7a6a-4a36-9545-a4faa7411f89.png"
+      avatar: ""
     },
     timestamp: "3 hours ago",
     likes: 12
@@ -223,7 +223,7 @@ export const forumReplies = [
     content: "Prize money is only about 30% of total revenue for teams like McLaren. The technology licensing and merchandise are the real drivers. P4 vs P3 won't make a huge difference to our returns.",
     author: {
       name: "Chris Martinez",
-      avatar: "/lovable-uploads/f1c416aa-6bce-4a96-af14-85280bd218d8.png"
+      avatar: ""
     },
     timestamp: "2 hours ago", 
     likes: 7
@@ -236,7 +236,7 @@ export const forumReplies = [
     content: "I spoke to a tax specialist about this. The annual 5% is definitely income tax, but the principal repayment should be return of capital (not taxable). However, if debentures appreciate and you sell early, that would be capital gains.",
     author: {
       name: "Jennifer Adams",
-      avatar: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"
+      avatar: ""
     },
     timestamp: "5 hours ago",
     likes: 15
@@ -247,7 +247,7 @@ export const forumReplies = [
     content: "Make sure your accountant understands these are alternative investments. The tax treatment is similar to corporate bonds in many ways. The HMRC guidance on 'alternative finance arrangements' might be helpful.",
     author: {
       name: "Paul Stewart",
-      avatar: "/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png"
+      avatar: ""
     },
     timestamp: "4 hours ago",
     likes: 9
