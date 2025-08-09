@@ -1,131 +1,112 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, MessageCircle, Users, Star, Calendar, MapPin, Trophy } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Users, TrendingUp, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-
-// Import avatar images
-import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
-import mikeAvatar from "@/assets/avatars/mike-avatar.png";
-import emmaAvatar from "@/assets/avatars/emma-avatar.png";
-import alexAvatar from "@/assets/avatars/alex-avatar.png";
-import jamesAvatar from "@/assets/avatars/james-avatar.png";
-import mariaAvatar from "@/assets/avatars/maria-avatar.png";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface UserProfile {
-  id: string;
   name: string;
   username: string;
   avatar: string;
-  verified: boolean;
   bio: string;
   joinDate: string;
   location: string;
   posts: number;
-  followers: number;
-  following: number;
-  investments: string[];
+  followers: string;
+  following: string;
+  investments: Array<{
+    name: string;
+    amount: string;
+    returns: string;
+    status: string;
+  }>;
   tier: string;
+  recentActivity: Array<{
+    type: string;
+    content: string;
+    timestamp: string;
+  }>;
 }
 
 const userProfiles: { [key: string]: UserProfile } = {
   "sarahm_investor": {
-    id: "1",
     name: "Sarah Mitchell",
     username: "sarahm_investor",
-    avatar: mariaAvatar,
-    verified: true,
-    bio: "Diamond tier investor passionate about football and sports innovation. Former financial analyst with 10+ years experience in sports investing.",
+    avatar: "/src/assets/avatars/sarah-avatar.png",
+    bio: "Sports investment enthusiast • Liverpool FC season ticket holder • Building wealth through sports",
     joinDate: "March 2024",
-    location: "London, UK",
+    location: "Liverpool, UK",
     posts: 127,
-    followers: 2847,
-    following: 156,
-    investments: ["Liverpool FC", "Ryder Cup", "McLaren F1"],
-    tier: "Diamond"
+    followers: "2.4k",
+    following: "891",
+    investments: [
+      { name: "Liverpool FC", amount: "£2,500", returns: "+15.2%", status: "Active" },
+      { name: "Ryder Cup", amount: "£1,200", returns: "+12.8%", status: "Active" },
+    ],
+    tier: "Gold",
+    recentActivity: [
+      { type: "investment", content: "Invested £500 more in Liverpool FC", timestamp: "2 hours ago" },
+      { type: "post", content: "Shared insights about Premier League returns", timestamp: "1 day ago" },
+      { type: "comment", content: "Commented on McLaren F1 discussion", timestamp: "3 days ago" },
+    ]
   },
   "f1mike": {
-    id: "2",
-    name: "Mike Rodriguez",
+    name: "Mike Rodriguez", 
     username: "f1mike",
-    avatar: mikeAvatar,
-    verified: false,
-    bio: "F1 enthusiast and motorsport investor. Love the technology and innovation behind racing. Based in Barcelona.",
-    joinDate: "April 2024",
-    location: "Barcelona, Spain",
+    avatar: "/src/assets/avatars/mike-avatar.png",
+    bio: "Formula 1 fanatic • McLaren investor • Tech entrepreneur • Racing enthusiast since childhood",
+    joinDate: "January 2024",
+    location: "London, UK",
     posts: 89,
-    followers: 1234,
-    following: 234,
-    investments: ["McLaren F1"],
-    tier: "Platinum"
+    followers: "1.8k",
+    following: "654",
+    investments: [
+      { name: "McLaren F1", amount: "£5,000", returns: "+22.1%", status: "Active" },
+    ],
+    tier: "Diamond",
+    recentActivity: [
+      { type: "post", content: "Posted McLaren technology centre visit experience", timestamp: "4 hours ago" },
+      { type: "investment", content: "Increased McLaren position by £1,000", timestamp: "1 week ago" },
+      { type: "comment", content: "Discussed F1 investment strategies", timestamp: "2 weeks ago" },
+    ]
   },
   "golf_emma": {
-    id: "3",
     name: "Emma Thompson",
-    username: "golf_emma",
-    avatar: emmaAvatar,
-    verified: true,
-    bio: "Golf professional turned investor. Passionate about growing the sport globally through smart investments.",
+    username: "golf_emma", 
+    avatar: "/src/assets/avatars/emma-avatar.png",
+    bio: "Golf investment specialist • Ryder Cup debenture holder • PGA Tour insider • Investment advisor",
     joinDate: "February 2024",
-    location: "Edinburgh, UK",
+    location: "Edinburgh, Scotland",
     posts: 156,
-    followers: 3421,
-    following: 89,
-    investments: ["Ryder Cup"],
-    tier: "Gold"
-  },
-  "alexc_sports": {
-    id: "4",
-    name: "Alex Chen",
-    username: "alexc_sports",
-    avatar: alexAvatar,
-    verified: false,
-    bio: "New to sports investing but excited about the opportunities. Learning from the community!",
-    joinDate: "July 2024",
-    location: "Singapore",
-    posts: 23,
-    followers: 89,
-    following: 345,
-    investments: ["Liverpool FC"],
-    tier: "Bronze"
-  },
-  "jwilson_reds": {
-    id: "5",
-    name: "James Wilson",
-    username: "jwilson_reds",
-    avatar: jamesAvatar,
-    verified: true,
-    bio: "Lifelong Liverpool supporter and investor. You'll Never Walk Alone! Excited about the future of fan ownership.",
-    joinDate: "January 2024",
-    location: "Liverpool, UK",
-    posts: 234,
-    followers: 5623,
-    following: 123,
-    investments: ["Liverpool FC", "British Cycling"],
-    tier: "Silver"
+    followers: "3.1k",
+    following: "423",
+    investments: [
+      { name: "Ryder Cup", amount: "£3,200", returns: "+12.8%", status: "Active" },
+      { name: "Liverpool FC", amount: "£800", returns: "+15.2%", status: "Active" },
+    ],
+    tier: "Platinum",
+    recentActivity: [
+      { type: "post", content: "Analyzed Ryder Cup investment performance", timestamp: "6 hours ago" },
+      { type: "investment", content: "Added to Ryder Cup position", timestamp: "3 days ago" },
+      { type: "comment", content: "Shared golf market insights", timestamp: "1 week ago" },
+    ]
   }
 };
 
 export default function CommunityProfile() {
-  const { username } = useParams();
+  const { username } = useParams<{ username: string }>();
   const navigate = useNavigate();
-  
   const user = username ? userProfiles[username] : null;
 
   if (!user) {
     return (
-      <div className="p-6 space-y-6 max-w-4xl mx-auto">
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" onClick={() => navigate(-1)}>
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button>
-        </div>
-        <Card className="card-professional p-8 text-center">
-          <h2 className="text-xl font-semibold text-card-foreground mb-2">User Not Found</h2>
-          <p className="text-muted-foreground">The user profile you're looking for doesn't exist.</p>
-        </Card>
+      <div className="p-6 text-center">
+        <h2 className="text-2xl font-bold text-muted-foreground">User Not Found</h2>
+        <p className="text-muted-foreground mt-2">The user profile you're looking for doesn't exist.</p>
+        <Button onClick={() => navigate('/community')} className="mt-4">
+          Back to Community
+        </Button>
       </div>
     );
   }
@@ -133,8 +114,8 @@ export default function CommunityProfile() {
   return (
     <div className="p-6 space-y-6 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="flex items-center gap-4">
-        <Button variant="ghost" onClick={() => navigate(-1)}>
+      <div className="flex items-center gap-4 mb-6">
+        <Button variant="ghost" onClick={() => navigate('/community')}>
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Community
         </Button>
@@ -144,38 +125,27 @@ export default function CommunityProfile() {
       <Card className="card-professional">
         <CardContent className="p-8">
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex flex-col items-center md:items-start">
-              <Avatar className="w-32 h-32 mb-4">
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="text-2xl">{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-              </Avatar>
-              <Button className="btn-invest w-full md:w-auto">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Send Message
-              </Button>
-            </div>
+            <Avatar className="w-32 h-32 mx-auto md:mx-0">
+              <AvatarImage src={user.avatar} />
+              <AvatarFallback className="bg-primary text-primary-foreground text-2xl">
+                {user.name.split(' ').map(n => n[0]).join('')}
+              </AvatarFallback>
+            </Avatar>
             
             <div className="flex-1 space-y-4">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <h1 className="text-3xl font-bold text-card-foreground">{user.name}</h1>
-                  {user.verified && (
-                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  )}
-                  <Badge variant={user.tier.toLowerCase() as any} className="ml-2">
-                    {user.tier} Tier
+              <div className="text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                  <h1 className="text-3xl font-bold text-gradient">{user.name}</h1>
+                  <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+                    {user.tier}
                   </Badge>
                 </div>
                 <p className="text-lg text-muted-foreground">@{user.username}</p>
               </div>
               
-              <p className="text-card-foreground leading-relaxed">{user.bio}</p>
+              <p className="text-foreground leading-relaxed">{user.bio}</p>
               
-              <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
                   {user.location}
@@ -186,17 +156,17 @@ export default function CommunityProfile() {
                 </div>
               </div>
               
-              <div className="flex gap-6">
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-card-foreground">{user.posts}</p>
+              <div className="flex gap-6 text-center md:text-left">
+                <div>
+                  <p className="font-bold text-lg text-foreground">{user.posts}</p>
                   <p className="text-sm text-muted-foreground">Posts</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-card-foreground">{user.followers.toLocaleString()}</p>
+                <div>
+                  <p className="font-bold text-lg text-foreground">{user.followers}</p>
                   <p className="text-sm text-muted-foreground">Followers</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-card-foreground">{user.following}</p>
+                <div>
+                  <p className="font-bold text-lg text-foreground">{user.following}</p>
                   <p className="text-sm text-muted-foreground">Following</p>
                 </div>
               </div>
@@ -205,22 +175,29 @@ export default function CommunityProfile() {
         </CardContent>
       </Card>
 
-      {/* Investments */}
+      {/* Investment Portfolio */}
       <Card className="card-professional">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Trophy className="w-5 h-5" />
+            <TrendingUp className="w-5 h-5 text-success" />
             Investment Portfolio
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="flex gap-3 flex-wrap">
-            {user.investments.map((investment, index) => (
-              <Badge key={index} variant="outline" className="px-3 py-1">
-                {investment}
-              </Badge>
-            ))}
-          </div>
+        <CardContent className="space-y-4">
+          {user.investments.map((investment, index) => (
+            <div key={index} className="flex items-center justify-between p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-border/30">
+              <div>
+                <p className="font-semibold text-foreground">{investment.name}</p>
+                <p className="text-sm text-muted-foreground">{investment.amount} invested</p>
+              </div>
+              <div className="text-right">
+                <Badge variant="success" className="mb-1">
+                  {investment.returns}
+                </Badge>
+                <p className="text-sm text-muted-foreground">{investment.status}</p>
+              </div>
+            </div>
+          ))}
         </CardContent>
       </Card>
 
@@ -228,40 +205,28 @@ export default function CommunityProfile() {
       <Card className="card-professional">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Star className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5 text-primary" />
             Recent Activity
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="p-4 bg-muted/20 rounded-lg">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                <div>
-                  <p className="font-medium text-card-foreground">Shared thoughts about {user.investments[0]} benefits</p>
-                  <p className="text-sm text-muted-foreground">2 hours ago • 127 likes • 15 replies</p>
-                </div>
+        <CardContent className="space-y-4">
+          {user.recentActivity.map((activity, index) => (
+            <div key={index} className="flex gap-4 p-3 hover:bg-muted/30 rounded-lg transition-colors">
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                activity.type === 'investment' ? 'bg-success/20 text-success' :
+                activity.type === 'post' ? 'bg-primary/20 text-primary' :
+                'bg-warning/20 text-warning'
+              }`}>
+                {activity.type === 'investment' && <TrendingUp className="w-4 h-4" />}
+                {activity.type === 'post' && <MessageCircle className="w-4 h-4" />}
+                {activity.type === 'comment' && <Users className="w-4 h-4" />}
+              </div>
+              <div className="flex-1">
+                <p className="text-foreground">{activity.content}</p>
+                <p className="text-sm text-muted-foreground">{activity.timestamp}</p>
               </div>
             </div>
-            <div className="p-4 bg-muted/20 rounded-lg">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-success rounded-full mt-2"></div>
-                <div>
-                  <p className="font-medium text-card-foreground">Joined the community discussion about market trends</p>
-                  <p className="text-sm text-muted-foreground">1 day ago • 89 likes • 8 replies</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 bg-muted/20 rounded-lg">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-warning rounded-full mt-2"></div>
-                <div>
-                  <p className="font-medium text-card-foreground">Posted about investor tier benefits experience</p>
-                  <p className="text-sm text-muted-foreground">3 days ago • 156 likes • 23 replies</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </CardContent>
       </Card>
     </div>

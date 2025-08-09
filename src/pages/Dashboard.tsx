@@ -129,7 +129,15 @@ function InvestmentCard({ investment }: { investment: Investment }) {
       <div className="relative overflow-hidden">
         {investment.status === "live" ? (
           <div className="w-full h-64 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')] bg-cover bg-center"></div>
+            <div className={`absolute inset-0 bg-cover bg-center ${
+              investment.name === 'Liverpool FC' 
+                ? "bg-[url('/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png')]" 
+                : investment.name === 'McLaren F1' 
+                ? "bg-[url('/lovable-uploads/79ef8bce-417b-43cb-b149-7668c95e2606.png')]" 
+                : investment.name === 'Ryder Cup'
+                ? "bg-[url('/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png')]"
+                : "bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')]"
+            }`}></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           </div>
         ) : (
@@ -252,15 +260,23 @@ export default function Dashboard() {
       </div>
 
       {/* Featured Investment Opportunities */}
-      <div className="mt-6 space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-foreground text-left">Featured Investment Opportunities</h2>
-          <p className="text-foreground/70 text-right">Premium sports assets with proven track records</p>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-          {liveDeals.map((investment) => (
-            <InvestmentCard key={investment.id} investment={investment} />
-          ))}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-8 border border-primary/20 mt-8">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
+        <div className="relative z-10 space-y-6">
+          <div className="text-center space-y-3">
+            <h2 className="text-4xl font-bold text-gradient">🔥 Featured Investment Opportunities</h2>
+            <p className="text-xl text-foreground/90 font-medium">Premium sports assets with proven track records • Limited availability</p>
+            <div className="flex justify-center gap-2">
+              <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse delay-100"></div>
+              <div className="w-2 h-2 bg-accent rounded-full animate-pulse delay-200"></div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            {liveDeals.map((investment) => (
+              <InvestmentCard key={investment.id} investment={investment} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

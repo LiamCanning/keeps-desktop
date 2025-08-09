@@ -81,9 +81,9 @@ export function AppSidebar() {
                 className="flex items-center gap-3 p-2 h-auto hover:bg-sidebar-accent rounded-lg text-sidebar-foreground"
               >
                 <img 
-                  src="/placeholder.svg" 
+                  src="/src/assets/keeps-logo.png" 
                   alt="Keeps" 
-                  className="w-8 h-8 flex-shrink-0"
+                  className="w-8 h-8 flex-shrink-0 object-contain"
                 />
                 {!isCollapsed && (
                   <>
@@ -173,7 +173,7 @@ export function AppSidebar() {
         {!isCollapsed && (
           <div className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="/placeholder.svg" />
+              <AvatarImage src="/src/assets/liam-avatar.png" />
               <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">

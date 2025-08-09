@@ -442,25 +442,119 @@ export default function Content() {
         </TabsContent>
 
         <TabsContent value="reels" className="mt-6">
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">Fans enjoy behind the scenes look at Hexagon Cup</h2>
+              <h2 className="text-xl font-semibold text-foreground">Fan Video Content</h2>
               <Badge variant="warning">
-                {filteredArticles.length} Videos
+                3 Videos
               </Badge>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-              {filteredArticles.map((article) => (
-                <div key={article.id} className="relative">
-                  <NewsCard article={article} />
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/50 rounded-full p-4 cursor-pointer hover:bg-black/70 transition-colors">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
+              {/* Video 1 - Liverpool FC */}
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <img 
+                    src="/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
+                    alt="My day out with Liverpool FC Squad"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <div className="bg-white/90 rounded-full p-4 cursor-pointer hover:bg-white transition-colors">
+                      <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
                   </div>
+                  <Badge variant="warning" className="absolute top-4 left-4">Video</Badge>
                 </div>
-              ))}
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg">My day out with the Liverpool FC Squad</CardTitle>
+                  <p className="text-sm text-muted-foreground">Behind the scenes access with the Liverpool players at training</p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="flex items-center gap-2 mb-3">
+                    <img src="/src/assets/avatars/sarah-avatar.png" alt="Sarah" className="w-8 h-8 rounded-full object-cover" />
+                    <span className="text-sm font-medium">Sarah Mitchell</span>
+                    <Badge variant="outline" className="text-xs">Gold Investor</Badge>
+                  </div>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span>2.1k views</span>
+                    <span>45 likes</span>
+                    <span>12 comments</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Video 2 - Ryder Cup */}
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <img 
+                    src="/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png"
+                    alt="Playing 3 Holes while at the Ryder Cup"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <div className="bg-white/90 rounded-full p-4 cursor-pointer hover:bg-white transition-colors">
+                      <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <Badge variant="warning" className="absolute top-4 left-4">Video</Badge>
+                </div>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg">Playing 3 Holes while at the Ryder Cup</CardTitle>
+                  <p className="text-sm text-muted-foreground">Exclusive access to play on the championship course during the event</p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="flex items-center gap-2 mb-3">
+                    <img src="/src/assets/avatars/emma-avatar.png" alt="Emma" className="w-8 h-8 rounded-full object-cover" />
+                    <span className="text-sm font-medium">Emma Thompson</span>
+                    <Badge variant="outline" className="text-xs">Platinum Investor</Badge>
+                  </div>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span>1.8k views</span>
+                    <span>67 likes</span>
+                    <span>23 comments</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Video 3 - McLaren */}
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <img 
+                    src="/lovable-uploads/79ef8bce-417b-43cb-b149-7668c95e2606.png"
+                    alt="Inside McLaren Technology Centre"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <div className="bg-white/90 rounded-full p-4 cursor-pointer hover:bg-white transition-colors">
+                      <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <Badge variant="warning" className="absolute top-4 left-4">Video</Badge>
+                </div>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg">Inside McLaren Technology Centre Tour</CardTitle>
+                  <p className="text-sm text-muted-foreground">Exclusive behind-the-scenes look at McLaren's state-of-the-art facilities</p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="flex items-center gap-2 mb-3">
+                    <img src="/src/assets/avatars/mike-avatar.png" alt="Mike" className="w-8 h-8 rounded-full object-cover" />
+                    <span className="text-sm font-medium">Mike Rodriguez</span>
+                    <Badge variant="outline" className="text-xs">Diamond Investor</Badge>
+                  </div>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span>3.2k views</span>
+                    <span>89 likes</span>
+                    <span>34 comments</span>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </TabsContent>
