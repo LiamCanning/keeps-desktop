@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Settings, Bell, Shield, CreditCard, FileText, LogOut, MapPin, Star, Building2, Smartphone } from "lucide-react";
+import { Settings, Bell, Shield, CreditCard, FileText, LogOut, MapPin, Star, Building2, Smartphone, Calendar } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -106,11 +106,12 @@ export default function Account() {
 
       {/* Account Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
+        <TabsList className="grid w-full grid-cols-6 lg:w-auto lg:grid-cols-6">
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="account-settings">Settings</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
+          <TabsTrigger value="automated-investing">Auto Investing</TabsTrigger>
           <TabsTrigger value="data">Data</TabsTrigger>
         </TabsList>
 
@@ -351,6 +352,154 @@ export default function Account() {
           </Card>
         </TabsContent>
 
+        <TabsContent value="automated-investing" className="mt-6">
+          <div className="space-y-6">
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="text-card-foreground">Automated Investing</CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  Set up recurring investments to automatically invest in your favorite sports assets
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Active Auto-Investments */}
+                <div>
+                  <h3 className="font-semibold mb-4 text-card-foreground">Active Auto-Investments</h3>
+                  <div className="space-y-4">
+                    <Card className="bg-accent/10 border border-accent/30">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20 flex items-center justify-center">
+                              <img 
+                                src="/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png"
+                                alt="Liverpool FC"
+                                className="w-8 h-8 object-contain"
+                              />
+                            </div>
+                            <div>
+                              <p className="font-medium text-card-foreground">Liverpool FC</p>
+                              <p className="text-sm text-muted-foreground">£500 monthly • Next: 15th Jan</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="success">Active</Badge>
+                            <Switch checked={true} />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-accent/10 border border-accent/30">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20 flex items-center justify-center">
+                              <img 
+                                src="/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"
+                                alt="McLaren F1"
+                                className="w-8 h-8 object-contain"
+                              />
+                            </div>
+                            <div>
+                              <p className="font-medium text-card-foreground">McLaren Racing</p>
+                              <p className="text-sm text-muted-foreground">£1,000 monthly • Next: 1st Feb</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="success">Active</Badge>
+                            <Switch checked={true} />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Setup New Auto-Investment */}
+                <div>
+                  <h3 className="font-semibold mb-4 text-card-foreground">Set Up New Auto-Investment</h3>
+                  <Card className="border-dashed border-2 border-muted-foreground/30">
+                    <CardContent className="p-6">
+                      <div className="text-center space-y-4">
+                        <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
+                          <Calendar className="w-8 h-8 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-card-foreground">Create Recurring Investment</h4>
+                          <p className="text-sm text-muted-foreground">
+                            Automatically invest in your favorite teams with dollar-cost averaging
+                          </p>
+                        </div>
+                        <Button className="btn-invest">
+                          Set Up Auto-Investment
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Auto-Investment Settings */}
+                <div>
+                  <h3 className="font-semibold mb-4 text-card-foreground">Auto-Investment Settings</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-medium text-card-foreground">Email Notifications</p>
+                        <p className="text-sm text-muted-foreground">Get notified before each auto-investment</p>
+                      </div>
+                      <Switch checked={true} />
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-medium text-card-foreground">Pause on Low Balance</p>
+                        <p className="text-sm text-muted-foreground">Automatically pause if insufficient funds</p>
+                      </div>
+                      <Switch checked={true} />
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-medium text-card-foreground">Smart Portfolio Rebalancing</p>
+                        <p className="text-sm text-muted-foreground">Adjust allocations based on performance</p>
+                      </div>
+                      <Switch checked={false} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Investment Statistics */}
+                <div>
+                  <h3 className="font-semibold mb-4 text-card-foreground">Auto-Investment Performance</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <Card className="p-4">
+                      <div className="text-center">
+                        <p className="text-2xl font-bold text-primary">£18,500</p>
+                        <p className="text-sm text-muted-foreground">Total Auto-Invested</p>
+                      </div>
+                    </Card>
+                    
+                    <Card className="p-4">
+                      <div className="text-center">
+                        <p className="text-2xl font-bold text-success">+£3,240</p>
+                        <p className="text-sm text-muted-foreground">Auto-Investment Returns</p>
+                      </div>
+                    </Card>
+                    
+                    <Card className="p-4">
+                      <div className="text-center">
+                        <p className="text-2xl font-bold text-warning">+17.5%</p>
+                        <p className="text-sm text-muted-foreground">Average Performance</p>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
         <TabsContent value="data" className="mt-6">
           <Card className="card-professional">
             <CardHeader>
@@ -364,11 +513,13 @@ export default function Account() {
               {partners.map((partner) => (
                 <div key={partner.id} className="flex items-center justify-between p-4 border border-border rounded-lg">
                   <div className="flex items-center gap-3">
-                    <LogoImage 
-                      src={partner.logo}
+                     <img 
+                      src={`/src/assets/brands/${partner.name.toLowerCase().replace(/\s+/g, '-')}-logo.png`}
                       alt={partner.name}
-                      size="md"
-                      className="rounded-lg"
+                      className="w-12 h-12 object-contain rounded-lg"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "/placeholder.svg";
+                      }}
                     />
                     <div>
                       <p className="font-medium text-card-foreground">{partner.name}</p>

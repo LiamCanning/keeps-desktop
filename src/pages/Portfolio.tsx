@@ -151,7 +151,7 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
             }}
           >
             <Activity className="w-4 h-4 mr-2" />
-            Sell {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}
+            Sell {holding.name === 'Ryder Cup' ? 'Debentures' : 'Shares'}
           </Button>
         </div>
       </CardContent>

@@ -217,8 +217,8 @@ export default function ListAsset() {
 
                 {/* Price per Share */}
                 <div className="space-y-3">
-                  <Label htmlFor="price" className="text-base font-semibold">
-                    Price per {asset.type === 'Debenture' ? 'Debenture' : 'Share'}
+                   <Label htmlFor="price" className="text-base font-semibold">
+                    Price per {asset.name === 'Ryder Cup' ? 'Debenture' : 'Share'}
                   </Label>
                   <div className="flex gap-2">
                     <Input
@@ -293,10 +293,10 @@ export default function ListAsset() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Quantity:</span>
-                    <span className="font-medium">{quantityNum} {asset.name === "Ryder Cup" ? "debentures" : "shares"}</span>
+                     <span className="font-medium">{quantityNum} {asset.name === "Ryder Cup" ? "debentures" : "shares"}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Price per Share:</span>
+                   <div className="flex justify-between">
+                    <span className="text-muted-foreground">Price per {asset.name === "Ryder Cup" ? "Debenture" : "Share"}:</span>
                     <span className="font-medium">£{priceNum}</span>
                   </div>
                   <div className="flex justify-between">

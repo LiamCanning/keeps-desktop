@@ -51,6 +51,8 @@ import InvestmentHistory from "./pages/InvestmentHistory";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import SaleConfirmation from "./pages/SaleConfirmation";
 import TransactionDetails from "./pages/TransactionDetails";
+import ReferralProgram from "./pages/ReferralProgram";
+import SupportChat from "./pages/SupportChat";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +76,8 @@ const App = () => (
             <Route path="/sell-asset" element={<SellAsset />} />
             <Route path="/for-organisations" element={<ForOrganisations />} />
             <Route path="/support-hub" element={<SupportHub />} />
+            <Route path="/support-chat" element={<SupportChat />} />
+            <Route path="/referral-program" element={<ReferralProgram />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="/sector-performance" element={<SectorPerformance />} />

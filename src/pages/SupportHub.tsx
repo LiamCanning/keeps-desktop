@@ -117,7 +117,18 @@ export default function SupportHub() {
             <CardContent className="text-center space-y-4">
               <p className="text-muted-foreground">{option.description}</p>
               <div className="space-y-2">
-                <Button className="w-full">{option.action}</Button>
+                <Button 
+                  className="w-full"
+                  onClick={() => {
+                    if (option.title === "Live Chat") {
+                      window.location.href = "/support-chat";
+                    } else if (option.title === "Email Support") {
+                      window.location.href = "mailto:support@keeps.sport";
+                    }
+                  }}
+                >
+                  {option.action}
+                </Button>
                 <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
                   <Clock className="w-3 h-3" />
                   {option.availability}
