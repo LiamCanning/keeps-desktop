@@ -1,12 +1,40 @@
 import { useState } from "react";
-import { TrendingUp, TrendingDown, BarChart3, PieChart, DollarSign, Calendar, Target } from "lucide-react";
+import { TrendingUp, TrendingDown, BarChart3, PieChart, DollarSign, Calendar, Target, Activity, Zap } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart as RechartsPieChart, Cell } from "recharts";
 
 export default function PortfolioPerformance() {
   const [activeTab, setActiveTab] = useState("overview");
+
+  // Historical performance data
+  const performanceData = [
+    { month: "Jul", value: 250000, liverpoolFC: 25000, mclaren: 200000, ryderCup: 15000, return: 0 },
+    { month: "Aug", value: 265000, liverpoolFC: 26200, mclaren: 215000, ryderCup: 15800, return: 6.0 },
+    { month: "Sep", value: 278000, liverpoolFC: 27100, mclaren: 225000, ryderCup: 16400, return: 11.2 },
+    { month: "Oct", value: 285000, liverpoolFC: 27800, mclaren: 230000, ryderCup: 16900, return: 14.0 },
+    { month: "Nov", value: 295000, liverpoolFC: 28200, mclaren: 238000, ryderCup: 17300, return: 18.0 },
+    { month: "Dec", value: 302355, liverpoolFC: 28750, mclaren: 244000, ryderCup: 17805, return: 20.9 }
+  ];
+
+  // Volatility data
+  const volatilityData = [
+    { asset: "Liverpool FC", volatility: 8.5, sharpe: 1.8 },
+    { asset: "McLaren Racing", volatility: 12.3, sharpe: 1.9 },
+    { asset: "Ryder Cup", volatility: 6.2, sharpe: 2.1 }
+  ];
+
+  // Risk metrics
+  const riskMetrics = [
+    { metric: "Portfolio Beta", value: "0.87", good: true },
+    { metric: "Value at Risk (95%)", value: "£12,450", good: false },
+    { metric: "Max Drawdown", value: "-5.2%", good: true },
+    { metric: "Correlation to Market", value: "0.65", good: true }
+  ];
+
+  const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'];
 
   const portfolioData = {
     totalValue: 302355,
@@ -112,10 +140,11 @@ export default function PortfolioPerformance() {
 
       {/* Performance Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
           <TabsTrigger value="overview">Performance Overview</TabsTrigger>
+          <TabsTrigger value="charts">Advanced Charts</TabsTrigger>
           <TabsTrigger value="allocation">Asset Allocation</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="analytics">Risk Analytics</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="mt-6">
@@ -156,6 +185,144 @@ export default function PortfolioPerformance() {
           </Card>
         </TabsContent>
 
+        <TabsContent value="charts" className="mt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Portfolio Value Over Time */}
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-success" />
+                  Portfolio Value Growth
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={performanceData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
+                      <YAxis stroke="hsl(var(--muted-foreground))" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'hsl(var(--card))', 
+                          border: '1px solid hsl(var(--border))', 
+                          borderRadius: '8px' 
+                        }}
+                        formatter={(value) => [`£${Number(value).toLocaleString()}`, 'Portfolio Value']}
+                      />
+                      <Area 
+                        type="monotone" 
+                        dataKey="value" 
+                        stroke="hsl(var(--primary))" 
+                        fill="hsl(var(--primary) / 0.2)" 
+                        strokeWidth={2}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Returns Percentage */}
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Activity className="w-5 h-5 text-primary" />
+                  Return Percentage Over Time
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={performanceData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
+                      <YAxis stroke="hsl(var(--muted-foreground))" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'hsl(var(--card))', 
+                          border: '1px solid hsl(var(--border))', 
+                          borderRadius: '8px' 
+                        }}
+                        formatter={(value) => [`${Number(value).toFixed(1)}%`, 'Return']}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="return" 
+                        stroke="hsl(var(--success))" 
+                        strokeWidth={3}
+                        dot={{ fill: 'hsl(var(--success))', strokeWidth: 2, r: 4 }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Asset Breakdown Chart */}
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BarChart3 className="w-5 h-5 text-warning" />
+                  Asset Value Breakdown
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={performanceData.slice(-1)} layout="horizontal">
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis type="number" stroke="hsl(var(--muted-foreground))" />
+                      <YAxis dataKey="month" type="category" stroke="hsl(var(--muted-foreground))" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'hsl(var(--card))', 
+                          border: '1px solid hsl(var(--border))', 
+                          borderRadius: '8px' 
+                        }}
+                      />
+                      <Bar dataKey="liverpoolFC" fill="hsl(var(--success))" name="Liverpool FC" />
+                      <Bar dataKey="mclaren" fill="hsl(var(--primary))" name="McLaren Racing" />
+                      <Bar dataKey="ryderCup" fill="hsl(var(--warning))" name="Ryder Cup" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Volatility Analysis */}
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-accent" />
+                  Risk vs Return Analysis
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {volatilityData.map((item, index) => (
+                    <div key={index} className="p-3 bg-muted/20 rounded-lg">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold text-sm">{item.asset}</h4>
+                        <Badge variant="outline" className="text-xs">
+                          Sharpe: {item.sharpe}
+                        </Badge>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-xs">
+                          <span>Volatility</span>
+                          <span>{item.volatility}%</span>
+                        </div>
+                        <Progress value={item.volatility} className="h-1" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
         <TabsContent value="allocation" className="mt-6">
           <Card className="card-professional">
             <CardHeader>
@@ -178,43 +345,124 @@ export default function PortfolioPerformance() {
         </TabsContent>
 
         <TabsContent value="analytics" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Advanced Risk Metrics */}
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle>Risk Analysis</CardTitle>
+                <CardTitle>Advanced Risk Metrics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {riskMetrics.map((metric, index) => (
+                    <div key={index} className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
+                      <span className="text-sm font-medium">{metric.metric}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold">{metric.value}</span>
+                        <Badge variant={metric.good ? "success" : "warning"} className="text-xs">
+                          {metric.good ? "Good" : "Monitor"}
+                        </Badge>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Portfolio Correlation Matrix */}
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle>Asset Correlation Matrix</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-4 gap-2 text-xs text-center font-medium">
+                    <div></div>
+                    <div>LFC</div>
+                    <div>MCL</div>
+                    <div>RYD</div>
+                  </div>
+                  <div className="grid grid-cols-4 gap-2 text-xs">
+                    <div className="font-medium">LFC</div>
+                    <div className="bg-success/20 p-2 rounded text-center">1.00</div>
+                    <div className="bg-warning/20 p-2 rounded text-center">0.34</div>
+                    <div className="bg-success/20 p-2 rounded text-center">0.12</div>
+                  </div>
+                  <div className="grid grid-cols-4 gap-2 text-xs">
+                    <div className="font-medium">MCL</div>
+                    <div className="bg-warning/20 p-2 rounded text-center">0.34</div>
+                    <div className="bg-success/20 p-2 rounded text-center">1.00</div>
+                    <div className="bg-warning/20 p-2 rounded text-center">0.28</div>
+                  </div>
+                  <div className="grid grid-cols-4 gap-2 text-xs">
+                    <div className="font-medium">RYD</div>
+                    <div className="bg-success/20 p-2 rounded text-center">0.12</div>
+                    <div className="bg-warning/20 p-2 rounded text-center">0.28</div>
+                    <div className="bg-success/20 p-2 rounded text-center">1.00</div>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Lower correlation indicates better diversification
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Monte Carlo Simulation */}
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle>Risk Simulation</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm text-muted-foreground mb-2">Portfolio Risk Level</p>
-                    <Badge variant="warning">Medium Risk</Badge>
+                    <p className="text-sm font-medium mb-2">12-Month Projections</p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between">
+                        <span className="text-xs">Best Case (95%)</span>
+                        <span className="text-xs font-semibold text-success">£385,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-xs">Expected (50%)</span>
+                        <span className="text-xs font-semibold">£342,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-xs">Worst Case (5%)</span>
+                        <span className="text-xs font-semibold text-destructive">£285,000</span>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-2">Diversification Score</p>
-                    <Progress value={65} className="h-2" />
-                    <p className="text-xs text-muted-foreground mt-1">65/100 - Consider diversifying across more sectors</p>
+                  <div className="p-3 bg-muted/20 rounded-lg">
+                    <p className="text-xs text-muted-foreground">
+                      Based on historical volatility and correlation analysis
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
+            {/* Diversification Recommendations */}
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle>Performance Metrics</CardTitle>
+                <CardTitle>Optimization Recommendations</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Sharpe Ratio</span>
-                    <span className="font-semibold">1.24</span>
+                <div className="space-y-3">
+                  <div className="p-3 border-l-4 border-warning bg-warning/10 rounded">
+                    <p className="text-sm font-medium">Concentration Risk</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      McLaren Racing represents 80% of your portfolio. Consider reducing concentration.
+                    </p>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Volatility</span>
-                    <span className="font-semibold">12.3%</span>
+                  <div className="p-3 border-l-4 border-success bg-success/10 rounded">
+                    <p className="text-sm font-medium">Good Diversification</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Low correlation between assets provides good risk spread.
+                    </p>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Max Drawdown</span>
-                    <span className="font-semibold">-5.2%</span>
+                  <div className="p-3 border-l-4 border-primary bg-primary/10 rounded">
+                    <p className="text-sm font-medium">Opportunity</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Consider adding US sports or emerging markets for further diversification.
+                    </p>
                   </div>
                 </div>
               </CardContent>

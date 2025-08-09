@@ -118,13 +118,13 @@ export function AppSidebar() {
                   <span>Support Hub</span>
                 </NavLink>
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <NavLink to="/referral-program" className="flex items-center gap-3 py-3 w-full">
                   <Users className="w-4 h-4" />
                   <span>Referral Program</span>
                 </NavLink>
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <NavLink to="/for-organisations" className="flex items-center gap-3 py-3 w-full">
                   <Building2 className="w-4 h-4" />
@@ -180,7 +180,7 @@ export function AppSidebar() {
         {!isCollapsed && (
           <NavLink to="/my-account" className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg hover:bg-sidebar-accent/80 transition-colors cursor-pointer">
             <Avatar className="w-10 h-10">
-              <AvatarImage src="src/assets/liam-avatar.png" alt="Liam Canning" />
+              <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam Canning" />
               <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">

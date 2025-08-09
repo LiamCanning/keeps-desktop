@@ -86,12 +86,17 @@ export default function ListAsset() {
       return;
     }
 
-    toast({
-      title: "Asset Listed Successfully!",
-      description: "Your asset has been listed on the secondary market",
+    // Navigate to confirmation page with sale details
+    navigate('/sale-confirmation', {
+      state: {
+        assetName: asset?.name,
+        quantity: quantityNum,
+        pricePerShare: priceNum,
+        totalValue: subtotal,
+        profit: netAmount - (asset?.purchasePrice || 0) * quantityNum,
+        type: asset?.type
+      }
     });
-
-    navigate('/market');
   };
 
   return (
@@ -163,8 +168,8 @@ export default function ListAsset() {
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="text-muted-foreground">Shares Owned</p>
+                  <div>
+                      <p className="text-muted-foreground">{asset.name === "Ryder Cup" ? "Debentures Owned" : "Shares Owned"}</p>
                       <p className="font-semibold">{asset.totalShares}</p>
                     </div>
                     <div>
@@ -176,7 +181,7 @@ export default function ListAsset() {
                       <p className="font-semibold">£{asset.purchasePrice}</p>
                     </div>
                     <div>
-                      <p className="text-muted-foreground">Profit per Share</p>
+                      <p className="text-muted-foreground">Profit per {asset.name === "Ryder Cup" ? "Debenture" : "Share"}</p>
                       <p className="font-semibold text-success">+£{asset.currentPrice - asset.purchasePrice}</p>
                     </div>
                   </div>
@@ -207,11 +212,11 @@ export default function ListAsset() {
                     onChange={(e) => setQuantity(e.target.value)}
                     min="1"
                     max={asset.totalShares}
-                    placeholder="Enter number of shares"
+                    placeholder={`Enter number of ${asset.name === "Ryder Cup" ? "debentures" : "shares"}`}
                     className="text-lg py-3 h-12"
                   />
                   <p className="text-sm text-muted-foreground">
-                    Maximum: {asset.totalShares} shares available
+                    Maximum: {asset.totalShares} {asset.name === "Ryder Cup" ? "debentures" : "shares"} available
                   </p>
                 </div>
 
@@ -221,15 +226,15 @@ export default function ListAsset() {
                     Price per {asset.name === 'Ryder Cup' ? 'Debenture' : 'Share'}
                   </Label>
                   <div className="flex gap-2">
-                    <Input
-                      id="price"
-                      type="number"
-                      value={pricePerShare}
-                      onChange={(e) => setPricePerShare(e.target.value)}
-                      placeholder="Enter price per share"
-                      className="text-lg py-3 h-12"
-                      step="0.01"
-                    />
+                      <Input
+                        id="price"
+                        type="number"
+                        value={pricePerShare}
+                        onChange={(e) => setPricePerShare(e.target.value)}
+                        placeholder={`Enter price per ${asset.name === "Ryder Cup" ? "debenture" : "share"}`}
+                        className="text-lg py-3 h-12"
+                        step="0.01"
+                      />
                     <Button 
                       variant="outline" 
                       onClick={() => setPricePerShare(suggestedPrice.toString())}

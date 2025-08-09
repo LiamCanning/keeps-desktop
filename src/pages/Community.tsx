@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MessageCircle, Users, Heart, Send, Plus, Edit3, Calendar, Star, Search } from "lucide-react";
+import { MessageCircle, Users, Heart, Send, Plus, Edit3, Calendar, Star, Search, BarChart3, TrendingUp } from "lucide-react";
 
 // Import avatar images
 import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
@@ -271,8 +271,9 @@ export default function Community() {
 
       {/* Community Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
           <TabsTrigger value="timeline">Community Timeline</TabsTrigger>
+          <TabsTrigger value="forum">Forum</TabsTrigger>
           <TabsTrigger value="create">Create Post</TabsTrigger>
           <TabsTrigger value="people">People</TabsTrigger>
         </TabsList>
@@ -295,6 +296,106 @@ export default function Community() {
                   onCommentsClick={(postId) => navigate(`/community-comments/${postId}`)}
                 />
               ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="forum" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-card-foreground">Community Forum</h2>
+              <Button 
+                className="btn-invest"
+                onClick={() => navigate("/community-forum")}
+              >
+                View All Topics
+              </Button>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <Card className="card-professional cursor-pointer hover:bg-accent/30 transition-colors" onClick={() => navigate("/community-forum")}>
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-primary/20 rounded-lg">
+                      <MessageCircle className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-card-foreground">Investment Strategy Discussions</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Share and discuss investment strategies, portfolio management, and market analysis with fellow investors.
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span>247 Topics</span>
+                        <span>•</span>
+                        <span>1,234 Replies</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional cursor-pointer hover:bg-accent/30 transition-colors" onClick={() => navigate("/community-forum")}>
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-success/20 rounded-lg">
+                      <BarChart3 className="w-6 h-6 text-success" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-card-foreground">Asset Analysis & Research</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Deep dive into individual assets, performance analysis, and research findings from the community.
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span>189 Topics</span>
+                        <span>•</span>
+                        <span>892 Replies</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional cursor-pointer hover:bg-accent/30 transition-colors" onClick={() => navigate("/community-forum")}>
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-warning/20 rounded-lg">
+                      <Users className="w-6 h-6 text-warning" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-card-foreground">Beginner's Corner</h3>
+                      <p className="text-sm text-muted-foreground">
+                        New to sports investing? Get help, ask questions, and learn from experienced investors.
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span>156 Topics</span>
+                        <span>•</span>
+                        <span>678 Replies</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional cursor-pointer hover:bg-accent/30 transition-colors" onClick={() => navigate("/community-forum")}>
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-accent/20 rounded-lg">
+                      <TrendingUp className="w-6 h-6 text-accent" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-card-foreground">Market News & Trends</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Stay updated with the latest market news, trends, and developments in sports investing.
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <span>98 Topics</span>
+                        <span>•</span>
+                        <span>445 Replies</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </TabsContent>
