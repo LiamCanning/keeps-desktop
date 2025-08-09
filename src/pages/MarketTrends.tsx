@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TrendingUp, TrendingDown, BarChart3, Target, Calendar, DollarSign, Flame, Eye, AlertTriangle, Lightbulb, Star, Zap, Activity } from "lucide-react";
+import { TrendingUp, TrendingDown, BarChart3, Target, Calendar, DollarSign, Flame, Eye, AlertTriangle, Lightbulb, Star, Zap, Activity, Award, Trophy } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -106,7 +106,7 @@ const marketInsights = [
     description: "Ryder Cup 2025 showing strong investor interest with premium hospitality packages sold out. Golf's affluent demographic and exclusive access benefits are driving demand beyond expectations.",
     impact: "Medium",
     date: "1 week ago", 
-    icon: Target,
+    icon: Award,
     category: "Opportunity"
   },
   {
@@ -114,7 +114,7 @@ const marketInsights = [
     description: "Ohio State basketball programs entering the platform present new investment categories. College sports offer unique revenue sharing models with high engagement audiences.",
     impact: "Medium",
     date: "1 week ago",
-    icon: Activity,
+    icon: Trophy,
     category: "New Sector"
   }
 ];

@@ -504,55 +504,67 @@ export default function BuyAsset() {
                 <div className="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle className="w-10 h-10 text-success" />
                 </div>
-                 <div>
-                   <h2 className="text-2xl font-bold text-card-foreground mb-2">Investment Successful!</h2>
-                   <p className="text-muted-foreground mb-4">
-                     Congratulations! You have successfully invested £{(investmentData.shares * deal.pricePerShare).toLocaleString()} in {deal.name}.
-                   </p>
-                   <div className="p-4 bg-primary/5 rounded-lg border border-primary/20 mb-4">
-                     <p className="text-sm font-medium text-primary">
-                       Reference Number: KEEP-{Math.random().toString(36).substr(2, 9).toUpperCase()}
-                     </p>
-                   </div>
-                 </div>
-                 
-                 <div className="p-4 bg-muted/50 rounded-lg space-y-2">
-                   <div className="flex justify-between">
-                     <span className="text-muted-foreground">Investment Amount:</span>
-                     <span className="font-medium">£{(investmentData.shares * deal.pricePerShare).toLocaleString()}</span>
-                   </div>
-                   <div className="flex justify-between">
-                     <span className="text-muted-foreground">{deal.id === 'ryder-cup' ? 'Debentures' : 'Shares'} Acquired:</span>
-                     <span className="font-medium">{investmentData.shares}</span>
-                   </div>
-                   <div className="flex justify-between">
-                     <span className="text-muted-foreground">Expected Dividend Yield:</span>
-                     <span className="font-medium">{deal.dividendYield} annually</span>
-                   </div>
-                 </div>
-                 
-                 <div className="p-4 bg-success/5 rounded-lg border border-success/20">
-                   <h4 className="font-semibold text-success mb-2">What happens next?</h4>
-                   <ul className="space-y-2 text-sm text-muted-foreground">
-                     <li>• You'll receive a confirmation email within 5 minutes</li>
-                     <li>• Your investment certificate will be available in your account within 24 hours</li>
-                     <li>• Dividend payments will begin according to the investment schedule</li>
-                     <li>• You can download your order confirmation from My Account → Investment History</li>
-                   </ul>
-                 </div>
-                <div className="flex gap-3">
-                  <Button 
-                    className="btn-invest flex-1"
-                    onClick={() => navigate("/portfolio")}
-                  >
-                    View Portfolio
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    onClick={() => navigate("/")}
-                  >
-                    Back to Dashboard
-                  </Button>
+                <div>
+                  <h2 className="text-2xl font-bold text-card-foreground mb-2">Investment Successful!</h2>
+                  <p className="text-muted-foreground mb-4">
+                    Congratulations! You have successfully invested £{(investmentData.shares * deal.pricePerShare).toLocaleString()} in {deal.name}.
+                  </p>
+                  
+                  <div className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20 mb-4 text-left">
+                    <h3 className="font-semibold text-card-foreground mb-4 text-center">Investment Details</h3>
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span className="text-muted-foreground">Reference Number:</span>
+                        <p className="font-mono font-bold text-primary">KP-{Date.now().toString().slice(-8)}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Investment Amount:</span>
+                        <p className="font-bold">£{(investmentData.shares * deal.pricePerShare).toLocaleString()}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">{deal.id === 'ryder-cup' ? 'Debentures' : 'Shares'} Purchased:</span>
+                        <p className="font-bold">{investmentData.shares}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Transaction Date:</span>
+                        <p className="font-bold">{new Date().toLocaleDateString()}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-success/10 rounded-lg border border-success/20 text-left">
+                    <h3 className="font-semibold text-card-foreground mb-2">What Happens Next?</h3>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>• <strong>Confirmation Email:</strong> You'll receive detailed confirmation within 2 hours</li>
+                      <li>• <strong>Portfolio Update:</strong> Your {deal.id === 'ryder-cup' ? 'debentures' : 'shares'} will appear in your portfolio within 24-48 hours</li>
+                      <li>• <strong>Documentation:</strong> Official investment certificates will be available for download in My Account {">"} Documents</li>
+                      <li>• <strong>Returns:</strong> Dividend payments will begin according to the investment terms ({deal.dividendYield})</li>
+                      <li>• <strong>Support:</strong> Contact our team at investments@keeps.com for any questions</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <h4 className="font-semibold text-blue-900 mb-2">Important Information</h4>
+                    <p className="text-sm text-blue-800">
+                      Keep your reference number <strong>KP-{Date.now().toString().slice(-8)}</strong> safe. 
+                      You'll need it to track your investment and for any customer service enquiries.
+                    </p>
+                  </div>
+                  
+                  <div className="flex gap-3 justify-center">
+                    <Button 
+                      className="btn-invest"
+                      onClick={() => navigate("/portfolio")}
+                    >
+                      View Portfolio
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      onClick={() => navigate("/")}
+                    >
+                      Back to Dashboard
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>

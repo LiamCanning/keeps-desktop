@@ -128,7 +128,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
     >
       <div className="relative overflow-hidden">
         {investment.status === "live" ? (
-          <div className="w-full h-64 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
+          <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-accent/20 to-accent/30 flex items-center justify-center relative overflow-hidden border border-primary/20">
             <div className={`absolute inset-0 bg-cover bg-center ${
               investment.name === 'Liverpool FC' 
                 ? "bg-[url('/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png')]" 
@@ -138,16 +138,17 @@ function InvestmentCard({ investment }: { investment: Investment }) {
                 ? "bg-[url('/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png')]"
                 : "bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')]"
             }`}></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-accent/30"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            {/* Ambient background glow */}
+            {/* Enhanced gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-xl"></div>
           </div>
         ) : (
-          <div className="w-full h-64 bg-gradient-to-br from-muted/30 to-muted/50 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-border/20">
+          <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-accent/20 to-accent/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-primary/20">
             <img 
               src={investment.logo}
               alt={investment.name}
-              className="w-32 h-32 object-contain"
+              className="w-32 h-32 object-contain drop-shadow-lg"
             />
           </div>
         )}
