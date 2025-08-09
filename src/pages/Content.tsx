@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Calendar, Clock, FileText, ExternalLink, Heart, MessageCircle, Share2 } from "lucide-react";
+import { Calendar, Clock, FileText, ExternalLink, Heart, MessageCircle, Share2, Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -190,7 +190,11 @@ const communityPosts: CommunityPost[] = [
   }
 ];
 
-function NewsCard({ article }: { article: NewsArticle }) {
+function NewsCard({ article, bookmarked, onToggleBookmark }: { 
+  article: NewsArticle; 
+  bookmarked: boolean;
+  onToggleBookmark: () => void;
+}) {
   return (
     <Card className="card-professional group hover:shadow-xl transition-all duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
@@ -263,6 +267,13 @@ function NewsCard({ article }: { article: NewsArticle }) {
           >
             Read Article
             <ExternalLink className="w-4 h-4 ml-2" />
+          </Button>
+          <Button 
+            variant={bookmarked ? "default" : "outline"} 
+            size="icon"
+            onClick={onToggleBookmark}
+          >
+            <Heart className={`w-4 h-4 ${bookmarked ? 'fill-current' : ''}`} />
           </Button>
           <Button variant="outline" size="icon">
             <Share2 className="w-4 h-4" />
@@ -349,21 +360,61 @@ function CommunityTimeline() {
 export default function Content() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("news");
+  const [bookmarkedArticles, setBookmarkedArticles] = useState<string[]>([]);
 
+  // Mock user portfolio for personalization
+  const userInvestments = ['liverpool-fc', 'mclaren-f1', 'ryder-cup'];
+  
   const filteredArticles = newsArticles.filter(article => {
     if (activeTab === "all") return true;
+    if (activeTab === "trending") {
+      return article.likes && article.likes > 100;
+    }
+    if (activeTab === "portfolio") {
+      return userInvestments.some(investment => 
+        article.title.toLowerCase().includes(investment.replace('-', ' '))
+      );
+    }
     return article.category === activeTab;
   });
 
+  const toggleBookmark = (articleId: string) => {
+    setBookmarkedArticles(prev => 
+      prev.includes(articleId) 
+        ? prev.filter(id => id !== articleId)
+        : [...prev, articleId]
+    );
+  };
+
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
-      {/* Header Section */}
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">Content</h1>
-        <p className="text-lg text-foreground/80">News, insights and investor stories</p>
+      {/* Personalized Header Section */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-gradient">Content for Your Portfolio</h1>
+            <p className="text-lg text-foreground/80">Insights from Liverpool FC, McLaren Racing & Ryder Cup</p>
+          </div>
+          <Badge variant="secondary" className="px-3 py-1">
+            {userInvestments.length} Assets
+          </Badge>
+        </div>
+        
+        {/* Trending in Your Assets */}
+        <Card className="card-professional p-4 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-primary/20 rounded-lg">
+              <Star className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <p className="font-semibold text-card-foreground">Trending in Your Assets</p>
+              <p className="text-sm text-muted-foreground">McLaren's latest F1 tech breakthrough is making headlines</p>
+            </div>
+          </div>
+        </Card>
       </div>
 
-      {/* Content Stats */}
+      {/* Enhanced Content Activity */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="card-professional p-4">
           <div className="flex items-center gap-3">
@@ -371,8 +422,8 @@ export default function Content() {
               <FileText className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Total Articles</p>
-              <p className="font-semibold text-xl text-card-foreground">{newsArticles.length}</p>
+              <p className="text-sm text-muted-foreground">Articles Read</p>
+              <p className="font-semibold text-xl text-card-foreground">12</p>
             </div>
           </div>
         </Card>
@@ -384,7 +435,7 @@ export default function Content() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">This Week</p>
-              <p className="font-semibold text-xl text-card-foreground">3</p>
+              <p className="font-semibold text-xl text-card-foreground">5</p>
             </div>
           </div>
         </Card>
@@ -395,8 +446,8 @@ export default function Content() {
               <Heart className="w-5 h-5 text-warning" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Total Likes</p>
-              <p className="font-semibold text-xl text-card-foreground">2.1k</p>
+              <p className="text-sm text-muted-foreground">Your Likes</p>
+              <p className="font-semibold text-xl text-card-foreground">23</p>
             </div>
           </div>
         </Card>
@@ -407,22 +458,66 @@ export default function Content() {
               <MessageCircle className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Comments</p>
-              <p className="font-semibold text-xl text-card-foreground">245</p>
+              <p className="text-sm text-muted-foreground">Bookmarked</p>
+              <p className="font-semibold text-xl text-card-foreground">{bookmarkedArticles.length}</p>
             </div>
           </div>
         </Card>
       </div>
 
-      {/* Content Tabs */}
+      {/* Enhanced Content Discovery */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
+          <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
+          <TabsTrigger value="trending">Trending</TabsTrigger>
           <TabsTrigger value="news">Latest News</TabsTrigger>
-          <TabsTrigger value="reels">Reels</TabsTrigger>
-          <TabsTrigger value="analysis">Keeps Analysis</TabsTrigger>
+          <TabsTrigger value="reels">Videos</TabsTrigger>
           <TabsTrigger value="all">All Content</TabsTrigger>
         </TabsList>
 
+        <TabsContent value="portfolio" className="mt-6">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">Your Portfolio Content</h2>
+              <Badge variant="secondary">
+                {filteredArticles.length} Articles
+              </Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filteredArticles.map((article) => (
+                <NewsCard 
+                  key={article.id} 
+                  article={article}
+                  bookmarked={bookmarkedArticles.includes(article.id)}
+                  onToggleBookmark={() => toggleBookmark(article.id)}
+                />
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="trending" className="mt-6">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">Trending Content</h2>
+              <Badge variant="secondary">
+                {filteredArticles.length} Articles
+              </Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filteredArticles.map((article) => (
+                <NewsCard 
+                  key={article.id} 
+                  article={article}
+                  bookmarked={bookmarkedArticles.includes(article.id)}
+                  onToggleBookmark={() => toggleBookmark(article.id)}
+                />
+              ))}
+            </div>
+          </div>
+        </TabsContent>
 
         <TabsContent value="news" className="mt-6">
           <div className="space-y-4">
@@ -435,7 +530,12 @@ export default function Content() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredArticles.map((article) => (
-                <NewsCard key={article.id} article={article} />
+                <NewsCard 
+                  key={article.id} 
+                  article={article}
+                  bookmarked={bookmarkedArticles.includes(article.id)}
+                  onToggleBookmark={() => toggleBookmark(article.id)}
+                />
               ))}
             </div>
           </div>
@@ -673,7 +773,12 @@ export default function Content() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredArticles.map((article) => (
-                <NewsCard key={article.id} article={article} />
+                <NewsCard 
+                  key={article.id} 
+                  article={article}
+                  bookmarked={bookmarkedArticles.includes(article.id)}
+                  onToggleBookmark={() => toggleBookmark(article.id)}
+                />
               ))}
             </div>
           </div>

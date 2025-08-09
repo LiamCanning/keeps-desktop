@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
+import { assetTiers } from "@/components/BenefitsTiers";
 
 const deals = {
   "liverpool-fc": {
@@ -443,11 +444,11 @@ export default function BuyAsset() {
                     <span className="font-medium">{deal.name}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Number of shares:</span>
+                    <span className="text-muted-foreground">Number of {deal.id === 'ryder-cup' ? 'debentures' : 'shares'}:</span>
                     <span className="font-medium">{investmentData.shares}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Price per share:</span>
+                    <span className="text-muted-foreground">Price per {deal.id === 'ryder-cup' ? 'debenture' : 'share'}:</span>
                     <span className="font-medium">£{deal.pricePerShare}</span>
                   </div>
                   <div className="border-t pt-3">
@@ -457,6 +458,60 @@ export default function BuyAsset() {
                     </div>
                   </div>
                 </div>
+
+                {/* Benefit Tier Information */}
+                {(() => {
+                  const totalInvestment = investmentData.shares * deal.pricePerShare;
+                  let assetKey: keyof typeof assetTiers;
+                  let qualifiedTier = null;
+                  
+                  if (deal.id === 'liverpool-fc') assetKey = 'liverpool';
+                  else if (deal.id === 'mclaren-f1') assetKey = 'mclaren';
+                  else if (deal.id === 'ryder-cup') assetKey = 'rydercup';
+                  else return null;
+
+                  const tiers = assetTiers[assetKey];
+                  const tierEntries = Object.entries(tiers).reverse(); // Start from highest tier
+                  
+                  for (const [tierName, tierData] of tierEntries) {
+                    if (totalInvestment >= tierData.investment) {
+                      qualifiedTier = { name: tierName, ...tierData };
+                      break;
+                    }
+                  }
+
+                  if (!qualifiedTier) return null;
+
+                  const nextTierEntry = tierEntries.find(([_, tierData]) => tierData.investment > totalInvestment);
+                  const nextTier = nextTierEntry ? { name: nextTierEntry[0], ...nextTierEntry[1] } : null;
+
+                  return (
+                    <div className="p-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg border border-primary/20">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                          <span className="text-sm font-semibold text-primary capitalize">{qualifiedTier.name[0]}</span>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-card-foreground capitalize">{qualifiedTier.name} Tier Benefits</p>
+                          <p className="text-sm text-muted-foreground">You qualify for this tier with your investment</p>
+                        </div>
+                      </div>
+                      <div className="space-y-1 mb-3">
+                        {qualifiedTier.benefits.slice(0, 3).map((benefit: string, index: number) => (
+                          <div key={index} className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
+                      {nextTier && (
+                        <div className="text-xs text-muted-foreground">
+                          Invest £{(nextTier.investment - totalInvestment).toLocaleString()} more to reach {nextTier.name} tier
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
 
                 <div className="space-y-4">
                   <div className="flex items-start space-x-2">
