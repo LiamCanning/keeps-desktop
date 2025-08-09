@@ -455,7 +455,7 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
+                    src="/content-images/liverpool-squad.jpg"
                     alt="My day out with Liverpool FC Squad"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -490,7 +490,7 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png"
+                    src="/content-images/golf-course.jpg"
                     alt="Playing 3 Holes while at the Ryder Cup"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -525,7 +525,7 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/lovable-uploads/79ef8bce-417b-43cb-b149-7668c95e2606.png"
+                    src="/content-images/mclaren-factory.jpg"
                     alt="Inside McLaren Technology Centre"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />

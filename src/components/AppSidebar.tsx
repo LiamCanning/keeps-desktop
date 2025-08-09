@@ -171,16 +171,18 @@ export function AppSidebar() {
 
       <SidebarFooter className="border-t border-sidebar-border p-4">
         {!isCollapsed && (
-          <div className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg">
-            <Avatar className="w-10 h-10">
-              <AvatarImage src="/src/assets/liam-avatar.png" />
-              <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
-            </Avatar>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-sidebar-foreground truncate">Liam Canning</p>
-              <p className="text-xs text-sidebar-foreground/70 truncate">@liam_canning</p>
+          <NavLink to="/my-account" className="block">
+            <div className="flex items-center gap-3 p-3 bg-sidebar-accent rounded-lg hover:bg-sidebar-accent/80 transition-colors">
+              <Avatar className="w-10 h-10">
+                <AvatarImage src="/src/assets/liam-avatar.png" />
+                <AvatarFallback className="bg-primary text-primary-foreground font-medium">LC</AvatarFallback>
+              </Avatar>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-sidebar-foreground truncate">Liam Canning</p>
+                <p className="text-xs text-sidebar-foreground/70 truncate">@liam_canning</p>
+              </div>
             </div>
-          </div>
+          </NavLink>
         )}
       </SidebarFooter>
     </Sidebar>

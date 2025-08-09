@@ -36,42 +36,42 @@ const dataPartners: DataPartner[] = [
   {
     id: "1",
     name: "Nike",
-    logo: "/placeholder.svg",
+    logo: "/src/assets/brands/nike-logo.png",
     description: "Sports gear discounts and exclusive athlete meet & greets",
     optedIn: true
   },
   {
     id: "2", 
     name: "Rolex",
-    logo: "/placeholder.svg",
+    logo: "/src/assets/brands/rolex-logo.png",
     description: "Luxury timepiece experiences and VIP watch exhibitions",
     optedIn: true
   },
   {
     id: "3",
     name: "AXA",
-    logo: "/placeholder.svg",
+    logo: "/src/assets/brands/axa-logo.png",
     description: "Premium insurance benefits and financial planning services",
     optedIn: false
   },
   {
     id: "4",
     name: "Santander",
-    logo: "/placeholder.svg",
+    logo: "/src/assets/brands/santander-logo.png",
     description: "Banking perks and investment opportunities",
     optedIn: true
   },
   {
     id: "5",
     name: "BMW",
-    logo: "/placeholder.svg",
+    logo: "/src/assets/brands/bmw-logo.png",
     description: "Luxury vehicle test drives and motorsport experiences",
     optedIn: false
   },
   {
     id: "6",
     name: "Cadbury",
-    logo: "/placeholder.svg",
+    logo: "/src/assets/brands/cadbury-logo.png",
     description: "Chocolate tastings and exclusive confectionery collections",
     optedIn: true
   }
@@ -123,10 +123,10 @@ export default function Account() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center gap-6">
-                  <Avatar className="w-24 h-24">
-                    <AvatarImage src="/placeholder.svg" alt="Liam" />
-                    <AvatarFallback className="text-xl">L</AvatarFallback>
-                  </Avatar>
+                   <Avatar className="w-24 h-24">
+                     <AvatarImage src="/src/assets/liam-avatar.png" alt="Liam" />
+                     <AvatarFallback className="text-xl">L</AvatarFallback>
+                   </Avatar>
                   <div className="space-y-2">
                     <h3 className="text-xl font-semibold text-card-foreground">Liam Canning</h3>
                     <p className="text-muted-foreground">Premium Investor</p>
