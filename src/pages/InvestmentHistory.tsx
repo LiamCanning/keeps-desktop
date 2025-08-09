@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 interface Investment {
   id: string;
   asset: string;
@@ -55,6 +55,7 @@ const investmentHistory: Investment[] = [
 ];
 
 export default function InvestmentHistory() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("all");
   const [sortBy, setSortBy] = useState("date-desc");
 
@@ -227,8 +228,13 @@ export default function InvestmentHistory() {
                               £{(investment.currentValue - investment.amount).toLocaleString()} ({(((investment.currentValue - investment.amount) / investment.amount) * 100).toFixed(1)}%)
                             </span>
                           </div>
-                          <Button asChild variant="outline" size="sm">
-                            <Link to={`/transaction/${investment.id}`}>Download Confirmation</Link>
+                          <Button
+                            variant="default"
+                            size="sm"
+                            className="bg-primary text-primary-foreground hover:bg-primary/90"
+                            onClick={() => navigate(`/transaction-details/${investment.id}`)}
+                          >
+                            Download Page
                           </Button>
                         </div>
                       </div>

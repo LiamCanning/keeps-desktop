@@ -106,9 +106,13 @@ const App = () => (
           <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
           <Route path="/investment-history" element={<InvestmentHistory />} />
           <Route path="/community-profile" element={<CommunityProfile />} />
+            <Route path="/sell-shares" element={<SellShares />} />
+            <Route path="/sell/liverpool" element={<SellShares />} />
+            <Route path="/sell/mclaren" element={<SellShares />} />
+            <Route path="/sell/ryder-cup" element={<SellShares />} />
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/sale-confirmation" element={<SaleConfirmation />} />
-            <Route path="/transaction/:id" element={<TransactionDetails />} />
+            <Route path="/transaction-details/:id" element={<TransactionDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

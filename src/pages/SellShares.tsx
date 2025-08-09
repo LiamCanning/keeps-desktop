@@ -92,9 +92,17 @@ export default function SellShares() {
       setIsSubmitting(false);
       
       // Navigate back to portfolio after 2 seconds
-      setTimeout(() => {
-        navigate("/portfolio");
-      }, 2000);
+      // Navigate to sale confirmation
+      navigate('/sale-confirmation', { 
+        state: { 
+          assetName: selectedHolding.name,
+          quantity: parseInt(sharesToSell),
+          pricePerShare: selectedHolding.currentPrice,
+          totalValue: calculateSaleValue(),
+          profit: calculateProfit(),
+          type: selectedHolding.type
+        }
+      });
     }, 1500);
   };
 
