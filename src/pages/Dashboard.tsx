@@ -139,9 +139,11 @@ function InvestmentCard({ investment }: { investment: Investment }) {
                 : "bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')]"
             }`}></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            {/* Ambient background glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-xl"></div>
           </div>
         ) : (
-          <div className="w-full h-64 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+          <div className="w-full h-64 bg-gradient-to-br from-muted/30 to-muted/50 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-border/20">
             <img 
               src={investment.logo}
               alt={investment.name}
@@ -264,7 +266,7 @@ export default function Dashboard() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
         <div className="relative z-10 space-y-6">
           <div className="text-center space-y-3">
-            <h2 className="text-4xl font-bold text-gradient">🔥 Featured Investment Opportunities</h2>
+            <h2 className="text-4xl font-bold text-gradient">Featured Investment Opportunities</h2>
             <p className="text-xl text-foreground/90 font-medium">Premium sports assets with proven track records • Limited availability</p>
             <div className="flex justify-center gap-2">
               <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>

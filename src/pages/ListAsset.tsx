@@ -60,7 +60,7 @@ export default function ListAsset() {
   
   // Get pre-selected asset from URL parameters
   const urlParams = new URLSearchParams(window.location.search);
-  const preselectedAsset = urlParams.get('asset') || "";
+  const preselectedAsset = urlParams.get('preselected') || "";
   
   const [selectedAsset, setSelectedAsset] = useState<string>(preselectedAsset);
   const [quantity, setQuantity] = useState<string>("");

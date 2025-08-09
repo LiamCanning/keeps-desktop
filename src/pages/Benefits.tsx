@@ -98,11 +98,13 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <LogoImage 
-              src={benefit.logo}
-              alt={`${benefit.team} logo`}
-              size="lg"
-            />
+            <div className="w-16 h-16 bg-gradient-to-br from-muted/30 to-muted/50 rounded-lg border border-border/20 flex items-center justify-center p-2">
+              <LogoImage 
+                src={benefit.logo}
+                alt={`${benefit.team} logo`}
+                size="md"
+              />
+            </div>
             <div>
               <CardTitle className="text-xl text-left">{benefit.team}</CardTitle>
               <Badge variant={benefit.status === "live" ? "success" : benefit.status === "coming-soon" ? "warning" : "secondary"} className="mt-1">
