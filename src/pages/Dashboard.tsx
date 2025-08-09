@@ -131,11 +131,11 @@ function InvestmentCard({ investment }: { investment: Investment }) {
           <div className="w-full h-64 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
             <div className={`absolute inset-0 bg-cover bg-center ${
               investment.name === 'Liverpool FC' 
-                ? "bg-[url('/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png')]" 
+                ? "bg-[url('/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png')]" 
                 : investment.name === 'McLaren F1' 
-                ? "bg-[url('/lovable-uploads/79ef8bce-417b-43cb-b149-7668c95e2606.png')]" 
+                ? "bg-[url('/lovable-uploads/f1c416aa-6bce-4a96-af14-85280bd218d8.png')]" 
                 : investment.name === 'Ryder Cup'
-                ? "bg-[url('/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png')]"
+                ? "bg-[url('/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png')]"
                 : "bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')]"
             }`}></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>

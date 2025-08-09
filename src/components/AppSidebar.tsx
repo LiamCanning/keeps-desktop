@@ -81,7 +81,7 @@ export function AppSidebar() {
                 className="flex items-center gap-3 p-2 h-auto hover:bg-sidebar-accent rounded-lg text-sidebar-foreground"
               >
                 <img 
-                  src="/src/assets/keeps-logo.png" 
+                  src="/lovable-uploads/dc831468-4f46-45d2-9dc9-6253f84112be.png" 
                   alt="Keeps" 
                   className="w-8 h-8 flex-shrink-0 object-contain"
                 />

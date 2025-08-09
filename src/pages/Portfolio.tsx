@@ -145,7 +145,10 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           </Button>
           <Button 
             className="btn-invest flex-1"
-            onClick={() => window.location.href = `/list-asset?asset=${holding.id}`}
+            onClick={() => {
+              const assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+              window.location.href = `/sell/${assetSlug}`;
+            }}
           >
             <Activity className="w-4 h-4 mr-2" />
             Sell {holding.type === 'Debenture' ? 'Debentures' : 'Shares'}
