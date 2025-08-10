@@ -110,7 +110,9 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
             />
             <div>
               <CardTitle className="text-lg text-card-foreground">{holding.name}</CardTitle>
-              <p className="text-sm text-muted-foreground">{holding.investment} Investment</p>
+              <div className="mt-1 p-2 bg-primary/10 rounded-lg border border-primary/20">
+                <p className="text-sm font-semibold text-primary">{holding.investment} Investment</p>
+              </div>
               <Badge variant={holding.tier.toLowerCase() as any} className="mt-1">
                 {holding.tier} Tier
               </Badge>

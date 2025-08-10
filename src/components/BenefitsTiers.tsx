@@ -26,25 +26,25 @@ export const assetTiers = {
       name: "Silver", 
       investment: 2500,
       available: 2000,
-      benefits: ["Quarterly video updates from management", "Early access to new opportunities", "Official Liverpool FC merchandise package"]
+      benefits: ["Quarterly video updates from management", "Early access to new opportunities", "Official Liverpool FC merchandise package", "✓ Includes all benefits from previous tiers"]
     },
     gold: {
       name: "Gold",
       investment: 10000,
       available: 750,
-      benefits: ["VIP match day experiences", "Behind-the-scenes Anfield content", "Annual strategic briefings with club executives"]
+      benefits: ["VIP Anfield matchday experiences", "Behind-the-scenes training ground content", "Annual strategic briefings with club executives", "Exclusive access to Liverpool legends events", "✓ Includes all benefits from previous tiers"]
     },
     platinum: {
       name: "Platinum",
       investment: 25000,
       available: 250,
-      benefits: ["Exclusive stadium and training ground tours", "Player meet & greet opportunities", "Premium hospitality for select matches"]
+      benefits: ["Private stadium & training ground tours", "Player meet & greet opportunities", "Premium hospitality for Liverpool vs top 6 matches", "Priority access to Champions League fixtures", "✓ Includes all benefits from previous tiers"]
     },
     diamond: {
       name: "Diamond",
       investment: 50000,
       available: 100,
-      benefits: ["Private dinners with club leadership", "Season ticket priority access", "Personalized relationship manager"]
+      benefits: ["Exclusive dinner with Jürgen Klopp or club legends", "Priority season ticket access", "Personalised relationship manager", "Access to Liverpool's player tunnel on matchdays", "✓ Includes all benefits from previous tiers"]
     }
   },
   mclaren: {
@@ -58,25 +58,25 @@ export const assetTiers = {
       name: "Silver",
       investment: 5000,
       available: 1500,
-      benefits: ["Quarterly video updates from team", "Early access to new opportunities", "Official McLaren merchandise package"]
+      benefits: ["Quarterly video updates from team", "Early access to new opportunities", "Official McLaren merchandise package", "✓ Includes all benefits from previous tiers"]
     },
     gold: {
       name: "Gold", 
       investment: 15000,
       available: 500,
-      benefits: ["VIP Grand Prix experiences", "Behind-the-scenes McLaren Technology Centre content", "Annual strategic briefings with team management"]
+      benefits: ["VIP British Grand Prix experiences", "Behind-the-scenes McLaren Technology Centre access", "Annual strategic briefings with team management", "Exclusive access to McLaren's F1 simulator", "✓ Includes all benefits from previous tiers"]
     },
     platinum: {
       name: "Platinum",
       investment: 35000,
       available: 150,
-      benefits: ["Exclusive factory and simulator tours", "Driver meet & greet opportunities", "Paddock Club access at select races"]
+      benefits: ["Private factory tours including simulator access", "Driver meet & greet opportunities", "Paddock Club access at Silverstone", "Exclusive McLaren road car driving experiences", "✓ Includes all benefits from previous tiers"]
     },
     diamond: {
       name: "Diamond",
       investment: 75000,
       available: 50,
-      benefits: ["Private dinners with team leadership", "VIP garage access during races", "Personalized relationship manager"]
+      benefits: ["Private dinner with Lando Norris", "Exclusive garage access during race weekends", "Personalised relationship manager", "Opportunity to ride in McLaren 2-seater F1 car", "✓ Includes all benefits from previous tiers"]
     }
   },
   rydercup: {

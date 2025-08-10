@@ -310,9 +310,9 @@ export default function Assets() {
           <Button 
             size="lg" 
             className="mt-6"
-            onClick={() => navigate('/early-access')}
+            onClick={() => navigate('/request-team')}
           >
-            Get Early Access
+            Request Your Team
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </div>
