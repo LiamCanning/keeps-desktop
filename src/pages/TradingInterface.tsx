@@ -83,13 +83,14 @@ export default function TradingInterface() {
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [currentTier, setCurrentTier] = useState("bronze");
   
-  // Get secondary market listing data from URL state
-  const listing = location.state?.listing;
+  // Get secondary market listing data from URL state, with Ryder Cup default
+  const rawListing = location.state?.listing;
   const asset = assetId ? assets[assetId] : null;
+  const listing = rawListing || (assetId === 'ryder-cup' ? { pricePerUnit: '£1,000', quantity: 1, seller: 'Verified Seller' } : null);
   
   // If this is a secondary market purchase, use listing data
   const isSecondaryMarket = !!listing;
-  const pricePerShare = isSecondaryMarket ? parseFloat(listing.pricePerUnit.replace(/[£,]/g, '')) : asset?.pricePerShare || 0;
+  const pricePerShare = isSecondaryMarket ? parseFloat(String(listing.pricePerUnit).replace(/[£,]/g, '')) : asset?.pricePerShare || 0;
   const originalPrice = asset?.pricePerShare || 0;
   const maxQuantity = isSecondaryMarket ? listing.quantity : asset?.maxShares || 0;
   
@@ -186,7 +187,7 @@ export default function TradingInterface() {
                   <CardTitle className="text-2xl font-bold text-gradient">{asset.name}</CardTitle>
                    <p className="text-muted-foreground text-lg">{asset.type}</p>
                    <p className="text-primary font-bold text-xl">£{pricePerShare} per {asset.id === 'ryder-cup' ? 'debenture' : 'share'}</p>
-                   {isSecondaryMarket && (
+                   {isSecondaryMarket && listing && (
                      <div className="flex items-center gap-2 mt-1">
                        <Badge variant={priceDifference >= 0 ? "success" : "destructive"} className="text-xs">
                          {priceDifference >= 0 ? "+" : ""}{priceDifference.toFixed(1)}% vs original
@@ -223,17 +224,17 @@ export default function TradingInterface() {
                 <Label htmlFor="quantity" className="text-lg font-semibold">
                   {isSecondaryMarket ? `Quantity Available from ${listing.seller}` : `Quantity (${asset.id === 'ryder-cup' ? 'debentures' : 'shares'})`}
                 </Label>
-                {isSecondaryMarket ? (
-                  <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
-                    <div className="flex items-center justify-between">
-                      <span className="text-lg font-semibold">Fixed Quantity:</span>
-                      <span className="text-2xl font-bold text-primary">{listing.quantity} {listing.quantity === 1 && asset.id === 'ryder-cup' ? 'debenture' : asset.id === 'ryder-cup' ? 'debentures' : listing.quantity === 1 ? 'share' : 'shares'}</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      You are purchasing the exact quantity listed by {listing.seller}
-                    </p>
-                  </div>
-                ) : (
+                 {isSecondaryMarket ? (
+                   <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
+                     <div className="flex items-center justify-between">
+                       <span className="text-lg font-semibold">Fixed Quantity:</span>
+                       <span className="text-2xl font-bold text-primary">{listing?.quantity} {listing?.quantity === 1 && asset.id === 'ryder-cup' ? 'debenture' : asset.id === 'ryder-cup' ? 'debentures' : listing?.quantity === 1 ? 'share' : 'shares'}</span>
+                     </div>
+                     <p className="text-sm text-muted-foreground mt-2">
+                       You are purchasing the exact quantity listed by {listing?.seller}
+                     </p>
+                   </div>
+                 ) : (
                   <>
                     <Input
                       id="quantity"

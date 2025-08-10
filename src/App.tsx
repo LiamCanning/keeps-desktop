@@ -26,6 +26,7 @@ import CommunityProfile from "@/pages/CommunityProfile";
 import CommunityComments from "@/pages/CommunityComments";
 import Article from "@/pages/Article";
 import TradingInterface from "@/pages/TradingInterface";
+import PrimaryPurchase from "@/pages/PrimaryPurchase";
 import RegulatoryCompliance from "@/pages/RegulatoryCompliance";
 import InvestorRelations from "@/pages/InvestorRelations";
 import InvestorLeaderboard from "./pages/InvestorLeaderboard";
@@ -102,6 +103,7 @@ const App = () => (
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/assets" element={<Assets />} />
           <Route path="/assets/:assetId" element={<AssetDetails />} />
+          <Route path="/assets/:dealId/primary-purchase" element={<PrimaryPurchase />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sell-shares" element={<SellShares />} />
           <Route path="/request-team" element={<RequestTeam />} />
