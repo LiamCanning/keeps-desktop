@@ -37,7 +37,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Formula 1 team McLaren Racing has successfully raised £50,000,000 through a unique income sharing agreement with fans and investors.",
     source: "Keeps Team",
     date: "2025-07-05",
-    image: "https://images.unsplash.com/photo-1553979459-d2229ba7433a?w=800&h=600&fit=crop",
+    image: "/src/assets/mclaren-racing.jpg",
     category: "news",
     readTime: "5 min read"
   },
@@ -57,7 +57,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Ohio State University announces plans to launch a £80,000,000 stadium renovation investment opportunity through Keeps Sport in Q4 2025.",
     source: "ESPN",
     date: "2025-06-22",
-    image: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&h=600&fit=crop",
+    image: "/src/assets/ohio-state.jpg",
     category: "news",
     readTime: "2 min read"
   },
@@ -67,7 +67,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Championship side Cardiff City reveals plans for a £4,000,000 equity fundraising round through Keeps Sport, launching early 2026.",
     source: "BBC Sport",
     date: "2025-06-15",
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=600&fit=crop",
+    image: "/src/assets/cardiff-city.jpg",
     category: "news",
     readTime: "3 min read"
   },
@@ -89,7 +89,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Digital sports entertainment collective Hexagon Fan Team announces plans for innovative fan ownership structure launching in 2026.",
     source: "Sports Tech Weekly",
     date: "2025-05-15",
-    image: "/placeholder.svg",
+    image: "/src/assets/hexagon-sports.jpg",
     category: "reels",
     readTime: "4 min read",
     likes: 892,

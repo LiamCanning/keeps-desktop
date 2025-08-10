@@ -24,7 +24,6 @@ import marcusAvatar from "@/assets/avatars/marcus-avatar.png";
 import jenniferAvatar from "@/assets/avatars/jennifer-avatar.png";
 
 // Import brand logos
-import adidasLogo from "@/assets/brands/adidas-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
 import rolexLogo from "@/assets/brands/rolex-logo.png";
 
@@ -56,18 +55,18 @@ const getAssetInvestors = (assetId: string): {
       return {
         totalInvestors: 10250,
         corporateSponsor: {
-          id: "adidas",
-          name: "Adidas AG",
-          avatar: adidasLogo,
-          totalInvested: "£8,500,000",
-          portfolioValue: "£10,200,000",
-          returns: "+£1,700,000",
+          id: "nike",
+          name: "Nike Inc.",
+          avatar: "/src/assets/brands/nike-logo.png",
+          totalInvested: "£12,500,000",
+          portfolioValue: "£15,000,000",
+          returns: "+£2,500,000",
           returnPercent: 20.0,
           rank: 1,
           tier: "Corporate",
           assetsOwned: 1,
-          joinDate: "Mar 2024",
-          location: "Herzogenaurach, DE",
+          joinDate: "Jan 2024",
+          location: "Beaverton, US",
           isCompany: true
         },
         investors: [
@@ -333,18 +332,18 @@ const getAssetInvestors = (assetId: string): {
       return {
         totalInvestors: 25847,
         corporateSponsor: {
-          id: "adidas",
-          name: "Adidas AG",
-          avatar: adidasLogo,
-          totalInvested: "£6,200,000",
-          portfolioValue: "£7,440,000",
-          returns: "+£1,240,000",
-          returnPercent: 20.0,
+          id: "nike",
+          name: "Nike Inc.",
+          avatar: "/src/assets/brands/nike-logo.png",
+          totalInvested: "£18,200,000",
+          portfolioValue: "£22,644,000",
+          returns: "+£4,444,000",
+          returnPercent: 24.4,
           rank: 1,
           tier: "Corporate",
-          assetsOwned: 4,
-          joinDate: "Apr 2024",
-          location: "Herzogenaurach, DE",
+          assetsOwned: 8,
+          joinDate: "Jan 2024",
+          location: "Beaverton, US",
           isCompany: true
         },
         investors: [
