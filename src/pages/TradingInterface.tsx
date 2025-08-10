@@ -55,11 +55,11 @@ const assets: { [key: string]: Asset } = {
     id: "ryder-cup",
     name: "Ryder Cup",
     type: "Debenture Programme",
-    pricePerShare: 5850,
+    pricePerShare: 1000,
     logo: ryderLogo,
     currency: "GBP", 
     description: "Golf tournament debenture investment with hospitality access",
-    minInvestment: 5850,
+    minInvestment: 1000,
     maxShares: 200,
     processingFee: 0.10
   }
@@ -227,7 +227,7 @@ export default function TradingInterface() {
                   <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-semibold">Fixed Quantity:</span>
-                      <span className="text-2xl font-bold text-primary">{listing.quantity} {asset.id === 'ryder-cup' ? 'debentures' : 'shares'}</span>
+                      <span className="text-2xl font-bold text-primary">{listing.quantity} {listing.quantity === 1 && asset.id === 'ryder-cup' ? 'debenture' : asset.id === 'ryder-cup' ? 'debentures' : listing.quantity === 1 ? 'share' : 'shares'}</span>
                     </div>
                     <p className="text-sm text-muted-foreground mt-2">
                       You are purchasing the exact quantity listed by {listing.seller}
@@ -246,7 +246,7 @@ export default function TradingInterface() {
                       className="text-lg py-3 h-14"
                     />
                     <p className="text-sm text-muted-foreground">
-                      Minimum: 1 {asset.id === 'ryder-cup' ? 'debenture' : 'share'} • Maximum: {maxQuantity.toLocaleString()} {asset.id === 'ryder-cup' ? 'debentures' : 'shares'}
+                      Minimum: 1 {asset.id === 'ryder-cup' ? 'debenture' : 'share'} • Maximum: {maxQuantity.toLocaleString()} {maxQuantity === 1 && asset.id === 'ryder-cup' ? 'debenture' : asset.id === 'ryder-cup' ? 'debentures' : maxQuantity === 1 ? 'share' : 'shares'}
                     </p>
                   </>
                 )}
@@ -311,7 +311,7 @@ export default function TradingInterface() {
                <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Quantity:</span>
-                    <span className="font-medium">{quantityNum} {asset.id === 'ryder-cup' ? 'debentures' : 'shares'}</span>
+                    <span className="font-medium">{quantityNum} {quantityNum === 1 && asset.id === 'ryder-cup' ? 'debenture' : asset.id === 'ryder-cup' ? 'debentures' : quantityNum === 1 ? 'share' : 'shares'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Unit Price:</span>
