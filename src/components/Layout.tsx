@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
+import { Footer } from "@/components/Footer";
 import { Bell, Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -110,7 +111,12 @@ export function Layout({ children }: LayoutProps) {
           
           {/* Main Content */}
           <main className="flex-1 overflow-auto scrollbar-styled">
-            {children}
+            <div className="min-h-full flex flex-col">
+              <div className="flex-1">
+                {children}
+              </div>
+              <Footer />
+            </div>
           </main>
         </div>
       </div>

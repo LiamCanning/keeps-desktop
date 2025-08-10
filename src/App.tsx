@@ -55,6 +55,10 @@ import ReferralProgram from "./pages/ReferralProgram";
 import CommunityForum from "./pages/CommunityForum";
 import CommunityTopicDetail from "./pages/CommunityTopicDetail";
 import SupportChat from "./pages/SupportChat";
+import { TermsAndConditions } from "./pages/TermsAndConditions";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
+import { CookiePolicy } from "./pages/CookiePolicy";
+import { RiskDisclosure } from "./pages/RiskDisclosure";
 
 const queryClient = new QueryClient();
 
@@ -122,6 +126,10 @@ const App = () => (
         <Route path="/community-forum/:topicId" element={<CommunityTopicDetail />} />
         <Route path="/sale-confirmation" element={<SaleConfirmation />} />
             <Route path="/transaction-details/:id" element={<TransactionDetails />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/risk-disclosure" element={<RiskDisclosure />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
