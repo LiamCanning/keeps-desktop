@@ -25,9 +25,9 @@ const newsArticles: NewsArticle[] = [
     id: "1",
     title: "Liverpool FC Announces New Investment Structure for Fans",
     summary: "Liverpool FC has unveiled a new investment program allowing fans to purchase equity shares in the club for the first time.",
-    source: "Sports Business Journal",
+    source: "Keeps Team",
     date: "2025-07-10",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=600&fit=crop",
     category: "news",
     readTime: "3 min read"
   },
@@ -35,7 +35,7 @@ const newsArticles: NewsArticle[] = [
     id: "2", 
     title: "McLaren Racing's £50,000,000 Raise Nearly Sold Out in 24 Hours!",
     summary: "Formula 1 team McLaren Racing has successfully raised £50,000,000 through a unique income sharing agreement with fans and investors.",
-    source: "Financial Times",
+    source: "Keeps Team",
     date: "2025-07-05",
     image: "/placeholder.svg",
     category: "news",
@@ -45,9 +45,9 @@ const newsArticles: NewsArticle[] = [
     id: "3",
     title: "Ryder Cup Debenture Programme Offers Exclusive Investment Returns",
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
-    source: "Golf Digest",
+    source: "Keeps Team",
     date: "2025-06-28",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
     category: "news",
     readTime: "4 min read"
   },
@@ -195,6 +195,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
   bookmarked: boolean;
   onToggleBookmark: () => void;
 }) {
+  const navigate = useNavigate();
   return (
     <Card className="card-professional group hover:shadow-xl transition-all duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
@@ -263,7 +264,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         <div className="flex items-center gap-2">
           <Button 
             className="btn-invest flex-1"
-            onClick={() => window.open(`/article/${article.id}`, '_blank')}
+            onClick={() => navigate(`/article/${article.id}`)}
           >
             Read Article
             <ExternalLink className="w-4 h-4 ml-2" />

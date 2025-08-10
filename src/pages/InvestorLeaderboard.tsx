@@ -1,11 +1,32 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Trophy, Medal, Award, TrendingUp, Users, Star, Crown, ArrowLeft, Building } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+
+// Import avatar images
+import alexAvatar from "@/assets/avatars/alex-avatar.png";
+import emmaAvatar from "@/assets/avatars/emma-avatar.png";
+import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
+import mikeAvatar from "@/assets/avatars/mike-avatar.png";
+import rachelAvatar from "@/assets/avatars/rachel-avatar.png";
+import jamesAvatar from "@/assets/avatars/james-avatar.png";
+import lisaAvatar from "@/assets/avatars/lisa-avatar.png";
+import paulAvatar from "@/assets/avatars/paul-avatar.png";
+import mariaAvatar from "@/assets/avatars/maria-avatar.png";
+import chrisAvatar from "@/assets/avatars/chris-avatar.png";
+import davidAvatar from "@/assets/avatars/david-avatar.png";
+import tomAvatar from "@/assets/avatars/tom-avatar.png";
+import marcusAvatar from "@/assets/avatars/marcus-avatar.png";
+import jenniferAvatar from "@/assets/avatars/jennifer-avatar.png";
+
+// Import brand logos
+import adidasLogo from "@/assets/brands/adidas-logo.png";
+import santanderLogo from "@/assets/brands/santander-logo.png";
+import rolexLogo from "@/assets/brands/rolex-logo.png";
 
 interface Investor {
   id: string;
@@ -24,212 +45,392 @@ interface Investor {
   badges?: string[];
 }
 
-const topInvestors: Investor[] = [
-  {
-    id: "1",
-    name: "Alexander Thompson",
-    avatar: "/src/assets/avatars/alex-avatar.png",
-    totalInvested: "£2,450,000",
-    portfolioValue: "£3,127,500",
-    returns: "+£677,500",
-    returnPercent: 27.7,
-    rank: 1,
-    tier: "Diamond",
-    assetsOwned: 12,
-    joinDate: "Jan 2024",
-    location: "London, UK"
-  },
-  {
-    id: "2", 
-    name: "Emma Rodriguez",
-    avatar: "/src/assets/avatars/emma-avatar.png",
-    totalInvested: "£2,100,000",
-    portfolioValue: "£2,520,000",
-    returns: "+£420,000",
-    returnPercent: 20.0,
-    rank: 2,
-    tier: "Gold",
-    assetsOwned: 8,
-    joinDate: "Feb 2024",
-    location: "London, UK"
-  },
-  {
-    id: "3",
-    name: "Sarah Wilson",
-    avatar: "/src/assets/avatars/sarah-avatar.png",
-    totalInvested: "£1,890,000",
-    portfolioValue: "£2,268,000",
-    returns: "+£378,000",
-    returnPercent: 20.0,
-    rank: 3,
-    tier: "Gold",
-    assetsOwned: 7,
-    joinDate: "Mar 2024",
-    location: "Manchester, UK"
-  },
-  {
-    id: "4",
-    name: "Michael Chen",
-    avatar: "/src/assets/avatars/mike-avatar.png",
-    totalInvested: "£1,750,000",
-    portfolioValue: "£2,065,000",
-    returns: "+£315,000",
-    returnPercent: 18.0,
-    rank: 4,
-    tier: "Silver",
-    assetsOwned: 6,
-    joinDate: "Apr 2024",
-    location: "Birmingham, UK"
-  },
-  {
-    id: "5",
-    name: "Rachel Martinez",
-    avatar: "/src/assets/avatars/rachel-avatar.png",
-    totalInvested: "£1,600,000",
-    portfolioValue: "£1,872,000",
-    returns: "+£272,000",
-    returnPercent: 17.0,
-    rank: 5,
-    tier: "Silver",
-    assetsOwned: 5,
-    joinDate: "May 2024",
-    location: "Edinburgh, UK"
-  },
-  {
-    id: "6",
-    name: "James Parker",
-    avatar: "/src/assets/avatars/james-avatar.png",
-    totalInvested: "£1,450,000",
-    portfolioValue: "£1,682,500",
-    returns: "+£232,500",
-    returnPercent: 16.0,
-    rank: 6,
-    tier: "Silver",
-    assetsOwned: 4,
-    joinDate: "Jun 2024",
-    location: "Cardiff, UK"
-  },
-  {
-    id: "7",
-    name: "Lisa Zhang",
-    avatar: "/src/assets/avatars/lisa-avatar.png",
-    totalInvested: "£1,200,000",
-    portfolioValue: "£1,380,000",
-    returns: "+£180,000",
-    returnPercent: 15.0,
-    rank: 7,
-    tier: "Bronze",
-    assetsOwned: 3,
-    joinDate: "Jul 2024",
-    location: "Bristol, UK"
-  },
-  {
-    id: "8",
-    name: "Paul Kumar",
-    avatar: "/src/assets/avatars/paul-avatar.png",
-    totalInvested: "£1,100,000",
-    portfolioValue: "£1,254,000",
-    returns: "+£154,000",
-    returnPercent: 14.0,
-    rank: 8,
-    tier: "Bronze",
-    assetsOwned: 2,
-    joinDate: "Aug 2024",
-    location: "Newcastle, UK"
-  },
-  {
-    id: "9",
-    name: "Sophie Martinez",
-    avatar: "/src/assets/avatars/maria-avatar.png",
-    totalInvested: "£980,000",
-    portfolioValue: "£1,107,600",
-    returns: "+£127,600",
-    returnPercent: 13.0,
-    rank: 9,
-    tier: "Bronze",
-    assetsOwned: 1,
-    joinDate: "Sep 2024",
-    location: "Glasgow, UK"
-  },
-  {
-    id: "10",
-    name: "Chris Thompson",
-    avatar: "/src/assets/avatars/chris-avatar.png",
-    totalInvested: "£850,000",
-    portfolioValue: "£952,000",
-    returns: "+£102,000",
-    returnPercent: 12.0,
-    rank: 10,
-    tier: "Bronze",
-    assetsOwned: 1,
-    joinDate: "Oct 2024",
-    location: "Leeds, UK"
-  }
-];
+// Asset-specific investor data
+const getAssetInvestors = (assetId: string): {
+  investors: Investor[];
+  corporateSponsor: Investor;
+  totalInvestors: number;
+} => {
+  switch (assetId) {
+    case "liverpool-fc":
+      return {
+        totalInvestors: 10250,
+        corporateSponsor: {
+          id: "adidas",
+          name: "Adidas AG",
+          avatar: adidasLogo,
+          totalInvested: "£8,500,000",
+          portfolioValue: "£10,200,000",
+          returns: "+£1,700,000",
+          returnPercent: 20.0,
+          rank: 1,
+          tier: "Corporate",
+          assetsOwned: 1,
+          joinDate: "Mar 2024",
+          location: "Herzogenaurach, DE",
+          isCompany: true
+        },
+        investors: [
+          {
+            id: "1",
+            name: "Sarah Mitchell",
+            avatar: sarahAvatar,
+            totalInvested: "£125,000",
+            portfolioValue: "£137,500",
+            returns: "+£12,500",
+            returnPercent: 10.0,
+            rank: 1,
+            tier: "Gold",
+            assetsOwned: 1,
+            joinDate: "Jan 2024",
+            location: "Liverpool, UK"
+          },
+          {
+            id: "2",
+            name: "James Wilson",
+            avatar: jamesAvatar,
+            totalInvested: "£95,000",
+            portfolioValue: "£104,500",
+            returns: "+£9,500",
+            returnPercent: 10.0,
+            rank: 2,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "Feb 2024",
+            location: "Manchester, UK"
+          },
+          {
+            id: "3",
+            name: "Paul Kumar",
+            avatar: paulAvatar,
+            totalInvested: "£75,000",
+            portfolioValue: "£82,500",
+            returns: "+£7,500",
+            returnPercent: 10.0,
+            rank: 3,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "Mar 2024",
+            location: "London, UK"
+          },
+          {
+            id: "4",
+            name: "Lisa Zhang",
+            avatar: lisaAvatar,
+            totalInvested: "£65,000",
+            portfolioValue: "£71,500",
+            returns: "+£6,500",
+            returnPercent: 10.0,
+            rank: 4,
+            tier: "Bronze",
+            assetsOwned: 1,
+            joinDate: "Apr 2024",
+            location: "Birmingham, UK"
+          },
+          {
+            id: "5",
+            name: "Emma Rodriguez",
+            avatar: emmaAvatar,
+            totalInvested: "£55,000",
+            portfolioValue: "£60,500",
+            returns: "+£5,500",
+            returnPercent: 10.0,
+            rank: 5,
+            tier: "Bronze",
+            assetsOwned: 1,
+            joinDate: "May 2024",
+            location: "Bristol, UK"
+          }
+        ]
+      };
 
-const monthlyTopPerformers: Investor[] = [
-  {
-    id: "11",
-    name: "Alexander Thompson",
-    avatar: "/src/assets/avatars/alex-avatar.png",
-    totalInvested: "£2,450,000",
-    portfolioValue: "£3,127,500",
-    returns: "+£677,500",
-    returnPercent: 27.7,
-    rank: 1,
-    tier: "Diamond",
-    assetsOwned: 10,
-    joinDate: "Jan 2024",
-    location: "London, UK"
-  },
-  {
-    id: "12", 
-    name: "Sophie Martinez",
-    avatar: "/src/assets/avatars/maria-avatar.png",
-    totalInvested: "£980,000",
-    portfolioValue: "£1,107,600",
-    returns: "+£127,600",
-    returnPercent: 13.0,
-    rank: 2,
-    tier: "Bronze",
-    assetsOwned: 3,
-    joinDate: "Feb 2024",
-    location: "Liverpool, UK"
-  },
-  {
-    id: "13",
-    name: "David Kumar",
-    avatar: "/src/assets/avatars/david-avatar.png",
-    totalInvested: "£1,100,000",
-    portfolioValue: "£1,254,000",
-    returns: "+£154,000",
-    returnPercent: 14.0,
-    rank: 3,
-    tier: "Bronze",
-    assetsOwned: 4,
-    joinDate: "Mar 2024",
-    location: "Manchester, UK"
-  },
-  {
-    id: "14",
-    name: "Adidas AG",
-    avatar: "/src/assets/brands/adidas-logo.png",
-    totalInvested: "£6,200,000",
-    portfolioValue: "£7,440,000",
-    returns: "+£1,240,000",
-    returnPercent: 20.0,
-    rank: 4,
-    tier: "Corporate",
-    assetsOwned: 4,
-    joinDate: "Apr 2024",
-    location: "Herzogenaurach, DE",
-    isCompany: true
+    case "mclaren-racing":
+      return {
+        totalInvestors: 8750,
+        corporateSponsor: {
+          id: "santander",
+          name: "Santander Bank",
+          avatar: santanderLogo,
+          totalInvested: "£12,000,000",
+          portfolioValue: "£15,600,000",
+          returns: "+£3,600,000",
+          returnPercent: 30.0,
+          rank: 1,
+          tier: "Corporate",
+          assetsOwned: 1,
+          joinDate: "Jan 2024",
+          location: "Madrid, ES",
+          isCompany: true
+        },
+        investors: [
+          {
+            id: "1",
+            name: "Alexander Thompson",
+            avatar: alexAvatar,
+            totalInvested: "£250,000",
+            portfolioValue: "£325,000",
+            returns: "+£75,000",
+            returnPercent: 30.0,
+            rank: 1,
+            tier: "Diamond",
+            assetsOwned: 1,
+            joinDate: "Jan 2024",
+            location: "London, UK"
+          },
+          {
+            id: "2",
+            name: "Michael Chen",
+            avatar: mikeAvatar,
+            totalInvested: "£180,000",
+            portfolioValue: "£234,000",
+            returns: "+£54,000",
+            returnPercent: 30.0,
+            rank: 2,
+            tier: "Gold",
+            assetsOwned: 1,
+            joinDate: "Feb 2024",
+            location: "Surrey, UK"
+          },
+          {
+            id: "3",
+            name: "David Kumar",
+            avatar: davidAvatar,
+            totalInvested: "£150,000",
+            portfolioValue: "£195,000",
+            returns: "+£45,000",
+            returnPercent: 30.0,
+            rank: 3,
+            tier: "Gold",
+            assetsOwned: 1,
+            joinDate: "Mar 2024",
+            location: "Cambridge, UK"
+          },
+          {
+            id: "4",
+            name: "Rachel Martinez",
+            avatar: rachelAvatar,
+            totalInvested: "£120,000",
+            portfolioValue: "£156,000",
+            returns: "+£36,000",
+            returnPercent: 30.0,
+            rank: 4,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "Apr 2024",
+            location: "Oxford, UK"
+          },
+          {
+            id: "5",
+            name: "Chris Thompson",
+            avatar: chrisAvatar,
+            totalInvested: "£100,000",
+            portfolioValue: "£130,000",
+            returns: "+£30,000",
+            returnPercent: 30.0,
+            rank: 5,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "May 2024",
+            location: "Milton Keynes, UK"
+          }
+        ]
+      };
+
+    case "ryder-cup":
+      return {
+        totalInvestors: 2340,
+        corporateSponsor: {
+          id: "rolex",
+          name: "Rolex SA",
+          avatar: rolexLogo,
+          totalInvested: "£5,000,000",
+          portfolioValue: "£5,750,000",
+          returns: "+£750,000",
+          returnPercent: 15.0,
+          rank: 1,
+          tier: "Corporate",
+          assetsOwned: 1,
+          joinDate: "Feb 2024",
+          location: "Geneva, CH",
+          isCompany: true
+        },
+        investors: [
+          {
+            id: "1",
+            name: "Emma Watson",
+            avatar: emmaAvatar,
+            totalInvested: "£85,000",
+            portfolioValue: "£97,750",
+            returns: "+£12,750",
+            returnPercent: 15.0,
+            rank: 1,
+            tier: "Gold",
+            assetsOwned: 1,
+            joinDate: "Feb 2024",
+            location: "St Andrews, UK"
+          },
+          {
+            id: "2",
+            name: "Sophie Martinez",
+            avatar: mariaAvatar,
+            totalInvested: "£65,000",
+            portfolioValue: "£74,750",
+            returns: "+£9,750",
+            returnPercent: 15.0,
+            rank: 2,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "Mar 2024",
+            location: "Edinburgh, UK"
+          },
+          {
+            id: "3",
+            name: "Jennifer Lopez",
+            avatar: jenniferAvatar,
+            totalInvested: "£45,000",
+            portfolioValue: "£51,750",
+            returns: "+£6,750",
+            returnPercent: 15.0,
+            rank: 3,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "Apr 2024",
+            location: "Surrey, UK"
+          },
+          {
+            id: "4",
+            name: "Marcus Johnson",
+            avatar: marcusAvatar,
+            totalInvested: "£35,000",
+            portfolioValue: "£40,250",
+            returns: "+£5,250",
+            returnPercent: 15.0,
+            rank: 4,
+            tier: "Bronze",
+            assetsOwned: 1,
+            joinDate: "May 2024",
+            location: "Kent, UK"
+          },
+          {
+            id: "5",
+            name: "Tom Wilson",
+            avatar: tomAvatar,
+            totalInvested: "£25,000",
+            portfolioValue: "£28,750",
+            returns: "+£3,750",
+            returnPercent: 15.0,
+            rank: 5,
+            tier: "Bronze",
+            assetsOwned: 1,
+            joinDate: "Jun 2024",
+            location: "Berkshire, UK"
+          }
+        ]
+      };
+
+    default:
+      // Default global leaderboard for non-asset pages
+      return {
+        totalInvestors: 25847,
+        corporateSponsor: {
+          id: "adidas",
+          name: "Adidas AG",
+          avatar: adidasLogo,
+          totalInvested: "£6,200,000",
+          portfolioValue: "£7,440,000",
+          returns: "+£1,240,000",
+          returnPercent: 20.0,
+          rank: 1,
+          tier: "Corporate",
+          assetsOwned: 4,
+          joinDate: "Apr 2024",
+          location: "Herzogenaurach, DE",
+          isCompany: true
+        },
+        investors: [
+          {
+            id: "1",
+            name: "Alexander Thompson",
+            avatar: alexAvatar,
+            totalInvested: "£2,450,000",
+            portfolioValue: "£3,127,500",
+            returns: "+£677,500",
+            returnPercent: 27.7,
+            rank: 1,
+            tier: "Diamond",
+            assetsOwned: 12,
+            joinDate: "Jan 2024",
+            location: "London, UK"
+          },
+          {
+            id: "2",
+            name: "Emma Rodriguez",
+            avatar: emmaAvatar,
+            totalInvested: "£2,100,000",
+            portfolioValue: "£2,520,000",
+            returns: "+£420,000",
+            returnPercent: 20.0,
+            rank: 2,
+            tier: "Gold",
+            assetsOwned: 8,
+            joinDate: "Feb 2024",
+            location: "London, UK"
+          },
+          {
+            id: "3",
+            name: "Sarah Wilson",
+            avatar: sarahAvatar,
+            totalInvested: "£1,890,000",
+            portfolioValue: "£2,268,000",
+            returns: "+£378,000",
+            returnPercent: 20.0,
+            rank: 3,
+            tier: "Gold",
+            assetsOwned: 7,
+            joinDate: "Mar 2024",
+            location: "Manchester, UK"
+          },
+          {
+            id: "4",
+            name: "Michael Chen",
+            avatar: mikeAvatar,
+            totalInvested: "£1,750,000",
+            portfolioValue: "£2,065,000",
+            returns: "+£315,000",
+            returnPercent: 18.0,
+            rank: 4,
+            tier: "Silver",
+            assetsOwned: 6,
+            joinDate: "Apr 2024",
+            location: "Birmingham, UK"
+          },
+          {
+            id: "5",
+            name: "Rachel Martinez",
+            avatar: rachelAvatar,
+            totalInvested: "£1,600,000",
+            portfolioValue: "£1,872,000",
+            returns: "+£272,000",
+            returnPercent: 17.0,
+            rank: 5,
+            tier: "Silver",
+            assetsOwned: 5,
+            joinDate: "May 2024",
+            location: "Edinburgh, UK"
+          }
+        ]
+      };
   }
-];
+};
 
 export default function InvestorLeaderboard() {
   const [activeTab, setActiveTab] = useState("returns");
   const navigate = useNavigate();
+  const { assetId } = useParams();
+  
+  // Get asset-specific data
+  const assetData = getAssetInvestors(assetId || "global");
+  const { investors, corporateSponsor, totalInvestors } = assetData;
 
   const getRankIcon = (rank: number) => {
     switch (rank) {
@@ -244,13 +445,22 @@ export default function InvestorLeaderboard() {
     }
   };
 
+  const getAssetName = (assetId: string) => {
+    switch (assetId) {
+      case "liverpool-fc": return "Liverpool FC";
+      case "mclaren-racing": return "McLaren Racing";
+      case "ryder-cup": return "Ryder Cup";
+      default: return "Platform";
+    }
+  };
+
   return (
     <div className="space-y-6 p-6 max-w-7xl mx-auto">
       {/* Navigation */}
       <div className="flex items-center justify-between">
-        <Button variant="ghost" onClick={() => navigate('/')}>
+        <Button variant="ghost" onClick={() => navigate(assetId ? `/assets/${assetId}` : '/')}>
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Dashboard
+          {assetId ? `Back to ${getAssetName(assetId)}` : 'Back to Dashboard'}
         </Button>
         <Button variant="outline" onClick={() => navigate('/assets')}>
           View Assets
@@ -258,8 +468,12 @@ export default function InvestorLeaderboard() {
       </div>
 
       <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">Investor Leaderboard</h1>
-        <p className="text-lg text-foreground/80">Top performing investors on the Keeps platform</p>
+        <h1 className="text-3xl font-bold text-gradient">
+          {assetId ? `${getAssetName(assetId)} Investor Leaderboard` : 'Investor Leaderboard'}
+        </h1>
+        <p className="text-lg text-foreground/80">
+          {assetId ? `Top performing investors in ${getAssetName(assetId)}` : 'Top performing investors on the Keeps platform'}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -270,7 +484,7 @@ export default function InvestorLeaderboard() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Investors</p>
-              <p className="font-semibold text-xl text-card-foreground">25,847</p>
+              <p className="font-semibold text-xl text-card-foreground">{totalInvestors.toLocaleString()}</p>
             </div>
           </div>
         </Card>
@@ -281,7 +495,7 @@ export default function InvestorLeaderboard() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Corporate Sponsors</p>
-              <p className="font-semibold text-xl text-card-foreground">28</p>
+              <p className="font-semibold text-xl text-card-foreground">{assetId ? '1' : '28'}</p>
             </div>
           </div>
         </Card>
@@ -292,7 +506,9 @@ export default function InvestorLeaderboard() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Avg. Return</p>
-              <p className="font-semibold text-xl text-card-foreground">18.4%</p>
+              <p className="font-semibold text-xl text-card-foreground">
+                {assetId === 'liverpool-fc' ? '10.0%' : assetId === 'mclaren-racing' ? '30.0%' : assetId === 'ryder-cup' ? '15.0%' : '18.4%'}
+              </p>
             </div>
           </div>
         </Card>
@@ -303,7 +519,9 @@ export default function InvestorLeaderboard() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Diamond Tier</p>
-              <p className="font-semibold text-xl text-card-foreground">1,247</p>
+              <p className="font-semibold text-xl text-card-foreground">
+                {assetId === 'liverpool-fc' ? '0' : assetId === 'mclaren-racing' ? '1' : assetId === 'ryder-cup' ? '0' : '1,247'}
+              </p>
             </div>
           </div>
         </Card>
@@ -314,56 +532,54 @@ export default function InvestorLeaderboard() {
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
             <Building className="w-5 h-5" />
-            Corporate Sponsors
+            Corporate Sponsor{assetId ? '' : 's'}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {monthlyTopPerformers.filter(i => i.isCompany).map((sponsor) => (
-              <Card key={sponsor.id} className="card-professional bg-gradient-to-r from-primary/5 to-accent/5">
-                <CardContent className="p-4">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-3">
-                      {getRankIcon(sponsor.rank)}
-                      <div className="w-12 h-12 bg-white rounded-lg p-2 border">
-                        <img src={sponsor.avatar} alt={sponsor.name} className="w-full h-full object-contain" />
-                      </div>
-                    </div>
-                    
-                    <div className="flex-1 grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-                      <div>
-                        <h3 className="font-semibold text-lg text-card-foreground">{sponsor.name}</h3>
-                        <p className="text-sm text-muted-foreground">{sponsor.location}</p>
-                        <Badge variant="secondary" className="mt-1">
-                          {sponsor.tier} Sponsor
-                        </Badge>
-                      </div>
-                      
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Total Invested</p>
-                        <p className="font-bold text-lg text-primary">{sponsor.totalInvested}</p>
-                      </div>
-                      
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Portfolio Value</p>
-                        <p className="font-bold text-lg text-card-foreground">{sponsor.portfolioValue}</p>
-                      </div>
-                      
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Returns</p>
-                        <p className="font-bold text-lg text-success">{sponsor.returns}</p>
-                        <p className="text-xs text-success">+{sponsor.returnPercent}%</p>
-                      </div>
-
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Assets</p>
-                        <p className="font-bold text-lg text-card-foreground">{sponsor.assetsOwned}</p>
-                      </div>
+            <Card className="card-professional bg-gradient-to-r from-primary/5 to-accent/5">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
+                    {getRankIcon(corporateSponsor.rank)}
+                    <div className="w-12 h-12 bg-white rounded-lg p-2 border">
+                      <img src={corporateSponsor.avatar} alt={corporateSponsor.name} className="w-full h-full object-contain" />
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  
+                  <div className="flex-1 grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <div>
+                      <h3 className="font-semibold text-lg text-card-foreground">{corporateSponsor.name}</h3>
+                      <p className="text-sm text-muted-foreground">{corporateSponsor.location}</p>
+                      <Badge variant="secondary" className="mt-1">
+                        {corporateSponsor.tier} Sponsor
+                      </Badge>
+                    </div>
+                    
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground">Total Invested</p>
+                      <p className="font-bold text-lg text-primary">{corporateSponsor.totalInvested}</p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground">Portfolio Value</p>
+                      <p className="font-bold text-lg text-card-foreground">{corporateSponsor.portfolioValue}</p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground">Returns</p>
+                      <p className="font-bold text-lg text-success">{corporateSponsor.returns}</p>
+                      <p className="text-xs text-success">+{corporateSponsor.returnPercent}%</p>
+                    </div>
+
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground">Assets</p>
+                      <p className="font-bold text-lg text-card-foreground">{corporateSponsor.assetsOwned}</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </CardContent>
       </Card>
@@ -382,7 +598,7 @@ export default function InvestorLeaderboard() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {topInvestors.slice(0, 5).map((investor) => (
+                {investors.slice(0, 5).map((investor) => (
                   <Card key={investor.id} className="card-professional">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
@@ -440,7 +656,7 @@ export default function InvestorLeaderboard() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {topInvestors.slice(0, 5).map((investor) => (
+                {investors.slice(0, 5).map((investor) => (
                   <Card key={investor.id} className="card-professional">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
@@ -491,81 +707,68 @@ export default function InvestorLeaderboard() {
         </TabsContent>
 
         <TabsContent value="tier" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Crown className="w-5 h-5 text-yellow-500" />
-                  Diamond Tier
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {topInvestors.filter(i => i.tier === "Diamond").map((investor) => (
-                    <div key={investor.id} className="flex items-center gap-3 p-3 bg-gradient-to-r from-yellow-500/10 to-yellow-600/5 rounded-lg">
-                      <Avatar className="h-10 w-10">
-                        <AvatarImage src={investor.avatar} alt={investor.name} />
-                        <AvatarFallback>{investor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <p className="font-semibold text-sm">{investor.name}</p>
-                        <p className="text-xs text-muted-foreground">{investor.portfolioValue}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+          <div className="space-y-6">
+            {["Diamond", "Gold", "Silver", "Bronze"].map((tier) => {
+              const tierInvestors = investors.filter(i => i.tier === tier);
+              if (tierInvestors.length === 0) return null;
+              
+              return (
+                <Card key={tier} className="card-professional">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Star className="w-5 h-5" />
+                      {tier} Tier ({tierInvestors.length})
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {tierInvestors.map((investor) => (
+                        <Card key={investor.id} className="card-professional">
+                          <CardContent className="p-4">
+                            <div className="flex items-center gap-4">
+                              <div className="flex items-center gap-3">
+                                {getRankIcon(investor.rank)}
+                                <Avatar className="h-10 w-10">
+                                  <AvatarImage src={investor.avatar} alt={investor.name} />
+                                  <AvatarFallback>{investor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                                </Avatar>
+                              </div>
+                              
+                              <div className="flex-1 grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                                <div>
+                                  <h3 className="font-semibold text-card-foreground">{investor.name}</h3>
+                                  <p className="text-sm text-muted-foreground">{investor.location}</p>
+                                </div>
+                                
+                                <div className="text-center">
+                                  <p className="text-sm text-muted-foreground">Invested</p>
+                                  <p className="font-bold text-primary">{investor.totalInvested}</p>
+                                </div>
+                                
+                                <div className="text-center">
+                                  <p className="text-sm text-muted-foreground">Returns</p>
+                                  <p className="font-bold text-success">{investor.returns}</p>
+                                </div>
 
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Star className="w-5 h-5 text-purple-500" />
-                  Platinum Tier
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {topInvestors.filter(i => i.tier === "Platinum").map((investor) => (
-                    <div key={investor.id} className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-500/10 to-purple-600/5 rounded-lg">
-                      <Avatar className="h-10 w-10">
-                        <AvatarImage src={investor.avatar} alt={investor.name} />
-                        <AvatarFallback>{investor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <p className="font-semibold text-sm">{investor.name}</p>
-                        <p className="text-xs text-muted-foreground">{investor.portfolioValue}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                                <div className="text-center">
+                                  <p className="text-sm text-muted-foreground">Assets</p>
+                                  <p className="font-bold text-card-foreground">{investor.assetsOwned}</p>
+                                </div>
 
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Medal className="w-5 h-5 text-yellow-600" />
-                  Gold Tier
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {topInvestors.filter(i => i.tier === "Gold").map((investor) => (
-                    <div key={investor.id} className="flex items-center gap-3 p-3 bg-gradient-to-r from-yellow-600/10 to-yellow-700/5 rounded-lg">
-                      <Avatar className="h-10 w-10">
-                        <AvatarImage src={investor.avatar} alt={investor.name} />
-                        <AvatarFallback>{investor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <p className="font-semibold text-sm">{investor.name}</p>
-                        <p className="text-xs text-muted-foreground">{investor.portfolioValue}</p>
-                      </div>
+                                <div className="text-center">
+                                  <p className="text-sm text-muted-foreground">Since</p>
+                                  <p className="font-bold text-card-foreground">{investor.joinDate}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </TabsContent>
       </Tabs>

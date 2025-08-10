@@ -158,14 +158,16 @@ export default function AssetDetails() {
                 </Badge>
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
+              {asset.status !== "coming-soon" && (
                 <div className="flex items-center gap-1">
                   <Building className="w-4 h-4" />
                   <span>{asset.category}</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  <span>Launch: {asset.launchDate}</span>
-                </div>
+              )}
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                <span>Launch: {asset.launchDate}</span>
+              </div>
               </div>
             </div>
             <div className="flex items-center justify-end">
