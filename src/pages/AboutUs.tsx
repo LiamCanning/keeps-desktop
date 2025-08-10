@@ -66,9 +66,9 @@ export default function AboutUs() {
       {/* Hero Section */}
       <div className="text-center space-y-6 py-12">
         <img 
-          src="/placeholder.svg" 
+          src="/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png" 
           alt="Keeps Logo" 
-          className="h-16 mx-auto mb-8"
+          className="h-20 w-auto mx-auto mb-8 object-contain"
         />
         <h1 className="text-4xl font-bold text-foreground">
           Democratising Sports Investment

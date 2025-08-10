@@ -47,7 +47,7 @@ export default function TransactionDetails() {
       <Card className="card-professional">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/lovable-uploads/dc831468-4f46-45d2-9dc9-6253f84112be.png" alt="Keeps logo" className="w-10 h-10 object-contain" />
+            <img src="/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png" alt="Keeps logo" className="w-12 h-12 object-contain" />
             <div>
               <CardTitle>Order Confirmation</CardTitle>
               <p className="text-sm text-muted-foreground">Reference: {reference}</p>

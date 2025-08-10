@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import keepsLogo from "@/assets/keeps-logo.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,11 +11,10 @@ export function Footer() {
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src={keepsLogo} 
+                src="/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png" 
                 alt="Keeps" 
-                className="h-8 w-auto"
+                className="h-12 w-auto object-contain"
               />
-              <span className="text-lg font-semibold text-foreground">Keeps</span>
             </div>
             <div className="text-sm text-muted-foreground space-y-2">
               <p>Vessel Social Ltd</p>
