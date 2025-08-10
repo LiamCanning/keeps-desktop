@@ -44,7 +44,7 @@ export const assetTiers = {
       name: "Diamond",
       investment: 50000,
       available: 100,
-      benefits: ["Exclusive dinner with Jürgen Klopp or club legends", "Priority season ticket access", "Personalised relationship manager", "Access to Liverpool's player tunnel on matchdays", "✓ Includes all benefits from previous tiers"]
+      benefits: ["Exclusive dinner with Arne Slot or club legends", "Priority season ticket access", "Personalised relationship manager", "Access to Liverpool's player tunnel on matchdays", "✓ Includes all benefits from previous tiers"]
     }
   },
   mclaren: {
@@ -115,64 +115,64 @@ export const assetTiers = {
     bronze: {
       name: "Bronze",
       investment: 750,
-      available: 4000,
-      benefits: ["Community forum access", "Monthly newsletters with club insights", "Cardiff City FC digital magazine subscription"]
+      available: 5000,
+      benefits: ["Community access", "Monthly insights", "Cardiff City digital magazine"]
     },
     silver: {
       name: "Silver",
       investment: 3000,
-      available: 1800,
-      benefits: ["Quarterly video updates from management", "Early access to new opportunities", "Official Cardiff City FC merchandise package"]
+      available: 2000,
+      benefits: ["Quarterly updates", "Early access", "Official Cardiff City merchandise", "✓ Includes all benefits from previous tiers"]
     },
     gold: {
       name: "Gold",
       investment: 12000,
-      available: 600,
-      benefits: ["VIP match day experiences at Cardiff City Stadium", "Behind-the-scenes content access", "Annual strategic briefings with club leadership"]
+      available: 750,
+      benefits: ["VIP matchday experiences at Cardiff City Stadium", "Behind-the-scenes training ground access", "Annual strategic briefings", "Exclusive Welsh heritage tours", "✓ Includes all benefits from previous tiers"]
     },
     platinum: {
       name: "Platinum",
       investment: 30000,
-      available: 200,
-      benefits: ["Exclusive stadium and training ground tours", "Player meet & greet opportunities", "Premium hospitality for select matches"]
+      available: 250,
+      benefits: ["Private stadium & training ground tours", "Player meet & greet opportunities", "Premium hospitality for South Wales derbies", "Access to Cardiff City boardroom experiences", "✓ Includes all benefits from previous tiers"]
     },
     diamond: {
       name: "Diamond",
       investment: 60000,
-      available: 75,
-      benefits: ["Private dinners with club ownership", "Season ticket priority access", "Personalized relationship manager and Welsh heritage experiences"]
+      available: 100,
+      benefits: ["Exclusive dinner with Cardiff City manager and club legends", "Priority season ticket access", "Personalised relationship manager", "Private Welsh heritage experiences including Cardiff Castle tours", "✓ Includes all benefits from previous tiers"]
     }
   },
   hexagon: {
     bronze: {
       name: "Bronze",
       investment: 750,
-      available: 3500,
-      benefits: ["Community forum access", "Monthly tournament newsletters", "Digital access to Hexagon Cup content"]
+      available: 5000,
+      benefits: ["Community access", "Monthly tournament newsletters", "Digital Hexagon Cup content"]
     },
     silver: {
       name: "Silver",
       investment: 3500,
-      available: 1500,
-      benefits: ["Quarterly video updates from tournament directors", "Early access to new opportunities", "Official Hexagon Cup merchandise package"]
+      available: 2000,
+      benefits: ["Quarterly updates from tournament directors", "Early access", "Official Hexagon Cup merchandise", "✓ Includes all benefits from previous tiers"]
     },
     gold: {
       name: "Gold",
       investment: 15000,
-      available: 400,
-      benefits: ["VIP tournament experiences", "Behind-the-scenes content access", "Annual strategic briefings with tournament leadership"]
+      available: 750,
+      benefits: ["VIP tournament experiences in Spain", "Behind-the-scenes court and facility access", "Annual strategic briefings with tournament leadership", "Exclusive padel coaching sessions with professionals", "✓ Includes all benefits from previous tiers"]
     },
     platinum: {
       name: "Platinum",
       investment: 35000,
-      available: 150,
-      benefits: ["Exclusive venue and facility tours", "Athlete meet & greet opportunities", "Premium hospitality for tournament events"]
+      available: 250,
+      benefits: ["Private venue & facility tours", "Professional player meet & greets", "Premium hospitality for championship finals", "Access to exclusive padel courts in Spain", "✓ Includes all benefits from previous tiers"]
     },
     diamond: {
       name: "Diamond",
       investment: 70000,
-      available: 50,
-      benefits: ["Private dinners with tournament leadership", "VIP access to all tournament events", "Personalized relationship manager and global sports experiences"]
+      available: 100,
+      benefits: ["Exclusive dinner with world-ranked padel champions", "VIP access to all Hexagon Cup events", "Personalised relationship manager", "Opportunity to play exhibition matches with professional players", "Luxury Spanish accommodation during tournaments", "✓ Includes all benefits from previous tiers"]
     }
   },
   ohio: {
@@ -180,31 +180,31 @@ export const assetTiers = {
       name: "Bronze",
       investment: 1000,
       available: 5000,
-      benefits: ["Community forum access", "Monthly newsletters with athletics insights", "Ohio State digital content subscription"]
+      benefits: ["Community access", "Monthly athletics insights", "Ohio State digital content"]
     },
     silver: {
       name: "Silver",
       investment: 4000,
       available: 2000,
-      benefits: ["Quarterly video updates from athletics department", "Early access to new opportunities", "Official Ohio State merchandise package"]
+      benefits: ["Quarterly athletics updates", "Early access", "Official Ohio State merchandise", "✓ Includes all benefits from previous tiers"]
     },
     gold: {
       name: "Gold",
       investment: 18000,
-      available: 500,
-      benefits: ["VIP game day experiences", "Behind-the-scenes campus and athletics content", "Annual strategic briefings with athletics leadership"]
+      available: 750,
+      benefits: ["VIP game day experiences at Ohio Stadium", "Behind-the-scenes athletics facilities access", "Annual strategic briefings with athletics leadership", "Exclusive access to Ohio State Hall of Fame", "✓ Includes all benefits from previous tiers"]
     },
     platinum: {
       name: "Platinum",
       investment: 40000,
-      available: 200,
-      benefits: ["Exclusive campus and athletics facility tours", "Student-athlete meet & greet opportunities", "Premium hospitality for select games"]
+      available: 250,
+      benefits: ["Private campus & athletics facility tours", "Student-athlete meet & greet opportunities", "Premium hospitality for Michigan rivalry games", "Access to athletics department boardroom", "✓ Includes all benefits from previous tiers"]
     },
     diamond: {
       name: "Diamond",
       investment: 80000,
-      available: 75,
-      benefits: ["Private dinners with athletics leadership", "VIP access to all sporting events", "Personalized relationship manager and college sports experiences"]
+      available: 100,
+      benefits: ["Exclusive dinner with Ohio State athletics director and coaching staff", "VIP access to all sporting events including basketball and American football", "Personalised relationship manager", "Opportunity to participate in Ohio State traditions like dotting the 'i' in Script Ohio", "✓ Includes all benefits from previous tiers"]
     }
   }
 };
