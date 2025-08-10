@@ -104,17 +104,17 @@ const marketInsights = [
   {
     title: "Golf Market Expansion",
     description: "Ryder Cup 2025 showing strong investor interest with premium hospitality packages sold out. Golf's affluent demographic and exclusive access benefits are driving demand beyond expectations.",
-    impact: "Medium",
+    impact: "High",
     date: "1 week ago", 
-    icon: Award,
+    icon: Target,
     category: "Opportunity"
   },
   {
     title: "Basketball Investment Rise",
     description: "Ohio State basketball programs entering the platform present new investment categories. College sports offer unique revenue sharing models with high engagement audiences.",
-    impact: "Medium",
+    impact: "High",
     date: "1 week ago",
-    icon: Trophy,
+    icon: Activity,
     category: "New Sector"
   }
 ];

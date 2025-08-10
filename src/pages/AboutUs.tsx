@@ -97,7 +97,7 @@ export default function AboutUs() {
           <h2 className="text-3xl font-bold text-foreground mb-6">Our Story</h2>
           <div className="space-y-4 text-muted-foreground">
             <p>
-              Keeps was founded when our team realized that the most exciting investment 
+              Keeps was founded when our team realised that the most exciting investment 
               opportunities in sports were only available to institutional investors and 
               ultra-high-net-worth individuals.
             </p>

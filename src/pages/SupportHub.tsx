@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "Is Keeps regulated?",
-    answer: "Keeps operates under UK financial regulations and works with authorised intermediaries. All investments are subject to regulatory oversight and investor protection measures."
+    answer: "Yes, Keeps is regulated by both the UK Financial Conduct Authority (FCA) and the US Securities and Exchange Commission (SEC). We operate under dual regulatory oversight to ensure the highest standards of investor protection and compliance across both markets."
   },
   {
     question: "What is the minimum investment amount?",

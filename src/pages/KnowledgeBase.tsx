@@ -101,7 +101,7 @@ const dealTypes: DealType[] = [
       "Wimbledon Centre Court debentures",
       "Golf tournament hospitality rights"
     ],
-    minInvestment: "£5,000",
+    minInvestment: "£1,000",
     expectedReturns: "5-8% plus principal",
     timeframe: "5-25 years"
   },

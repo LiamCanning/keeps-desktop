@@ -18,9 +18,9 @@ export function Layout({ children }: LayoutProps) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const assets = [
-    { name: "Liverpool FC", path: "/deal/liverpool-fc" },
-    { name: "McLaren F1", path: "/deal/mclaren-f1" },
-    { name: "Ryder Cup", path: "/deal/ryder-cup" }
+    { name: "Liverpool FC", path: "/assets/liverpool-fc" },
+    { name: "McLaren F1", path: "/assets/mclaren-f1" },
+    { name: "Ryder Cup", path: "/assets/ryder-cup" }
   ];
 
   const filteredAssets = assets.filter(asset =>

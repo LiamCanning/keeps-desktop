@@ -12,29 +12,49 @@ export default function RegulatoryCompliance() {
             Regulatory Compliance
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We operate under strict regulatory frameworks to ensure your investments are protected and compliant with UK financial regulations.
+            We operate under strict regulatory frameworks in both the UK and US to ensure your investments are protected and compliant with FCA and SEC regulations.
           </p>
         </div>
 
         {/* Authorisation Status */}
         <section className="mb-16">
-          <Card className="card-professional border-success/30 bg-success/5">
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <Shield className="w-8 h-8 text-success" />
-                <div>
-                  <CardTitle className="text-2xl text-success-foreground">FCA Authorised</CardTitle>
-                  <p className="text-success-foreground/80">Financial Conduct Authority Registration</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="card-professional border-success/30 bg-success/10">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <Shield className="w-8 h-8 text-success" />
+                  <div>
+                    <CardTitle className="text-2xl text-black">FCA Authorised</CardTitle>
+                    <p className="text-black/80">Financial Conduct Authority Registration</p>
+                  </div>
                 </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-success-foreground/90 leading-relaxed">
-                Rork Keeps is authorised and regulated by the Financial Conduct Authority (FCA) under firm reference number [FRN]. 
-                This authorisation ensures we meet the highest standards of financial services regulation in the UK.
-              </p>
-            </CardContent>
-          </Card>
+              </CardHeader>
+              <CardContent>
+                <p className="text-black/90 leading-relaxed">
+                  Keeps is authorised and regulated by the Financial Conduct Authority (FCA) under firm reference number [FRN]. 
+                  This authorisation ensures we meet the highest standards of financial services regulation in the UK.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="card-professional border-warning/30 bg-warning/10">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <Shield className="w-8 h-8 text-warning" />
+                  <div>
+                    <CardTitle className="text-2xl text-black">SEC Registered</CardTitle>
+                    <p className="text-black/80">Securities and Exchange Commission</p>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-black/90 leading-relaxed">
+                  Keeps is also registered with the US Securities and Exchange Commission (SEC), enabling us to offer investment 
+                  opportunities to qualified investors across both UK and US markets under comprehensive regulatory oversight.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </section>
 
         {/* Compliance Framework */}
@@ -194,7 +214,7 @@ export default function RegulatoryCompliance() {
                 For any compliance-related questions or to report concerns, please contact our compliance team.
               </p>
               <div className="space-y-2">
-                <p className="font-medium text-card-foreground">Email: compliance@rorkkeeps.com</p>
+                <p className="font-medium text-card-foreground">Email: compliance@keeps.sport</p>
                 <p className="font-medium text-card-foreground">Phone: +44 (0) 20 7946 0958</p>
                 <p className="text-sm text-muted-foreground">Available Monday to Friday, 9:00 AM to 5:00 PM GMT</p>
               </div>
