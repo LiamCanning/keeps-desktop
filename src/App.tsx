@@ -84,7 +84,7 @@ const App = () => (
             <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="/sector-performance" element={<SectorPerformance />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/community-profile/:userId" element={<CommunityProfile />} />
+          <Route path="/community-profile/:username" element={<CommunityProfile />} />
           <Route path="/community-comments/:postId" element={<CommunityComments />} />
             <Route path="/article/:id" element={<Article />} />
             <Route path="/community-comments/:id" element={<CommunityComments />} />
