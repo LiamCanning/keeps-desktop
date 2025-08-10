@@ -27,7 +27,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Liverpool FC has unveiled a new investment program allowing fans to purchase equity shares in the club for the first time.",
     source: "Keeps Team",
     date: "2025-07-10",
-    image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=600&fit=crop",
+    image: "/src/assets/liverpool-squad.jpg",
     category: "news",
     readTime: "3 min read"
   },
@@ -37,7 +37,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Formula 1 team McLaren Racing has successfully raised £50,000,000 through a unique income sharing agreement with fans and investors.",
     source: "Keeps Team",
     date: "2025-07-05",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1553979459-d2229ba7433a?w=800&h=600&fit=crop",
     category: "news",
     readTime: "5 min read"
   },
@@ -47,7 +47,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Keeps Team",
     date: "2025-06-28",
-    image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
+    image: "/src/assets/ryder-cup-golf.jpg",
     category: "news",
     readTime: "4 min read"
   },
