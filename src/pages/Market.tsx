@@ -171,7 +171,7 @@ function MarketCard({ listing }: { listing: MarketListing }) {
         </div>
         
         <Button 
-          className="w-full btn-invest"
+          className="w-full btn-invest min-h-[44px]"
           onClick={() => {
             const assetId = listing.asset.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1');
             navigate(`/trade/${assetId}`, { state: { listing } });
@@ -210,15 +210,15 @@ export default function Market() {
     });
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto">
+    <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-2 text-left">
-          <h1 className="text-3xl font-bold text-foreground">Secondary Market</h1>
-          <p className="text-lg text-foreground/80">Buy and sell sports assets</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Secondary Market</h1>
+          <p className="text-base sm:text-lg text-foreground/80">Buy and sell sports assets</p>
         </div>
         <Button 
-          className="btn-invest text-lg px-6 py-3 h-auto"
+          className="btn-invest text-base sm:text-lg px-4 sm:px-6 py-3 h-auto min-h-[44px] w-full sm:w-auto"
           onClick={() => window.location.href = '/list-asset'}
         >
           List Asset
@@ -278,18 +278,18 @@ export default function Market() {
 
       {/* Search and Filters */}
       <Card className="card-professional p-4">
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col gap-3 sm:gap-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input 
               placeholder="Search assets or sellers..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-10 h-11 text-base"
             />
           </div>
           <Select value={sortBy} onValueChange={setSortBy}>
-            <SelectTrigger className="w-48">
+            <SelectTrigger className="w-full sm:w-48 h-11">
               <ArrowUpDown className="w-4 h-4 mr-2" />
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>

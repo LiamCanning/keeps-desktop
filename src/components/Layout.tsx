@@ -54,8 +54,8 @@ export function Layout({ children }: LayoutProps) {
           {/* Top Header */}
           <header className="h-16 border-b border-sidebar-border bg-background/95 backdrop-blur-sm sticky top-0 z-40">
             <div className="flex items-center justify-between h-full px-6">
-              <div className="flex items-center gap-4">
-                <SidebarTrigger className="lg:hidden bg-sidebar-accent hover:bg-sidebar-accent/80 text-foreground">
+              <div className="flex items-center gap-2 sm:gap-4 flex-1">
+                <SidebarTrigger className="lg:hidden bg-sidebar-accent hover:bg-sidebar-accent/80 text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center">
                   <Menu className="w-5 h-5" />
                 </SidebarTrigger>
                 
@@ -64,7 +64,7 @@ export function Layout({ children }: LayoutProps) {
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input 
                       placeholder="search sports assets" 
-                      className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground w-full"
+                      className="pl-10 bg-card border-border/60 focus:bg-card text-card-foreground placeholder:text-muted-foreground w-full h-10 sm:h-10 text-base sm:text-sm"
                       value={searchQuery}
                       onChange={(e) => {
                         setSearchQuery(e.target.value);
@@ -76,11 +76,11 @@ export function Layout({ children }: LayoutProps) {
                     />
                     
                     {showDropdown && filteredAssets.length > 0 && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-md shadow-lg z-50">
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-md shadow-lg z-50 max-h-48 sm:max-h-64 overflow-y-auto">
                         {filteredAssets.map((asset) => (
                           <button
                             key={asset.path}
-                            className="w-full px-4 py-2 text-left hover:bg-accent hover:text-accent-foreground text-card-foreground"
+                            className="w-full px-4 py-3 sm:py-2 text-left hover:bg-accent hover:text-accent-foreground text-card-foreground text-base sm:text-sm min-h-[44px] sm:min-h-auto flex items-center"
                             onClick={() => handleAssetSelect(asset)}
                           >
                             {asset.name}
@@ -92,11 +92,11 @@ export function Layout({ children }: LayoutProps) {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 sm:gap-4">
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="relative hover:bg-sidebar-accent text-foreground"
+                  className="relative hover:bg-sidebar-accent text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center"
                   onClick={() => navigate('/notifications')}
                 >
                   <Bell className="w-5 h-5" />

@@ -211,28 +211,31 @@ export default function Assets() {
   const completedAssets = assets.filter(a => a.status === "completed").length;
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto">
+    <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
       <div className="space-y-2 text-left">
-        <h1 className="text-3xl font-bold text-gradient">All Assets</h1>
-        <p className="text-lg text-muted-foreground">Discover and invest in world-class sports organisations</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gradient">All Assets</h1>
+        <p className="text-base sm:text-lg text-muted-foreground">Discover and invest in world-class sports organisations</p>
       </div>
 
       {/* Filter Tabs - Replacing the banner */}
-      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 sm:p-6 border border-primary/20">
         <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm">
-            <TabsTrigger value="live" className="flex items-center justify-center gap-2 text-sm font-medium">
+          <TabsList className="grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm h-auto">
+            <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-success rounded-full"></div>
-              Live Deals
+              <span className="hidden sm:inline">Live Deals</span>
+              <span className="sm:hidden">Live</span>
             </TabsTrigger>
-            <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-2 text-sm font-medium">
+            <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-warning rounded-full"></div>
-              Coming Soon
+              <span className="hidden sm:inline">Coming Soon</span>
+              <span className="sm:hidden">Coming</span>
             </TabsTrigger>
-            <TabsTrigger value="completed" className="flex items-center justify-center gap-2 text-sm font-medium">
+            <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-              Completed
+              <span className="hidden sm:inline">Completed</span>
+              <span className="sm:hidden">Done</span>
             </TabsTrigger>
           </TabsList>
         </Tabs>
@@ -290,7 +293,7 @@ export default function Assets() {
           </Badge>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
           {filteredAssets.map((asset) => (
             <AssetCard key={asset.id} asset={asset} />
           ))}
@@ -298,18 +301,18 @@ export default function Assets() {
       </div>
 
       {/* Request Your Team Section */}
-      <div className="mt-12 p-8 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-primary/20">
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
-            <Plus className="w-8 h-8 text-primary" />
+      <div className="mt-8 sm:mt-12 p-4 sm:p-8 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-primary/20">
+        <div className="text-center space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-primary/20 rounded-full mb-2 sm:mb-4">
+            <Plus className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
           </div>
-          <h3 className="text-2xl font-bold text-gradient">Request Your Team</h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-bold text-gradient">Request Your Team</h3>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
             Don't see your favourite sports organisation? Let us know which team or organisation you'd like to invest in and we'll consider adding them to our platform.
           </p>
           <Button 
             size="lg" 
-            className="mt-6"
+            className="mt-4 sm:mt-6 min-h-[44px] w-full sm:w-auto"
             onClick={() => navigate('/request-team')}
           >
             Request Your Team

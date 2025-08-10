@@ -199,4 +199,51 @@
   .scrollbar-styled::-webkit-scrollbar-thumb {
     @apply bg-primary/60 rounded-full hover:bg-primary/80;
   }
+
+  /* Mobile-optimized touch targets */
+  @media (max-width: 768px) {
+    .btn-invest, 
+    button:not(.btn-small),
+    .sidebar-trigger,
+    [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Better spacing for mobile cards */
+    .investment-card,
+    .card-professional {
+      padding: 16px;
+    }
+    
+    /* Mobile table responsiveness */
+    .table-responsive {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .table-responsive table {
+      min-width: 600px;
+    }
+    
+    /* Mobile modal optimization */
+    .modal-mobile {
+      height: 100vh;
+      width: 100vw;
+      border-radius: 0;
+      max-width: none;
+      max-height: none;
+    }
+  }
+
+  /* Enhanced focus states for mobile */
+  @media (hover: none) and (pointer: coarse) {
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid hsl(var(--primary));
+      outline-offset: 2px;
+    }
+  }
 }

@@ -157,17 +157,17 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           </p>
         </div>
         
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <Button 
             variant="outline" 
-            className="flex-1 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white"
+            className="flex-1 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white min-h-[44px]"
             onClick={() => window.location.href = `/benefits`}
           >
             <Eye className="w-4 h-4 mr-2" />
             View Benefits
           </Button>
           <Button 
-            className="btn-invest flex-1"
+            className="btn-invest flex-1 min-h-[44px]"
             onClick={() => {
               let assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
               if (assetSlug === 'mclaren-racing') assetSlug = 'mclaren-f1';
@@ -192,21 +192,21 @@ export default function Portfolio() {
   const returnPercent = (totalReturn / totalInvested) * 100;
 
   return (
-    <div className="space-y-6">
-      <div className="p-6 space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="space-y-2 text-left">
-          <h1 className="text-3xl font-bold text-gradient">Liam's Portfolio Overview</h1>
-          <p className="text-lg text-foreground/80">Track your sports investments</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gradient">Liam's Portfolio Overview</h1>
+          <p className="text-base sm:text-lg text-foreground/80">Track your sports investments</p>
         </div>
 
       {/* Portfolio Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="card-elevated p-6 col-span-1 md:col-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4">
+        <Card className="card-elevated p-4 sm:p-6 col-span-1 md:col-span-2">
           <div className="space-y-2">
             <p className="text-sm text-muted-foreground">Total Portfolio Value</p>
-            <p className="text-3xl font-bold text-card-foreground">£{totalValue.toLocaleString()}</p>
-            <div className="flex items-center gap-2">
+            <p className="text-2xl sm:text-3xl font-bold text-card-foreground">£{totalValue.toLocaleString()}</p>
+            <div className="flex items-center gap-2 flex-wrap">
               <span className="text-success font-semibold">+£{totalReturn.toLocaleString()}</span>
               <Badge variant="success" className="flex items-center gap-1">
                 <TrendingUp className="w-3 h-3" />
@@ -223,7 +223,7 @@ export default function Portfolio() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Invested</p>
-              <p className="font-semibold text-xl text-card-foreground">£{totalInvested.toLocaleString()}</p>
+              <p className="font-semibold text-lg sm:text-xl text-card-foreground">£{totalInvested.toLocaleString()}</p>
             </div>
           </div>
         </Card>
@@ -235,7 +235,7 @@ export default function Portfolio() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Teams</p>
-              <p className="font-semibold text-xl text-card-foreground">{portfolioHoldings.length}</p>
+              <p className="font-semibold text-lg sm:text-xl text-card-foreground">{portfolioHoldings.length}</p>
             </div>
           </div>
         </Card>
