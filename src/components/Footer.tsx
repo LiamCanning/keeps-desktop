@@ -13,15 +13,14 @@ export function Footer() {
               <img 
                 src="/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png" 
                 alt="Keeps" 
-                className="h-12 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </div>
-            <div className="text-sm text-muted-foreground space-y-2">
+            <div className="text-sm text-muted-foreground space-y-1">
               <p>Vessel Social Ltd</p>
-              <p>2 Hilliards Court</p>
-              <p>Chester Business Park</p>
-              <p>Chester, Cheshire</p>
-              <p>CH4 9QP, United Kingdom</p>
+              <p>2 Hilliards Court, Chester Business Park</p>
+              <p>Chester, Cheshire, CH4 9QP</p>
+              <p>United Kingdom</p>
             </div>
           </div>
 

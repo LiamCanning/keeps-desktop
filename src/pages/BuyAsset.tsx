@@ -46,14 +46,15 @@ const deals = {
     name: "Ryder Cup",
     logo: "/placeholder.svg",
     title: "Debenture Investment Programme",
-    pricePerShare: 5850,
-    minimumInvestment: 5850,
+    pricePerShare: 1000,
+    minimumInvestment: 1000,
     availableShares: 500,
     fundingGoal: 10000000,
     currentRaised: 8850000,
     investorsCount: 456,
     dividendYield: "12-18%",
-    terms: "10-year debenture with premium access"
+    terms: "10-year debenture with premium access",
+    tiers: [1000, 15000, 25000, 35000, 50000]
   }
 };
 
@@ -115,7 +116,18 @@ export default function BuyAsset() {
 
   const handleAmountChange = (amount: string) => {
     const numAmount = parseFloat(amount) || 0;
-    const shares = Math.floor(numAmount / deal.pricePerShare);
+    let shares = Math.floor(numAmount / deal.pricePerShare);
+    
+    // For Ryder Cup, enforce tier-based amounts
+    if (deal.id === 'ryder-cup' && 'tiers' in deal && Array.isArray(deal.tiers)) {
+      const validTier = deal.tiers.find((tier: number) => numAmount >= tier);
+      if (validTier) {
+        shares = validTier / deal.pricePerShare;
+      } else {
+        shares = 0;
+      }
+    }
+    
     setInvestmentData(prev => ({
       ...prev,
       amount,
@@ -214,17 +226,39 @@ export default function BuyAsset() {
               <CardContent className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="amount">Investment Amount (£)</Label>
-                  <Input
-                    id="amount"
-                    type="number"
-                    placeholder={`Minimum £${deal.minimumInvestment}`}
-                    value={investmentData.amount}
-                    onChange={(e) => handleAmountChange(e.target.value)}
-                    min={deal.minimumInvestment}
-                  />
-                  <p className="text-sm text-muted-foreground">
-                    Minimum investment: £{deal.minimumInvestment.toLocaleString()}
-                  </p>
+                  {deal.id === 'ryder-cup' && 'tiers' in deal && Array.isArray(deal.tiers) ? (
+                    <div className="space-y-3">
+                      <div className="grid grid-cols-2 gap-2">
+                        {deal.tiers.map((tier: number) => (
+                          <Button
+                            key={tier}
+                            variant={investmentData.amount === tier.toString() ? "default" : "outline"}
+                            onClick={() => handleAmountChange(tier.toString())}
+                            className="text-sm"
+                          >
+                            £{tier.toLocaleString()}
+                          </Button>
+                        ))}
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        Select a debenture tier above (£1k, £15k, £25k, £35k, or £50k only)
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <Input
+                        id="amount"
+                        type="number"
+                        placeholder={`Minimum £${deal.minimumInvestment}`}
+                        value={investmentData.amount}
+                        onChange={(e) => handleAmountChange(e.target.value)}
+                        min={deal.minimumInvestment}
+                      />
+                      <p className="text-sm text-muted-foreground">
+                        Minimum investment: £{deal.minimumInvestment.toLocaleString()}
+                      </p>
+                    </>
+                  )}
                 </div>
 
                 {investmentData.shares > 0 && (

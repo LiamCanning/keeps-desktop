@@ -190,9 +190,9 @@ export default function RegulatoryCompliance() {
                 <p className="text-muted-foreground">
                   All investments carry risk. Sports investments can be particularly volatile and past performance does not guarantee future returns.
                 </p>
-                <div className="bg-warning/20 border border-warning/30 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2 text-warning-foreground">Important Considerations:</h4>
-                  <ul className="space-y-1 text-sm text-warning-foreground">
+                <div className="bg-warning/40 border border-warning/30 p-4 rounded-lg">
+                  <h4 className="font-semibold mb-2 text-black">Important Considerations:</h4>
+                  <ul className="space-y-1 text-sm text-black">
                     <li>• Capital at risk - you may lose money</li>
                     <li>• Investments may not be readily realisable</li>
                     <li>• Performance depends on sporting success</li>

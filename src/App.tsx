@@ -59,6 +59,7 @@ import { TermsAndConditions } from "./pages/TermsAndConditions";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { CookiePolicy } from "./pages/CookiePolicy";
 import { RiskDisclosure } from "./pages/RiskDisclosure";
+import OrganisationContact from "./pages/OrganisationContact";
 
 const queryClient = new QueryClient();
 
@@ -81,6 +82,7 @@ const App = () => (
             <Route path="/buy-asset" element={<BuyAsset />} />
             <Route path="/sell-asset" element={<SellAsset />} />
             <Route path="/for-organisations" element={<ForOrganisations />} />
+            <Route path="/organisation-contact" element={<OrganisationContact />} />
             <Route path="/support-hub" element={<SupportHub />} />
             <Route path="/support-chat" element={<SupportChat />} />
             <Route path="/referral-program" element={<ReferralProgram />} />

@@ -13,7 +13,7 @@ export default function InvestorRelations() {
             Investor Relations
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Stay informed with the latest updates, financial reports, and insights from Rork Keeps' investor relations team.
+            Stay informed with the latest updates, financial reports, and insights from Keeps' investor relations team.
           </p>
         </div>
 
@@ -212,12 +212,12 @@ export default function InvestorRelations() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <h4 className="font-semibold mb-3 text-card-foreground">General Enquiries</h4>
-                  <p className="text-sm text-muted-foreground mb-2">Email: investors@rorkkeeps.com</p>
+                  <p className="text-sm text-muted-foreground mb-2">Email: investors@keeps.sport</p>
                   <p className="text-sm text-muted-foreground">Phone: +44 (0) 20 7946 0123</p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-3 text-card-foreground">Media Relations</h4>
-                  <p className="text-sm text-muted-foreground mb-2">Email: media@rorkkeeps.com</p>
+                  <p className="text-sm text-muted-foreground mb-2">Email: media@keeps.sport</p>
                   <p className="text-sm text-muted-foreground">Phone: +44 (0) 20 7946 0456</p>
                 </div>
               </div>

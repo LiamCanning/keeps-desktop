@@ -2,6 +2,8 @@ import { Building2, Users, TrendingUp, Shield, CheckCircle, ArrowRight } from "l
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
+import sportsHeroBackground from "@/assets/sports-hero-background.jpg";
 
 const features = [
   {
@@ -36,20 +38,34 @@ const benefits = [
 ];
 
 export default function ForOrganisations() {
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-8">
       {/* Header Section */}
-      <div className="text-center space-y-4 py-12">
-        <Badge variant="secondary" className="mb-4">
-          Capital Raising Solutions
-        </Badge>
-        <h1 className="text-4xl font-bold text-foreground">
-          Raise Capital Sustainably with Keeps
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Partner with leading sports organisations to raise capital sustainably, grow your audience, 
-          and leverage data utilisation to further commercialise your brand.
-        </p>
+      <div 
+        className="text-center space-y-4 py-16 px-6 rounded-2xl relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${sportsHeroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+        <div className="relative z-10">
+          <Badge variant="secondary" className="mb-4">
+            Capital Raising Solutions
+          </Badge>
+          <h1 className="text-4xl font-bold text-foreground">
+            Raise Capital Sustainably with Keeps
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Partner with leading sports organisations to raise capital sustainably, grow your audience, 
+            and leverage data utilisation to further commercialise your brand.
+          </p>
+        </div>
       </div>
 
       {/* Features Grid */}
@@ -84,7 +100,11 @@ export default function ForOrganisations() {
             ))}
           </div>
           <div className="mt-8 space-y-4">
-            <Button size="lg" className="w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto"
+              onClick={() => navigate("/organisation-contact")}
+            >
               Partner with Keeps
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
@@ -122,10 +142,6 @@ export default function ForOrganisations() {
                 <span className="font-medium">Real-time Dashboard</span>
               </div>
             </div>
-
-            <Button className="w-full" size="lg">
-              Start Partnership
-            </Button>
           </CardContent>
         </Card>
       </div>
@@ -142,21 +158,21 @@ export default function ForOrganisations() {
               type: "Football Club",
               amount: "£80M Raised",
               description: "Successfully raised capital through equity offering, expanding global fanbase and commercial opportunities.",
-              logo: "/placeholder.svg"
+              logo: "/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
             },
             {
               name: "McLaren Racing",
               type: "F1 Team",
               amount: "£100M Raised",
               description: "Innovative income sharing agreement providing fans exclusive access while funding technology development.",
-              logo: "/placeholder.svg"
+              logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"
             },
             {
               name: "Ryder Cup",
               type: "Golf Tournament",
               amount: "£50M Raised",
               description: "Premium debenture programme offering guaranteed returns and exclusive tournament access to investors.",
-              logo: "/placeholder.svg"
+              logo: "/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png"
             }
           ].map((client, index) => (
             <Card key={index} className="bg-card border-0 shadow-lg">

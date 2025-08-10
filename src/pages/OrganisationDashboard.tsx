@@ -5,14 +5,48 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { OrganisationLogin } from "@/components/OrganisationLogin";
+import { InvestorMessaging } from "@/components/InvestorMessaging";
 
 export default function OrganisationDashboard() {
   const [selectedMetric, setSelectedMetric] = useState("overview");
+  const [showLogin, setShowLogin] = useState(true);
+
+  if (showLogin) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-6">
+        <Card className="card-professional w-full max-w-md">
+          <CardHeader className="text-center">
+            <div className="mx-auto mb-4 p-4 bg-primary/20 rounded-xl w-fit">
+              <OptimizedImage
+                src="/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"
+                alt="McLaren Racing logo"
+                className="w-16 h-16 object-contain"
+              />
+            </div>
+            <CardTitle className="text-2xl">McLaren Employee Portal</CardTitle>
+            <p className="text-muted-foreground">Access your organization dashboard and investor analytics</p>
+          </CardHeader>
+          <CardContent>
+            <OrganisationLogin />
+            <Button 
+              variant="ghost" 
+              className="w-full mt-4"
+              onClick={() => setShowLogin(false)}
+            >
+              Continue as Demo User
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-6">
         <div className="p-4 bg-white rounded-2xl shadow-lg border">
           <OptimizedImage
             src={"/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"}
@@ -20,11 +54,18 @@ export default function OrganisationDashboard() {
             className="w-16 h-16 object-contain"
           />
         </div>
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-gradient">McLaren F1 Dashboard</h1>
-          <p className="text-lg text-muted-foreground">Organisation insights and investor metrics</p>
-          <Badge variant="success" className="text-sm">Live Asset</Badge>
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold text-gradient">McLaren F1 Dashboard</h1>
+            <p className="text-lg text-muted-foreground">Organisation insights and investor metrics</p>
+            <Badge variant="success" className="text-sm">Live Asset</Badge>
+          </div>
         </div>
+        <Button 
+          variant="outline" 
+          onClick={() => setShowLogin(true)}
+        >
+          Logout
+        </Button>
       </div>
 
       {/* Key Investor Insights */}
@@ -254,7 +295,7 @@ export default function OrganisationDashboard() {
                   <p className="text-xl font-bold text-primary">1,247</p>
                 </div>
                 <div className="p-3 bg-muted/10 rounded-lg border">
-                  <p className="text-sm font-medium">Click Rate</p>
+                  <p className="text-sm font-medium">Purchase Rate</p>
                   <p className="text-xl font-bold text-success">34.2%</p>
                 </div>
               </div>
@@ -326,6 +367,9 @@ export default function OrganisationDashboard() {
             </CardContent>
           </Card>
       </div>
+
+      {/* Investor Communications */}
+      <InvestorMessaging />
 
       {/* Recent Activity */}
       <Card className="card-professional">

@@ -422,10 +422,11 @@ export default function AssetDetails() {
                     {assetId === 'mclaren-f1' && (
                       <>
                         <li>2024 Revenue: £253M (+18% YoY)</li>
-                        <li>Prize Money 2024: £95M (P4 WCC)</li>
+                        <li>Prize Money 2024: £95M (P1 WCC)</li>
                         <li>Commercial Revenue: £180M+</li>
                         <li>Technology Licensing: £15M annually</li>
                         <li>Cost Cap Efficiency: 95%</li>
+                        <li>Championship Lead: 516 points</li>
                       </>
                     )}
                     {assetId === 'ryder-cup' && (
@@ -452,10 +453,11 @@ export default function AssetDetails() {
                     {assetId === 'mclaren-f1' && (
                       <>
                         <li>Constructors Championships: 8 total</li>
-                        <li>2024 WCC Standing: P4 (Strong)</li>
+                        <li>2024 WCC Standing: P1 (Champions)</li>
                         <li>Driver Market Value: £200M+</li>
                         <li>F1 Global Market Share: 8-12%</li>
                         <li>Mercedes PU Partnership: Premium tech</li>
+                        <li>Commercial Partnerships: 53 active</li>
                       </>
                     )}
                     {assetId === 'ryder-cup' && (
