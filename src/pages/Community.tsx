@@ -41,7 +41,7 @@ const communityPosts: CommunityPost[] = [
     user: {
       name: "Sarah Mitchell",
       username: "sarahm_investor",
-      avatar: mariaAvatar,
+      avatar: sarahAvatar,
       verified: true
     },
     content: "Just invested in Liverpool FC through Keeps! The Diamond tier benefits are incredible - behind-the-scenes access and VIP hospitality make this feel like true ownership. This is the future of fan investment! ⚽️🔥",

@@ -28,7 +28,7 @@ const topInvestors: Investor[] = [
   {
     id: "1",
     name: "Alexander Thompson",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/alex-avatar.png",
     totalInvested: "£2,450,000",
     portfolioValue: "£3,127,500",
     returns: "+£677,500",
@@ -42,7 +42,7 @@ const topInvestors: Investor[] = [
   {
     id: "2", 
     name: "Emma Rodriguez",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/emma-avatar.png",
     totalInvested: "£2,100,000",
     portfolioValue: "£2,520,000",
     returns: "+£420,000",
@@ -56,7 +56,7 @@ const topInvestors: Investor[] = [
   {
     id: "3",
     name: "Sarah Wilson",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/sarah-avatar.png",
     totalInvested: "£1,890,000",
     portfolioValue: "£2,268,000",
     returns: "+£378,000",
@@ -70,7 +70,7 @@ const topInvestors: Investor[] = [
   {
     id: "4",
     name: "Michael Chen",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/mike-avatar.png",
     totalInvested: "£1,750,000",
     portfolioValue: "£2,065,000",
     returns: "+£315,000",
@@ -83,8 +83,8 @@ const topInvestors: Investor[] = [
   },
   {
     id: "5",
-    name: "Emma Rodriguez",
-    avatar: "/placeholder.svg",
+    name: "Rachel Martinez",
+    avatar: "/src/assets/avatars/rachel-avatar.png",
     totalInvested: "£1,600,000",
     portfolioValue: "£1,872,000",
     returns: "+£272,000",
@@ -98,7 +98,7 @@ const topInvestors: Investor[] = [
   {
     id: "6",
     name: "James Parker",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/james-avatar.png",
     totalInvested: "£1,450,000",
     portfolioValue: "£1,682,500",
     returns: "+£232,500",
@@ -112,7 +112,7 @@ const topInvestors: Investor[] = [
   {
     id: "7",
     name: "Lisa Zhang",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/lisa-avatar.png",
     totalInvested: "£1,200,000",
     portfolioValue: "£1,380,000",
     returns: "+£180,000",
@@ -125,8 +125,8 @@ const topInvestors: Investor[] = [
   },
   {
     id: "8",
-    name: "David Kumar",
-    avatar: "/placeholder.svg",
+    name: "Paul Kumar",
+    avatar: "/src/assets/avatars/paul-avatar.png",
     totalInvested: "£1,100,000",
     portfolioValue: "£1,254,000",
     returns: "+£154,000",
@@ -140,7 +140,7 @@ const topInvestors: Investor[] = [
   {
     id: "9",
     name: "Sophie Martinez",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/maria-avatar.png",
     totalInvested: "£980,000",
     portfolioValue: "£1,107,600",
     returns: "+£127,600",
@@ -153,8 +153,8 @@ const topInvestors: Investor[] = [
   },
   {
     id: "10",
-    name: "Ryan Thompson",
-    avatar: "/placeholder.svg",
+    name: "Chris Thompson",
+    avatar: "/src/assets/avatars/chris-avatar.png",
     totalInvested: "£850,000",
     portfolioValue: "£952,000",
     returns: "+£102,000",
@@ -171,7 +171,7 @@ const monthlyTopPerformers: Investor[] = [
   {
     id: "11",
     name: "Alexander Thompson",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/alex-avatar.png",
     totalInvested: "£2,450,000",
     portfolioValue: "£3,127,500",
     returns: "+£677,500",
@@ -185,7 +185,7 @@ const monthlyTopPerformers: Investor[] = [
   {
     id: "12", 
     name: "Sophie Martinez",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/maria-avatar.png",
     totalInvested: "£980,000",
     portfolioValue: "£1,107,600",
     returns: "+£127,600",
@@ -199,7 +199,7 @@ const monthlyTopPerformers: Investor[] = [
   {
     id: "13",
     name: "David Kumar",
-    avatar: "/placeholder.svg",
+    avatar: "/src/assets/avatars/david-avatar.png",
     totalInvested: "£1,100,000",
     portfolioValue: "£1,254,000",
     returns: "+£154,000",
@@ -212,8 +212,8 @@ const monthlyTopPerformers: Investor[] = [
   },
   {
     id: "14",
-    name: "Real Madrid CF",
-    avatar: "/placeholder.svg",
+    name: "Adidas AG",
+    avatar: "/src/assets/brands/adidas-logo.png",
     totalInvested: "£6,200,000",
     portfolioValue: "£7,440,000",
     returns: "+£1,240,000",
@@ -222,7 +222,7 @@ const monthlyTopPerformers: Investor[] = [
     tier: "Corporate",
     assetsOwned: 4,
     joinDate: "Apr 2024",
-    location: "Madrid, ES",
+    location: "Herzogenaurach, DE",
     isCompany: true
   }
 ];

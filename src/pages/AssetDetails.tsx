@@ -258,30 +258,32 @@ export default function AssetDetails() {
             </div>
           </div>
 
-          {/* Funding Progress */}
-          <div className="p-4 bg-gradient-to-r from-muted/20 to-muted/10 rounded-lg border">
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="font-semibold text-foreground">Funding Progress</h4>
-              <Badge variant="outline" className="font-bold">
-                {asset.fundingProgress}% Complete
-              </Badge>
-            </div>
-            <div className="space-y-2">
-              <div className="progress-bar h-4 bg-muted/30 rounded-full overflow-hidden">
-                <div 
-                  className="progress-fill h-full bg-gradient-to-r from-primary to-primary/80 transition-all duration-1000 ease-out" 
-                  style={{ width: `${asset.fundingProgress}%` }}
-                />
+          {/* Funding Progress - Only show for live assets */}
+          {asset.status !== "coming-soon" && (
+            <div className="p-4 bg-gradient-to-r from-muted/20 to-muted/10 rounded-lg border">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="font-semibold text-foreground">Funding Progress</h4>
+                <Badge variant="outline" className="font-bold">
+                  {asset.fundingProgress}% Complete
+                </Badge>
               </div>
-              <div className="flex justify-between text-sm text-muted-foreground">
-                <span>£0</span>
-                <span className="font-medium">
-                  £{(parseFloat(asset.totalFunding.replace(/[£M]/g, '')) * (asset.fundingProgress / 100)).toFixed(1)}M raised
-                </span>
-                <span>{asset.totalFunding}</span>
+              <div className="space-y-2">
+                <div className="progress-bar h-4 bg-muted/30 rounded-full overflow-hidden">
+                  <div 
+                    className="progress-fill h-full bg-gradient-to-r from-primary to-primary/80 transition-all duration-1000 ease-out" 
+                    style={{ width: `${asset.fundingProgress}%` }}
+                  />
+                </div>
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>£0</span>
+                  <span className="font-medium">
+                    £{(parseFloat(asset.totalFunding.replace(/[£M]/g, '')) * (asset.fundingProgress / 100)).toFixed(1)}M raised
+                  </span>
+                  <span>{asset.totalFunding}</span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Investment Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
