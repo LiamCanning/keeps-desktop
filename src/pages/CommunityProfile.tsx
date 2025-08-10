@@ -51,45 +51,48 @@ const userProfiles: { [key: string]: UserProfile } = {
       { type: "comment", content: "Commented on McLaren F1 discussion", timestamp: "3 days ago" },
     ]
   },
-  "f1mike": {
-    name: "Mike Rodriguez", 
-    username: "f1mike",
+  "mike_sports": {
+    name: "Mike Johnson", 
+    username: "mike_sports",
     avatar: "/src/assets/avatars/mike-avatar.png",
-    bio: "Formula 1 fanatic • McLaren investor • Tech entrepreneur • Racing enthusiast since childhood",
+    bio: "F1 technology investor • McLaren shareholder • Engineering background • Racing analytics expert",
     joinDate: "January 2024",
-    location: "London, UK",
+    location: "Birmingham, UK",
     posts: 89,
     followers: "1.8k",
     following: "654",
     investments: [
-      { name: "McLaren F1", amount: "£5,000", returns: "+22.1%", status: "Active" },
+      { name: "McLaren F1", amount: "£15,000", returns: "+22.1%", status: "Active" },
+      { name: "Liverpool FC", amount: "£3,000", returns: "+15.2%", status: "Active" },
+      { name: "Ohio State", amount: "£2,000", returns: "+8.5%", status: "Active" },
     ],
     tier: "Diamond",
     recentActivity: [
       { type: "post", content: "Posted McLaren technology centre visit experience", timestamp: "4 hours ago" },
-      { type: "investment", content: "Increased McLaren position by £1,000", timestamp: "1 week ago" },
-      { type: "comment", content: "Discussed F1 investment strategies", timestamp: "2 weeks ago" },
+      { type: "investment", content: "Increased McLaren position by £5,000", timestamp: "1 week ago" },
+      { type: "comment", content: "Discussed F1 investment strategies and technical analysis", timestamp: "2 weeks ago" },
     ]
   },
-  "golf_emma": {
-    name: "Emma Thompson",
-    username: "golf_emma", 
+  "emma_invests": {
+    name: "Emma Watson",
+    username: "emma_invests", 
     avatar: "/src/assets/avatars/emma-avatar.png",
-    bio: "Golf investment specialist • Ryder Cup debenture holder • PGA Tour insider • Investment advisor",
+    bio: "Sports investment strategist • Ryder Cup VIP • Building diverse portfolio • Golf content creator",
     joinDate: "February 2024",
     location: "Edinburgh, Scotland",
     posts: 156,
     followers: "3.1k",
     following: "423",
     investments: [
-      { name: "Ryder Cup", amount: "£3,200", returns: "+12.8%", status: "Active" },
-      { name: "Liverpool FC", amount: "£800", returns: "+15.2%", status: "Active" },
+      { name: "Ryder Cup", amount: "£8,000", returns: "+12.8%", status: "Active" },
+      { name: "Cardiff City", amount: "£2,500", returns: "+9.4%", status: "Active" },
+      { name: "Hexagon Cup", amount: "£1,500", returns: "+7.2%", status: "Active" },
     ],
     tier: "Platinum",
     recentActivity: [
-      { type: "post", content: "Analyzed Ryder Cup investment performance", timestamp: "6 hours ago" },
-      { type: "investment", content: "Added to Ryder Cup position", timestamp: "3 days ago" },
-      { type: "comment", content: "Shared golf market insights", timestamp: "1 week ago" },
+      { type: "post", content: "Analyzed Ryder Cup investment performance and strategy insights", timestamp: "6 hours ago" },
+      { type: "investment", content: "Added £2,000 to Ryder Cup position", timestamp: "3 days ago" },
+      { type: "comment", content: "Shared golf market insights and tournament predictions", timestamp: "1 week ago" },
     ]
   }
 };

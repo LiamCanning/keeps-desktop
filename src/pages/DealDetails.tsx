@@ -213,14 +213,14 @@ export default function DealDetails() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-destructive/5 to-destructive/10 rounded-lg">
-                  <Trophy className="w-5 h-5 text-yellow-500" />
-                  <div className="flex-1">
-                    <div className="font-semibold">Nike</div>
-                    <div className="text-sm text-muted-foreground">Corporate Sponsor</div>
+                  <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-destructive/5 to-destructive/10 rounded-lg">
+                    <Trophy className="w-5 h-5 text-yellow-500" />
+                    <div className="flex-1">
+                      <div className="font-semibold">Adidas</div>
+                      <div className="text-sm text-muted-foreground">Corporate Sponsor</div>
+                    </div>
+                    <div className="font-bold text-destructive">£5.0M</div>
                   </div>
-                  <div className="font-bold text-destructive">£5.0M</div>
-                </div>
                 <div className="flex items-center gap-3 p-3 hover:bg-accent/50 rounded-lg">
                   <div className="w-5 h-5 flex items-center justify-center">
                     <Crown className="w-4 h-4 text-yellow-500" />

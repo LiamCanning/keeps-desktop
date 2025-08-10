@@ -12,7 +12,7 @@ import liamAvatar from "@/assets/liam-avatar.png";
 import axaLogo from "@/assets/brands/axa-logo.png";
 import bmwLogo from "@/assets/brands/bmw-logo.png";
 import cadburyLogo from "@/assets/brands/cadbury-logo.png";
-import nikeLogo from "@/assets/brands/nike-logo.png";
+import adidasLogo from "@/assets/brands/adidas-logo.png";
 import rolexLogo from "@/assets/brands/rolex-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
 
@@ -41,7 +41,7 @@ const favoriteTeams: FavoriteTeam[] = [
 
 // Brand logos mapping
 const brandLogos: Record<string, string> = {
-  "Nike": nikeLogo,
+  "Adidas": adidasLogo,
   "Rolex": rolexLogo,
   "AXA": axaLogo,
   "Santander": santanderLogo,
@@ -52,9 +52,9 @@ const brandLogos: Record<string, string> = {
 const dataPartners: DataPartner[] = [
   {
     id: "1",
-    name: "Nike",
-    logo: nikeLogo,
-    description: "Sports gear discounts and exclusive athlete meet & greets",
+    name: "Adidas",
+    logo: adidasLogo,
+    description: "Premium sportswear discounts and exclusive football gear access",
     optedIn: true
   },
   {

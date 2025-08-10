@@ -13,7 +13,7 @@ import jamesAvatar from "@/assets/avatars/james-avatar.png";
 import mariaAvatar from "@/assets/avatars/maria-avatar.png";
 
 // Import brand logos
-import nikeLogo from "@/assets/brands/nike-logo.png";
+import adidasLogo from "@/assets/brands/adidas-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
 // Placeholder until new logos are uploaded
 const liverpoolLogo = "/placeholder.svg";
@@ -53,12 +53,12 @@ const notifications: Notification[] = [
   {
     id: "3",
     type: "brand_news",
-    title: "Nike Partnership Update",
-    message: "New exclusive gear collection launched for sports investors - 25% discount available",
+    title: "Adidas Partnership Update",
+    message: "New exclusive football gear collection launched for sports investors - 25% discount available",
     timestamp: "1h ago",
     read: false,
-    brand: "Nike",
-    brandLogo: nikeLogo
+    brand: "Adidas",
+    brandLogo: adidasLogo
   },
   {
     id: "4",
