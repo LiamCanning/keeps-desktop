@@ -201,15 +201,24 @@ export default function SellShares() {
                   <Label htmlFor="shares">
                     Number of {selectedHolding.name === "Ryder Cup" ? "debentures" : selectedHolding.type.toLowerCase() + "s"} to sell
                   </Label>
-                  <Input
-                    id="shares"
-                    type="number"
-                    max={selectedHolding.shares}
-                    min="1"
-                    placeholder={`Max: ${selectedHolding.shares}`}
-                    value={sharesToSell}
-                    onChange={(e) => setSharesToSell(e.target.value)}
-                  />
+                  <div className="flex gap-2">
+                    <Input
+                      id="shares"
+                      type="number"
+                      max={selectedHolding.shares}
+                      min="1"
+                      placeholder={`Max: ${selectedHolding.shares}`}
+                      value={sharesToSell}
+                      onChange={(e) => setSharesToSell(e.target.value)}
+                    />
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setSharesToSell(selectedHolding.shares.toString())}
+                      className="px-6 bg-success/10 border-success text-success hover:bg-success hover:text-white"
+                    >
+                      Max
+                    </Button>
+                  </div>
                   <p className="text-xs text-muted-foreground">
                     You own {selectedHolding.shares} {selectedHolding.name === "Ryder Cup" ? "debentures" : selectedHolding.type.toLowerCase() + "s"}
                   </p>

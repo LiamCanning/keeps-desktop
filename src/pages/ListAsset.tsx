@@ -219,16 +219,25 @@ export default function ListAsset() {
                   <Label htmlFor="quantity" className="text-base font-semibold">
                     Quantity to Sell
                   </Label>
-                  <Input
-                    id="quantity"
-                    type="number"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                    min="1"
-                    max={asset.totalShares}
-                    placeholder={`Enter number of ${asset.name === "Ryder Cup" ? "debentures" : "shares"}`}
-                    className="text-lg py-3 h-12"
-                  />
+                  <div className="flex gap-2">
+                    <Input
+                      id="quantity"
+                      type="number"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      min="1"
+                      max={asset.totalShares}
+                      placeholder={`Enter number of ${asset.name === "Ryder Cup" ? "debentures" : "shares"}`}
+                      className="text-lg py-3 h-12"
+                    />
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setQuantity(asset.totalShares.toString())}
+                      className="px-6 bg-success/10 border-success text-success hover:bg-success hover:text-white"
+                    >
+                      Max
+                    </Button>
+                  </div>
                   <p className="text-sm text-muted-foreground">
                     Maximum: {asset.totalShares} {asset.name === "Ryder Cup" ? "debentures" : "shares"} available
                   </p>
