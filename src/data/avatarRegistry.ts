@@ -12,10 +12,6 @@ import maria from "@/assets/avatars/maria-avatar.png";
 import mike from "@/assets/avatars/mike-avatar.png";
 import sarah from "@/assets/avatars/sarah-avatar.png";
 
-import sports1 from "@/assets/mclaren-racing.jpg";
-import sports2 from "@/assets/ryder-cup-golf.jpg";
-import sports3 from "@/assets/liverpool-squad.jpg";
-
 // Newly generated generic avatars
 import a01 from "@/assets/avatars/avatar-01.png";
 import a02 from "@/assets/avatars/avatar-02.png";
@@ -37,66 +33,24 @@ export const avatarPool: string[] = [
   a01, a02, a03, a04, a05, a06, a07, a08, a09, a10, a11, a12, a13,
 ];
 
-// Gender-aware subsets and generic sports fallbacks
-const femaleAvatars = [emma, lisa, maria, sarah, a01, a03, a05, a07, a09, a11, a13];
-const maleAvatars = [alex, david, f1Fan, golfFan, james, mike, liverpoolFan, a02, a04, a06, a08, a10, a12];
-const genericSports = [sports1, sports2, sports3];
-
-const femaleNames = new Set([
-  "sarah","emma","lisa","maria","jennifer","rachel","chloe","sophie","ava","elena","nina","priya"
-]);
-const maleNames = new Set([
-  "david","mike","alex","james","marcus","tom","paul","chris","daniel","hiro","jonas","omar","luca","wei"
-]);
-
-// Assign unique avatars deterministically with gender-aware choices
+// Assign unique avatars to a list of names deterministically (stable across reloads)
 export function assignAvatars(names: string[]): Record<string, string> {
   const map: Record<string, string> = {};
   const used = new Set<string>();
+  // Deduplicate names preserving order
   const uniqueNames = Array.from(new Set(names.filter(Boolean)));
 
-  // Rotating indices for each pool
-  let femaleIdx = 0, maleIdx = 0, genericIdx = 0, fallbackIdx = 0;
-
+  let poolIndex = 0;
   for (const name of uniqueNames) {
     if (map[name]) continue;
-    const first = name.split(" ")[0]?.toLowerCase() || "";
-
-    let pool: string[];
-    if (femaleNames.has(first)) pool = femaleAvatars;
-    else if (maleNames.has(first)) pool = maleAvatars;
-    else pool = genericSports.concat(avatarPool);
-
-    // pick next unused from pool
-    let chosen: string | undefined;
-    let attempts = 0;
-    let startIdx = 0;
-    if (pool === femaleAvatars) startIdx = femaleIdx;
-    else if (pool === maleAvatars) startIdx = maleIdx;
-    else startIdx = genericIdx;
-
-    while (attempts < pool.length) {
-      const idx = (startIdx + attempts) % pool.length;
-      if (!used.has(pool[idx])) {
-        chosen = pool[idx];
-        break;
-      }
-      attempts++;
+    // Advance until we find an unused avatar in the pool
+    while (poolIndex < avatarPool.length && used.has(avatarPool[poolIndex])) {
+      poolIndex++;
     }
-
-    if (!chosen) {
-      // fallback to global pool to guarantee assignment
-      while (used.has(avatarPool[fallbackIdx % avatarPool.length])) fallbackIdx++;
-      chosen = avatarPool[fallbackIdx % avatarPool.length];
-      fallbackIdx++;
-    }
-
-    map[name] = chosen;
-    used.add(chosen);
-
-    if (pool === femaleAvatars) femaleIdx++;
-    else if (pool === maleAvatars) maleIdx++;
-    else genericIdx++;
+    const avatar = avatarPool[poolIndex % avatarPool.length];
+    map[name] = avatar;
+    used.add(avatar);
+    poolIndex++;
   }
   return map;
 }
