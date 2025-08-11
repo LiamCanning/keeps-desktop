@@ -9,14 +9,13 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 h-14 mb-2">
               <img 
                 src="/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png" 
                 alt="Keeps" 
-                className="h-12 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
             </div>
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
             <div className="text-sm text-muted-foreground space-y-1">
               <p>Vessel Social Ltd</p>
               <p>2 Hilliards Court, Chester Business Park</p>
@@ -27,7 +26,9 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
+            <div className="h-14 flex items-end mb-2">
+              <h3 className="font-semibold text-foreground">Company</h3>
+            </div>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/about-us" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -54,7 +55,9 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Legal</h3>
+            <div className="h-14 flex items-end mb-2">
+              <h3 className="font-semibold text-foreground">Legal</h3>
+            </div>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/terms-and-conditions" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -81,7 +84,9 @@ export function Footer() {
 
           {/* Support & Platform */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Support</h3>
+            <div className="h-14 flex items-end mb-2">
+              <h3 className="font-semibold text-foreground">Support</h3>
+            </div>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/support-hub" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -107,10 +112,10 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-8">
             <div className="text-xs text-muted-foreground">
               <p>© {currentYear} Vessel Social Ltd. All rights reserved.</p>
-              <p className="mt-1">Keeps is a registered trademark of Vessel Social Ltd</p>
-              <p className="mt-1">a company incorporated in England and Wales with company number 14833447.</p>
+              <p className="mt-1">Keeps is a registered trademark of Vessel Social Ltd.</p>
+              <p className="mt-3">A company incorporated in England and Wales with company number 14833447.</p>
             </div>
-            <div className="text-xs text-muted-foreground">
+            <div className="text-xs text-muted-foreground mt-6 sm:mt-0">
               <p>Registered office: 2 Hilliards Court, Chester Business Park, Chester, Cheshire, CH4 9QP.</p>
             </div>
           </div>
