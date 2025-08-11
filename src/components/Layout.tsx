@@ -1,12 +1,13 @@
 import { ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider, useSidebar } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Footer } from "@/components/Footer";
-import { Bell, Search, Menu } from "lucide-react";
+import { Bell, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import keepsLogo from "@/assets/keeps-logo.png";
 
 interface LayoutProps {
   children: ReactNode;
@@ -46,6 +47,21 @@ export function Layout({ children }: LayoutProps) {
     setShowDropdown(false);
   };
 
+  const MobileSidebarLogoButton = () => {
+    const { toggleSidebar } = useSidebar();
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        className="lg:hidden p-0 min-h-[44px] min-w-[44px] rounded-md hover:bg-sidebar-accent"
+        onClick={toggleSidebar}
+        aria-label="Open menu"
+      >
+        <img src={keepsLogo} alt="Keeps logo - open menu" className="h-6 w-auto" />
+      </Button>
+    );
+  };
+
   return (
     <SidebarProvider defaultOpen>
       <div className="min-h-screen flex w-full bg-background">
@@ -56,9 +72,7 @@ export function Layout({ children }: LayoutProps) {
           <header className="h-16 border-b border-sidebar-border bg-background/95 backdrop-blur-sm sticky top-0 z-40">
             <div className="flex items-center justify-between h-full px-6">
               <div className="flex items-center gap-2 sm:gap-4 flex-1">
-                <SidebarTrigger className="lg:hidden bg-sidebar-accent hover:bg-sidebar-accent/80 text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center">
-                  <Menu className="w-5 h-5" />
-                </SidebarTrigger>
+                <MobileSidebarLogoButton />
                 
                 <div className="flex items-center gap-2 flex-1 max-w-full">
                   <div className="relative flex-1 max-w-2xl">

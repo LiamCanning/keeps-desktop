@@ -15,6 +15,7 @@ import cadburyLogo from "@/assets/brands/cadbury-logo.png";
 import adidasLogo from "@/assets/brands/adidas-logo.png";
 import rolexLogo from "@/assets/brands/rolex-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 
 interface FavoriteTeam {
@@ -116,7 +117,24 @@ export default function Account() {
 
       {/* Account Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-6 lg:w-auto lg:grid-cols-6">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select account section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="profile">Profile</SelectItem>
+              <SelectItem value="account-settings">Settings</SelectItem>
+              <SelectItem value="notifications">Notifications</SelectItem>
+              <SelectItem value="security">Security</SelectItem>
+              <SelectItem value="automated-investing">Auto Investing</SelectItem>
+              <SelectItem value="data">Data</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <TabsList className="hidden md:grid w-full grid-cols-6 lg:w-auto lg:grid-cols-6">
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="account-settings">Settings</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
