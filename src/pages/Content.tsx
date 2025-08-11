@@ -468,29 +468,30 @@ export default function Content() {
       </div>
 
       {/* Enhanced Content Discovery */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        {/* Mobile tab selector */}
-        <div className="md:hidden mb-3">
-          <Select value={activeTab} onValueChange={setActiveTab}>
-            <SelectTrigger aria-label="Select content section">
-              <SelectValue placeholder="Select section" />
-            </SelectTrigger>
-            <SelectContent className="z-50">
-              <SelectItem value="portfolio">Your Assets</SelectItem>
-              <SelectItem value="trending">Trending</SelectItem>
-              <SelectItem value="news">Latest News</SelectItem>
-              <SelectItem value="reels">Videos</SelectItem>
-              <SelectItem value="all">All Content</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-          <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
-          <TabsTrigger value="trending">Trending</TabsTrigger>
-          <TabsTrigger value="news">Latest News</TabsTrigger>
-          <TabsTrigger value="reels">Videos</TabsTrigger>
-          <TabsTrigger value="all">All Content</TabsTrigger>
-        </TabsList>
+      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          {/* Mobile tab selector */}
+          <div className="md:hidden mb-3">
+            <Select value={activeTab} onValueChange={setActiveTab}>
+              <SelectTrigger aria-label="Select content section">
+                <SelectValue placeholder="Select section" />
+              </SelectTrigger>
+              <SelectContent className="z-50">
+                <SelectItem value="portfolio">Your Assets</SelectItem>
+                <SelectItem value="trending">Trending</SelectItem>
+                <SelectItem value="news">Latest News</SelectItem>
+                <SelectItem value="reels">Videos</SelectItem>
+                <SelectItem value="all">All Content</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+            <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
+            <TabsTrigger value="trending">Trending</TabsTrigger>
+            <TabsTrigger value="news">Latest News</TabsTrigger>
+            <TabsTrigger value="reels">Videos</TabsTrigger>
+            <TabsTrigger value="all">All Content</TabsTrigger>
+          </TabsList>
 
         <TabsContent value="portfolio" className="mt-6">
           <div className="space-y-4">

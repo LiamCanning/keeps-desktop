@@ -116,7 +116,7 @@ export function Layout({ children }: LayoutProps) {
                 >
                   <Bell className="w-5 h-5" />
                   <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 text-xs bg-primary flex items-center justify-center">
-                    3
+                    4
                   </Badge>
                 </Button>
               </div>

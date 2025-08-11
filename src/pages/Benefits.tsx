@@ -213,7 +213,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
 }
 
 export default function Benefits() {
-  const [activeTab, setActiveTab] = useState("live");
+  const [activeTab, setActiveTab] = useState("all");
 
   const filteredBenefits = benefits.filter(benefit => {
     if (activeTab === "all") return true;
@@ -298,7 +298,7 @@ export default function Benefits() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card">
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="all">All Assets</TabsTrigger>
           <TabsTrigger value="live" className="flex items-center justify-center gap-2">
             <div className="w-2 h-2 bg-success rounded-full"></div>

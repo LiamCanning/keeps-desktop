@@ -15,11 +15,11 @@ import jamesAvatar from "@/assets/avatars/james-avatar.png";
 import mariaAvatar from "@/assets/avatars/maria-avatar.png";
 
 // Import brand logos
-import adidasLogo from "@/assets/brands/adidas-logo.png";
+import rolexLogo from "@/assets/brands/rolex-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
+import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 // Placeholder until new logos are uploaded
 const liverpoolLogo = "/placeholder.svg";
-const mclarenLogo = "/placeholder.svg";
 
 interface Notification {
   id: string;
@@ -55,12 +55,12 @@ const notifications: Notification[] = [
   {
     id: "3",
     type: "brand_news",
-    title: "Adidas Partnership Update",
-    message: "New exclusive football gear collection launched for sports investors - 25% discount available",
+    title: "Rolex Partnership Update",
+    message: "Exclusive Rolex benefits launched for Keeps investors – limited edition access and member offers",
     timestamp: "1h ago",
     read: false,
-    brand: "Adidas",
-    brandLogo: adidasLogo
+    brand: "Rolex",
+    brandLogo: rolexLogo
   },
   {
     id: "4",
@@ -296,78 +296,80 @@ export default function Notifications() {
       </div>
 
       {/* Notification Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        {/* Mobile tab selector */}
-        <div className="md:hidden mb-3">
-          <Select value={activeTab} onValueChange={setActiveTab}>
-            <SelectTrigger aria-label="Select notifications section">
-              <SelectValue placeholder="Select section" />
-            </SelectTrigger>
-            <SelectContent className="z-50">
-              <SelectItem value="all">All Notifications</SelectItem>
-              <SelectItem value="users">User Activity</SelectItem>
-              <SelectItem value="brands">Brand News</SelectItem>
-              <SelectItem value="assets">Asset Updates</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-          <TabsTrigger value="all">All Notifications</TabsTrigger>
-          <TabsTrigger value="users">User Activity</TabsTrigger>
-          <TabsTrigger value="brands">Brand News</TabsTrigger>
-          <TabsTrigger value="assets">Asset Updates</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="all" className="mt-6">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">All Notifications</h2>
-              <Button variant="outline" size="sm">
-                Mark All as Read
-              </Button>
-            </div>
-            
-            <div className="space-y-3">
-              {notifications.map((notification) => (
-                <NotificationCard key={notification.id} notification={notification} />
-              ))}
-            </div>
+      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          {/* Mobile tab selector */}
+          <div className="md:hidden mb-3">
+            <Select value={activeTab} onValueChange={setActiveTab}>
+              <SelectTrigger aria-label="Select notifications section">
+                <SelectValue placeholder="Select section" />
+              </SelectTrigger>
+              <SelectContent className="z-50">
+                <SelectItem value="all">All Notifications</SelectItem>
+                <SelectItem value="users">User Activity</SelectItem>
+                <SelectItem value="brands">Brand News</SelectItem>
+                <SelectItem value="assets">Asset Updates</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-        </TabsContent>
+          <TabsList className="hidden md:grid w-full grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+            <TabsTrigger value="all">All Notifications</TabsTrigger>
+            <TabsTrigger value="users">User Activity</TabsTrigger>
+            <TabsTrigger value="brands">Brand News</TabsTrigger>
+            <TabsTrigger value="assets">Asset Updates</TabsTrigger>
+          </TabsList>
 
-        <TabsContent value="users" className="mt-6">
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-foreground">User Activity</h2>
-            <div className="space-y-3">
-              {userNotifications.map((notification) => (
-                <NotificationCard key={notification.id} notification={notification} />
-              ))}
+          <TabsContent value="all" className="mt-6">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-semibold text-foreground">All Notifications</h2>
+                <Button variant="outline" size="sm">
+                  Mark All as Read
+                </Button>
+              </div>
+              
+              <div className="space-y-3">
+                {notifications.map((notification) => (
+                  <NotificationCard key={notification.id} notification={notification} />
+                ))}
+              </div>
             </div>
-          </div>
-        </TabsContent>
+          </TabsContent>
 
-        <TabsContent value="brands" className="mt-6">
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-foreground">Brand News</h2>
-            <div className="space-y-3">
-              {brandNotifications.map((notification) => (
-                <NotificationCard key={notification.id} notification={notification} />
-              ))}
+          <TabsContent value="users" className="mt-6">
+            <div className="space-y-4">
+              <h2 className="text-xl font-semibold text-foreground">User Activity</h2>
+              <div className="space-y-3">
+                {userNotifications.map((notification) => (
+                  <NotificationCard key={notification.id} notification={notification} />
+                ))}
+              </div>
             </div>
-          </div>
-        </TabsContent>
+          </TabsContent>
 
-        <TabsContent value="assets" className="mt-6">
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-foreground">Asset Updates</h2>
-            <div className="space-y-3">
-              {assetNotifications.map((notification) => (
-                <NotificationCard key={notification.id} notification={notification} />
-              ))}
+          <TabsContent value="brands" className="mt-6">
+            <div className="space-y-4">
+              <h2 className="text-xl font-semibold text-foreground">Brand News</h2>
+              <div className="space-y-3">
+                {brandNotifications.map((notification) => (
+                  <NotificationCard key={notification.id} notification={notification} />
+                ))}
+              </div>
             </div>
-          </div>
-        </TabsContent>
-      </Tabs>
+          </TabsContent>
+
+          <TabsContent value="assets" className="mt-6">
+            <div className="space-y-4">
+              <h2 className="text-xl font-semibold text-foreground">Asset Updates</h2>
+              <div className="space-y-3">
+                {assetNotifications.map((notification) => (
+                  <NotificationCard key={notification.id} notification={notification} />
+                ))}
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 }

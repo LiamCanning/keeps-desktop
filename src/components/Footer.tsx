@@ -118,9 +118,6 @@ export function Footer() {
               <p className="mt-1">Keeps is a registered trademark of Vessel Social Ltd.</p>
               <p className="mt-3">A company incorporated in England and Wales with company number 14833447.</p>
             </div>
-            <div className="text-xs text-muted-foreground mt-6 sm:mt-0">
-              <p>Registered office: 2 Hilliards Court, Chester Business Park, Chester, Cheshire, CH4 9QP.</p>
-            </div>
           </div>
         </div>
       </div>

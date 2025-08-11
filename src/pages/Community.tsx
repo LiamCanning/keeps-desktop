@@ -271,27 +271,28 @@ export default function Community() {
       </div>
 
       {/* Community Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        {/* Mobile tab selector */}
-        <div className="md:hidden mb-3">
-          <Select value={activeTab} onValueChange={setActiveTab}>
-            <SelectTrigger aria-label="Select community section">
-              <SelectValue placeholder="Select section" />
-            </SelectTrigger>
-            <SelectContent className="z-50">
-              <SelectItem value="timeline">Community Timeline</SelectItem>
-              <SelectItem value="forum">Forum</SelectItem>
-              <SelectItem value="create">Create Post</SelectItem>
-              <SelectItem value="people">People</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-          <TabsTrigger value="timeline">Community Timeline</TabsTrigger>
-          <TabsTrigger value="forum">Forum</TabsTrigger>
-          <TabsTrigger value="create">Create Post</TabsTrigger>
-          <TabsTrigger value="people">People</TabsTrigger>
-        </TabsList>
+      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          {/* Mobile tab selector */}
+          <div className="md:hidden mb-3">
+            <Select value={activeTab} onValueChange={setActiveTab}>
+              <SelectTrigger aria-label="Select community section">
+                <SelectValue placeholder="Select section" />
+              </SelectTrigger>
+              <SelectContent className="z-50">
+                <SelectItem value="timeline">Community Timeline</SelectItem>
+                <SelectItem value="forum">Forum</SelectItem>
+                <SelectItem value="create">Create Post</SelectItem>
+                <SelectItem value="people">People</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+            <TabsTrigger value="timeline">Community Timeline</TabsTrigger>
+            <TabsTrigger value="forum">Forum</TabsTrigger>
+            <TabsTrigger value="create">Create Post</TabsTrigger>
+            <TabsTrigger value="people">People</TabsTrigger>
+          </TabsList>
 
         <TabsContent value="timeline" className="mt-6">
           <div className="space-y-6">

@@ -321,7 +321,7 @@ export default function PrimaryPurchase() {
                     </div>
                     <div className="flex justify-between font-semibold text-lg">
                       <span>Total investment:</span>
-                      <span>£{(investmentData.shares * deal.pricePerShare).toLocaleString()}</span>
+                      <span className="text-success font-bold">£{(investmentData.shares * deal.pricePerShare).toLocaleString()}</span>
                     </div>
                   </div>
                 )}
