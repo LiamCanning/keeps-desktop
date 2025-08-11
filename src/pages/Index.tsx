@@ -13,7 +13,7 @@ export default function Index() {
     {
       id: "liverpool-fc",
       name: "Liverpool FC",
-      logo: "/placeholder.svg",
+      logo: "/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png",
       title: "Fund Anfield stadium capacity to 75,000",
       type: "Equity Investment",
       amount: "£40,000,000",
@@ -25,7 +25,7 @@ export default function Index() {
     {
       id: "mclaren-f1",
       name: "McLaren Racing",
-      logo: "/placeholder.svg",
+      logo: "/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png",
       title: "McLaren Racing Technology Development",
       type: "Income Sharing Agreement",
       amount: "£50,000,000",
@@ -37,7 +37,7 @@ export default function Index() {
     {
       id: "ryder-cup",
       name: "Ryder Cup",
-      logo: "/placeholder.svg",
+      logo: "/lovable-uploads/6e897916-7050-40ca-a142-0d028232a4b7.png",
       title: "Ryder Cup 2025 Debenture Programme",
       type: "Debentures",
       amount: "£42,500,000",
@@ -67,7 +67,7 @@ export default function Index() {
               Own a piece of legendary teams and tournaments. Access exclusive benefits while building your sports investment portfolio.
             </p>
             <div className="flex items-center justify-center gap-4 pt-4">
-              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/')}>
+              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/dashboard')}>
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Start Investing
               </Button>
@@ -226,7 +226,7 @@ export default function Index() {
               Join thousands of investors already backing the world's greatest sports assets
             </p>
             <div className="flex items-center justify-center gap-4 pt-4">
-              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/')}>
+              <Button size="lg" className="btn-invest text-lg px-8 py-4" onClick={() => navigate('/dashboard')}>
                 <Star className="w-5 h-5 mr-2" />
                 View Live Deals
               </Button>
