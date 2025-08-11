@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Calculator, Shield, Trophy, Crown, Diamond as DiamondIcon, Star } from "lucide-react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { ArrowLeft, Calculator, Shield, Trophy, Crown, Diamond as DiamondIcon, Star, Check, FileCheck } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
+import { assetTiers } from "@/components/BenefitsTiers";
 
 interface Asset {
   id: string;
@@ -164,7 +165,7 @@ export default function PrimaryOffering() {
 
   // Calculations
   const subtotal = isDebenture
-    ? (selectedAmount || 0)
+    ? (selectedAmount || 0) * Math.min(Math.max(quantityNum, 0), 4)
     : quantityNum * pricePerShare;
   const processingFee = subtotal * (asset.processingFee || 0.1);
   const total = subtotal + processingFee;
@@ -229,6 +230,14 @@ export default function PrimaryOffering() {
 
   const currentTierData = benefitTiers.find((t) => t.id === currentTier);
   const TierIcon = (currentTierData?.icon as any) || Shield;
+  const assetKeyMap: Record<string, 'liverpool' | 'mclaren' | 'rydercup'> = {
+    'liverpool-fc': 'liverpool',
+    'mclaren-racing': 'mclaren',
+    'ryder-cup': 'rydercup',
+  };
+  const assetKey = assetKeyMap[asset.id];
+  const selectedTierBenefits: string[] =
+    (assetKey && (assetTiers as any)[assetKey]?.[currentTier]?.benefits) || [];
 
   const Stepper = () => {
     const steps = [
@@ -239,14 +248,27 @@ export default function PrimaryOffering() {
       { id: 5, label: 'Review' },
     ];
     return (
-      <div className="flex items-center justify-between gap-2 p-3 rounded-lg border bg-muted/30">
-        {steps.map((s, idx) => (
-          <div key={s.id} className="flex items-center gap-2 flex-1">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${currentStep >= s.id ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>{s.id}</div>
-            <span className={`text-sm ${currentStep >= s.id ? 'text-foreground' : 'text-muted-foreground'}`}>{s.label}</span>
-            {idx < steps.length - 1 && <div className="h-[2px] flex-1 bg-muted" />}
-          </div>
-        ))}
+      <div className="w-full p-4 rounded-lg border bg-muted/30">
+        <div className="flex items-center gap-4">
+          {steps.map((s, idx) => {
+            const isCompleted = currentStep > s.id;
+            const isActive = currentStep === s.id;
+            return (
+              <div key={s.id} className="flex items-center gap-3 flex-1 min-w-0">
+                <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold
+                  ${isCompleted || isActive ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                  {isCompleted ? <Check className="w-5 h-5" /> : s.id}
+                </div>
+                <span className={`text-sm truncate ${isCompleted || isActive ? 'text-foreground' : 'text-muted-foreground'}`}>
+                  {s.label}
+                </span>
+                {idx < steps.length - 1 && (
+                  <div className={`h-[3px] flex-1 rounded ${currentStep > s.id ? 'bg-primary' : 'bg-muted'}`} />
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   };
@@ -345,8 +367,9 @@ export default function PrimaryOffering() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
-                  <div className="flex items-center space-x-3 p-4 border rounded-lg bg-accent/20 border-accent/30">
+                  <div className="flex items-center gap-3 p-4 border rounded-lg bg-accent/20 border-accent/30">
                     <RadioGroupItem value="card" id="card" />
+                    <img src="/assets/visa.svg" alt="Visa logo" className="w-8 h-8" loading="lazy" />
                     <div className="flex-1">
                       <label htmlFor="card" className="font-medium cursor-pointer">Visa **** 4829</label>
                       <p className="text-sm text-muted-foreground">Expires 09/27 • Primary payment method</p>
@@ -390,7 +413,7 @@ export default function PrimaryOffering() {
                     <RadioGroupItem value="saved" id="v-saved" />
                     <div className="flex-1">
                       <label htmlFor="v-saved" className="font-medium cursor-pointer">Use saved verification profile</label>
-                      <p className="text-sm text-muted-foreground">Profile: Verified on 15 Jun 2024</p>
+                      <p className="text-sm text-muted-foreground">Verified 15 Jun 2025</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
@@ -418,7 +441,9 @@ export default function PrimaryOffering() {
                 <div className="flex items-start gap-3 p-4 rounded-lg border bg-muted/20">
                   <Checkbox id="terms" checked={acceptedTerms} onCheckedChange={(v) => setAcceptedTerms(Boolean(v))} />
                   <label htmlFor="terms" className="text-sm leading-6">
-                    I have read and agree to the Terms & Conditions, Risk Disclosure, and understand the investment risks including potential loss of capital.
+                    I have read and agree to the{' '}
+                    <Link to="/terms-and-conditions" className="underline text-primary">Terms & Conditions</Link>{', '}
+                    <Link to="/risk-disclosure" className="underline text-primary">Risk Disclosure</Link>, and understand the investment risks including potential loss of capital.
                   </label>
                 </div>
                 <div className="flex justify-between">
@@ -443,6 +468,36 @@ export default function PrimaryOffering() {
               </CardContent>
             </Card>
           )}
+          {/* Compliance & Security */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Shield className="w-5 h-5" />
+                  Security & Protection
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Your investment is protected by advanced encryption and secure payment processing.
+                  We work with regulated partners to ensure compliance and investor protection.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FileCheck className="w-5 h-5" />
+                  Regulatory Compliance
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  This offering adheres to SEC and FCA regulatory standards.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </section>
 
         <aside className="space-y-6">
@@ -491,46 +546,33 @@ export default function PrimaryOffering() {
               </div>
 
               {currentTierData && (
-                <div className="p-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-lg border">
+                <div
+                  className="p-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-lg border cursor-pointer hover:bg-accent/40 transition-colors"
+                  onClick={() => navigate('/benefits')}
+                  role="button"
+                  aria-label="View benefits tiers"
+                >
                   <div className="flex items-center gap-3 mb-2">
                     <div className={`p-2 rounded-lg bg-background/50 ${currentTierData.color}`}>
                       <TierIcon className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="font-semibold">{currentTierData.name} Tier</h4>
-                      <p className="text-sm text-muted-foreground">Investment tier benefits</p>
+                      <p className="text-sm text-muted-foreground">Tap to view all tier benefits</p>
                     </div>
                   </div>
+                  {selectedTierBenefits?.length > 0 && (
+                    <ul className="list-disc pl-5 space-y-1 text-sm">
+                      {selectedTierBenefits.slice(0, 4).map((b, i) => (
+                        <li key={i}>{b}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               )}
 
-              <div className="space-y-3">
-                <h4 className="font-semibold">Payment Method</h4>
-                <div className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg border">
-                  <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">VISA</div>
-                  <div className="flex-1">
-                    <p className="font-medium">**** **** **** 4532</p>
-                    <p className="text-sm text-muted-foreground">Expires 12/26</p>
-                  </div>
-                </div>
-              </div>
-
               <p className="text-xs text-muted-foreground text-center">
                 All investments carry risk. Ensure you understand the risks before investing.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="card-professional">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Shield className="w-5 h-5" />
-                Security Notice
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Your investment is protected by advanced encryption and secure payment processing. We work with regulated partners to ensure compliance and investor protection.
               </p>
             </CardContent>
           </Card>
