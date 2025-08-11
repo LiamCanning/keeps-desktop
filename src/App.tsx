@@ -91,45 +91,42 @@ const App = () => (
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/market-trends" element={<MarketTrends />} />
             <Route path="/sector-performance" element={<SectorPerformance />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/community-profile/:username" element={<CommunityProfile />} />
-          <Route path="/community-comments/:postId" element={<CommunityComments />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/community-profile/:username" element={<CommunityProfile />} />
+            <Route path="/community-profile" element={<CommunityProfile />} />
+            <Route path="/community-comments/:postId" element={<CommunityComments />} />
+            <Route path="/community-forum" element={<CommunityForum />} />
+            <Route path="/community-forum/:topicId" element={<CommunityTopicDetail />} />
+            <Route path="/community-messages" element={<CommunityMessages />} />
+            <Route path="/community-saved-posts" element={<CommunitySavedPosts />} />
+            <Route path="/community-find-people" element={<CommunityFindPeople />} />
             <Route path="/article/:id" element={<Article />} />
-            <Route path="/community-comments/:id" element={<CommunityComments />} />
             <Route path="/trade/:assetId" element={<TradingInterface />} />
+            <Route path="/assets" element={<Assets />} />
+            <Route path="/assets/:assetId" element={<AssetDetails />} />
             <Route path="/assets/:assetId/primary-offering" element={<PrimaryOffering />} />
             <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
+            <Route path="/investor-relations" element={<InvestorRelations />} />
+            <Route path="/investor-leaderboard" element={<InvestorLeaderboard />} />
             <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
-          <Route path="/investor-relations" element={<InvestorRelations />} />
-          <Route path="/investor-leaderboard" element={<InvestorLeaderboard />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/assets" element={<Assets />} />
-          <Route path="/assets/:assetId" element={<AssetDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/sell-shares" element={<SellShares />} />
-          <Route path="/request-team" element={<RequestTeam />} />
-          <Route path="/organisation-dashboard" element={<OrganisationDashboard />} />
-          <Route path="/list-asset" element={<ListAsset />} />
-          <Route path="/knowledge-base" element={<KnowledgeBase />} />
-          <Route path="/community-messages" element={<CommunityMessages />} />
-          <Route path="/community-saved-posts" element={<CommunitySavedPosts />} />
-          <Route path="/community-find-people" element={<CommunityFindPeople />} />
-          <Route path="/personal-information" element={<PersonalInformation />} />
-          <Route path="/payment-methods" element={<PaymentMethods />} />
-          <Route path="/documents-verification" element={<DocumentsVerification />} />
-          <Route path="/connected-devices" element={<ConnectedDevices />} />
-          <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
-          <Route path="/investment-history" element={<InvestmentHistory />} />
-          <Route path="/community-profile" element={<CommunityProfile />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/sell-shares" element={<SellShares />} />
             <Route path="/sell/liverpool" element={<SellShares />} />
             <Route path="/sell/mclaren" element={<SellShares />} />
             <Route path="/sell/ryder-cup" element={<SellShares />} />
+            <Route path="/request-team" element={<RequestTeam />} />
+            <Route path="/organisation-dashboard" element={<OrganisationDashboard />} />
+            <Route path="/list-asset" element={<ListAsset />} />
+            <Route path="/knowledge-base" element={<KnowledgeBase />} />
+            <Route path="/personal-information" element={<PersonalInformation />} />
+            <Route path="/payment-methods" element={<PaymentMethods />} />
+            <Route path="/documents-verification" element={<DocumentsVerification />} />
+            <Route path="/connected-devices" element={<ConnectedDevices />} />
+            <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
+            <Route path="/investment-history" element={<InvestmentHistory />} />
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/sale-confirmation" element={<SaleConfirmation />} />
-        <Route path="/community-forum" element={<CommunityForum />} />
-        <Route path="/community-forum/:topicId" element={<CommunityTopicDetail />} />
-        <Route path="/sale-confirmation" element={<SaleConfirmation />} />
             <Route path="/transaction-details/:id" element={<TransactionDetails />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
