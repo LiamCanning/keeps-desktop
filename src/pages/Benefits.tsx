@@ -322,10 +322,12 @@ export default function Benefits() {
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
-              {filteredBenefits.map((benefit) => (
-                <BenefitCard key={benefit.id} benefit={benefit} />
-              ))}
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
+                {filteredBenefits.map((benefit) => (
+                  <BenefitCard key={benefit.id} benefit={benefit} />
+                ))}
+              </div>
             </div>
             
             {filteredBenefits.length === 0 && (

@@ -17,9 +17,8 @@ import mariaAvatar from "@/assets/avatars/maria-avatar.png";
 // Import brand logos
 import rolexLogo from "@/assets/brands/rolex-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
+import liverpoolFcLogo from "@/assets/brands/liverpool-fc-logo.png";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
-// Placeholder until new logos are uploaded
-const liverpoolLogo = "/placeholder.svg";
 
 interface Notification {
   id: string;
@@ -79,7 +78,7 @@ const notifications: Notification[] = [
     timestamp: "3h ago",
     read: false,
     brand: "Liverpool FC",
-    brandLogo: liverpoolLogo
+    brandLogo: liverpoolFcLogo
   },
   {
     id: "6",
@@ -180,7 +179,7 @@ function NotificationCard({ notification }: { notification: Notification }) {
               <img 
                 src={notification.brandLogo}
                 alt={notification.brand}
-                className="w-10 h-10 rounded-lg object-cover"
+                className="w-10 h-10 rounded-lg object-contain p-1 bg-card"
               />
             ) : (
               <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
