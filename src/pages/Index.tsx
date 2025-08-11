@@ -3,8 +3,6 @@ import { TrendingUp, Shield, Trophy, Users, Star, ArrowRight } from "lucide-reac
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { OptimizedImage } from "@/components/ui/optimized-image";
-// Image imports moved to direct paths for better compatibility
 
 export default function Index() {
   const navigate = useNavigate();
