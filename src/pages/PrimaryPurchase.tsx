@@ -81,7 +81,7 @@ const primaryDeals: { [key: string]: PrimaryDeal } = {
 type Step = "amount" | "payment" | "verification" | "confirmation" | "success";
 
 export default function PrimaryPurchase() {
-  const { assetId } = useParams();
+  const { dealId } = useParams();
   const navigate = useNavigate();
   const { toast } = useToast();
   
@@ -89,8 +89,6 @@ export default function PrimaryPurchase() {
   const [investmentData, setInvestmentData] = useState({
     amount: "",
     shares: 0,
-    shareInput: "",
-    debentures: 1,
     paymentMethod: "card",
     cardDetails: {
       number: "",
@@ -107,13 +105,7 @@ export default function PrimaryPurchase() {
     riskAccepted: false
   });
 
-  // Map asset IDs to deal IDs
-  const getDealId = (assetId: string) => {
-    if (assetId === "mclaren-racing") return "mclaren-f1";
-    return assetId;
-  };
-
-  const deal = assetId ? primaryDeals[getDealId(assetId) as keyof typeof primaryDeals] : null;
+  const deal = dealId ? primaryDeals[dealId as keyof typeof primaryDeals] : null;
 
   if (!deal) {
     return (
@@ -133,10 +125,10 @@ export default function PrimaryPurchase() {
   }
 
   const steps = [
-    { id: "amount", title: "Investment Amount", completed: currentStep !== "amount" && (currentStep === "payment" || currentStep === "verification" || currentStep === "confirmation" || currentStep === "success") },
-    { id: "payment", title: "Payment Method", completed: currentStep !== "amount" && currentStep !== "payment" && (currentStep === "verification" || currentStep === "confirmation" || currentStep === "success") },
-    { id: "verification", title: "Verification", completed: currentStep !== "amount" && currentStep !== "payment" && currentStep !== "verification" && (currentStep === "confirmation" || currentStep === "success") },
-    { id: "confirmation", title: "Confirmation", completed: currentStep === "success" },
+    { id: "amount", title: "Investment Amount", completed: false },
+    { id: "payment", title: "Payment Method", completed: false },
+    { id: "verification", title: "Verification", completed: false },
+    { id: "confirmation", title: "Confirmation", completed: false },
     { id: "success", title: "Complete", completed: false }
   ];
 
@@ -145,24 +137,21 @@ export default function PrimaryPurchase() {
   const handleAmountChange = (amount: string) => {
     const numAmount = parseFloat(amount) || 0;
     
-    // For Ryder Cup, enforce tier-based amounts with debenture multiplier
+    // For Ryder Cup, enforce tier-based amounts
     if (deal.id === 'ryder-cup' && deal.tiers) {
       const exactTier = deal.tiers.find((tier: number) => numAmount === tier);
       if (exactTier) {
-        const totalAmount = exactTier * investmentData.debentures;
-        const shares = totalAmount / deal.pricePerShare;
+        const shares = exactTier / deal.pricePerShare;
         setInvestmentData(prev => ({
           ...prev,
-          amount: totalAmount.toString(),
-          shares,
-          shareInput: ""
+          amount,
+          shares
         }));
       } else {
         setInvestmentData(prev => ({
           ...prev,
           amount,
-          shares: 0,
-          shareInput: ""
+          shares: 0
         }));
       }
     } else {
@@ -171,43 +160,16 @@ export default function PrimaryPurchase() {
       setInvestmentData(prev => ({
         ...prev,
         amount,
-        shares,
-        shareInput: shares.toString()
-      }));
-    }
-  };
-
-  const handleSharesChange = (shares: string) => {
-    const numShares = parseInt(shares) || 0;
-    const amount = numShares * deal.pricePerShare;
-    setInvestmentData(prev => ({
-      ...prev,
-      shareInput: shares,
-      shares: numShares,
-      amount: amount.toString()
-    }));
-  };
-
-  const handleDebenturesChange = (debentures: number) => {
-    if (deal.id === 'ryder-cup' && deal.tiers) {
-      const selectedTier = parseFloat(investmentData.amount) / investmentData.debentures;
-      const totalAmount = selectedTier * debentures;
-      const shares = totalAmount / deal.pricePerShare;
-      setInvestmentData(prev => ({
-        ...prev,
-        debentures,
-        amount: totalAmount.toString(),
         shares
       }));
     }
   };
 
   const handleTierSelect = (tier: number) => {
-    const totalAmount = tier * investmentData.debentures;
-    const shares = totalAmount / deal.pricePerShare;
+    const shares = tier / deal.pricePerShare;
     setInvestmentData(prev => ({
       ...prev,
-      amount: totalAmount.toString(),
+      amount: tier.toString(),
       shares
     }));
   };
@@ -231,8 +193,7 @@ export default function PrimaryPurchase() {
   const canProceedFromAmount = () => {
     const amount = parseFloat(investmentData.amount) || 0;
     if (deal.id === 'ryder-cup' && deal.tiers) {
-      const tierAmount = amount / investmentData.debentures;
-      return deal.tiers.includes(tierAmount) && investmentData.shares > 0 && investmentData.debentures >= 1;
+      return deal.tiers.includes(amount) && investmentData.shares > 0;
     }
     return amount >= deal.minimumInvestment && investmentData.shares > 0;
   };
@@ -256,17 +217,11 @@ export default function PrimaryPurchase() {
   };
 
   const handleInvestment = () => {
-    // Navigate to order confirmation with investment data
-    navigate('/order-confirmation', {
-      state: {
-        assetName: deal.name,
-        quantity: investmentData.shares,
-        unitPrice: deal.pricePerShare,
-        total: parseFloat(investmentData.amount),
-        type: "primary",
-        paymentMethod: investmentData.paymentMethod
-      }
+    toast({
+      title: "Primary Investment Successful!",
+      description: `You have successfully invested £${investmentData.amount} in ${deal.name} directly from the organization.`,
     });
+    setCurrentStep("success");
   };
 
   const unitText = deal.type === 'debentures' ? 'debenture' : 'share';
@@ -292,13 +247,13 @@ export default function PrimaryPurchase() {
           <div className="flex items-center justify-between text-sm">
             {steps.map((step, index) => (
               <div key={step.id} className={`flex items-center gap-2 ${index <= currentStepIndex ? 'text-primary' : 'text-muted-foreground'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium ${
-                steps[index].completed ? 'bg-primary text-primary-foreground' :
-                index === currentStepIndex ? 'bg-primary/20 text-primary border-2 border-primary' :
-                'bg-muted text-muted-foreground'
-              }`}>
-                {steps[index].completed ? <CheckCircle className="w-4 h-4" /> : index + 1}
-              </div>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium ${
+                  index < currentStepIndex ? 'bg-primary text-primary-foreground' :
+                  index === currentStepIndex ? 'bg-primary/20 text-primary border-2 border-primary' :
+                  'bg-muted text-muted-foreground'
+                }`}>
+                  {index < currentStepIndex ? <CheckCircle className="w-4 h-4" /> : index + 1}
+                </div>
                 <span className="hidden md:block">{step.title}</span>
               </div>
             ))}
@@ -319,76 +274,39 @@ export default function PrimaryPurchase() {
               <CardContent className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="amount">Investment Amount (£)</Label>
-                   {deal.id === 'ryder-cup' && deal.tiers ? (
-                     <div className="space-y-3">
-                       <div className="grid grid-cols-2 gap-2">
-                         {deal.tiers.map((tier: number) => (
-                           <Button
-                             key={tier}
-                             variant={parseFloat(investmentData.amount) / investmentData.debentures === tier ? "default" : "outline"}
-                             onClick={() => handleTierSelect(tier)}
-                             className="text-sm"
-                           >
-                             £{tier.toLocaleString()}
-                           </Button>
-                         ))}
-                       </div>
-                       <div className="space-y-2">
-                         <Label htmlFor="debentures">Amount of Debentures (1-10)</Label>
-                         <Input
-                           id="debentures"
-                           type="number"
-                           placeholder="1"
-                           value={investmentData.debentures}
-                           onChange={(e) => handleDebenturesChange(parseInt(e.target.value) || 1)}
-                           min={1}
-                           max={10}
-                           className="w-24"
-                         />
-                       </div>
-                       <p className="text-sm text-muted-foreground">
-                         Select a debenture tier above, then choose quantity (1-10 debentures)
-                       </p>
-                     </div>
-                   ) : (
-                     <div className="space-y-4">
-                       <div className="space-y-2">
-                         <Input
-                           id="amount"
-                           type="number"
-                           placeholder={`Minimum £${deal.minimumInvestment}`}
-                           value={investmentData.amount}
-                           onChange={(e) => handleAmountChange(e.target.value)}
-                           min={deal.minimumInvestment}
-                         />
-                         <p className="text-sm text-muted-foreground">
-                           Minimum investment: £{deal.minimumInvestment.toLocaleString()}
-                         </p>
-                       </div>
-                       <div className="relative">
-                         <div className="absolute inset-0 flex items-center">
-                           <span className="w-full border-t" />
-                         </div>
-                         <div className="relative flex justify-center text-xs uppercase">
-                           <span className="bg-background px-2 text-muted-foreground">or</span>
-                         </div>
-                       </div>
-                       <div className="space-y-2">
-                         <Label htmlFor="shares">Number of Shares</Label>
-                         <Input
-                           id="shares"
-                           type="number"
-                           placeholder="Number of shares"
-                           value={investmentData.shareInput}
-                           onChange={(e) => handleSharesChange(e.target.value)}
-                           min={1}
-                         />
-                         <p className="text-sm text-muted-foreground">
-                           Price per share: £{deal.pricePerShare}
-                         </p>
-                       </div>
-                     </div>
-                   )}
+                  {deal.id === 'ryder-cup' && deal.tiers ? (
+                    <div className="space-y-3">
+                      <div className="grid grid-cols-2 gap-2">
+                        {deal.tiers.map((tier: number) => (
+                          <Button
+                            key={tier}
+                            variant={investmentData.amount === tier.toString() ? "default" : "outline"}
+                            onClick={() => handleTierSelect(tier)}
+                            className="text-sm"
+                          >
+                            £{tier.toLocaleString()}
+                          </Button>
+                        ))}
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        Select a debenture tier above (£1k, £15k, £25k, £35k, or £50k only)
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <Input
+                        id="amount"
+                        type="number"
+                        placeholder={`Minimum £${deal.minimumInvestment}`}
+                        value={investmentData.amount}
+                        onChange={(e) => handleAmountChange(e.target.value)}
+                        min={deal.minimumInvestment}
+                      />
+                      <p className="text-sm text-muted-foreground">
+                        Minimum investment: £{deal.minimumInvestment.toLocaleString()}
+                      </p>
+                    </>
+                  )}
                 </div>
 
                 {investmentData.shares > 0 && (

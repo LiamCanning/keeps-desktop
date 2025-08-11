@@ -178,7 +178,8 @@ export default function AssetDetails() {
                   if (asset.status === "coming-soon") {
                     setShowEarlyAccess(true);
                   } else {
-                    navigate(`/assets/${assetId}/primary-purchase`);
+                    const tradeId = assetId === "mclaren-racing" ? "mclaren-f1" : assetId;
+                    navigate(`/trade/${tradeId}`);
                   }
                 }}
               >
@@ -527,7 +528,7 @@ export default function AssetDetails() {
                 if (asset.status === "coming-soon") {
                   setShowEarlyAccess(true);
                 } else {
-                  navigate(`/assets/${assetId}/primary-purchase`);
+                  navigate(`/trade/${assetId}`);
                 }
               }}
             >
