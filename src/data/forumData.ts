@@ -1,32 +1,26 @@
+// Temporarily simplified avatar loading for debugging
 import sarahAvatar from '@/assets/avatars/sarah-avatar.png';
 import mikeAvatar from '@/assets/avatars/mike-avatar.png';
 import emmaAvatar from '@/assets/avatars/emma-avatar.png';
 import jamesAvatar from '@/assets/avatars/james-avatar.png';
 import lisaAvatar from '@/assets/avatars/lisa-avatar.png';
 import davidAvatar from '@/assets/avatars/david-avatar.png';
-import a01 from '@/assets/avatars/avatar-01.png';
-import a02 from '@/assets/avatars/avatar-02.png';
-import a03 from '@/assets/avatars/avatar-03.png';
-import a04 from '@/assets/avatars/avatar-04.png';
-import a05 from '@/assets/avatars/avatar-05.png';
-import a06 from '@/assets/avatars/avatar-06.png';
-import a07 from '@/assets/avatars/avatar-07.png';
-import a08 from '@/assets/avatars/avatar-08.png';
-import a09 from '@/assets/avatars/avatar-09.png';
-import a10 from '@/assets/avatars/avatar-10.png';
-import a11 from '@/assets/avatars/avatar-11.png';
-import a12 from '@/assets/avatars/avatar-12.png';
-import a13 from '@/assets/avatars/avatar-13.png';
-import f1FanAvatar from '@/assets/avatars/f1-fan-avatar.png';
-import golfFanAvatar from '@/assets/avatars/golf-fan-avatar.png';
-import { assignAvatars } from '@/data/avatarRegistry';
 
+// Simple avatar assignment to avoid complex registry loading
+const simpleAvatars = [sarahAvatar, mikeAvatar, emmaAvatar, jamesAvatar, lisaAvatar, davidAvatar];
+const getAvatar = (index: number) => simpleAvatars[index % simpleAvatars.length];
+
+// Simple name-to-avatar mapping for forum data
 const allNames = [
   "Marcus Chen","Sarah Williams","David Thompson","Emma Rodriguez","James Wilson","Alex Turner",
   "Tom Harrison","Lisa Chang","Mike O'Connor","Rachel Green","Chris Martinez","Jennifer Adams","Paul Stewart",
   "Nina Patel","Omar Hassan","Chloe Brown","Wei Zhang","Ava Johnson","Luca Bianchi","Sophie Martin","Daniel Evans","Priya Kapoor","Hiro Tanaka","Elena Garcia","Jonas Schmidt"
 ];
-const AV = assignAvatars(allNames);
+const AV: Record<string, string> = {};
+allNames.forEach((name, index) => {
+  AV[name] = getAvatar(index);
+});
+
 
 export const forumPosts = [
   {
@@ -115,7 +109,7 @@ export const forumTopics = [
       avatar: AV["Marcus Chen"]
     },
     timestamp: "2 hours ago",
-    replies: 10,
+    replies: 6,
     views: 142,
     likes: 12
   },
@@ -126,10 +120,10 @@ export const forumTopics = [
     category: "McLaren Racing",
     author: {
       name: "Sarah Williams",
-      avatar: a12
+      avatar: AV["Sarah Williams"]
     },
     timestamp: "4 hours ago",
-    replies: 17,
+    replies: 6,
     views: 289,
     likes: 23
   },
@@ -140,10 +134,10 @@ export const forumTopics = [
     category: "Ryder Cup",
     author: {
       name: "David Thompson", 
-      avatar: a11
+      avatar: AV["David Thompson"]
     },
     timestamp: "6 hours ago",
-    replies: 8,
+    replies: 6,
     views: 178,
     likes: 9
   },
@@ -157,7 +151,7 @@ export const forumTopics = [
       avatar: AV["Emma Rodriguez"]
     },
     timestamp: "1 day ago",
-    replies: 25,
+    replies: 6,
     views: 445,
     likes: 31
   },
@@ -171,7 +165,7 @@ export const forumTopics = [
       avatar: AV["James Wilson"]
     },
     timestamp: "1 day ago", 
-    replies: 13,
+    replies: 6,
     views: 223,
     likes: 7
   },
@@ -185,7 +179,7 @@ export const forumTopics = [
       avatar: AV["Alex Turner"]
     },
     timestamp: "2 days ago",
-    replies: 20,
+    replies: 6,
     views: 367,
     likes: 25
   }
@@ -194,201 +188,50 @@ export const forumTopics = [
 // Forum replies data
 export const forumReplies = [
   // Replies for topic 1 (Liverpool FC strategy)
-  {
-    id: "r1",
-    topicId: "1",
-    content: "I've been DCA-ing into Liverpool for 6 months now. The volatility around transfer windows can be significant, so spreading purchases helps smooth out the price swings. Just my experience!",
-    author: {
-      name: "Tom Harrison",
-      avatar: AV["Tom Harrison"]
-    },
-    timestamp: "1 hour ago",
-    likes: 5
-  },
-  {
-    id: "r2", 
-    topicId: "1",
-    content: "£5k is a decent chunk. I'd probably do 60% upfront and 40% over next 3 months. Liverpool's fundamentals are strong but Champions League qualification can affect short-term pricing.",
-    author: {
-      name: "Lisa Chang",
-      avatar: AV["Lisa Chang"]
-    },
-    timestamp: "45 minutes ago",
-    likes: 8
-  },
-  {
-    id: "r3",
-    topicId: "1", 
-    content: "Don't forget about the Anfield expansion completion timeline. That should boost revenue significantly once finished. Might be worth timing some purchases around that announcement.",
-    author: {
-      name: "Mike O'Connor",
-      avatar: AV["Mike O'Connor"]
-    },
-    timestamp: "30 minutes ago",
-    likes: 3
-  },
+  { id: "r1", topicId: "1", content: "I've been DCA-ing into Liverpool for 6 months now. The volatility around transfer windows can be significant, so spreading purchases helps smooth out the price swings.", author: { name: "Tom Harrison", avatar: AV["Tom Harrison"] }, timestamp: "1 hour ago", likes: 5 },
+  { id: "r2", topicId: "1", content: "Consider setting a standing order to automate it. It removes the emotion from timing buys.", author: { name: "Lisa Chang", avatar: AV["Lisa Chang"] }, timestamp: "55 minutes ago", likes: 7 },
+  { id: "r3", topicId: "1", content: "Watch fixture congestion and Champions League qualification — they move sentiment short-term.", author: { name: "Mike O'Connor", avatar: AV["Mike O'Connor"] }, timestamp: "40 minutes ago", likes: 3 },
+  { id: "r4", topicId: "1", content: "I split £5k into 5 tranches over 10 weeks. Worked well this season.", author: { name: "James Wilson", avatar: AV["James Wilson"] }, timestamp: "25 minutes ago", likes: 4 },
+  { id: "r5", topicId: "1", content: "Don't forget to factor in any platform fees when setting the amount.", author: { name: "Emma Rodriguez", avatar: AV["Emma Rodriguez"] }, timestamp: "15 minutes ago", likes: 2 },
+  { id: "r6", topicId: "1", content: "Anfield expansion revenue could be a tailwind — averaging in before that news is sensible.", author: { name: "Marcus Chen", avatar: AV["Marcus Chen"] }, timestamp: "just now", likes: 1 },
 
   // Replies for topic 2 (McLaren performance)
-  {
-    id: "r4",
-    topicId: "2",
-    content: "P4 is actually quite good for McLaren historically. The ISA is structured around total commercial revenue, not just prize money, so the Google and other sponsorship deals matter more than championship position.",
-    author: {
-      name: "Rachel Green",
-      avatar: AV["Rachel Green"]
-    },
-    timestamp: "3 hours ago",
-    likes: 12
-  },
-  {
-    id: "r5",
-    topicId: "2",
-    content: "Prize money is only about 30% of total revenue for teams like McLaren. The technology licensing and merchandise are the real drivers. P4 vs P3 won't make a huge difference to our returns.",
-    author: {
-      name: "Chris Martinez",
-      avatar: AV["Chris Martinez"]
-    },
-    timestamp: "2 hours ago", 
-    likes: 7
-  },
+  { id: "r7", topicId: "2", content: "ISA returns lean more on commercial revenue. P4 still keeps brand momentum and sponsors happy.", author: { name: "Rachel Green", avatar: AV["Rachel Green"] }, timestamp: "3 hours ago", likes: 12 },
+  { id: "r8", topicId: "2", content: "Tech partnerships like Google/Android bring in more than a couple of places in standings.", author: { name: "Chris Martinez", avatar: AV["Chris Martinez"] }, timestamp: "2 hours ago", likes: 7 },
+  { id: "r9", topicId: "2", content: "Merch and licensing are strong this season. Expect steady distributions.", author: { name: "Alex Turner", avatar: AV["Alex Turner"] }, timestamp: "1 hour ago", likes: 3 },
+  { id: "r10", topicId: "2", content: "Prize money volatility is small compared to the sponsor base for McLaren.", author: { name: "Daniel Evans", avatar: AV["Daniel Evans"] }, timestamp: "50 minutes ago", likes: 2 },
+  { id: "r11", topicId: "2", content: "They've also improved pit stop times — small on-track gains, big brand narrative.", author: { name: "Omar Hassan", avatar: AV["Omar Hassan"] }, timestamp: "35 minutes ago", likes: 2 },
+  { id: "r12", topicId: "2", content: "Long-term holder here — distributions have been consistent.", author: { name: "Sophie Martin", avatar: AV["Sophie Martin"] }, timestamp: "10 minutes ago", likes: 1 },
 
   // Replies for topic 3 (Tax implications)
-  {
-    id: "r6",
-    topicId: "3",
-    content: "I spoke to a tax specialist about this. The annual 5% is definitely income tax, but the principal repayment should be return of capital (not taxable). However, if debentures appreciate and you sell early, that would be capital gains.",
-    author: {
-      name: "Jennifer Adams",
-      avatar: AV["Jennifer Adams"]
-    },
-    timestamp: "5 hours ago",
-    likes: 15
-  },
-  {
-    id: "r7",
-    topicId: "3",
-    content: "Make sure your accountant understands these are alternative investments. The tax treatment is similar to corporate bonds in many ways. The HMRC guidance on 'alternative finance arrangements' might be helpful.",
-    author: {
-      name: "Paul Stewart",
-      avatar: AV["Paul Stewart"]
-    },
-    timestamp: "4 hours ago",
-    likes: 9
-  },
+  { id: "r13", topicId: "3", content: "Annual 5% is income tax, principal is return of capital at maturity in most structures.", author: { name: "Jennifer Adams", avatar: AV["Jennifer Adams"] }, timestamp: "5 hours ago", likes: 15 },
+  { id: "r14", topicId: "3", content: "If you sell early above cost, that uplift is capital gains — track your acquisition price.", author: { name: "Paul Stewart", avatar: AV["Paul Stewart"] }, timestamp: "4 hours ago", likes: 9 },
+  { id: "r15", topicId: "3", content: "HMRC's alternative finance guidance is a good read. Treat like corporate bonds for tax.", author: { name: "Wei Zhang", avatar: AV["Wei Zhang"] }, timestamp: "3 hours ago", likes: 6 },
+  { id: "r16", topicId: "3", content: "Your accountant can code this cleanly if you keep all distribution statements.", author: { name: "Nina Patel", avatar: AV["Nina Patel"] }, timestamp: "2 hours ago", likes: 4 },
+  { id: "r17", topicId: "3", content: "Worth checking whether it's ISA eligible — most aren't, but rules change.", author: { name: "David Thompson", avatar: AV["David Thompson"] }, timestamp: "1 hour ago", likes: 3 },
+  { id: "r18", topicId: "3", content: "If structured notes are used, treatment can differ — read offering docs.", author: { name: "Elena Garcia", avatar: AV["Elena Garcia"] }, timestamp: "30 minutes ago", likes: 1 },
 
-  // Additional replies for topic 1
-  {
-    id: "r8",
-    topicId: "1",
-    content: "Consider the summer transfer window. If Liverpool secures a marquee signing, retail sentiment can spike and temporarily inflate prices.",
-    author: { name: "Alicia Brown", avatar: a01 },
-    timestamp: "25 minutes ago",
-    likes: 2
-  },
-  {
-    id: "r9",
-    topicId: "1",
-    content: "Also watch UEFA distributions; European runs add a meaningful uplift to matchday and broadcast income.",
-    author: { name: "Ben Carter", avatar: a02 },
-    timestamp: "12 minutes ago",
-    likes: 1
-  },
+  // Replies for topic 4 (Diversification)
+  { id: "r19", topicId: "4", content: "Ryder Cup adds different seasonality vs football/F1 — good diversifier.", author: { name: "Ava Johnson", avatar: AV["Ava Johnson"] }, timestamp: "1 day ago", likes: 8 },
+  { id: "r20", topicId: "4", content: "Correlation between Liverpool and McLaren is lower than you think — revenue drivers differ.", author: { name: "James Wilson", avatar: AV["James Wilson"] }, timestamp: "23 hours ago", likes: 6 },
+  { id: "r21", topicId: "4", content: "I'd allocate 20% to golf, 40% football, 40% motorsport for balance.", author: { name: "Sarah Williams", avatar: AV["Sarah Williams"] }, timestamp: "22 hours ago", likes: 5 },
+  { id: "r22", topicId: "4", content: "Watch liquidity on the secondary market when rebalancing.", author: { name: "Luca Bianchi", avatar: AV["Luca Bianchi"] }, timestamp: "20 hours ago", likes: 3 },
+  { id: "r23", topicId: "4", content: "Auto-invest makes DCA easy across assets — fewer timing mistakes.", author: { name: "Chloe Brown", avatar: AV["Chloe Brown"] }, timestamp: "18 hours ago", likes: 4 },
+  { id: "r24", topicId: "4", content: "Set calendar reviews quarterly to adjust weights.", author: { name: "Hiro Tanaka", avatar: AV["Hiro Tanaka"] }, timestamp: "16 hours ago", likes: 2 },
 
-  // Additional replies for topic 2
-  {
-    id: "r10",
-    topicId: "2",
-    content: "Commercial pipeline looks strong. McLaren's tech partnerships often yield multi‑year deals that smooth revenue.",
-    author: { name: "Diego Lopez", avatar: a03 },
-    timestamp: "1 hour ago",
-    likes: 4
-  },
-  {
-    id: "r11",
-    topicId: "2",
-    content: "Don't sleep on merchandise – Norris effect is real. Strong brand equals steadier ISA payouts.",
-    author: { name: "Mia Chen", avatar: a04 },
-    timestamp: "58 minutes ago",
-    likes: 3
-  },
+  // Replies for topic 5 (Secondary market)
+  { id: "r25", topicId: "5", content: "List slightly below last traded price for speed; match market for max value.", author: { name: "Marcus Chen", avatar: AV["Marcus Chen"] }, timestamp: "1 day ago", likes: 9 },
+  { id: "r26", topicId: "5", content: "Auctions work when demand is high; fixed price is simpler most days.", author: { name: "Alex Turner", avatar: AV["Alex Turner"] }, timestamp: "22 hours ago", likes: 6 },
+  { id: "r27", topicId: "5", content: "Fees can eat into returns — calculate your net before listing.", author: { name: "David Thompson", avatar: AV["David Thompson"] }, timestamp: "20 hours ago", likes: 5 },
+  { id: "r28", topicId: "5", content: "Include good description and recent performance to justify price.", author: { name: "Emma Rodriguez", avatar: AV["Emma Rodriguez"] }, timestamp: "18 hours ago", likes: 4 },
+  { id: "r29", topicId: "5", content: "Weekends see more buyers; time your listing accordingly.", author: { name: "Rachel Green", avatar: AV["Rachel Green"] }, timestamp: "16 hours ago", likes: 3 },
+  { id: "r30", topicId: "5", content: "Set alerts for bids — counter quickly to close sales.", author: { name: "Paul Stewart", avatar: AV["Paul Stewart"] }, timestamp: "12 hours ago", likes: 2 },
 
-  // Additional replies for topic 3
-  {
-    id: "r12",
-    topicId: "3",
-    content: "If you sell on the secondary market at a premium, that's capital gains. Keep records of all fees for CGT basis.",
-    author: { name: "Oliver King", avatar: a05 },
-    timestamp: "3 hours ago",
-    likes: 6
-  },
-  {
-    id: "r13",
-    topicId: "3",
-    content: "Some debentures can be held in certain wrappers; check the provider docs – eligibility varies.",
-    author: { name: "Sana Iqbal", avatar: a06 },
-    timestamp: "2 hours ago",
-    likes: 5
-  },
-
-  // Replies for topic 4 (new)
-  {
-    id: "r14",
-    topicId: "4",
-    content: "Diversification across sports reduces event risk. Football and F1 have different cycles.",
-    author: { name: "Noah Patel", avatar: a07 },
-    timestamp: "6 hours ago",
-    likes: 7
-  },
-  {
-    id: "r15",
-    topicId: "4",
-    content: "Consider correlation during global downturns – sponsorship budgets can contract across the board.",
-    author: { name: "Elise Dupont", avatar: a08 },
-    timestamp: "5 hours ago",
-    likes: 3
-  },
-  {
-    id: "r16",
-    topicId: "4",
-    content: "Ryder Cup exposure adds hospitality revenue which behaves differently than matchday income.",
-    author: { name: "Tariq Ahmed", avatar: a09 },
-    timestamp: "4 hours ago",
-    likes: 4
-  },
-
-  // Replies for topic 5 (new)
-  {
-    id: "r17",
-    topicId: "5",
-    content: "List slightly below market for faster fill, especially if liquidity is thin.",
-    author: { name: "Hannah Lee", avatar: a10 },
-    timestamp: "7 hours ago",
-    likes: 2
-  },
-  {
-    id: "r18",
-    topicId: "5",
-    content: "Auction works well when you have multiple interested buyers – encourages price discovery.",
-    author: { name: "Jon Park", avatar: a13 },
-    timestamp: "6 hours ago",
-    likes: 2
-  },
-
-  // Replies for topic 6 (new)
-  {
-    id: "r19",
-    topicId: "6",
-    content: "College sports media rights in the US are massive and long‑term – stability is decent but conference changes matter.",
-    author: { name: "Priyanka Desai", avatar: f1FanAvatar },
-    timestamp: "8 hours ago",
-    likes: 5
-  },
-  {
-    id: "r20",
-    topicId: "6",
-    content: "Check stadium utilization beyond game days – concerts and events can drive incremental revenue.",
-    author: { name: "Marco Silva", avatar: golfFanAvatar },
-    timestamp: "7 hours ago",
-    likes: 4
-  }
+  // Replies for topic 6 (Ohio State)
+  { id: "r31", topicId: "6", content: "College sports revenues are diversified: media rights, donations, tickets.", author: { name: "Jonas Schmidt", avatar: AV["Jonas Schmidt"] }, timestamp: "2 days ago", likes: 11 },
+  { id: "r32", topicId: "6", content: "Stability is strong for top programs like Ohio State — big alumni base.", author: { name: "Daniel Evans", avatar: AV["Daniel Evans"] }, timestamp: "2 days ago", likes: 7 },
+  { id: "r33", topicId: "6", content: "US seasons offset Europe — nice temporal diversification.", author: { name: "Nina Patel", avatar: AV["Nina Patel"] }, timestamp: "2 days ago", likes: 5 },
+  { id: "r34", topicId: "6", content: "Check compliance rules; college sports have unique governance.", author: { name: "Wei Zhang", avatar: AV["Wei Zhang"] }, timestamp: "2 days ago", likes: 4 },
+  { id: "r35", topicId: "6", content: "Merch sales are massive in the US — predictable cash flows.", author: { name: "Lisa Chang", avatar: AV["Lisa Chang"] }, timestamp: "2 days ago", likes: 3 },
+  { id: "r36", topicId: "6", content: "Watch currency risk if distributions are USD-linked.", author: { name: "Omar Hassan", avatar: AV["Omar Hassan"] }, timestamp: "2 days ago", likes: 2 },
 ];
