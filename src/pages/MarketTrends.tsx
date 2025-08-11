@@ -2,6 +2,7 @@ import { useState } from "react";
 import { TrendingUp, TrendingDown, BarChart3, Target, Calendar, DollarSign, Flame, Eye, AlertTriangle, Lightbulb, Star, Zap, Activity, Award, Trophy } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { LogoImage } from "@/components/ui/logo-image";
@@ -147,7 +148,21 @@ export default function MarketTrends() {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card/80 backdrop-blur-sm border">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select market trends section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="overview">Market Overview</SelectItem>
+              <SelectItem value="sectors">Hot Sectors</SelectItem>
+              <SelectItem value="deals">Hot Deals</SelectItem>
+              <SelectItem value="insights">AI Insights</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card/80 backdrop-blur-sm border">
           <TabsTrigger value="overview" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Market Overview</TabsTrigger>
           <TabsTrigger value="sectors" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Hot Sectors</TabsTrigger>
           <TabsTrigger value="deals" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Hot Deals</TabsTrigger>

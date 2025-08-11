@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
@@ -262,7 +263,20 @@ export default function Portfolio() {
 
       {/* Portfolio Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select portfolio section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="overview">Your Investments</SelectItem>
+              <SelectItem value="performance">Performance & Analytics</SelectItem>
+              <SelectItem value="watchlist">Watchlist</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
           <TabsTrigger value="overview">Your Investments</TabsTrigger>
           <TabsTrigger value="performance">Performance & Analytics</TabsTrigger>
           <TabsTrigger value="watchlist">Watchlist</TabsTrigger>

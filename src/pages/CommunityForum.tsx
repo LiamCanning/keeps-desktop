@@ -326,7 +326,25 @@ export default function CommunityForum() {
 
       {/* Category Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select forum category">
+              <SelectValue placeholder="Select category" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              {categories.map((category) => {
+                const value = category.toLowerCase().replace(" ", "-").replace("all topics", "all");
+                return (
+                  <SelectItem key={category} value={value}>
+                    {category}
+                  </SelectItem>
+                );
+              })}
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:grid-cols-7">
           {categories.map((category) => (
             <TabsTrigger 
               key={category} 

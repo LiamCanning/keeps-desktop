@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface UserProfile {
@@ -315,7 +316,20 @@ export default function UserProfile() {
 
       {/* Profile Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select profile section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="overview">Overview</SelectItem>
+              <SelectItem value="holdings">Public Holdings</SelectItem>
+              <SelectItem value="activity">Activity</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="holdings">Public Holdings</TabsTrigger>
           <TabsTrigger value="activity">Activity</TabsTrigger>

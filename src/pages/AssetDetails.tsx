@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Progress } from "@/components/ui/progress";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { EarlyAccessModal } from "@/components/EarlyAccessModal";
@@ -308,7 +309,21 @@ export default function AssetDetails() {
 
       {/* Detailed Information Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="overview">Overview</SelectItem>
+              <SelectItem value="thesis">Investment Thesis</SelectItem>
+              <SelectItem value="analysis">Analysis</SelectItem>
+              <SelectItem value="risks">Risks & Rewards</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="thesis">Investment Thesis</TabsTrigger>
           <TabsTrigger value="analysis">Analysis</TabsTrigger>

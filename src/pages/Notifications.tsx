@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Bell, Heart, MessageCircle, TrendingUp, Calendar, Star, User } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 // Import avatar images
 import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
@@ -221,6 +223,7 @@ function NotificationCard({ notification }: { notification: Notification }) {
 }
 
 export default function Notifications() {
+  const [activeTab, setActiveTab] = useState("all");
   const unreadCount = notifications.filter(n => !n.read).length;
   const userNotifications = notifications.filter(n => n.type === "like" || n.type === "comment" || n.type === "user_message");
   const brandNotifications = notifications.filter(n => n.type === "brand_news");
@@ -293,8 +296,22 @@ export default function Notifications() {
       </div>
 
       {/* Notification Tabs */}
-      <Tabs defaultValue="all" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select notifications section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="all">All Notifications</SelectItem>
+              <SelectItem value="users">User Activity</SelectItem>
+              <SelectItem value="brands">Brand News</SelectItem>
+              <SelectItem value="assets">Asset Updates</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-4">
           <TabsTrigger value="all">All Notifications</TabsTrigger>
           <TabsTrigger value="users">User Activity</TabsTrigger>
           <TabsTrigger value="brands">Brand News</TabsTrigger>

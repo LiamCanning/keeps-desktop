@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface NewsArticle {
@@ -468,7 +469,22 @@ export default function Content() {
 
       {/* Enhanced Content Discovery */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select content section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="portfolio">Your Assets</SelectItem>
+              <SelectItem value="trending">Trending</SelectItem>
+              <SelectItem value="news">Latest News</SelectItem>
+              <SelectItem value="reels">Videos</SelectItem>
+              <SelectItem value="all">All Content</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
           <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
           <TabsTrigger value="trending">Trending</TabsTrigger>
           <TabsTrigger value="news">Latest News</TabsTrigger>

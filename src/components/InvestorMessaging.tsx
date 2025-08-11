@@ -20,6 +20,7 @@ export function InvestorMessaging() {
 
   const audienceOptions = [
     { id: "all", label: "All Investors", count: "2,847" },
+    { id: "diamond", label: "Diamond Tier (£75k+)", count: "48" },
     { id: "platinum", label: "Platinum Tier (£35k+)", count: "156" },
     { id: "gold", label: "Gold Tier (£15k+)", count: "423" },
     { id: "silver", label: "Silver Tier (£5k+)", count: "891" },
@@ -38,6 +39,10 @@ export function InvestorMessaging() {
     performance: {
       subject: "Q4 Performance Update",
       message: "Dear Investors,\n\nWe're excited to share our latest performance metrics and achievements..."
+    },
+    raffle: {
+      subject: "Benefits: Win Lando Norris' Worn F1 Suit – Silverstone",
+      message: "Dear Investor,\n\nWe're thrilled to announce an exclusive raffle for Keeps investors: a chance to win Lando Norris' race-worn F1 suit from the British Grand Prix at Silverstone.\n\nHow to enter:\n• Eligible tiers: Gold, Platinum, Diamond\n• Entry window: Opens today and closes in 14 days\n• Winner announcement: Via email and dashboard notifications\n\nThank you for being part of McLaren's journey. Good luck!\n\nBest regards,\nMcLaren Racing Investor Relations"
     }
   };
 
@@ -142,9 +147,9 @@ export function InvestorMessaging() {
             <Button 
               variant="outline" 
               size="sm" 
-              onClick={() => handleTemplateSelect("performance")}
+              onClick={() => handleTemplateSelect("raffle")}
             >
-              Performance Report
+              Benefits
             </Button>
           </div>
         </div>

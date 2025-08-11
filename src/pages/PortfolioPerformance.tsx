@@ -3,6 +3,7 @@ import { TrendingUp, TrendingDown, BarChart3, PieChart, DollarSign, Calendar, Ta
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart as RechartsPieChart, Cell } from "recharts";
 
@@ -132,7 +133,21 @@ export default function PortfolioPerformance() {
 
       {/* Performance Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select performance section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="overview">Performance Overview</SelectItem>
+              <SelectItem value="charts">Advanced Charts</SelectItem>
+              <SelectItem value="allocation">Asset Allocation</SelectItem>
+              <SelectItem value="analytics">Risk Analytics</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
           <TabsTrigger value="overview">Performance Overview</TabsTrigger>
           <TabsTrigger value="charts">Advanced Charts</TabsTrigger>
           <TabsTrigger value="allocation">Asset Allocation</TabsTrigger>

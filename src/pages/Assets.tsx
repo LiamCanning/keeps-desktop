@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
@@ -221,7 +222,20 @@ export default function Assets() {
       {/* Filter Tabs - Replacing the banner */}
       <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 sm:p-6 border border-primary/20">
         <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm h-auto">
+          {/* Mobile tab selector */}
+          <div className="md:hidden mb-3">
+            <Select value={activeTab} onValueChange={handleTabChange}>
+              <SelectTrigger aria-label="Select assets section">
+                <SelectValue placeholder="Select section" />
+              </SelectTrigger>
+              <SelectContent className="z-50">
+                <SelectItem value="live">Live</SelectItem>
+                <SelectItem value="coming-soon">Coming Soon</SelectItem>
+                <SelectItem value="completed">Completed</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <TabsList className="hidden md:grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm h-auto">
             <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-success rounded-full"></div>
               <span className="hidden sm:inline">Live Deals ({liveAssets})</span>

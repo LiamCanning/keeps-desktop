@@ -14,8 +14,17 @@ export default function OrganisationDashboard() {
 
   if (showLogin) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-6">
-        <Card className="card-professional w-full max-w-md">
+      <div className="relative min-h-screen bg-background flex items-center justify-center p-6 overflow-hidden">
+        {/* Background image for desktop */}
+        <div className="hidden md:block absolute inset-0 -z-10">
+          <img
+            src="/src/assets/mclaren-racing.jpg"
+            alt="Formula 1 racing background"
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-background/30" />
+        </div>
+        <Card className="card-professional w-full max-w-md relative z-10">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 p-4 bg-primary/20 rounded-xl w-fit">
               <OptimizedImage

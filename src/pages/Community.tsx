@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
 interface CommunityPost {
@@ -271,7 +272,21 @@ export default function Community() {
 
       {/* Community Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        {/* Mobile tab selector */}
+        <div className="md:hidden mb-3">
+          <Select value={activeTab} onValueChange={setActiveTab}>
+            <SelectTrigger aria-label="Select community section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent className="z-50">
+              <SelectItem value="timeline">Community Timeline</SelectItem>
+              <SelectItem value="forum">Forum</SelectItem>
+              <SelectItem value="create">Create Post</SelectItem>
+              <SelectItem value="people">People</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
           <TabsTrigger value="timeline">Community Timeline</TabsTrigger>
           <TabsTrigger value="forum">Forum</TabsTrigger>
           <TabsTrigger value="create">Create Post</TabsTrigger>
