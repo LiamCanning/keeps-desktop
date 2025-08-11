@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
@@ -125,30 +126,46 @@ export default function PrimaryOffering() {
     script.text = JSON.stringify(jsonLd);
   }, [asset]);
 
-  const [quantity, setQuantity] = useState("1");
+  // Stepper state and inputs
+  const [currentStep, setCurrentStep] = useState(1);
+  const [quantity, setQuantity] = useState("1"); // shares or debentures count
+  const [amount, setAmount] = useState(""); // generic amount input (non-debenture)
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [verificationOption, setVerificationOption] = useState<'saved' | 'new' | ''>('saved');
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [currentTier, setCurrentTier] = useState("bronze");
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(null); // Ryder Cup preset amount
 
-  if (!asset) {
-    return (
-      <div className="p-6 space-y-6 max-w-6xl mx-auto">
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" onClick={() => navigate(-1)}>
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button>
-        </div>
-        <Card className="card-professional p-8 text-center">
-          <h1 className="text-xl font-semibold text-card-foreground mb-2">Asset Not Found</h1>
-          <p className="text-muted-foreground">The primary offering you're looking for doesn't exist.</p>
-        </Card>
-      </div>
-    );
-  }
+  const isDebenture = asset.id === 'ryder-cup';
+  const ryderPresetAmounts = [1000, 15000, 25000, 35000, 50000];
 
-  const quantityNum = parseInt(quantity) || 0;
+  // Sync amount <-> quantity for non-debenture assets
   const pricePerShare = asset.pricePerShare;
-  const subtotal = quantityNum * pricePerShare;
+  const quantityNum = parseInt(quantity) || 0;
+  const amountNum = parseFloat(amount) || 0;
+
+  const handleQuantityChange = (val: string) => {
+    // Clamp
+    const q = Math.max(0, Math.min(parseInt(val || '0'), asset.maxShares));
+    setQuantity(q.toString());
+    if (!isDebenture) {
+      setAmount((q * pricePerShare).toString());
+    }
+  };
+
+  const handleAmountChange = (val: string) => {
+    setAmount(val);
+    if (!isDebenture) {
+      const v = Math.max(0, parseFloat(val || '0'));
+      const q = Math.floor(v / pricePerShare);
+      setQuantity(Math.max(0, Math.min(q, asset.maxShares)).toString());
+    }
+  };
+
+  // Calculations
+  const subtotal = isDebenture
+    ? (selectedAmount || 0)
+    : quantityNum * pricePerShare;
   const processingFee = subtotal * (asset.processingFee || 0.1);
   const total = subtotal + processingFee;
 
@@ -157,19 +174,40 @@ export default function PrimaryOffering() {
     setCurrentTier(tier?.id || "bronze");
   }, [total]);
 
-  const handleInvest = () => {
-    if (quantityNum < 1) {
-      toast({
-        title: "Invalid Quantity",
-        description: "Please enter a valid quantity to purchase",
-        variant: "destructive",
-      });
-      return;
+  const canProceedFromStep = (step: number) => {
+    switch (step) {
+      case 1:
+        if (isDebenture) {
+          const q = quantityNum;
+          return !!selectedAmount && q >= 1 && q <= 4; // max 4 debentures
+        }
+        return quantityNum >= 1;
+      case 2:
+        return !!paymentMethod;
+      case 3:
+        return verificationOption === 'saved' || verificationOption === 'new';
+      case 4:
+        return acceptedTerms;
+      default:
+        return true;
     }
+  };
+
+  const nextStep = () => {
+    if (!canProceedFromStep(currentStep)) return;
+    setCurrentStep((s) => Math.min(5, s + 1));
+  };
+  const prevStep = () => setCurrentStep((s) => Math.max(1, s - 1));
+
+  const handleInvest = () => {
+    if (!canProceedFromStep(4)) return; // ensure T&Cs accepted
+
+    const unitPrice = isDebenture ? (selectedAmount || 0) : pricePerShare;
+    const outQuantity = isDebenture ? Math.min(Math.max(quantityNum, 1), 4) : quantityNum;
 
     toast({
       title: "Order Placed Successfully!",
-      description: `Your order for ${quantityNum} ${asset.id === 'ryder-cup' ? 'debentures' : 'shares'} of ${asset.name} has been submitted.`,
+      description: `Your order for ${isDebenture ? outQuantity + ' debenture' + (outQuantity > 1 ? 's' : '') : outQuantity + ' shares'} of ${asset.name} has been submitted.`,
     });
 
     setTimeout(() => {
@@ -178,19 +216,40 @@ export default function PrimaryOffering() {
           type: 'primary',
           assetId: asset.id,
           assetName: asset.name,
-          quantity: quantityNum,
-          unitPrice: pricePerShare,
+          quantity: outQuantity,
+          unitPrice,
           subtotal,
           processingFee,
           total,
           seller: null,
         }
       });
-    }, 800);
+    }, 600);
   };
 
   const currentTierData = benefitTiers.find((t) => t.id === currentTier);
   const TierIcon = (currentTierData?.icon as any) || Shield;
+
+  const Stepper = () => {
+    const steps = [
+      { id: 1, label: 'Details' },
+      { id: 2, label: 'Payment' },
+      { id: 3, label: 'Verification' },
+      { id: 4, label: 'T&Cs' },
+      { id: 5, label: 'Review' },
+    ];
+    return (
+      <div className="flex items-center justify-between gap-2 p-3 rounded-lg border bg-muted/30">
+        {steps.map((s, idx) => (
+          <div key={s.id} className="flex items-center gap-2 flex-1">
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${currentStep >= s.id ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>{s.id}</div>
+            <span className={`text-sm ${currentStep >= s.id ? 'text-foreground' : 'text-muted-foreground'}`}>{s.label}</span>
+            {idx < steps.length - 1 && <div className="h-[2px] flex-1 bg-muted" />}
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="p-6 space-y-6 max-w-6xl mx-auto">
@@ -211,7 +270,7 @@ export default function PrimaryOffering() {
                   <div className="flex-1">
                     <h1 className="text-2xl font-bold text-gradient">{asset.name}</h1>
                     <p className="text-muted-foreground text-lg">{asset.type}</p>
-                    <p className="text-primary font-bold text-xl">£{pricePerShare} per {asset.id === 'ryder-cup' ? 'debenture' : 'share'}</p>
+                    <p className="text-primary font-bold text-xl">£{pricePerShare} per {isDebenture ? 'debenture' : 'share'}</p>
                   </div>
                   <div className="flex flex-col gap-2">
                     <Badge variant="success" className="text-lg px-4 py-2">Primary Offering</Badge>
@@ -221,37 +280,70 @@ export default function PrimaryOffering() {
             </Card>
           </article>
 
-          <Card className="card-professional">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Calculator className="w-5 h-5" />
-                Investment Calculator
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-3">
-                <Label htmlFor="quantity" className="text-lg font-semibold">
-                  Quantity ({asset.id === 'ryder-cup' ? 'debentures' : 'shares'})
-                </Label>
-                <Input
-                  id="quantity"
-                  type="number"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  min="1"
-                  max={asset.maxShares}
-                  placeholder={`Enter number of ${asset.id === 'ryder-cup' ? 'debentures' : 'shares'}`}
-                  className="text-lg py-3 h-14"
-                />
-                <p className="text-sm text-muted-foreground">
-                  Minimum: 1 {asset.id === 'ryder-cup' ? 'debenture' : 'share'} • Maximum: {asset.maxShares.toLocaleString()} {asset.id === 'ryder-cup' ? 'debentures' : 'shares'}
-                </p>
-              </div>
+          <Stepper />
 
-              <Separator />
+          {/* Step content */}
+          {currentStep === 1 && (
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calculator className="w-5 h-5" />
+                  Investment Details
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {isDebenture ? (
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <Label className="text-lg font-semibold">Select Investment Amount</Label>
+                      <RadioGroup value={selectedAmount?.toString() || ''} onValueChange={(v) => setSelectedAmount(parseInt(v))}>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                          {ryderPresetAmounts.map((amt) => (
+                            <label key={amt} className={`p-4 rounded-lg border cursor-pointer ${selectedAmount === amt ? 'border-primary bg-primary/5' : 'hover:bg-muted/50'}`}>
+                              <div className="flex items-center gap-3">
+                                <RadioGroupItem id={`amt-${amt}`} value={amt.toString()} />
+                                <span className="font-semibold">£{amt.toLocaleString()}</span>
+                              </div>
+                            </label>
+                          ))}
+                        </div>
+                      </RadioGroup>
+                    </div>
 
-              <div className="space-y-4">
-                <Label className="text-lg font-semibold">Payment Method</Label>
+                    <div className="space-y-3">
+                      <Label htmlFor="quantity" className="text-lg font-semibold">Debentures (max 4)</Label>
+                      <Input id="quantity" type="number" value={quantity} onChange={(e) => handleQuantityChange(e.target.value)} min="1" max={4} className="text-lg py-3 h-14" />
+                      <p className="text-sm text-muted-foreground">You can purchase up to 4 debentures per transaction.</p>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <Label htmlFor="amount" className="text-lg font-semibold">Amount to Invest (£)</Label>
+                      <Input id="amount" type="number" value={amount} onChange={(e) => handleAmountChange(e.target.value)} min="0" placeholder="e.g. 2500" className="text-lg py-3 h-14" />
+                    </div>
+                    <div className="space-y-3">
+                      <Label htmlFor="quantity" className="text-lg font-semibold">Quantity (shares)</Label>
+                      <Input id="quantity" type="number" value={quantity} onChange={(e) => handleQuantityChange(e.target.value)} min="1" max={asset.maxShares} placeholder="Enter number of shares" className="text-lg py-3 h-14" />
+                      <p className="text-sm text-muted-foreground">Minimum: 1 share • Maximum: {asset.maxShares.toLocaleString()} shares</p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex justify-between">
+                  <Button variant="outline" onClick={() => navigate(-1)}>Back</Button>
+                  <Button onClick={nextStep} disabled={!canProceedFromStep(1)}>Continue</Button>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {currentStep === 2 && (
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle>Payment Method</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
                 <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
                   <div className="flex items-center space-x-3 p-4 border rounded-lg bg-accent/20 border-accent/30">
                     <RadioGroupItem value="card" id="card" />
@@ -261,15 +353,15 @@ export default function PrimaryOffering() {
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
-                    <RadioGroupItem value="bank" id="bank" />
+                    <RadioGroupItem value="new" id="new" />
                     <div className="flex-1">
-                      <label htmlFor="bank" className="font-medium cursor-pointer">Add New Payment Method</label>
+                      <label htmlFor="new" className="font-medium cursor-pointer">Add New Payment Method</label>
                       <p className="text-sm text-muted-foreground">Credit card, debit card, or bank transfer</p>
                     </div>
                   </div>
                 </RadioGroup>
-                {paymentMethod === "bank" && (
-                  <div className="mt-4 space-y-3 p-4 rounded-lg border bg-background/60">
+                {paymentMethod === 'new' && (
+                  <div className="mt-2 space-y-3 p-4 rounded-lg border bg-background/60">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       <Input placeholder="Cardholder Name" />
                       <Input placeholder="Card Number (1234 5678 9012 3456)" />
@@ -279,12 +371,78 @@ export default function PrimaryOffering() {
                     <Button variant="outline" className="w-full">Save Payment Method</Button>
                   </div>
                 )}
-                <p className="text-xs text-muted-foreground bg-accent/20 p-3 rounded-lg">
-                  Your payment methods are securely saved and encrypted.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="flex justify-between">
+                  <Button variant="outline" onClick={prevStep}>Back</Button>
+                  <Button onClick={nextStep} disabled={!canProceedFromStep(2)}>Continue</Button>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {currentStep === 3 && (
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle>Verification</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <RadioGroup value={verificationOption} onValueChange={(v) => setVerificationOption(v as any)}>
+                  <div className="flex items-center space-x-3 p-4 border rounded-lg bg-accent/20 border-accent/30">
+                    <RadioGroupItem value="saved" id="v-saved" />
+                    <div className="flex-1">
+                      <label htmlFor="v-saved" className="font-medium cursor-pointer">Use saved verification profile</label>
+                      <p className="text-sm text-muted-foreground">Profile: Verified on 15 Jun 2024</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
+                    <RadioGroupItem value="new" id="v-new" />
+                    <div className="flex-1">
+                      <label htmlFor="v-new" className="font-medium cursor-pointer">Start new verification</label>
+                      <p className="text-sm text-muted-foreground">Takes ~5 minutes • KYC/AML compliant</p>
+                    </div>
+                  </div>
+                </RadioGroup>
+                <div className="flex justify-between">
+                  <Button variant="outline" onClick={prevStep}>Back</Button>
+                  <Button onClick={nextStep} disabled={!canProceedFromStep(3)}>Continue</Button>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {currentStep === 4 && (
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle>Terms & Conditions</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex items-start gap-3 p-4 rounded-lg border bg-muted/20">
+                  <Checkbox id="terms" checked={acceptedTerms} onCheckedChange={(v) => setAcceptedTerms(Boolean(v))} />
+                  <label htmlFor="terms" className="text-sm leading-6">
+                    I have read and agree to the Terms & Conditions, Risk Disclosure, and understand the investment risks including potential loss of capital.
+                  </label>
+                </div>
+                <div className="flex justify-between">
+                  <Button variant="outline" onClick={prevStep}>Back</Button>
+                  <Button onClick={nextStep} disabled={!canProceedFromStep(4)}>Continue</Button>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {currentStep === 5 && (
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle>Review & Complete</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <p className="text-sm text-muted-foreground">Please review your order summary on the right, then complete your purchase.</p>
+                <div className="flex justify-between">
+                  <Button variant="outline" onClick={prevStep}>Back</Button>
+                  <Button className="btn-invest" onClick={handleInvest}>Complete Purchase</Button>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </section>
 
         <aside className="space-y-6">
@@ -294,14 +452,29 @@ export default function PrimaryOffering() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Quantity:</span>
-                  <span className="font-medium">{quantityNum} {quantityNum === 1 && asset.id === 'ryder-cup' ? 'debenture' : asset.id === 'ryder-cup' ? 'debentures' : quantityNum === 1 ? 'share' : 'shares'}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Unit Price:</span>
-                  <span className="font-medium">£{pricePerShare}</span>
-                </div>
+                {isDebenture ? (
+                  <>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Selected Amount:</span>
+                      <span className="font-medium">£{(selectedAmount || 0).toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Debentures:</span>
+                      <span className="font-medium">{Math.min(Math.max(quantityNum, 0), 4)}</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Quantity:</span>
+                      <span className="font-medium">{quantityNum} {quantityNum === 1 ? 'share' : 'shares'}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Unit Price:</span>
+                      <span className="font-medium">£{pricePerShare}</span>
+                    </div>
+                  </>
+                )}
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal:</span>
                   <span className="font-medium">£{subtotal.toLocaleString()}</span>
@@ -339,13 +512,9 @@ export default function PrimaryOffering() {
                     <p className="font-medium">**** **** **** 4532</p>
                     <p className="text-sm text-muted-foreground">Expires 12/26</p>
                   </div>
-                  <Button variant="outline" size="sm">Change</Button>
                 </div>
               </div>
 
-              <Button onClick={handleInvest} className="w-full btn-invest text-lg py-4 h-14">
-                Complete Purchase
-              </Button>
               <p className="text-xs text-muted-foreground text-center">
                 All investments carry risk. Ensure you understand the risks before investing.
               </p>

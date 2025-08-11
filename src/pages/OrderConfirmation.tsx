@@ -48,7 +48,7 @@ export default function OrderConfirmation() {
               </div>
               <div>
                 <p className="text-muted-foreground">Quantity</p>
-                <p className="font-semibold">{quantity} shares</p>
+                <p className="font-semibold">{quantity} {state?.assetId === 'ryder-cup' ? 'debentures' : 'shares'}</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Unit Price</p>
