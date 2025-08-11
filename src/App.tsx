@@ -60,6 +60,7 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { CookiePolicy } from "./pages/CookiePolicy";
 import { RiskDisclosure } from "./pages/RiskDisclosure";
 import OrganisationContact from "./pages/OrganisationContact";
+import PrimaryPurchase from "./pages/PrimaryPurchase";
 
 const queryClient = new QueryClient();
 
@@ -100,8 +101,9 @@ const App = () => (
           <Route path="/investor-relations" element={<InvestorRelations />} />
           <Route path="/investor-leaderboard" element={<InvestorLeaderboard />} />
           <Route path="/notifications" element={<Notifications />} />
-          <Route path="/assets" element={<Assets />} />
-          <Route path="/assets/:assetId" element={<AssetDetails />} />
+           <Route path="/assets" element={<Assets />} />
+           <Route path="/assets/:assetId" element={<AssetDetails />} />
+           <Route path="/assets/:assetId/primary-purchase" element={<PrimaryPurchase />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sell-shares" element={<SellShares />} />
           <Route path="/request-team" element={<RequestTeam />} />
