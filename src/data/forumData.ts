@@ -4,7 +4,27 @@ import emmaAvatar from '@/assets/avatars/emma-avatar.png';
 import jamesAvatar from '@/assets/avatars/james-avatar.png';
 import lisaAvatar from '@/assets/avatars/lisa-avatar.png';
 import davidAvatar from '@/assets/avatars/david-avatar.png';
+import alexAvatar from '@/assets/avatars/alex-avatar.png';
+import mariaAvatar from '@/assets/avatars/maria-avatar.png';
+import f1FanAvatar from '@/assets/avatars/f1-fan-avatar.png';
+import golfFanAvatar from '@/assets/avatars/golf-fan-avatar.png';
+import liverpoolFanAvatar from '@/assets/avatars/liverpool-fan-avatar.png';
+import tomAvatar from '@/assets/avatars/tom-avatar.png';
+import paulAvatar from '@/assets/avatars/paul-avatar.png';
+import chrisAvatar from '@/assets/avatars/chris-avatar.png';
+import marcusAvatar from '@/assets/avatars/marcus-avatar.png';
+import rachelAvatar from '@/assets/avatars/rachel-avatar.png';
+import jenniferAvatar from '@/assets/avatars/jennifer-avatar.png';
+import liamAvatar from '@/assets/liam-avatar.png';
 
+import mclarenRacing from '@/assets/mclaren-racing.jpg';
+import liverpoolSquad from '@/assets/liverpool-squad.jpg';
+import ryderCupGolf from '@/assets/ryder-cup-golf.jpg';
+import cardiffCity from '@/assets/cardiff-city.jpg';
+import ohioState from '@/assets/ohio-state.jpg';
+import hexagonSports from '@/assets/hexagon-sports.jpg';
+
+// Forum posts (home feed style)
 export const forumPosts = [
   {
     id: "1",
@@ -80,176 +100,297 @@ export const forumPosts = [
   }
 ];
 
-// Forum topics data
+// Forum topics for the forum listing and detail pages (kept consistent with CommunityForum)
 export const forumTopics = [
   {
     id: "1",
-    title: "Best investment strategy for Liverpool FC shares?",
-    content: "I'm looking to invest £5,000 in Liverpool FC but wondering about the best approach. Should I invest all at once or dollar-cost average over time? Also curious about the dividend timeline and what factors might affect returns. Any experienced investors here with Liverpool shares?",
-    category: "Liverpool FC",
+    title: "Liverpool FC vs McLaren F1: Which offers better long-term returns?",
+    content: "Comparing the investment potential of traditional football clubs versus F1 racing teams. Looking at revenue streams, global reach, and growth potential.",
+    category: "Investment Strategy",
     author: {
-      name: "Marcus Chen",
-      avatar: ""
+      name: "Sarah Mitchell",
+      avatar: mariaAvatar
     },
     timestamp: "2 hours ago",
-    replies: 8,
-    views: 142,
-    likes: 12
+    replies: 47,
+    views: 1240,
+    likes: 34
   },
   {
     id: "2", 
-    title: "McLaren's Q3 performance impact on ISA returns",
-    content: "McLaren finished P4 in the constructors championship for Q3. How do you think this will affect our Income Sharing Agreement returns? The commercial revenue seems strong with their Google partnership, but I'm wondering if the on-track performance will impact prize money distributions.",
-    category: "McLaren Racing",
+    title: "Ryder Cup Debentures: Understanding the 2025 Structure",
+    content: "Deep dive into how Ryder Cup debentures work, including revenue sharing, hospitality benefits, and the unique aspects of golf tournament investments.",
+    category: "Asset Analysis",
     author: {
-      name: "Sarah Williams",
-      avatar: ""
+      name: "James Wilson",
+      avatar: jamesAvatar
     },
     timestamp: "4 hours ago",
-    replies: 15,
-    views: 289,
-    likes: 23
+    replies: 23,
+    views: 890,
+    likes: 28
   },
   {
     id: "3",
-    title: "Tax implications for sports debentures in UK",
-    content: "Can someone clarify the tax treatment for Ryder Cup debentures? I know the 5% annual return is taxable as income, but what about when we get the principal back at the end of the term? Is that considered capital gains or return of capital? My accountant wasn't familiar with sports investment taxation.",
-    category: "Ryder Cup",
+    title: "Portfolio Diversification: How many sports should you invest in?",
+    content: "Discussing optimal portfolio allocation across different sports. Risk management and correlation analysis between various sporting assets.",
+    category: "Portfolio Strategy",
     author: {
-      name: "David Thompson", 
-      avatar: ""
+      name: "Emma Thompson",
+      avatar: emmaAvatar
     },
     timestamp: "6 hours ago",
-    replies: 6,
-    views: 178,
-    likes: 9
+    replies: 31,
+    views: 567,
+    likes: 19
   },
   {
     id: "4",
-    title: "Portfolio diversification across different sports",
-    content: "Currently holding Liverpool FC and McLaren Racing. Thinking about adding Ryder Cup debentures for diversification. Does this make sense or should I look at completely different sports? What's everyone's thoughts on correlation between football and F1 returns?",
-    category: "General", 
+    title: "McLaren's 2024 Performance Impact on Share Values",
+    content: "Analysis of how McLaren's recent F1 performance has affected their investment value and what it means for future projections.",
+    category: "Market Analysis",
     author: {
-      name: "Emma Rodriguez",
-      avatar: ""
+      name: "Mike Rodriguez",
+      avatar: mikeAvatar
     },
-    timestamp: "1 day ago",
-    replies: 22,
-    views: 445,
-    likes: 31
+    timestamp: "8 hours ago",
+    replies: 15,
+    views: 432,
+    likes: 12
   },
   {
     id: "5",
-    title: "Secondary market pricing strategies",
-    content: "I'm looking to sell some of my Liverpool shares on the secondary market. What's the best way to price them? Should I set them at current market value or slightly below for quick sale? Also, any experience with auction vs fixed price listings?",
-    category: "General",
+    title: "New to sports investing: Where should I start?",
+    content: "Complete beginner looking for advice on getting started with sports investments. What should I consider as my first purchase?",
+    category: "Beginner Questions",
     author: {
-      name: "James Wilson",
-      avatar: ""
+      name: "Alex Chen",
+      avatar: alexAvatar
     },
-    timestamp: "1 day ago", 
-    replies: 11,
-    views: 223,
-    likes: 7
+    timestamp: "1 hour ago",
+    replies: 52,
+    views: 1100,
+    likes: 25
   },
   {
     id: "6",
-    title: "Upcoming Ohio State opportunity - thoughts?",
-    content: "Saw Ohio State is coming to the platform soon. 10% of stadium revenues for £80M raise seems interesting. Anyone familiar with US college sports revenue models? How stable are these compared to professional sports?",
-    category: "General",
+    title: "Tax implications of sports investments in the UK",
+    content: "Understanding capital gains, ISA allowances, and tax-efficient strategies for sports asset investments in the UK market.",
+    category: "Tax & Legal",
     author: {
-      name: "Alex Turner",
-      avatar: ""
+      name: "Maria Garcia",
+      avatar: f1FanAvatar
     },
-    timestamp: "2 days ago",
-    replies: 18,
-    views: 367,
-    likes: 25
+    timestamp: "12 hours ago",
+    replies: 38,
+    views: 789,
+    likes: 41
   }
 ];
 
-// Forum replies data
+// Forum replies (4–7 unique, consistent per topic)
 export const forumReplies = [
-  // Replies for topic 1 (Liverpool FC strategy)
+  // Topic 1 – Investment Strategy
   {
     id: "r1",
     topicId: "1",
-    content: "I've been DCA-ing into Liverpool for 6 months now. The volatility around transfer windows can be significant, so spreading purchases helps smooth out the price swings. Just my experience!",
-    author: {
-      name: "Tom Harrison",
-      avatar: ""
-    },
+    content: "DCA makes sense here. Liverpool's revenue spikes around major tournaments and transfer windows, so smoothing entries helps.",
+    author: { name: "Tom Harrison", avatar: tomAvatar },
     timestamp: "1 hour ago",
-    likes: 5
+    likes: 6
   },
   {
-    id: "r2", 
+    id: "r2",
     topicId: "1",
-    content: "£5k is a decent chunk. I'd probably do 60% upfront and 40% over next 3 months. Liverpool's fundamentals are strong but Champions League qualification can affect short-term pricing.",
-    author: {
-      name: "Lisa Chang",
-      avatar: ""
-    },
-    timestamp: "45 minutes ago",
-    likes: 8
+    content: "I split 50/50 over two months. The McLaren correlation isn't perfect, so mixing can reduce volatility.",
+    author: { name: "Lisa Chang", avatar: lisaAvatar },
+    timestamp: "50 minutes ago",
+    likes: 9
   },
   {
     id: "r3",
-    topicId: "1", 
-    content: "Don't forget about the Anfield expansion completion timeline. That should boost revenue significantly once finished. Might be worth timing some purchases around that announcement.",
-    author: {
-      name: "Mike O'Connor",
-      avatar: ""
-    },
-    timestamp: "30 minutes ago",
+    topicId: "1",
+    content: "Watch the Anfield expansion milestones – announcements have historically moved pricing.",
+    author: { name: "Marcus Lee", avatar: marcusAvatar },
+    timestamp: "35 minutes ago",
     likes: 3
   },
-
-  // Replies for topic 2 (McLaren performance)
   {
     id: "r4",
+    topicId: "1",
+    content: "Also consider liquidity on the secondary market – spreads widen during off-season.",
+    author: { name: "Rachel Green", avatar: rachelAvatar },
+    timestamp: "20 minutes ago",
+    likes: 4
+  },
+
+  // Topic 2 – Ryder Cup Structure
+  {
+    id: "r5",
     topicId: "2",
-    content: "P4 is actually quite good for McLaren historically. The ISA is structured around total commercial revenue, not just prize money, so the Google and other sponsorship deals matter more than championship position.",
-    author: {
-      name: "Rachel Green",
-      avatar: ""
-    },
+    content: "Prize pools matter less than hospitality margin. The debenture utility drives value.",
+    author: { name: "Chris Martinez", avatar: chrisAvatar },
     timestamp: "3 hours ago",
     likes: 12
   },
   {
-    id: "r5",
-    topicId: "2",
-    content: "Prize money is only about 30% of total revenue for teams like McLaren. The technology licensing and merchandise are the real drivers. P4 vs P3 won't make a huge difference to our returns.",
-    author: {
-      name: "Chris Martinez",
-      avatar: ""
-    },
-    timestamp: "2 hours ago", 
-    likes: 7
-  },
-
-  // Replies for topic 3 (Tax implications)
-  {
     id: "r6",
-    topicId: "3",
-    content: "I spoke to a tax specialist about this. The annual 5% is definitely income tax, but the principal repayment should be return of capital (not taxable). However, if debentures appreciate and you sell early, that would be capital gains.",
-    author: {
-      name: "Jennifer Adams",
-      avatar: ""
-    },
-    timestamp: "5 hours ago",
-    likes: 15
+    topicId: "2",
+    content: "Tax-wise, treat it similar to fixed-income for the annual coupon. Capital treatment only on sale.",
+    author: { name: "Jennifer Adams", avatar: jenniferAvatar },
+    timestamp: "2 hours ago",
+    likes: 7
   },
   {
     id: "r7",
+    topicId: "2",
+    content: "Liquidity is thinner than football assets. Price accordingly if selling early.",
+    author: { name: "Paul Stewart", avatar: paulAvatar },
+    timestamp: "1 hour ago",
+    likes: 5
+  },
+  {
+    id: "r8",
+    topicId: "2",
+    content: "2025 demand looks strong with corporate packages nearly sold out.",
+    author: { name: "Alex Novak", avatar: alexAvatar },
+    timestamp: "55 minutes ago",
+    likes: 4
+  },
+
+  // Topic 3 – Portfolio Diversification
+  {
+    id: "r9",
     topicId: "3",
-    content: "Make sure your accountant understands these are alternative investments. The tax treatment is similar to corporate bonds in many ways. The HMRC guidance on 'alternative finance arrangements' might be helpful.",
-    author: {
-      name: "Paul Stewart",
-      avatar: ""
-    },
+    content: "I cap any single sport at 35% of portfolio. Football + motorsport have low correlation in my backtests.",
+    author: { name: "David Khan", avatar: davidAvatar },
+    timestamp: "5 hours ago",
+    likes: 10
+  },
+  {
+    id: "r10",
+    topicId: "3",
+    content: "Consider event-driven plays (e.g., Ryder Cup years) to balance seasonal dips.",
+    author: { name: "Emma Patel", avatar: emmaAvatar },
     timestamp: "4 hours ago",
+    likes: 6
+  },
+  {
+    id: "r11",
+    topicId: "3",
+    content: "Don't forget currency exposure if assets are USD-linked.",
+    author: { name: "Liam Brooks", avatar: liamAvatar },
+    timestamp: "3 hours ago",
+    likes: 4
+  },
+  {
+    id: "r12",
+    topicId: "3",
+    content: "Tracking error vs traditional ETFs can be high – size positions accordingly.",
+    author: { name: "Sarah Ahmed", avatar: sarahAvatar },
+    timestamp: "2 hours ago",
+    likes: 5
+  },
+
+  // Topic 4 – McLaren 2024 Performance
+  {
+    id: "r13",
+    topicId: "4",
+    content: "Commercial deals (Google, OKX) overshadow prize money in impact – good for stability.",
+    author: { name: "Carlos Reyes", avatar: mclarenRacing },
+    timestamp: "8 hours ago",
+    likes: 11
+  },
+  {
+    id: "r14",
+    topicId: "4",
+    content: "Chassis upgrades in mid-season correlated with merch spikes – keep an eye on launches.",
+    author: { name: "Nina Park", avatar: hexagonSports },
+    timestamp: "7 hours ago",
+    likes: 7
+  },
+  {
+    id: "r15",
+    topicId: "4",
+    content: "If Lando podiums consistently, Q4 projections could beat guidance.",
+    author: { name: "Owen Price", avatar: ohioState },
+    timestamp: "6 hours ago",
+    likes: 6
+  },
+  {
+    id: "r16",
+    topicId: "4",
+    content: "Watch cost cap penalties – historical fines can affect distributions.",
+    author: { name: "Priya Nair", avatar: cardiffCity },
+    timestamp: "5 hours ago",
+    likes: 3
+  },
+
+  // Topic 5 – Getting Started
+  {
+    id: "r17",
+    topicId: "5",
+    content: "Start with one blue-chip (Liverpool) and one growth (McLaren). Learn the cadence before scaling.",
+    author: { name: "Ben Carter", avatar: liverpoolSquad },
+    timestamp: "1 hour ago",
     likes: 9
+  },
+  {
+    id: "r18",
+    topicId: "5",
+    content: "Use small-limit DCA and set alerts around matchdays and race weekends.",
+    author: { name: "Chloe Smith", avatar: golfFanAvatar },
+    timestamp: "45 minutes ago",
+    likes: 6
+  },
+  {
+    id: "r19",
+    topicId: "5",
+    content: "Read each asset’s offering document – benefit tiers matter more than you'd think.",
+    author: { name: "Derek Wong", avatar: chrisAvatar },
+    timestamp: "30 minutes ago",
+    likes: 5
+  },
+  {
+    id: "r20",
+    topicId: "5",
+    content: "Join the community calls; Q&A sessions are gold for context.",
+    author: { name: "Ella Johnson", avatar: jenniferAvatar },
+    timestamp: "25 minutes ago",
+    likes: 4
+  },
+
+  // Topic 6 – Tax & Legal
+  {
+    id: "r21",
+    topicId: "6",
+    content: "If inside an ISA, disposals on the secondary market can be tax-free – check eligibility.",
+    author: { name: "Fiona Patel", avatar: liverpoolFanAvatar },
+    timestamp: "12 hours ago",
+    likes: 13
+  },
+  {
+    id: "r22",
+    topicId: "6",
+    content: "Annual distributions are income – keep records for self-assessment.",
+    author: { name: "George Hall", avatar: davidAvatar },
+    timestamp: "11 hours ago",
+    likes: 8
+  },
+  {
+    id: "r23",
+    topicId: "6",
+    content: "Non-UK investors: watch double-tax treaties; withholding can differ by asset type.",
+    author: { name: "Hannah Lee", avatar: sarahAvatar },
+    timestamp: "10 hours ago",
+    likes: 6
+  },
+  {
+    id: "r24",
+    topicId: "6",
+    content: "Document everything – HMRC queries are easier when you have clear breakdowns.",
+    author: { name: "Ian Moore", avatar: paulAvatar },
+    timestamp: "9 hours ago",
+    likes: 5
   }
 ];
