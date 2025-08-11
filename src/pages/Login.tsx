@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { useToast } from "@/hooks/use-toast";
-import keepsLogo from "@/assets/keeps-logo.png";
+// Using the uploaded Keeps logo directly
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -95,9 +95,9 @@ export default function Login() {
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
             <OptimizedImage
-              src={keepsLogo}
+              src="/lovable-uploads/9cfc3a82-ee2a-4d76-90d4-e8e02276a88e.png"
               alt="Keeps"
-              className="w-16 h-16"
+              className="w-16 h-16 object-contain"
             />
           </div>
           <CardTitle className="text-2xl font-bold text-gradient">

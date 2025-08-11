@@ -7,7 +7,7 @@ import { Bell, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import keepsLogo from "@/assets/keeps-logo.png";
+// Using the uploaded Keeps logo directly
 
 interface LayoutProps {
   children: ReactNode;
@@ -57,7 +57,7 @@ export function Layout({ children }: LayoutProps) {
         onClick={toggleSidebar}
         aria-label="Open menu"
       >
-        <img src={keepsLogo} alt="Keeps logo - open menu" className="h-6 w-auto" />
+        <img src="/lovable-uploads/9cfc3a82-ee2a-4d76-90d4-e8e02276a88e.png" alt="Keeps logo - open menu" className="h-6 w-auto object-contain" />
       </Button>
     );
   };
