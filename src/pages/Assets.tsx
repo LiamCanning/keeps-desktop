@@ -223,14 +223,17 @@ export default function Assets() {
         <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
           <TabsList className="grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm h-auto">
             <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+              <div className="w-2 h-2 bg-success rounded-full"></div>
               <span className="hidden sm:inline">Live Deals ({liveAssets})</span>
               <span className="sm:hidden">Live ({liveAssets})</span>
             </TabsTrigger>
             <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+              <div className="w-2 h-2 bg-warning rounded-full"></div>
               <span className="hidden sm:inline">Coming Soon ({comingSoonAssets})</span>
               <span className="sm:hidden">Coming ({comingSoonAssets})</span>
             </TabsTrigger>
             <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+              <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
               <span className="hidden sm:inline">Completed</span>
               <span className="sm:hidden">Done</span>
             </TabsTrigger>
