@@ -803,5 +803,6 @@ export default function Content() {
         </TabsContent>
       </Tabs>
     </div>
+    </div>
   );
 }

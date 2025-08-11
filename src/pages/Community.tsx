@@ -558,6 +558,7 @@ export default function Community() {
           </div>
         </TabsContent>
       </Tabs>
+      </div>
     </div>
   );
 }
