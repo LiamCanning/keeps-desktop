@@ -178,9 +178,9 @@ export default function SellShares() {
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="font-semibold">£{holding.currentPrice.toLocaleString()}</p>
+                          <p className="font-semibold">£{holding.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                           <p className={`text-sm ${profit >= 0 ? 'text-success' : 'text-destructive'}`}>
-                            {profit >= 0 ? '+' : ''}£{profit.toLocaleString()} ({profitPercent.toFixed(1)}%)
+                            {profit >= 0 ? '+' : ''}£{profit.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ({profitPercent.toFixed(1)}%)
                           </p>
                         </div>
                       </div>
@@ -257,16 +257,16 @@ export default function SellShares() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Current price</span>
-                      <span className="font-semibold">£{selectedHolding.currentPrice.toLocaleString()}</span>
+                      <span className="font-semibold">£{selectedHolding.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Total sale value</span>
-                      <span className="font-semibold text-lg">£{calculateSaleValue().toLocaleString()}</span>
+                      <span className="font-semibold text-lg">£{calculateSaleValue().toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex justify-between border-t pt-2">
                       <span className="text-muted-foreground">Profit/Loss</span>
                       <span className={`font-semibold ${calculateProfit() >= 0 ? 'text-success' : 'text-destructive'}`}>
-                        {calculateProfit() >= 0 ? '+' : ''}£{calculateProfit().toLocaleString()}
+                        {calculateProfit() >= 0 ? '+' : ''}£{calculateProfit().toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </span>
                     </div>
                   </div>

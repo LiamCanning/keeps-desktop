@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TrendingUp, TrendingDown, BarChart3, PieChart, DollarSign, Calendar, Target, Award, Eye, Activity } from "lucide-react";
+import { TrendingUp, TrendingDown, BarChart3, PieChart, PoundSterling, Calendar, Target, Award, Eye, Activity } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -219,7 +219,7 @@ export default function Portfolio() {
         <Card className="card-professional p-4">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-primary/20 rounded-lg">
-              <DollarSign className="w-5 h-5 text-primary" />
+              <PoundSterling className="w-5 h-5 text-primary" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Invested</p>
@@ -234,7 +234,7 @@ export default function Portfolio() {
               <PieChart className="w-5 h-5 text-success" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Teams</p>
+              <p className="text-sm text-muted-foreground">Assets</p>
               <p className="font-semibold text-lg sm:text-xl text-card-foreground">{portfolioHoldings.length}</p>
             </div>
           </div>

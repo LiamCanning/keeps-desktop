@@ -530,7 +530,7 @@ export default function PrimaryOffering() {
         </section>
 
         <aside className="space-y-6 lg:col-span-4 xl:col-span-3">
-          <Card className="card-professional">
+          <Card className="card-professional bg-success/10 border-success/30 ring-1 ring-success/20">
             <CardHeader>
               <CardTitle>Order Summary</CardTitle>
             </CardHeader>

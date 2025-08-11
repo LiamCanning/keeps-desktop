@@ -484,7 +484,7 @@ export default function Content() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
+        <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
           <TabsTrigger value="trending">Trending</TabsTrigger>
           <TabsTrigger value="news">Latest News</TabsTrigger>

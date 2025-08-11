@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Ensure all footer links scroll to top on navigation
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'auto' });
+
   return (
     <footer className="bg-card border-t border-border mt-auto">
       <div className="max-w-7xl mx-auto px-6 py-12">

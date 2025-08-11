@@ -286,7 +286,7 @@ export default function Community() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="timeline">Community Timeline</TabsTrigger>
           <TabsTrigger value="forum">Forum</TabsTrigger>
           <TabsTrigger value="create">Create Post</TabsTrigger>

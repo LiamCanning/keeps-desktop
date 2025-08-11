@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Tag, Calculator, CheckCircle, AlertCircle } from "lucide-react";
+import { ArrowLeft, Tag, Calculator, CheckCircle, AlertCircle, Info } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,7 @@ import { LogoImage } from "@/components/ui/logo-image";
 import bannerImage from "@/assets/list-asset-banner.png";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface PortfolioAsset {
   id: string;
@@ -158,7 +159,7 @@ export default function ListAsset() {
                           <div>
                             <p className="font-medium">{asset.name}</p>
                             <p className="text-sm text-muted-foreground">
-                              {asset.totalShares} {asset.name === "Ryder Cup" ? "debentures" : "shares"} owned • Current: £{asset.currentPrice}
+                              {asset.totalShares} {asset.name === "Ryder Cup" ? "debentures" : "shares"} owned • Current: £{asset.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </p>
                           </div>
                         </div>
@@ -188,15 +189,15 @@ export default function ListAsset() {
                     </div>
                     <div>
                       <p className="text-muted-foreground">Current Price</p>
-                      <p className="font-semibold">£{asset.currentPrice}</p>
+                      <p className="font-semibold">£{asset.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                     <div>
                       <p className="text-muted-foreground">Purchase Price</p>
-                      <p className="font-semibold">£{asset.purchasePrice}</p>
+                      <p className="font-semibold">£{asset.purchasePrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                     <div>
                       <p className="text-muted-foreground">Profit per {asset.name === "Ryder Cup" ? "Debenture" : "Share"}</p>
-                      <p className="font-semibold text-success">+£{asset.currentPrice - asset.purchasePrice}</p>
+                      <p className="font-semibold text-success">+£{(asset.currentPrice - asset.purchasePrice).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                   </div>
                 </div>
@@ -263,11 +264,11 @@ export default function ListAsset() {
                       onClick={() => setPricePerShare(suggestedPrice.toString())}
                       className="px-6 bg-success/10 border-success text-success hover:bg-success hover:text-white"
                     >
-                      Use Suggested: £{suggestedPrice}
+                      Use Suggested: £{suggestedPrice.toFixed(2)}
                     </Button>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Suggested price: £{suggestedPrice} (5% above current market price)
+                    Suggested price: £{suggestedPrice.toFixed(2)} (5% above current market price)
                   </p>
                 </div>
 
@@ -275,13 +276,31 @@ export default function ListAsset() {
 
                 {/* Sale Type */}
                 <div className="space-y-4">
-                  <Label className="text-base font-semibold">Sale Type</Label>
+                  <Label className="text-base font-semibold flex items-center gap-2">Sale Type
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-primary/40 text-primary cursor-help">i</span>
+                      </TooltipTrigger>
+                      <TooltipContent className="max-w-xs">
+                        <p className="text-sm"><strong>Fixed Sale:</strong> Set a price per share and your listing can be purchased instantly at that price.</p>
+                        <p className="text-sm mt-2"><strong>Auction Sale:</strong> Set a starting bid and duration; investors place bids and the highest bid at close wins.</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </Label>
                   <RadioGroup value={saleType} onValueChange={setSaleType}>
                     <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
                       <RadioGroupItem value="fixed" id="fixed" />
                       <div className="flex-1">
-                        <label htmlFor="fixed" className="font-medium cursor-pointer">
+                        <label htmlFor="fixed" className="font-medium cursor-pointer flex items-center gap-2">
                           Fixed Sale
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Info className="w-4 h-4 text-muted-foreground cursor-help" />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              Sell immediately at your set price.
+                            </TooltipContent>
+                          </Tooltip>
                         </label>
                         <p className="text-sm text-muted-foreground">
                           Sell immediately at your set price
@@ -291,8 +310,16 @@ export default function ListAsset() {
                     <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
                       <RadioGroupItem value="auction" id="auction" />
                       <div className="flex-1">
-                        <label htmlFor="auction" className="font-medium cursor-pointer">
+                        <label htmlFor="auction" className="font-medium cursor-pointer flex items-center gap-2">
                           Auction Sale
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Info className="w-4 h-4 text-muted-foreground cursor-help" />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              Let investors bid on your shares.
+                            </TooltipContent>
+                          </Tooltip>
                         </label>
                         <p className="text-sm text-muted-foreground">
                           Let investors bid on your shares
@@ -325,20 +352,20 @@ export default function ListAsset() {
                   </div>
                    <div className="flex justify-between">
                     <span className="text-muted-foreground">Price per {asset.name === "Ryder Cup" ? "Debenture" : "Share"}:</span>
-                    <span className="font-medium">£{priceNum}</span>
+                    <span className="font-medium">£{priceNum.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Subtotal:</span>
-                    <span className="font-medium">£{subtotal.toLocaleString()}</span>
+                    <span className="font-medium">£{subtotal.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Sale Fee (2.5%):</span>
-                    <span className="font-medium">£{saleeFee.toFixed(0)}</span>
+                    <span className="font-medium">£{saleeFee.toFixed(2)}</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between text-xl font-bold">
                     <span>You'll Receive:</span>
-                    <span className="text-success">£{netAmount.toLocaleString()}</span>
+                    <span className="text-success">£{netAmount.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                 </div>
 
@@ -350,11 +377,11 @@ export default function ListAsset() {
                   <div className="space-y-1 text-sm">
                     <div className="flex justify-between">
                       <span>Original Cost:</span>
-                      <span>£{(asset.purchasePrice * quantityNum).toLocaleString()}</span>
+                      <span>£{(asset.purchasePrice * quantityNum).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex justify-between font-semibold">
                       <span>Total Profit:</span>
-                      <span className="text-success">+£{(netAmount - (asset.purchasePrice * quantityNum)).toLocaleString()}</span>
+                      <span className="text-success">+£{(netAmount - (asset.purchasePrice * quantityNum)).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                   </div>
                 </div>
