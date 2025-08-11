@@ -55,14 +55,14 @@ export function Layout({ children }: LayoutProps) {
           <ResizablePanelGroup
             direction="horizontal"
             className="min-h-screen w-full bg-background"
-            
+            autoSaveId="app:layout"
             onLayout={(sizes) => localStorage.setItem("app:layout", JSON.stringify(sizes))}
           >
-            <ResizablePanel defaultSize={20} minSize={12} maxSize={40} className="hidden lg:flex">
+            <ResizablePanel defaultSize={18} minSize={12} maxSize={28} className="hidden lg:flex">
               <AppSidebar />
             </ResizablePanel>
             <ResizableHandle withHandle className="hidden lg:flex" />
-            <ResizablePanel defaultSize={80} minSize={40}>
+            <ResizablePanel defaultSize={82} minSize={60}>
               <div className="flex min-h-screen w-full flex-col">
                 {/* Top Header */}
                 <header className="h-16 border-b border-sidebar-border bg-background/95 backdrop-blur-sm sticky top-0 z-40">

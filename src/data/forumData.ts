@@ -129,7 +129,7 @@ export const forumTopics = [
       avatar: a12
     },
     timestamp: "4 hours ago",
-    replies: 18,
+    replies: 17,
     views: 289,
     likes: 23
   },
@@ -185,7 +185,7 @@ export const forumTopics = [
       avatar: AV["Alex Turner"]
     },
     timestamp: "2 days ago",
-    replies: 21,
+    replies: 20,
     views: 367,
     likes: 25
   }
