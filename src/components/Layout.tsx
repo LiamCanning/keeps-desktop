@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
@@ -55,14 +55,14 @@ export function Layout({ children }: LayoutProps) {
           <ResizablePanelGroup
             direction="horizontal"
             className="min-h-screen w-full bg-background"
-            defaultLayout={defaultLayout}
+            
             onLayout={(sizes) => localStorage.setItem("app:layout", JSON.stringify(sizes))}
           >
-            <ResizablePanel defaultSize={defaultLayout[0] ?? 20} minSize={12} maxSize={40} className="hidden lg:flex">
+            <ResizablePanel defaultSize={20} minSize={12} maxSize={40} className="hidden lg:flex">
               <AppSidebar />
             </ResizablePanel>
             <ResizableHandle withHandle className="hidden lg:flex" />
-            <ResizablePanel defaultSize={defaultLayout[1] ?? 80} minSize={40}>
+            <ResizablePanel defaultSize={80} minSize={40}>
               <div className="flex min-h-screen w-full flex-col">
                 {/* Top Header */}
                 <header className="h-16 border-b border-sidebar-border bg-background/95 backdrop-blur-sm sticky top-0 z-40">

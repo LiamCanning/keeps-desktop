@@ -115,7 +115,7 @@ export const forumTopics = [
       avatar: AV["Marcus Chen"]
     },
     timestamp: "2 hours ago",
-    replies: 8,
+    replies: 10,
     views: 142,
     likes: 12
   },
