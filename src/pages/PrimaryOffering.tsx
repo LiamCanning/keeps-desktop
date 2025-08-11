@@ -555,22 +555,22 @@ export default function PrimaryOffering() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Unit Price:</span>
-                      <span className="font-medium">£{pricePerShare}</span>
+                      <span className="font-medium">£{pricePerShare.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                   </>
                 )}
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal:</span>
-                  <span className="font-medium">£{subtotal.toLocaleString()}</span>
+                  <span className="font-medium">£{subtotal.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Processing Fee ({(asset.processingFee * 100).toFixed(0)}%):</span>
-                  <span className="font-medium">£{processingFee.toFixed(0)}</span>
+                  <span className="font-medium">£{processingFee.toFixed(2)}</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between text-xl font-bold">
                   <span>Total:</span>
-                  <span className="text-primary">£{total.toLocaleString()}</span>
+                  <span className="text-primary">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
               </div>
 

@@ -134,7 +134,7 @@ export default function Account() {
           </Select>
         </div>
 
-        <TabsList className="hidden md:grid w-full grid-cols-6 lg:w-auto lg:grid-cols-6">
+        <TabsList className="hidden md:grid w-full grid-cols-6 lg:w-auto lg:grid-cols-6 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="account-settings">Settings</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>

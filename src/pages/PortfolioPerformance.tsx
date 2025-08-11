@@ -147,7 +147,7 @@ export default function PortfolioPerformance() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4">
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="overview">Performance Overview</TabsTrigger>
           <TabsTrigger value="charts">Advanced Charts</TabsTrigger>
           <TabsTrigger value="allocation">Asset Allocation</TabsTrigger>

@@ -91,6 +91,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Layout>
+          <Routes>
             <Route path="/" element={<FirstVisitGate><Dashboard /></FirstVisitGate>} />
             <Route path="/benefits" element={<Benefits />} />
             <Route path="/content" element={<Content />} />

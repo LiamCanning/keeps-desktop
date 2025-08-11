@@ -323,7 +323,7 @@ export default function AssetDetails() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-card">
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="thesis">Investment Thesis</TabsTrigger>
           <TabsTrigger value="analysis">Analysis</TabsTrigger>

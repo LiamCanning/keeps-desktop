@@ -344,7 +344,7 @@ export default function CommunityForum() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:grid-cols-7">
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:grid-cols-7 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           {categories.map((category) => (
             <TabsTrigger 
               key={category} 

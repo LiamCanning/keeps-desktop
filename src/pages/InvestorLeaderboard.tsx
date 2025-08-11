@@ -598,7 +598,7 @@ export default function InvestorLeaderboard() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="returns">Top 5 by Returns</TabsTrigger>
           <TabsTrigger value="invested">Top 5 by Investment</TabsTrigger>
           <TabsTrigger value="tier">By Tier</TabsTrigger>

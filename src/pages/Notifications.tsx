@@ -311,7 +311,7 @@ export default function Notifications() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4">
+        <TabsList className="hidden md:grid w-full grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="all">All Notifications</TabsTrigger>
           <TabsTrigger value="users">User Activity</TabsTrigger>
           <TabsTrigger value="brands">Brand News</TabsTrigger>

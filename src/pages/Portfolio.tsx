@@ -276,7 +276,7 @@ export default function Portfolio() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="overview">Your Investments</TabsTrigger>
           <TabsTrigger value="performance">Performance & Analytics</TabsTrigger>
           <TabsTrigger value="watchlist">Watchlist</TabsTrigger>

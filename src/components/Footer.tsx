@@ -34,22 +34,22 @@ export function Footer() {
             </div>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/about-us" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/about-us" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/for-organisations" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/for-organisations" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   For Organisations
                 </Link>
               </li>
               <li>
-                <Link to="/support-hub" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/support-hub" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/investor-relations" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/investor-relations" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Investor Relations
                 </Link>
               </li>
@@ -63,22 +63,22 @@ export function Footer() {
             </div>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/terms-and-conditions" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/privacy-policy" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/cookie-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/cookie-policy" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link to="/risk-disclosure" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/risk-disclosure" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Risk Disclosure
                 </Link>
               </li>
@@ -92,17 +92,17 @@ export function Footer() {
             </div>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/support-hub" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/support-hub" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Help Centre
                 </Link>
               </li>
               <li>
-                <Link to="/knowledge-base" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/knowledge-base" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Knowledge Base
                 </Link>
               </li>
               <li>
-                <Link to="/regulatory-compliance" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/regulatory-compliance" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-colors">
                   Regulatory Compliance
                 </Link>
               </li>

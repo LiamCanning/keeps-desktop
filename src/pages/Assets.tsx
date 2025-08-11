@@ -235,7 +235,7 @@ export default function Assets() {
               </SelectContent>
             </Select>
           </div>
-          <TabsList className="hidden md:grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm h-auto">
+          <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md">
             <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-success rounded-full"></div>
               <span className="hidden sm:inline">Live Deals ({liveAssets})</span>
