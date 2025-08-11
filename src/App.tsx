@@ -61,6 +61,7 @@ import { CookiePolicy } from "./pages/CookiePolicy";
 import { RiskDisclosure } from "./pages/RiskDisclosure";
 import OrganisationContact from "./pages/OrganisationContact";
 import PrimaryOffering from "./pages/PrimaryOffering";
+import AutoInvest from "./pages/AutoInvest";
 
 const queryClient = new QueryClient();
 
@@ -134,6 +135,7 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/risk-disclosure" element={<RiskDisclosure />} />
+            <Route path="/auto-invest" element={<AutoInvest />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

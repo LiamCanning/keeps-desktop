@@ -4,6 +4,15 @@ import emmaAvatar from '@/assets/avatars/emma-avatar.png';
 import jamesAvatar from '@/assets/avatars/james-avatar.png';
 import lisaAvatar from '@/assets/avatars/lisa-avatar.png';
 import davidAvatar from '@/assets/avatars/david-avatar.png';
+import { assignAvatars } from '@/data/avatarRegistry';
+
+const allNames = [
+  "Marcus Chen","Sarah Williams","David Thompson","Emma Rodriguez","James Wilson","Alex Turner",
+  "Tom Harrison","Lisa Chang","Mike O'Connor","Rachel Green","Chris Martinez","Jennifer Adams","Paul Stewart",
+  "Nina Patel","Omar Hassan","Chloe Brown","Wei Zhang","Ava Johnson","Luca Bianchi","Sophie Martin","Daniel Evans","Priya Kapoor","Hiro Tanaka","Elena Garcia","Jonas Schmidt"
+];
+const AV = assignAvatars(allNames);
+
 
 export const forumPosts = [
   {
@@ -89,7 +98,7 @@ export const forumTopics = [
     category: "Liverpool FC",
     author: {
       name: "Marcus Chen",
-      avatar: ""
+      avatar: AV["Marcus Chen"]
     },
     timestamp: "2 hours ago",
     replies: 8,
@@ -103,7 +112,7 @@ export const forumTopics = [
     category: "McLaren Racing",
     author: {
       name: "Sarah Williams",
-      avatar: ""
+      avatar: AV["Sarah Williams"]
     },
     timestamp: "4 hours ago",
     replies: 15,
@@ -117,7 +126,7 @@ export const forumTopics = [
     category: "Ryder Cup",
     author: {
       name: "David Thompson", 
-      avatar: ""
+      avatar: AV["David Thompson"]
     },
     timestamp: "6 hours ago",
     replies: 6,
@@ -131,7 +140,7 @@ export const forumTopics = [
     category: "General", 
     author: {
       name: "Emma Rodriguez",
-      avatar: ""
+      avatar: AV["Emma Rodriguez"]
     },
     timestamp: "1 day ago",
     replies: 22,
@@ -145,7 +154,7 @@ export const forumTopics = [
     category: "General",
     author: {
       name: "James Wilson",
-      avatar: ""
+      avatar: AV["James Wilson"]
     },
     timestamp: "1 day ago", 
     replies: 11,
@@ -159,7 +168,7 @@ export const forumTopics = [
     category: "General",
     author: {
       name: "Alex Turner",
-      avatar: ""
+      avatar: AV["Alex Turner"]
     },
     timestamp: "2 days ago",
     replies: 18,
@@ -177,7 +186,7 @@ export const forumReplies = [
     content: "I've been DCA-ing into Liverpool for 6 months now. The volatility around transfer windows can be significant, so spreading purchases helps smooth out the price swings. Just my experience!",
     author: {
       name: "Tom Harrison",
-      avatar: ""
+      avatar: AV["Tom Harrison"]
     },
     timestamp: "1 hour ago",
     likes: 5
@@ -188,7 +197,7 @@ export const forumReplies = [
     content: "£5k is a decent chunk. I'd probably do 60% upfront and 40% over next 3 months. Liverpool's fundamentals are strong but Champions League qualification can affect short-term pricing.",
     author: {
       name: "Lisa Chang",
-      avatar: ""
+      avatar: AV["Lisa Chang"]
     },
     timestamp: "45 minutes ago",
     likes: 8
@@ -199,7 +208,7 @@ export const forumReplies = [
     content: "Don't forget about the Anfield expansion completion timeline. That should boost revenue significantly once finished. Might be worth timing some purchases around that announcement.",
     author: {
       name: "Mike O'Connor",
-      avatar: ""
+      avatar: AV["Mike O'Connor"]
     },
     timestamp: "30 minutes ago",
     likes: 3
@@ -212,7 +221,7 @@ export const forumReplies = [
     content: "P4 is actually quite good for McLaren historically. The ISA is structured around total commercial revenue, not just prize money, so the Google and other sponsorship deals matter more than championship position.",
     author: {
       name: "Rachel Green",
-      avatar: ""
+      avatar: AV["Rachel Green"]
     },
     timestamp: "3 hours ago",
     likes: 12
@@ -223,7 +232,7 @@ export const forumReplies = [
     content: "Prize money is only about 30% of total revenue for teams like McLaren. The technology licensing and merchandise are the real drivers. P4 vs P3 won't make a huge difference to our returns.",
     author: {
       name: "Chris Martinez",
-      avatar: ""
+      avatar: AV["Chris Martinez"]
     },
     timestamp: "2 hours ago", 
     likes: 7
@@ -236,7 +245,7 @@ export const forumReplies = [
     content: "I spoke to a tax specialist about this. The annual 5% is definitely income tax, but the principal repayment should be return of capital (not taxable). However, if debentures appreciate and you sell early, that would be capital gains.",
     author: {
       name: "Jennifer Adams",
-      avatar: ""
+      avatar: AV["Jennifer Adams"]
     },
     timestamp: "5 hours ago",
     likes: 15
@@ -247,7 +256,7 @@ export const forumReplies = [
     content: "Make sure your accountant understands these are alternative investments. The tax treatment is similar to corporate bonds in many ways. The HMRC guidance on 'alternative finance arrangements' might be helpful.",
     author: {
       name: "Paul Stewart",
-      avatar: ""
+      avatar: AV["Paul Stewart"]
     },
     timestamp: "4 hours ago",
     likes: 9

@@ -8,15 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-// Import avatar images
-import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
-import mikeAvatar from "@/assets/avatars/mike-avatar.png";
-import emmaAvatar from "@/assets/avatars/emma-avatar.png";
-import alexAvatar from "@/assets/avatars/alex-avatar.png";
-import jamesAvatar from "@/assets/avatars/james-avatar.png";
-import mariaAvatar from "@/assets/avatars/maria-avatar.png";
-import f1FanAvatar from "@/assets/avatars/f1-fan-avatar.png";
-import liamAvatar from "@/assets/liam-avatar.png";
+import { forumTopics as forumTopicsData } from "@/data/forumData";
 
 interface ForumTopic {
   id: string;
@@ -37,116 +29,24 @@ interface ForumTopic {
   tags: string[];
 }
 
-const forumTopics: ForumTopic[] = [
-  {
-    id: "1",
-    title: "Liverpool FC vs McLaren F1: Which offers better long-term returns?",
-    description: "Comparing the investment potential of traditional football clubs versus F1 racing teams. Looking at revenue streams, global reach, and growth potential.",
-    author: {
-      name: "Sarah Mitchell",
-      username: "sarahm_investor",
-      avatar: mariaAvatar,
-      verified: true
-    },
-    category: "Investment Strategy",
-    replies: 47,
-    views: 1240,
-    lastActivity: "2h ago",
-    isPinned: true,
-    upvotes: 34,
-    tags: ["Liverpool FC", "McLaren F1", "Comparison"]
+const forumTopics: ForumTopic[] = forumTopicsData.map((t) => ({
+  id: t.id,
+  title: t.title,
+  description: t.content,
+  author: {
+    name: t.author.name,
+    username: t.author.name.toLowerCase().replace(/\s+/g, "_"),
+    avatar: t.author.avatar,
+    verified: true,
   },
-  {
-    id: "2", 
-    title: "Ryder Cup Debentures: Understanding the 2025 Structure",
-    description: "Deep dive into how Ryder Cup debentures work, including revenue sharing, hospitality benefits, and the unique aspects of golf tournament investments.",
-    author: {
-      name: "James Wilson",
-      username: "golf_expert_james",
-      avatar: jamesAvatar,
-      verified: true
-    },
-    category: "Asset Analysis",
-    replies: 23,
-    views: 890,
-    lastActivity: "4h ago",
-    isPinned: false,
-    upvotes: 28,
-    tags: ["Ryder Cup", "Debentures", "Golf"]
-  },
-  {
-    id: "3",
-    title: "Portfolio Diversification: How many sports should you invest in?",
-    description: "Discussing optimal portfolio allocation across different sports. Risk management and correlation analysis between various sporting assets.",
-    author: {
-      name: "Emma Thompson",
-      username: "emma_portfolio",
-      avatar: emmaAvatar,
-      verified: true
-    },
-    category: "Portfolio Strategy",
-    replies: 31,
-    views: 567,
-    lastActivity: "6h ago",
-    isPinned: false,
-    upvotes: 19,
-    tags: ["Diversification", "Risk Management", "Portfolio"]
-  },
-  {
-    id: "4",
-    title: "McLaren's 2024 Performance Impact on Share Values",
-    description: "Analysis of how McLaren's recent F1 performance has affected their investment value and what it means for future projections.",
-    author: {
-      name: "Mike Rodriguez",
-      username: "f1_mike_investing",
-      avatar: mikeAvatar,
-      verified: false
-    },
-    category: "Market Analysis",
-    replies: 15,
-    views: 432,
-    lastActivity: "8h ago",
-    isPinned: false,
-    upvotes: 12,
-    tags: ["McLaren F1", "Performance", "Valuation"]
-  },
-  {
-    id: "5",
-    title: "New to sports investing: Where should I start?",
-    description: "Complete beginner looking for advice on getting started with sports investments. What should I consider as my first purchase?",
-    author: {
-      name: "Alex Chen",
-      username: "newbie_alex",
-      avatar: alexAvatar,
-      verified: false
-    },
-    category: "Beginner Questions",
-    replies: 52,
-    views: 1100,
-    lastActivity: "1h ago",
-    isPinned: false,
-    upvotes: 25,
-    tags: ["Beginner", "Getting Started", "Advice"]
-  },
-  {
-    id: "6",
-    title: "Tax implications of sports investments in the UK",
-    description: "Understanding capital gains, ISA allowances, and tax-efficient strategies for sports asset investments in the UK market.",
-    author: {
-      name: "Maria Garcia",
-      username: "tax_expert_maria",
-      avatar: f1FanAvatar,
-      verified: true
-    },
-    category: "Tax & Legal",
-    replies: 38,
-    views: 789,
-    lastActivity: "12h ago",
-    isPinned: false,
-    upvotes: 41,
-    tags: ["Tax", "UK", "Legal", "ISA"]
-  }
-];
+  category: t.category,
+  replies: t.replies,
+  views: t.views,
+  lastActivity: t.timestamp,
+  isPinned: false,
+  upvotes: t.likes,
+  tags: [t.category],
+}));
 
 function ForumTopicCard({ topic, onClick }: { topic: ForumTopic; onClick: () => void }) {
   return (

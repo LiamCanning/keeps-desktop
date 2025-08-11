@@ -509,36 +509,6 @@ export default function Community() {
               </CardContent>
             </Card>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                { name: "Sarah Mitchell", username: "sarahm_investor", avatar: mariaAvatar, followers: "1.2K", verified: true },
-                { name: "Mike Johnson", username: "mike_sports", avatar: mikeAvatar, followers: "987", verified: false },
-                { name: "Emma Watson", username: "emma_invests", avatar: emmaAvatar, followers: "2.1K", verified: true },
-                { name: "Alex Rodriguez", username: "alex_trader", avatar: alexAvatar, followers: "843", verified: false },
-                { name: "James Liu", username: "james_portfolio", avatar: jamesAvatar, followers: "1.5K", verified: true },
-                { name: "Maria Garcia", username: "maria_investor", avatar: f1FanAvatar, followers: "692", verified: false }
-              ].map((member) => (
-                <Card key={member.username} className="card-professional cursor-pointer hover:bg-accent/50 transition-colors"
-                      onClick={() => navigate(`/community-profile/${member.username}`)}>
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <img src={member.avatar} alt={member.name} className="w-12 h-12 rounded-full object-cover" />
-                      <div className="flex-1">
-                        <div className="flex items-center gap-1">
-                          <h3 className="font-semibold text-card-foreground">{member.name}</h3>
-                          {member.verified && <Badge variant="success" className="text-xs">✓</Badge>}
-                        </div>
-                        <p className="text-sm text-muted-foreground">@{member.username}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{member.followers} followers</span>
-                      <Button size="sm" variant="outline">Follow</Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </div>
         </TabsContent>
       </Tabs>
