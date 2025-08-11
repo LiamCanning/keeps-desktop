@@ -60,21 +60,6 @@ const primaryDeals: { [key: string]: PrimaryDeal } = {
     terms: "3-year income sharing agreement",
     type: "shares"
   },
-  "mclaren-racing": {
-    id: "mclaren-racing",
-    name: "McLaren Racing",
-    logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
-    title: "Primary Income Sharing Agreement",
-    pricePerShare: 1200,
-    minimumInvestment: 1000,
-    availableShares: 5000,
-    fundingGoal: 50000000,
-    currentRaised: 49250000,
-    investorsCount: 1523,
-    dividendYield: "15-25%",
-    terms: "3-year income sharing agreement",
-    type: "shares"
-  },
   "ryder-cup": {
     id: "ryder-cup",
     name: "Ryder Cup",

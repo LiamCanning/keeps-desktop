@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import keepsLogo from "@/assets/keeps-logo.png";
 
 export default function OrganisationContact() {
   const navigate = useNavigate();
@@ -59,9 +58,8 @@ export default function OrganisationContact() {
         </div>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-card-foreground flex items-center justify-center gap-3">
-            Partner with
-            <img src={keepsLogo} alt="Keeps logo" className="h-8 w-auto object-contain" />
+          <h1 className="text-4xl font-bold mb-6 text-card-foreground">
+            Partner with Keeps
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Join leading sports organisations who trust Keeps to raise capital sustainably and grow their global audience.

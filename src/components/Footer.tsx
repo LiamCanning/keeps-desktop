@@ -9,13 +9,12 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-6">
               <img 
                 src="/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png" 
                 alt="Keeps" 
                 className="h-10 w-auto object-contain"
               />
-              <h3 className="font-semibold text-foreground text-lg">Vessel Social Ltd</h3>
             </div>
             <div className="text-sm text-muted-foreground space-y-1">
               <p>Vessel Social Ltd</p>
