@@ -60,7 +60,7 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { CookiePolicy } from "./pages/CookiePolicy";
 import { RiskDisclosure } from "./pages/RiskDisclosure";
 import OrganisationContact from "./pages/OrganisationContact";
-import PrimaryPurchase from "./pages/PrimaryPurchase";
+import PrimaryOffering from "./pages/PrimaryOffering";
 
 const queryClient = new QueryClient();
 
@@ -96,7 +96,7 @@ const App = () => (
             <Route path="/article/:id" element={<Article />} />
             <Route path="/community-comments/:id" element={<CommunityComments />} />
             <Route path="/trade/:assetId" element={<TradingInterface />} />
-            <Route path="/assets/:assetId/primary-offering" element={<PrimaryPurchase />} />
+            <Route path="/assets/:assetId/primary-offering" element={<PrimaryOffering />} />
             <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
             <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
           <Route path="/investor-relations" element={<InvestorRelations />} />
