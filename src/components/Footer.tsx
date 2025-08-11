@@ -13,9 +13,10 @@ export function Footer() {
               <img 
                 src="/lovable-uploads/3c5b79e2-f293-41c2-8781-84b778710c31.png" 
                 alt="Keeps" 
-                className="h-10 w-auto object-contain"
+                className="h-12 w-auto object-contain"
               />
             </div>
+            <h3 className="font-semibold text-foreground mb-4">Company</h3>
             <div className="text-sm text-muted-foreground space-y-1">
               <p>Vessel Social Ltd</p>
               <p>2 Hilliards Court, Chester Business Park</p>
@@ -103,12 +104,11 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="border-t border-border mt-8 pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-8">
             <div className="text-xs text-muted-foreground">
               <p>© {currentYear} Vessel Social Ltd. All rights reserved.</p>
-              <p className="mt-1">
-                Keeps is a registered trademark of Vessel Social Ltd, a company incorporated in England and Wales with company number 14833447.
-              </p>
+              <p className="mt-1">Keeps is a registered trademark of Vessel Social Ltd</p>
+              <p className="mt-1">a company incorporated in England and Wales with company number 14833447.</p>
             </div>
             <div className="text-xs text-muted-foreground">
               <p>Registered office: 2 Hilliards Court, Chester Business Park, Chester, Cheshire, CH4 9QP.</p>

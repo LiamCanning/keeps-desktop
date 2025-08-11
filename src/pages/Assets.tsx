@@ -224,13 +224,13 @@ export default function Assets() {
           <TabsList className="grid w-full grid-cols-3 bg-background/80 backdrop-blur-sm h-auto">
             <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-success rounded-full"></div>
-              <span className="hidden sm:inline">Live Deals</span>
-              <span className="sm:hidden">Live</span>
+              <span className="hidden sm:inline">Live Deals ({liveAssets})</span>
+              <span className="sm:hidden">Live ({liveAssets})</span>
             </TabsTrigger>
             <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-warning rounded-full"></div>
-              <span className="hidden sm:inline">Coming Soon</span>
-              <span className="sm:hidden">Coming</span>
+              <span className="hidden sm:inline">Coming Soon ({comingSoonAssets})</span>
+              <span className="sm:hidden">Coming ({comingSoonAssets})</span>
             </TabsTrigger>
             <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
@@ -241,44 +241,6 @@ export default function Assets() {
         </Tabs>
       </div>
 
-      {/* Assets Overview Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-success/20 rounded-lg">
-              <Star className="w-5 h-5 text-success" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Live Assets</p>
-              <p className="font-semibold text-xl">{liveAssets}</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-warning/20 rounded-lg">
-              <Calendar className="w-5 h-5 text-warning" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Coming Soon</p>
-              <p className="font-semibold text-xl">{comingSoonAssets}</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-muted/40 rounded-lg">
-              <Users className="w-5 h-5 text-muted-foreground" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Completed</p>
-              <p className="font-semibold text-xl">{completedAssets}</p>
-            </div>
-          </div>
-        </Card>
-      </div>
 
       {/* Assets Content */}
       <div className="space-y-6">

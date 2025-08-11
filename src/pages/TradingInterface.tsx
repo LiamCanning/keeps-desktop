@@ -73,6 +73,34 @@ const benefitTiers = [
   { id: "diamond", name: "Diamond", minAmount: 250000, color: "text-blue-400", icon: DiamondIcon }
 ];
 
+const tierBenefits: Record<string, string[]> = {
+  bronze: [
+    "Priority access to select offerings",
+    "Investor newsletter and market updates",
+    "Community forum access",
+  ],
+  silver: [
+    "All Bronze benefits",
+    "Early access windows to new deals",
+    "Exclusive webinars with asset managers",
+  ],
+  gold: [
+    "All Silver benefits",
+    "Quarterly portfolio review",
+    "VIP community channels",
+  ],
+  platinum: [
+    "All Gold benefits",
+    "Invite-only events and tours",
+    "Direct account manager support",
+  ],
+  diamond: [
+    "All Platinum benefits",
+    "Private briefings and allocations",
+    "Bespoke experiences",
+  ],
+};
+
 export default function TradingInterface() {
   const { assetId } = useParams();
   const navigate = useNavigate();
@@ -82,6 +110,7 @@ export default function TradingInterface() {
   const [quantity, setQuantity] = useState("1");
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [currentTier, setCurrentTier] = useState("bronze");
+  const [showBenefits, setShowBenefits] = useState(false);
   
   // Get secondary market listing data from URL state
   const listing = location.state?.listing;
@@ -260,6 +289,7 @@ export default function TradingInterface() {
                 <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
                   <div className="flex items-center space-x-3 p-4 border rounded-lg bg-accent/20 border-accent/30">
                     <RadioGroupItem value="card" id="card" />
+                    <img src="/assets/visa.svg" alt="Visa" className="h-5 w-auto" />
                     <div className="flex-1">
                       <label htmlFor="card" className="font-medium cursor-pointer">
                         Visa **** 4829
@@ -357,44 +387,27 @@ export default function TradingInterface() {
                </div>
                {/* Investment Tier */}
                {currentTierData && (
-                 <div className="p-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-lg border">
+                 <div className="p-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-lg border cursor-pointer" onClick={() => setShowBenefits(!showBenefits)}>
                    <div className="flex items-center gap-3 mb-2">
                      <div className={`p-2 rounded-lg bg-background/50 ${currentTierData.color}`}>
                        <TierIcon className="w-5 h-5" />
                      </div>
                      <div>
                        <h4 className="font-semibold">{currentTierData.name} Tier</h4>
-                       <p className="text-sm text-muted-foreground">Investment tier benefits</p>
+                       <p className="text-sm text-muted-foreground">Tap to view benefits</p>
                      </div>
                    </div>
+                   {showBenefits && (
+                     <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                       {tierBenefits[currentTier]?.map((b, i) => (
+                         <li key={i}>{b}</li>
+                       ))}
+                     </ul>
+                   )}
                  </div>
                )}
 
-               {/* Investment Round Info */}
-               <div className="status-coming-soon p-4 rounded-lg">
-                 <h4 className="font-semibold mb-1">Investment Round Percentage</h4>
-                 <p className="text-sm">
-                   £{total.toLocaleString()} = {((total / 10000000) * 100).toFixed(4)}% of the investment round
-                 </p>
-               </div>
 
-               {/* Payment Method */}
-               <div className="space-y-3">
-                 <h4 className="font-semibold">Payment Method</h4>
-                 <div className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg border">
-                   <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-sm">
-                     VISA
-                   </div>
-                   <div className="flex-1">
-                     <p className="font-medium">**** **** **** 4532</p>
-                     <p className="text-sm text-muted-foreground">Expires 12/26</p>
-                   </div>
-                   <Button variant="outline" size="sm">
-                     Change
-                   </Button>
-                  </div>
-                  {/* New payment method form moved to main section; no permanent side form */}
-               </div>
 
                <Button 
                  onClick={handleTrade}

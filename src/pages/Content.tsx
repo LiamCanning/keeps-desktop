@@ -394,7 +394,7 @@ export default function Content() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-gradient">Content for Your Portfolio</h1>
-            <p className="text-lg text-foreground/80">Insights from Liverpool FC, McLaren Racing & Ryder Cup</p>
+            <p className="text-lg text-foreground/80">insights from the world of sports investment</p>
           </div>
           <Badge variant="secondary" className="px-3 py-1">
             {userInvestments.length} Assets
