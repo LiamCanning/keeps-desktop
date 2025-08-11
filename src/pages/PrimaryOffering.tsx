@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, Calculator, Shield, Trophy, Crown, Diamond as DiamondIcon, Star, Check, FileCheck } from "lucide-react";
+import { ArrowLeft, Calculator, Shield, Trophy, Crown, Diamond as DiamondIcon, Star, Check, FileCheck, Calendar } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -247,27 +247,37 @@ export default function PrimaryOffering() {
       { id: 4, label: 'T&Cs' },
       { id: 5, label: 'Review' },
     ];
+    const progress = Math.max(0, Math.min(100, ((currentStep - 1) / (steps.length - 1)) * 100));
     return (
       <div className="w-full p-4 rounded-lg border bg-muted/30">
-        <div className="flex items-center gap-4">
-          {steps.map((s, idx) => {
+        <div className="grid grid-cols-5 gap-4">
+          {steps.map((s) => {
             const isCompleted = currentStep > s.id;
             const isActive = currentStep === s.id;
             return (
-              <div key={s.id} className="flex items-center gap-3 flex-1 min-w-0">
-                <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold
-                  ${isCompleted || isActive ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+              <div key={s.id} className="flex flex-col items-center text-center gap-2">
+                <div
+                  className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold ${
+                    isCompleted || isActive
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground'
+                  }`}
+                >
                   {isCompleted ? <Check className="w-5 h-5" /> : s.id}
                 </div>
-                <span className={`text-sm truncate ${isCompleted || isActive ? 'text-foreground' : 'text-muted-foreground'}`}>
+                <span
+                  className={`text-xs sm:text-sm leading-tight ${
+                    isCompleted || isActive ? 'text-foreground' : 'text-muted-foreground'
+                  }`}
+                >
                   {s.label}
                 </span>
-                {idx < steps.length - 1 && (
-                  <div className={`h-[3px] flex-1 rounded ${currentStep > s.id ? 'bg-primary' : 'bg-muted'}`} />
-                )}
               </div>
             );
           })}
+        </div>
+        <div className="mt-4 h-1 w-full bg-muted rounded">
+          <div className="h-1 bg-primary rounded" style={{ width: `${progress}%` }} />
         </div>
       </div>
     );
@@ -282,8 +292,8 @@ export default function PrimaryOffering() {
         </Button>
       </header>
 
-      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <section className="lg:col-span-2 space-y-6">
+      <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <section className="lg:col-span-8 xl:col-span-9 space-y-6">
           <article className="card-professional">
             <Card>
               <CardHeader className="pb-4">
@@ -469,7 +479,7 @@ export default function PrimaryOffering() {
             </Card>
           )}
           {/* Compliance & Security */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -491,16 +501,35 @@ export default function PrimaryOffering() {
                   Regulatory Compliance
                 </CardTitle>
               </CardHeader>
+              <CardContent className="space-y-2">
+                <ul className="list-disc pl-5 text-sm space-y-1">
+                  <li>KYC/AML verification and investor categorisation checks performed.</li>
+                  <li>Offering complies with applicable securities regulations via regulated partners.</li>
+                  <li>Client funds safeguarded in segregated accounts; robust custody oversight.</li>
+                  <li>Disclosure documents available in your Documents section at checkout.</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
+                  Key Dates & Settlement
+                </CardTitle>
+              </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  This offering adheres to SEC and FCA regulatory standards.
-                </p>
+                <ul className="list-disc pl-5 text-sm space-y-1">
+                  <li>Order window: Open now — closes prior to allocation.</li>
+                  <li>Allocation & confirmation: Notified via email in your account.</li>
+                  <li>Settlement: Funds captured on confirmation; standard T+2 settlement.</li>
+                  <li>Access & benefits: Issued to your account after settlement.</li>
+                </ul>
               </CardContent>
             </Card>
           </div>
         </section>
 
-        <aside className="space-y-6">
+        <aside className="space-y-6 lg:col-span-4 xl:col-span-3">
           <Card className="card-professional">
             <CardHeader>
               <CardTitle>Order Summary</CardTitle>
