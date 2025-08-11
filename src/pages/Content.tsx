@@ -364,7 +364,7 @@ export default function Content() {
   const [bookmarkedArticles, setBookmarkedArticles] = useState<string[]>([]);
 
   // Mock user portfolio for personalization
-  const userInvestments = ['liverpool-fc', 'mclaren-f1', 'ryder-cup'];
+  const userInvestments = ['liverpool-fc', 'mclaren-racing', 'ryder-cup'];
   
   const filteredArticles = newsArticles.filter(article => {
     if (activeTab === "all") return true;

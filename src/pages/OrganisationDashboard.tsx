@@ -25,7 +25,7 @@ export default function OrganisationDashboard() {
               />
             </div>
             <CardTitle className="text-2xl">McLaren Employee Portal</CardTitle>
-            <p className="text-muted-foreground">Access your organization dashboard and investor analytics</p>
+            <p className="text-muted-foreground">Access your organisation dashboard and investor analytics</p>
           </CardHeader>
           <CardContent>
             <OrganisationLogin />
@@ -55,7 +55,7 @@ export default function OrganisationDashboard() {
           />
         </div>
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-gradient">McLaren F1 Dashboard</h1>
+            <h1 className="text-3xl font-bold text-gradient">McLaren Racing Dashboard</h1>
             <p className="text-lg text-muted-foreground">Organisation insights and investor metrics</p>
             <Badge variant="success" className="text-sm">Live Asset</Badge>
           </div>

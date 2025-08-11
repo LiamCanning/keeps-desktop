@@ -66,14 +66,6 @@ export default function PortfolioPerformance() {
         returnPercent: 18.7,
         allocation: 5.9
       },
-      {
-        name: "Ohio State",
-        value: 11800,
-        invested: 10000,
-        return: 1800,
-        returnPercent: 18.0,
-        allocation: 3.9
-      }
     ]
   };
 
@@ -442,7 +434,7 @@ export default function PortfolioPerformance() {
             {/* Diversification Recommendations */}
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle>Optimization Recommendations</CardTitle>
+                <CardTitle>Optimisation Recommendations</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">

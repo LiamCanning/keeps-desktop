@@ -25,7 +25,7 @@ const userHoldings = [
     returns: 10.0
   },
   {
-    id: "mclaren-f1",
+    id: "mclaren-racing",
     asset: "McLaren Racing",
     logo: "/placeholder.svg",
     quantity: 8,

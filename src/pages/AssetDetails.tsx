@@ -418,7 +418,7 @@ export default function AssetDetails() {
                         <li>Champions League Qualification: 80%</li>
                       </>
                     )}
-                    {assetId === 'mclaren-f1' && (
+                    {assetId === 'mclaren-racing' && (
                       <>
                         <li>2024 Revenue: £253M (+18% YoY)</li>
                         <li>Prize Money 2024: £95M (P1 WCC)</li>
@@ -449,7 +449,7 @@ export default function AssetDetails() {
                         <li>Brand Value: £4.3B (Forbes 2024)</li>
                       </>
                     )}
-                    {assetId === 'mclaren-f1' && (
+                    {assetId === 'mclaren-racing' && (
                       <>
                         <li>Constructors Championships: 8 total</li>
                         <li>2024 WCC Standing: P1 (Champions)</li>

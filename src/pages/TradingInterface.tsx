@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
-
+import { formatGBP } from "@/lib/utils";
 interface Asset {
   id: string;
   name: string;
@@ -39,9 +39,9 @@ const assets: { [key: string]: Asset } = {
     maxShares: 1000,
     processingFee: 0.10
   },
-  "mclaren-f1": {
-    id: "mclaren-f1", 
-    name: "McLaren F1",
+  "mclaren-racing": {
+    id: "mclaren-racing", 
+    name: "McLaren Racing",
     type: "Income Share Agreement",
     pricePerShare: 1000,
     logo: mclarenLogo,
@@ -214,13 +214,13 @@ export default function TradingInterface() {
                 <div className="flex-1">
                   <CardTitle className="text-2xl font-bold text-gradient">{asset.name}</CardTitle>
                    <p className="text-muted-foreground text-lg">{asset.type}</p>
-                   <p className="text-primary font-bold text-xl">£{pricePerShare} per {asset.id === 'ryder-cup' ? 'debenture' : 'share'}</p>
+                   <p className="text-primary font-bold text-xl">{formatGBP(pricePerShare, { group: false })} per {asset.id === 'ryder-cup' ? 'debenture' : 'share'}</p>
                    {isSecondaryMarket && (
                      <div className="flex items-center gap-2 mt-1">
                        <Badge variant={priceDifference >= 0 ? "success" : "destructive"} className="text-xs">
                          {priceDifference >= 0 ? "+" : ""}{priceDifference.toFixed(1)}% vs original
                        </Badge>
-                       <span className="text-xs text-muted-foreground">Original: £{originalPrice}</span>
+                       <span className="text-xs text-muted-foreground">Original: {formatGBP(originalPrice, { group: false })}</span>
                      </div>
                    )}
                 </div>
@@ -345,7 +345,7 @@ export default function TradingInterface() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Unit Price:</span>
-                    <span className="font-medium">£{pricePerShare}</span>
+                    <span className="font-medium">{formatGBP(pricePerShare, { group: false })}</span>
                   </div>
                   {isSecondaryMarket && (
                     <div className="p-3 bg-accent/20 rounded-lg">
@@ -355,12 +355,12 @@ export default function TradingInterface() {
                       </div>
                       <div className="space-y-1 text-xs text-muted-foreground">
                         <div className="flex justify-between">
-                          <span>Original Price:</span>
-                          <span>£{originalPrice}</span>
+                           <span>Original Price:</span>
+                           <span>{formatGBP(originalPrice, { group: false })}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span>Current Price:</span>
-                          <span>£{pricePerShare}</span>
+                           <span>Current Price:</span>
+                           <span>{formatGBP(pricePerShare, { group: false })}</span>
                         </div>
                         <div className="flex justify-between font-medium">
                           <span>Price Difference:</span>
@@ -373,16 +373,16 @@ export default function TradingInterface() {
                   )}
                  <div className="flex justify-between">
                    <span className="text-muted-foreground">Subtotal:</span>
-                   <span className="font-medium">£{subtotal.toLocaleString()}</span>
+                   <span className="font-medium">{formatGBP(subtotal)}</span>
                  </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Processing Fee ({isSecondaryMarket ? '2.5' : (asset.processingFee * 100).toFixed(0)}%):</span>
-                    <span className="font-medium">£{processingFee.toFixed(0)}</span>
+                    <span className="font-medium">{formatGBP(processingFee)}</span>
                   </div>
                  <Separator />
                  <div className="flex justify-between text-xl font-bold">
                    <span>Total:</span>
-                   <span className="text-primary">£{total.toLocaleString()}</span>
+                   <span className="text-primary">{formatGBP(total)}</span>
                  </div>
                </div>
                {/* Investment Tier */}

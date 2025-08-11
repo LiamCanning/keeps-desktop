@@ -45,8 +45,8 @@ const primaryDeals: { [key: string]: PrimaryDeal } = {
     terms: "5-year term with optional renewal",
     type: "shares"
   },
-  "mclaren-f1": {
-    id: "mclaren-f1",
+  "mclaren-racing": {
+    id: "mclaren-racing",
     name: "McLaren Racing",
     logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     title: "Primary Income Sharing Agreement",

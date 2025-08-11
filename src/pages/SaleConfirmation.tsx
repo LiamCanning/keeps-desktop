@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ArrowRight, FileText, Clock } from "lucide-react";
+import { formatGBP } from "@/lib/utils";
 
 export default function SaleConfirmation() {
   const location = useLocation();
@@ -54,24 +55,24 @@ export default function SaleConfirmation() {
               </div>
               <div>
                 <p className="text-muted-foreground">Price per {type}</p>
-                <p className="font-semibold">£{pricePerShare.toLocaleString()}</p>
+                <p className="font-semibold">{formatGBP(pricePerShare, { group: false })}</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Gross Value</p>
-                <p className="font-semibold">£{totalValue.toLocaleString()}</p>
+                <p className="font-semibold">{formatGBP(totalValue)}</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Processing Fee (2.5%)</p>
-                <p className="font-semibold">£{processingFee.toFixed(0)}</p>
+                <p className="font-semibold">{formatGBP(processingFee)}</p>
               </div>
               <div className="col-span-2 border-t pt-2 flex justify-between text-lg font-bold">
                 <span>Net Proceeds</span>
-                <span className="text-success">£{netAmount.toLocaleString()}</span>
+                <span className="text-success">{formatGBP(netAmount)}</span>
               </div>
               {profit > 0 && (
                 <div className="col-span-2 flex justify-between text-success">
                   <span>Profit</span>
-                  <span className="font-semibold">+£{profit.toLocaleString()}</span>
+                  <span className="font-semibold">+{formatGBP(profit)}</span>
                 </div>
               )}
             </div>

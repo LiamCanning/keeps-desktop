@@ -52,41 +52,34 @@ const brandLogos: Record<string, string> = {
 const dataPartners: DataPartner[] = [
   {
     id: "1",
-    name: "Adidas",
-    logo: adidasLogo,
-    description: "Premium sportswear discounts and exclusive football gear access",
-    optedIn: true
-  },
-  {
-    id: "2", 
     name: "Rolex",
     logo: rolexLogo,
     description: "Luxury timepiece experiences and VIP watch exhibitions",
     optedIn: true
   },
   {
-    id: "3",
+    id: "2",
     name: "AXA",
     logo: axaLogo,
     description: "Premium insurance benefits and financial planning services",
     optedIn: false
   },
   {
-    id: "4",
+    id: "3",
     name: "Santander",
     logo: santanderLogo,
     description: "Banking perks and investment opportunities",
     optedIn: true
   },
   {
-    id: "5",
+    id: "4",
     name: "BMW",
     logo: bmwLogo,
     description: "Luxury vehicle test drives and motorsport experiences",
     optedIn: false
   },
   {
-    id: "6",
+    id: "5",
     name: "Cadbury",
     logo: cadburyLogo,
     description: "Chocolate tastings and exclusive confectionery collections",

@@ -27,8 +27,8 @@ const deals = {
     dividendYield: "4-8%",
     terms: "5-year term with optional renewal"
   },
-  "mclaren-f1": {
-    id: "mclaren-f1",
+  "mclaren-racing": {
+    id: "mclaren-racing",
     name: "McLaren Racing",
     logo: "/placeholder.svg",
     title: "Income Sharing Agreement",
@@ -500,7 +500,7 @@ export default function BuyAsset() {
                   let qualifiedTier = null;
                   
                   if (deal.id === 'liverpool-fc') assetKey = 'liverpool';
-                  else if (deal.id === 'mclaren-f1') assetKey = 'mclaren';
+                  else if (deal.id === 'mclaren-racing') assetKey = 'mclaren';
                   else if (deal.id === 'ryder-cup') assetKey = 'rydercup';
                   else return null;
 

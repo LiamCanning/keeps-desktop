@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { useToast } from "@/hooks/use-toast";
+import keepsLogo from "@/assets/keeps-logo.png";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -94,7 +95,7 @@ export default function Login() {
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
             <OptimizedImage
-              src="/placeholder.svg"
+              src={keepsLogo}
               alt="Keeps"
               className="w-16 h-16"
             />

@@ -254,7 +254,7 @@ export default function DealDetails() {
               <Button 
                 className="btn-invest w-full text-lg py-4 h-14"
                 onClick={() => {
-                  const assetId = deal.name.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1');
+                  const assetId = deal.name.toLowerCase().replace(/\s+/g, '-');
                   navigate(`/trade/${assetId}`);
                 }}
               >

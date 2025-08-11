@@ -170,7 +170,6 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
             className="btn-invest flex-1 min-h-[44px]"
             onClick={() => {
               let assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-              if (assetSlug === 'mclaren-racing') assetSlug = 'mclaren-f1';
               window.location.href = `/list-asset?preselected=${assetSlug}`;
             }}
           >

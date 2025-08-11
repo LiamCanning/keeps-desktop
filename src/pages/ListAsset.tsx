@@ -36,7 +36,7 @@ const portfolioAssets: PortfolioAsset[] = [
     type: "Equity"
   },
   {
-    id: "mclaren-f1",
+    id: "mclaren-racing",
     name: "McLaren Racing",
     logo: mclarenLogo,
     totalShares: 200,

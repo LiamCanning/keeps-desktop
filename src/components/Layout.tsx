@@ -19,7 +19,7 @@ export function Layout({ children }: LayoutProps) {
 
   const assets = [
     { name: "Liverpool FC", path: "/assets/liverpool-fc" },
-    { name: "McLaren F1", path: "/assets/mclaren-f1" },
+    { name: "McLaren Racing", path: "/assets/mclaren-racing" },
     { name: "Ryder Cup", path: "/assets/ryder-cup" }
   ];
 

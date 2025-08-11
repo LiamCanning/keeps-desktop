@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ArrowRight, FileText, Clock, Shield } from "lucide-react";
+import { formatGBP } from "@/lib/utils";
 
 export default function OrderConfirmation() {
   const { state } = useLocation() as { state: any };
@@ -52,7 +53,7 @@ export default function OrderConfirmation() {
               </div>
               <div>
                 <p className="text-muted-foreground">Unit Price</p>
-                <p className="font-semibold">£{unitPrice}</p>
+                <p className="font-semibold">{formatGBP(unitPrice, { group: false })}</p>
               </div>
               {seller && (
                 <>
@@ -65,15 +66,15 @@ export default function OrderConfirmation() {
               )}
               <div>
                 <p className="text-muted-foreground">Subtotal</p>
-                <p className="font-semibold">£{subtotal.toLocaleString()}</p>
+                <p className="font-semibold">{formatGBP(subtotal)}</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Processing Fee</p>
-                <p className="font-semibold">£{processingFee.toFixed(0)}</p>
+                <p className="font-semibold">{formatGBP(processingFee)}</p>
               </div>
               <div className="col-span-2 border-t pt-2 flex justify-between text-lg font-bold">
                 <span>Total Paid</span>
-                <span className="text-success">£{total.toLocaleString()}</span>
+                <span className="text-success">{formatGBP(total)}</span>
               </div>
             </div>
           </div>

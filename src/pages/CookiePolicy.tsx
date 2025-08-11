@@ -29,7 +29,7 @@ export function CookiePolicy() {
             <li>Session management and user authentication</li>
             <li>Security and fraud prevention</li>
             <li>Platform functionality and navigation</li>
-            <li>Load balancing and performance optimization</li>
+            <li>Load balancing and performance optimisation</li>
           </ul>
 
           <h3 className="text-xl font-medium text-foreground mb-3">Functional Cookies</h3>
@@ -51,7 +51,7 @@ export function CookiePolicy() {
             <li>Page views and user journeys</li>
             <li>Feature usage and engagement metrics</li>
             <li>Error tracking and performance monitoring</li>
-            <li>A/B testing and optimization</li>
+            <li>A/B testing and optimisation</li>
           </ul>
 
           <h3 className="text-xl font-medium text-foreground mb-3">Marketing Cookies</h3>
