@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Settings, Bell, Shield, CreditCard, FileText, LogOut, MapPin, Star, Building2, Smartphone, Calendar } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,6 @@ import cadburyLogo from "@/assets/brands/cadbury-logo.png";
 import adidasLogo from "@/assets/brands/adidas-logo.png";
 import rolexLogo from "@/assets/brands/rolex-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
-import { useNavigate } from "react-router-dom";
 
 
 interface FavoriteTeam {
@@ -89,7 +88,6 @@ const dataPartners: DataPartner[] = [
 ];
 
 export default function Account() {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("profile");
   const [notifications, setNotifications] = useState({
     email: true,
@@ -99,13 +97,6 @@ export default function Account() {
   });
 
   const [partners, setPartners] = useState(dataPartners);
-  const [plans, setPlans] = useState<any[]>([]);
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem('autoInvestPlans');
-      if (saved) setPlans(JSON.parse(saved));
-    } catch {}
-  }, []);
 
   const togglePartner = (partnerId: string) => {
     setPartners(partners.map(partner => 
@@ -381,38 +372,57 @@ export default function Account() {
                 </p>
               </CardHeader>
               <CardContent className="space-y-6">
+                {/* Active Auto-Investments */}
                 <div>
                   <h3 className="font-semibold mb-4 text-card-foreground">Active Auto-Investments</h3>
                   <div className="space-y-4">
-                    {plans.length === 0 ? (
-                      <p className="text-sm text-muted-foreground">No active auto-investment plans yet. Create one below.</p>
-                    ) : (
-                      plans.map((plan) => (
-                        <Card key={plan.id} className="bg-accent/10 border border-accent/30">
-                          <CardContent className="p-4">
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20 flex items-center justify-center">
-                                  <img 
-                                    src={plan.assetLogo}
-                                    alt={plan.asset}
-                                    className="w-8 h-8 object-contain"
-                                  />
-                                </div>
-                                <div>
-                                  <p className="font-medium text-card-foreground">{plan.asset}</p>
-                                  <p className="text-sm text-muted-foreground">£{plan.amount} {plan.frequency}</p>
-                                </div>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <Badge variant={plan.active ? "success" : "secondary"}>{plan.active ? 'Active' : 'Paused'}</Badge>
-                                <Switch checked={plan.active} />
-                              </div>
+                    <Card className="bg-accent/10 border border-accent/30">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20 flex items-center justify-center">
+                              <img 
+                                src="/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png"
+                                alt="Liverpool FC"
+                                className="w-8 h-8 object-contain"
+                              />
                             </div>
-                          </CardContent>
-                        </Card>
-                      ))
-                    )}
+                            <div>
+                              <p className="font-medium text-card-foreground">Liverpool FC</p>
+                              <p className="text-sm text-muted-foreground">£500 monthly • Next: 15th Jan</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="success">Active</Badge>
+                            <Switch checked={true} />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-accent/10 border border-accent/30">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/20 flex items-center justify-center">
+                              <img 
+                                src="/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"
+                                alt="McLaren F1"
+                                className="w-8 h-8 object-contain"
+                              />
+                            </div>
+                            <div>
+                              <p className="font-medium text-card-foreground">McLaren Racing</p>
+                              <p className="text-sm text-muted-foreground">£1,000 monthly • Next: 1st Feb</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="success">Active</Badge>
+                            <Switch checked={true} />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
 
@@ -431,7 +441,7 @@ export default function Account() {
                             Automatically invest in your favorite teams with dollar-cost averaging
                           </p>
                         </div>
-                        <Button className="btn-invest" onClick={() => navigate('/auto-invest')}>
+                        <Button className="btn-invest">
                           Set Up Auto-Investment
                         </Button>
                       </div>
