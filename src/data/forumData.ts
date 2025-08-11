@@ -1,25 +1,17 @@
-// Temporarily simplified avatar loading for debugging
 import sarahAvatar from '@/assets/avatars/sarah-avatar.png';
 import mikeAvatar from '@/assets/avatars/mike-avatar.png';
 import emmaAvatar from '@/assets/avatars/emma-avatar.png';
 import jamesAvatar from '@/assets/avatars/james-avatar.png';
 import lisaAvatar from '@/assets/avatars/lisa-avatar.png';
 import davidAvatar from '@/assets/avatars/david-avatar.png';
+import { assignAvatars } from '@/data/avatarRegistry';
 
-// Simple avatar assignment to avoid complex registry loading
-const simpleAvatars = [sarahAvatar, mikeAvatar, emmaAvatar, jamesAvatar, lisaAvatar, davidAvatar];
-const getAvatar = (index: number) => simpleAvatars[index % simpleAvatars.length];
-
-// Simple name-to-avatar mapping for forum data
 const allNames = [
   "Marcus Chen","Sarah Williams","David Thompson","Emma Rodriguez","James Wilson","Alex Turner",
   "Tom Harrison","Lisa Chang","Mike O'Connor","Rachel Green","Chris Martinez","Jennifer Adams","Paul Stewart",
   "Nina Patel","Omar Hassan","Chloe Brown","Wei Zhang","Ava Johnson","Luca Bianchi","Sophie Martin","Daniel Evans","Priya Kapoor","Hiro Tanaka","Elena Garcia","Jonas Schmidt"
 ];
-const AV: Record<string, string> = {};
-allNames.forEach((name, index) => {
-  AV[name] = getAvatar(index);
-});
+const AV = assignAvatars(allNames);
 
 
 export const forumPosts = [
