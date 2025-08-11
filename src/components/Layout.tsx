@@ -64,10 +64,10 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <SidebarProvider defaultOpen>
-      <div className="min-h-screen flex w-full bg-background">
+      <div className="min-h-screen flex w-full bg-background overflow-x-hidden">
         <AppSidebar />
         
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col max-w-full overflow-x-hidden">
           {/* Top Header */}
           <header className="h-16 border-b border-sidebar-border bg-background/95 backdrop-blur-sm sticky top-0 z-40">
             <div className="flex items-center justify-between h-full px-6">
@@ -124,7 +124,7 @@ export function Layout({ children }: LayoutProps) {
           </header>
           
           {/* Main Content */}
-          <main className="flex-1 overflow-auto scrollbar-styled">
+          <main className="flex-1 overflow-auto overflow-x-hidden scrollbar-styled">
             <div className="min-h-full flex flex-col">
               <div className="flex-1">
                 {children}

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 interface NewsArticle {
   id: string;
@@ -91,7 +92,7 @@ const newsArticles: NewsArticle[] = [
     source: "Sports Tech Weekly",
     date: "2025-05-15",
     image: "/src/assets/hexagon-sports.jpg",
-    category: "reels",
+    category: "news",
     readTime: "4 min read",
     likes: 892,
     comments: 156
@@ -200,10 +201,12 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
   return (
     <Card className="card-professional group hover:shadow-xl transition-all duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
-        <img 
+        <OptimizedImage
           src={article.image}
           alt={article.title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-48 bg-muted"
+          priority={false}
+          skeleton
         />
         <Badge 
           variant={article.category === "news" ? "default" : article.category === "community" ? "success" : "warning"}
@@ -484,7 +487,7 @@ export default function Content() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
+        <TabsList className="hidden md:flex w-full">
           <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
           <TabsTrigger value="trending">Trending</TabsTrigger>
           <TabsTrigger value="news">Latest News</TabsTrigger>
