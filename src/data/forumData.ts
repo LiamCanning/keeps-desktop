@@ -4,6 +4,21 @@ import emmaAvatar from '@/assets/avatars/emma-avatar.png';
 import jamesAvatar from '@/assets/avatars/james-avatar.png';
 import lisaAvatar from '@/assets/avatars/lisa-avatar.png';
 import davidAvatar from '@/assets/avatars/david-avatar.png';
+import a01 from '@/assets/avatars/avatar-01.png';
+import a02 from '@/assets/avatars/avatar-02.png';
+import a03 from '@/assets/avatars/avatar-03.png';
+import a04 from '@/assets/avatars/avatar-04.png';
+import a05 from '@/assets/avatars/avatar-05.png';
+import a06 from '@/assets/avatars/avatar-06.png';
+import a07 from '@/assets/avatars/avatar-07.png';
+import a08 from '@/assets/avatars/avatar-08.png';
+import a09 from '@/assets/avatars/avatar-09.png';
+import a10 from '@/assets/avatars/avatar-10.png';
+import a11 from '@/assets/avatars/avatar-11.png';
+import a12 from '@/assets/avatars/avatar-12.png';
+import a13 from '@/assets/avatars/avatar-13.png';
+import f1FanAvatar from '@/assets/avatars/f1-fan-avatar.png';
+import golfFanAvatar from '@/assets/avatars/golf-fan-avatar.png';
 import { assignAvatars } from '@/data/avatarRegistry';
 
 const allNames = [
@@ -12,7 +27,6 @@ const allNames = [
   "Nina Patel","Omar Hassan","Chloe Brown","Wei Zhang","Ava Johnson","Luca Bianchi","Sophie Martin","Daniel Evans","Priya Kapoor","Hiro Tanaka","Elena Garcia","Jonas Schmidt"
 ];
 const AV = assignAvatars(allNames);
-
 
 export const forumPosts = [
   {
@@ -112,10 +126,10 @@ export const forumTopics = [
     category: "McLaren Racing",
     author: {
       name: "Sarah Williams",
-      avatar: AV["Sarah Williams"]
+      avatar: a12
     },
     timestamp: "4 hours ago",
-    replies: 15,
+    replies: 18,
     views: 289,
     likes: 23
   },
@@ -126,10 +140,10 @@ export const forumTopics = [
     category: "Ryder Cup",
     author: {
       name: "David Thompson", 
-      avatar: AV["David Thompson"]
+      avatar: a11
     },
     timestamp: "6 hours ago",
-    replies: 6,
+    replies: 8,
     views: 178,
     likes: 9
   },
@@ -143,7 +157,7 @@ export const forumTopics = [
       avatar: AV["Emma Rodriguez"]
     },
     timestamp: "1 day ago",
-    replies: 22,
+    replies: 25,
     views: 445,
     likes: 31
   },
@@ -157,7 +171,7 @@ export const forumTopics = [
       avatar: AV["James Wilson"]
     },
     timestamp: "1 day ago", 
-    replies: 11,
+    replies: 13,
     views: 223,
     likes: 7
   },
@@ -171,7 +185,7 @@ export const forumTopics = [
       avatar: AV["Alex Turner"]
     },
     timestamp: "2 days ago",
-    replies: 18,
+    replies: 21,
     views: 367,
     likes: 25
   }
@@ -260,5 +274,121 @@ export const forumReplies = [
     },
     timestamp: "4 hours ago",
     likes: 9
+  },
+
+  // Additional replies for topic 1
+  {
+    id: "r8",
+    topicId: "1",
+    content: "Consider the summer transfer window. If Liverpool secures a marquee signing, retail sentiment can spike and temporarily inflate prices.",
+    author: { name: "Alicia Brown", avatar: a01 },
+    timestamp: "25 minutes ago",
+    likes: 2
+  },
+  {
+    id: "r9",
+    topicId: "1",
+    content: "Also watch UEFA distributions; European runs add a meaningful uplift to matchday and broadcast income.",
+    author: { name: "Ben Carter", avatar: a02 },
+    timestamp: "12 minutes ago",
+    likes: 1
+  },
+
+  // Additional replies for topic 2
+  {
+    id: "r10",
+    topicId: "2",
+    content: "Commercial pipeline looks strong. McLaren's tech partnerships often yield multi‑year deals that smooth revenue.",
+    author: { name: "Diego Lopez", avatar: a03 },
+    timestamp: "1 hour ago",
+    likes: 4
+  },
+  {
+    id: "r11",
+    topicId: "2",
+    content: "Don't sleep on merchandise – Norris effect is real. Strong brand equals steadier ISA payouts.",
+    author: { name: "Mia Chen", avatar: a04 },
+    timestamp: "58 minutes ago",
+    likes: 3
+  },
+
+  // Additional replies for topic 3
+  {
+    id: "r12",
+    topicId: "3",
+    content: "If you sell on the secondary market at a premium, that's capital gains. Keep records of all fees for CGT basis.",
+    author: { name: "Oliver King", avatar: a05 },
+    timestamp: "3 hours ago",
+    likes: 6
+  },
+  {
+    id: "r13",
+    topicId: "3",
+    content: "Some debentures can be held in certain wrappers; check the provider docs – eligibility varies.",
+    author: { name: "Sana Iqbal", avatar: a06 },
+    timestamp: "2 hours ago",
+    likes: 5
+  },
+
+  // Replies for topic 4 (new)
+  {
+    id: "r14",
+    topicId: "4",
+    content: "Diversification across sports reduces event risk. Football and F1 have different cycles.",
+    author: { name: "Noah Patel", avatar: a07 },
+    timestamp: "6 hours ago",
+    likes: 7
+  },
+  {
+    id: "r15",
+    topicId: "4",
+    content: "Consider correlation during global downturns – sponsorship budgets can contract across the board.",
+    author: { name: "Elise Dupont", avatar: a08 },
+    timestamp: "5 hours ago",
+    likes: 3
+  },
+  {
+    id: "r16",
+    topicId: "4",
+    content: "Ryder Cup exposure adds hospitality revenue which behaves differently than matchday income.",
+    author: { name: "Tariq Ahmed", avatar: a09 },
+    timestamp: "4 hours ago",
+    likes: 4
+  },
+
+  // Replies for topic 5 (new)
+  {
+    id: "r17",
+    topicId: "5",
+    content: "List slightly below market for faster fill, especially if liquidity is thin.",
+    author: { name: "Hannah Lee", avatar: a10 },
+    timestamp: "7 hours ago",
+    likes: 2
+  },
+  {
+    id: "r18",
+    topicId: "5",
+    content: "Auction works well when you have multiple interested buyers – encourages price discovery.",
+    author: { name: "Jon Park", avatar: a13 },
+    timestamp: "6 hours ago",
+    likes: 2
+  },
+
+  // Replies for topic 6 (new)
+  {
+    id: "r19",
+    topicId: "6",
+    content: "College sports media rights in the US are massive and long‑term – stability is decent but conference changes matter.",
+    author: { name: "Priyanka Desai", avatar: f1FanAvatar },
+    timestamp: "8 hours ago",
+    likes: 5
+  },
+  {
+    id: "r20",
+    topicId: "6",
+    content: "Check stadium utilization beyond game days – concerts and events can drive incremental revenue.",
+    author: { name: "Marco Silva", avatar: golfFanAvatar },
+    timestamp: "7 hours ago",
+    likes: 4
   }
 ];

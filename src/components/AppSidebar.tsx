@@ -40,7 +40,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const navigationItems = [
-  { title: "Dashboard", url: "/", icon: Home },
+  { title: "Dashboard", url: "/dashboard", icon: Home },
   { title: "Assets", url: "/assets", icon: Building2 },
   { title: "Benefits", url: "/benefits", icon: Gift },
   { title: "Content", url: "/content", icon: FileText },
@@ -72,7 +72,7 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className={`${isCollapsed ? "w-16" : "w-64"} transition-all duration-300 bg-sidebar border-r border-sidebar-border`}>
+    <Sidebar className={`${isCollapsed ? "w-16" : "w-full"} transition-all duration-300 bg-sidebar border-r border-sidebar-border`}>
       <SidebarHeader className="border-b border-sidebar-border p-4">
         <div className="flex items-center gap-3">
           <DropdownMenu>
