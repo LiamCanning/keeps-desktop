@@ -81,7 +81,7 @@ const primaryDeals: { [key: string]: PrimaryDeal } = {
 type Step = "amount" | "payment" | "verification" | "confirmation" | "success";
 
 export default function PrimaryPurchase() {
-  const { dealId } = useParams();
+  const { assetId } = useParams();
   const navigate = useNavigate();
   const { toast } = useToast();
   
@@ -113,7 +113,7 @@ export default function PrimaryPurchase() {
     return assetId;
   };
 
-  const deal = dealId ? primaryDeals[getDealId(dealId) as keyof typeof primaryDeals] : null;
+  const deal = assetId ? primaryDeals[getDealId(assetId) as keyof typeof primaryDeals] : null;
 
   if (!deal) {
     return (
