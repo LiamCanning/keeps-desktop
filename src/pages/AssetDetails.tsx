@@ -178,7 +178,7 @@ export default function AssetDetails() {
                   if (asset.status === "coming-soon") {
                     setShowEarlyAccess(true);
                   } else {
-                    navigate(`/invest/${assetId}`);
+                    navigate(`/assets/${assetId}/primary-offering`);
                   }
                 }}
               >
@@ -527,7 +527,7 @@ export default function AssetDetails() {
                 if (asset.status === "coming-soon") {
                   setShowEarlyAccess(true);
                 } else {
-                  navigate(`/trade/${assetId}`);
+                  navigate(`/assets/${assetId}/primary-offering`);
                 }
               }}
             >

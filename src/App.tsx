@@ -96,7 +96,7 @@ const App = () => (
             <Route path="/article/:id" element={<Article />} />
             <Route path="/community-comments/:id" element={<CommunityComments />} />
             <Route path="/trade/:assetId" element={<TradingInterface />} />
-            <Route path="/invest/:assetId" element={<PrimaryPurchase />} />
+            <Route path="/assets/:assetId/primary-offering" element={<PrimaryPurchase />} />
             <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
             <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
           <Route path="/investor-relations" element={<InvestorRelations />} />
