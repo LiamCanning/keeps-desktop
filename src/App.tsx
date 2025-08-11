@@ -64,6 +64,17 @@ import PrimaryOffering from "./pages/PrimaryOffering";
 
 const queryClient = new QueryClient();
 
+const FirstVisitGate = ({ children }: { children: React.ReactNode }) => {
+  if (typeof window !== 'undefined') {
+    const visited = localStorage.getItem('keeps_hasVisited');
+    if (!visited) {
+      localStorage.setItem('keeps_hasVisited', '1');
+      return <Navigate to="/login" replace />;
+    }
+  }
+  return <>{children}</>;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -72,7 +83,7 @@ const App = () => (
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/" element={<FirstVisitGate><Dashboard /></FirstVisitGate>} />
             <Route path="/benefits" element={<Benefits />} />
             <Route path="/content" element={<Content />} />
             <Route path="/portfolio" element={<Portfolio />} />
