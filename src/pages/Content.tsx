@@ -28,7 +28,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Liverpool FC has unveiled a new investment program allowing fans to purchase equity shares in the club for the first time.",
     source: "Keeps Team",
     date: "2025-07-10",
-    image: "/src/assets/liverpool-squad.jpg",
+    image: "/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
     category: "news",
     readTime: "3 min read"
   },
@@ -38,7 +38,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Formula 1 team McLaren Racing has successfully raised £50,000,000 through a unique income sharing agreement with fans and investors.",
     source: "Keeps Team",
     date: "2025-07-05",
-    image: "/src/assets/mclaren-racing.jpg",
+    image: "/lovable-uploads/fdf2d78d-7bde-43c9-8276-e29d382a6860.png",
     category: "news",
     readTime: "5 min read"
   },
@@ -58,7 +58,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Ohio State University announces plans to launch a £80,000,000 stadium renovation investment opportunity through Keeps Sport in Q4 2025.",
     source: "ESPN",
     date: "2025-06-22",
-    image: "/src/assets/ohio-state.jpg",
+    image: "/lovable-uploads/b404eafa-2f22-4d8b-984c-9cf6a58070de.png",
     category: "news",
     readTime: "2 min read"
   },
@@ -68,7 +68,7 @@ const newsArticles: NewsArticle[] = [
     summary: "Championship side Cardiff City reveals plans for a £4,000,000 equity fundraising round through Keeps Sport, launching early 2026.",
     source: "BBC Sport",
     date: "2025-06-15",
-    image: "/src/assets/cardiff-city.jpg",
+    image: "/lovable-uploads/010eb98a-7e8c-4f58-8fc6-342c07f81981.png",
     category: "news",
     readTime: "3 min read"
   },
@@ -90,8 +90,8 @@ const newsArticles: NewsArticle[] = [
     summary: "Digital sports entertainment collective Hexagon Fan Team announces plans for innovative fan ownership structure launching in 2026.",
     source: "Sports Tech Weekly",
     date: "2025-05-15",
-    image: "/src/assets/hexagon-sports.jpg",
-    category: "reels",
+    image: "/lovable-uploads/aaeb603c-8140-467c-9571-cc97db7c5f56.png",
+    category: "news",
     readTime: "4 min read",
     likes: 892,
     comments: 156
@@ -203,7 +203,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         <img 
           src={article.image}
           alt={article.title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <Badge 
           variant={article.category === "news" ? "default" : article.category === "community" ? "success" : "warning"}

@@ -105,9 +105,13 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
-  html {
+  html, #root {
+    max-width: 100vw;
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
 }
