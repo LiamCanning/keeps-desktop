@@ -106,7 +106,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
         <Button 
           onClick={() => setIsModalOpen(true)}
           variant="outline" 
-          className="w-full flex items-center justify-center gap-2 p-4 h-auto hover-scale"
+          className="w-full flex items-center justify-center gap-2 p-4 h-auto hover-scale rounded-xl bg-gradient-to-r from-primary/15 to-primary/25 text-foreground border border-primary/30 shadow-[var(--shadow-elegant)] hover:from-primary/25 hover:to-primary/35 focus-visible:ring-primary/40"
         >
           <span className="font-medium">Explore Investment Tiers & Benefits</span>
           <Star className="w-4 h-4" />
