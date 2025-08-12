@@ -123,8 +123,7 @@ const articles: { [key: string]: Article } = {
     summary: "Championship side Cardiff City reveals plans for a £4,000,000 equity fundraising round through Keeps Sport, launching early 2026.",
     content: [
       "Cardiff City is preparing an equity round that will enable supporters to become long-term stakeholders in the club's growth plans.",
-      "The raise targets performance enhancement through player development, academy investment, and matchday experience upgrades.
-      ",
+      "The raise targets performance enhancement through player development, academy investment, and matchday experience upgrades.",
       "Valuation analysis indicates upside potential tied to promotion scenarios, media distributions, and commercial partnerships.",
       "Investor tiers will include matchday hospitality, training ground visits, and community engagement experiences.",
       "Governance frameworks include transparent reporting and investor communications aligned to best practice standards.",

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ryderImage from "@/assets/ryder-cup-golf.jpg";
 
 interface NewsArticle {
   id: string;
@@ -48,7 +49,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Keeps Team",
     date: "2025-06-28",
-    image: "/src/assets/ryder-cup-golf.jpg",
+    image: ryderImage,
     category: "news",
     readTime: "4 min read"
   },
@@ -198,7 +199,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
 }) {
   const navigate = useNavigate();
   return (
-    <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+    <Card className="card-professional group hover:shadow-xl transition-all duration-300 h-full">
       <div className="relative overflow-hidden rounded-t-xl">
         <img 
           src={article.image}
@@ -224,7 +225,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         </p>
       </CardHeader>
       
-      <CardContent className="pt-0">
+      <CardContent className="pt-0 flex flex-col h-full">
         <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
           <div className="flex items-center gap-4">
             <span className="font-medium">{article.source}</span>
@@ -262,7 +263,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
           </div>
         )}
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mt-auto">
           <Button 
             className="btn-invest flex-1"
             onClick={() => navigate(`/article/${article.id}`)}
