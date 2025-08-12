@@ -132,6 +132,7 @@ const App = () => (
               <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
               <Route path="/investor-relations" element={<InvestorRelations />} />
               <Route path="/investor-leaderboard" element={<InvestorLeaderboard />} />
+              <Route path="/investor-leaderboard/:assetId" element={<InvestorLeaderboard />} />
               <Route path="/notifications" element={<Notifications />} />
               <Route path="/assets" element={<Assets />} />
               <Route path="/assets/:assetId" element={<AssetDetails />} />
