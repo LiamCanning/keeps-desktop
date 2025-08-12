@@ -106,10 +106,10 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
         <Button 
           onClick={() => setIsModalOpen(true)}
           variant="outline" 
-          className="w-full flex items-center justify-center gap-2 p-4 h-auto hover-scale rounded-xl bg-gradient-to-r from-primary/15 to-primary/25 text-foreground border border-primary/30 shadow-[var(--shadow-elegant)] hover:from-primary/25 hover:to-primary/35 focus-visible:ring-primary/40"
+          className="w-full flex items-center justify-center gap-3 py-6 px-6 h-auto hover-scale rounded-xl bg-gradient-to-r from-purple-500/15 to-purple-600/25 text-foreground border border-purple-500/30 shadow-[var(--shadow-elegant)] hover:from-purple-500/25 hover:to-purple-600/35 focus-visible:ring-purple-500/40 transition-all duration-300"
         >
-          <span className="font-medium">Explore Investment Tiers & Benefits</span>
-          <Star className="w-4 h-4" />
+          <span className="font-medium text-base">Explore Investment Tiers & Benefits</span>
+          <Star className="w-5 h-5" />
         </Button>
         
         <TierExplorerModal
