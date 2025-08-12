@@ -220,6 +220,10 @@ export default function Benefits() {
     return benefit.status === activeTab;
   });
 
+  const totalBenefits = benefits.length;
+  const liveBenefits = benefits.filter(b => b.status === "live").length;
+  const comingSoonBenefits = benefits.filter(b => b.status === "coming-soon").length;
+
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
@@ -298,14 +302,18 @@ export default function Benefits() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-          <TabsTrigger value="all">All Assets</TabsTrigger>
-          <TabsTrigger value="live" className="flex items-center justify-center gap-2">
-            <div className="w-2 h-2 bg-success rounded-full"></div>
-            Live Assets
+        <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md p-1.5">
+          <TabsTrigger value="all" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
+            <span>All Assets ({totalBenefits})</span>
           </TabsTrigger>
-          <TabsTrigger value="coming-soon">Coming Soon</TabsTrigger>
-          <TabsTrigger value="completed">Completed</TabsTrigger>
+          <TabsTrigger value="live" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
+            <div className="w-2 h-2 bg-success rounded-full"></div>
+            <span>Live Assets ({liveBenefits})</span>
+          </TabsTrigger>
+          <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
+            <div className="w-2 h-2 bg-warning rounded-full"></div>
+            <span>Coming Soon ({comingSoonBenefits})</span>
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value={activeTab} className="mt-6">

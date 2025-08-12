@@ -370,7 +370,7 @@ export default function Content() {
   const filteredArticles = newsArticles.filter(article => {
     if (activeTab === "all") return true;
     if (activeTab === "trending") {
-      return article.likes && article.likes > 100;
+      return article.likes && article.likes > 100 && article.id !== "7"; // Exclude Hexagon Fan Team from Trending
     }
     if (activeTab === "portfolio") {
       return userInvestments.some(investment => 
@@ -573,8 +573,8 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/lovable-uploads/30da111e-70d8-4fee-a60c-9bd1f09834ce.png"
-                    alt="My day out with Liverpool FC Squad"
+                    src="/lovable-uploads/e7fc1a1b-ac3a-4e88-83fd-63ad4106d1d1.png"
+                    alt="My Day Out With the Liverpool FC Squad"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -587,7 +587,7 @@ export default function Content() {
                   <Badge variant="warning" className="absolute top-4 left-4">Video</Badge>
                 </div>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">My day out with the Liverpool FC Squad</CardTitle>
+                  <CardTitle className="text-lg">My Day Out With the Liverpool FC Squad</CardTitle>
                   <p className="text-sm text-muted-foreground">Behind the scenes access with the Liverpool players at training</p>
                 </CardHeader>
                 <CardContent className="pt-0">
@@ -608,8 +608,8 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png"
-                    alt="Playing 3 Holes while at the Ryder Cup"
+                    src="/lovable-uploads/f03cc149-975d-41b8-8c1f-515d48282399.png"
+                    alt="Playing 3 Holes While at the Ryder Cup"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -622,7 +622,7 @@ export default function Content() {
                   <Badge variant="warning" className="absolute top-4 left-4">Video</Badge>
                 </div>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">Playing 3 Holes while at the Ryder Cup</CardTitle>
+                  <CardTitle className="text-lg">Playing 3 Holes While at the Ryder Cup</CardTitle>
                   <p className="text-sm text-muted-foreground">Exclusive access to play on the championship course during the event</p>
                 </CardHeader>
                 <CardContent className="pt-0">
@@ -643,8 +643,8 @@ export default function Content() {
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-xl">
                   <img 
-                    src="/lovable-uploads/79ef8bce-417b-43cb-b149-7668c95e2606.png"
-                    alt="Inside McLaren Technology Centre"
+                    src="/lovable-uploads/997ccbad-b594-422a-b10d-792c1d6dfc48.png"
+                    alt="Inside McLaren Technology Centre Tour"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/30 flex items-center justify-center">

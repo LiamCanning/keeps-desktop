@@ -37,10 +37,10 @@ const articles: { [key: string]: Article } = {
       "Liverpool's innovation extends beyond traditional ownership models, incorporating blockchain technology to ensure transparent reporting and allowing secondary market trading of shares through the Keeps platform.",
       "The success of Liverpool's fan investment program is expected to influence other Premier League clubs to consider similar initiatives, potentially revolutionizing the relationship between football clubs and their supporters worldwide."
     ],
-    source: "Sports Business Journal",
+    source: "Keeps Team",
     author: "Michael Thompson",
     date: "2025-07-10",
-    image: "/src/assets/liverpool-squad.jpg",
+    image: "/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
     category: "news",
     readTime: "5 min read",
     likes: 1247,
@@ -62,14 +62,82 @@ const articles: { [key: string]: Article } = {
       "Gold tier investors (£10,000+) receive factory tours, meet and greet sessions with the driver lineup, priority merchandise access, and discounted hospitality packages at European races.",
       "This innovative funding model positions McLaren at the forefront of sports finance evolution, potentially influencing how other Formula 1 teams approach fan engagement and capital raising in the future."
     ],
-    source: "Financial Times",
+    source: "Keeps Team",
     author: "Emma Rodriguez",
     date: "2025-07-05",
-    image: "/src/assets/mclaren-racing.jpg",
+    image: "/lovable-uploads/fdf2d78d-7bde-43c9-8276-e29d382a6860.png",
     category: "news",
     readTime: "6 min read",
     likes: 892,
     comments: 156
+  },
+  "3": {
+    id: "3",
+    title: "Ryder Cup Debenture Programme Offers Exclusive Investment Returns",
+    summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
+    content: [
+      "Investors in the Ryder Cup debenture programme receive access to premier seating, hospitality, and once-in-a-lifetime experiences across tournament days.",
+      "The programme blends guaranteed access with long-term value, creating both experiential and financial upside for golf fans."
+    ],
+    source: "Keeps Team",
+    author: "Sophie Turner",
+    date: "2025-06-28",
+    image: "/src/assets/ryder-cup-golf.jpg",
+    category: "news",
+    readTime: "4 min read",
+    likes: 620,
+    comments: 42
+  },
+  "4": {
+    id: "4",
+    title: "Ohio State Prepares for Upcoming Stadium Investment Launch",
+    summary: "Ohio State University announces plans to launch a £80,000,000 stadium renovation investment opportunity through Keeps Sport in Q4 2025.",
+    content: [
+      "Ohio State's upcoming investment initiative will modernize stadium infrastructure while opening new revenue pathways for the athletics programme.",
+      "Fans will be able to participate through tiered structures aligning benefits to contribution levels."
+    ],
+    source: "ESPN",
+    author: "Daniel Carter",
+    date: "2025-06-22",
+    image: "/lovable-uploads/b404eafa-2f22-4d8b-984c-9cf6a58070de.png",
+    category: "news",
+    readTime: "2 min read",
+    likes: 284,
+    comments: 19
+  },
+  "5": {
+    id: "5",
+    title: "Cardiff City Announces Upcoming Fan Investment Opportunity",
+    summary: "Championship side Cardiff City reveals plans for a £4,000,000 equity fundraising round through Keeps Sport, launching early 2026.",
+    content: [
+      "Cardiff City is preparing an equity round that will enable supporters to become long-term stakeholders in the club's growth plans.",
+      "The investment will focus on squad development and stadium experience upgrades."
+    ],
+    source: "BBC Sport",
+    author: "Laura Jenkins",
+    date: "2025-06-15",
+    image: "/lovable-uploads/010eb98a-7e8c-4f58-8fc6-342c07f81981.png",
+    category: "news",
+    readTime: "3 min read",
+    likes: 312,
+    comments: 27
+  },
+  "6": {
+    id: "6",
+    title: "Keeps Sports Investment Platform Sees Record User Growth",
+    summary: "Digital platforms facilitating fan investment in sports properties report unprecedented user acquisition in 2025.",
+    content: [
+      "Keeps has recorded record-breaking user signups as fans seek more direct participation in their favourite teams and events.",
+      "The platform's blend of financial products and experiential benefits continues to drive adoption."
+    ],
+    source: "TechCrunch",
+    author: "Nadia Lee",
+    date: "2025-05-20",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
+    category: "community",
+    readTime: "6 min read",
+    likes: 1247,
+    comments: 89
   }
 };
 
