@@ -123,12 +123,6 @@ export function AppSidebar() {
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <NavLink to="/case-studies" className="flex items-center gap-3 py-3 w-full">
-                  <FileText className="w-4 h-4" />
-                  <span>Case Studies</span>
-                </NavLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
                 <NavLink to="/investor-stories" className="flex items-center gap-3 py-3 w-full">
                   <MessageSquareHeart className="w-4 h-4" />
                   <span>Investor Stories</span>

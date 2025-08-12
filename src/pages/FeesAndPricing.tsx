@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { BadgePercent, Info } from "lucide-react";
 import { Link } from "react-router-dom";
+import PageHeader from "@/components/PageHeader";
 
 const FeesAndPricing: React.FC = () => {
   const canonicalUrl = typeof window !== "undefined" ? `${window.location.origin}/fees-and-pricing` : "/fees-and-pricing";
@@ -16,10 +17,10 @@ const FeesAndPricing: React.FC = () => {
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Fees & Pricing</h1>
-        <p className="text-muted-foreground mt-2 max-w-2xl">A simple, transparent breakdown of costs and when they apply.</p>
-      </header>
+      <PageHeader
+        title="Fees & Pricing"
+        subtitle="A simple, transparent breakdown of costs and when they apply."
+      />
 
       <section className="grid gap-6 md:grid-cols-3" aria-labelledby="fee-breakdown">
         <h2 id="fee-breakdown" className="sr-only">Fee Breakdown</h2>

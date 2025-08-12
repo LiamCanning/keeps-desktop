@@ -63,7 +63,7 @@ import OrganisationContact from "./pages/OrganisationContact";
 import PrimaryOffering from "./pages/PrimaryOffering";
 import HowItWorks from "./pages/HowItWorks";
 import FeesAndPricing from "./pages/FeesAndPricing";
-import CaseStudies from "./pages/CaseStudies";
+
 import InvestorStories from "./pages/InvestorStories";
 import { HelmetProvider } from "react-helmet-async";
 
@@ -117,7 +117,7 @@ const App = () => (
               {/* Newly added informational pages */}
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/fees-and-pricing" element={<FeesAndPricing />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
+              
               <Route path="/investor-stories" element={<InvestorStories />} />
               <Route path="/market-trends" element={<MarketTrends />} />
               <Route path="/sector-performance" element={<SectorPerformance />} />
