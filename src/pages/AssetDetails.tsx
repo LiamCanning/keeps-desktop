@@ -221,7 +221,7 @@ export default function AssetDetails() {
               </div>
             </div>
             <div className="mt-4 flex items-center gap-2 flex-wrap">
-              <Badge variant={riskLevel === "Aggressive" ? "destructive" : riskLevel === "Moderate" ? "warning" : "success"}>
+              <Badge variant={riskLevel === "Conservative" ? "success" : "warning"}>
                 {riskLevel} risk
               </Badge>
               <Badge variant="outline">Time horizon: {timeHorizon}</Badge>
