@@ -416,56 +416,6 @@ export default function Content() {
         </Card>
       </div>
 
-      {/* Enhanced Content Activity */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <FileText className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Articles Read</p>
-              <p className="font-semibold text-xl text-card-foreground">12</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-success/20 rounded-lg">
-              <Calendar className="w-5 h-5 text-success" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">This Week</p>
-              <p className="font-semibold text-xl text-card-foreground">5</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-warning/20 rounded-lg">
-              <Heart className="w-5 h-5 text-warning" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Your Likes</p>
-              <p className="font-semibold text-xl text-card-foreground">23</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <MessageCircle className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Bookmarked</p>
-              <p className="font-semibold text-xl text-card-foreground">{bookmarkedArticles.length}</p>
-            </div>
-          </div>
-        </Card>
-      </div>
 
       {/* Content Banner */}
       <div className="hidden md:block relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-8 border border-primary/20">
