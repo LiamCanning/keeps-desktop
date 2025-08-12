@@ -220,7 +220,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         </p>
       </CardHeader>
       
-      <CardContent className="pt-0 mt-auto">
+      <CardContent className="pt-0 mt-auto flex flex-col">
         <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
           <span className="font-medium">{article.source}</span>
           <div className="flex items-center gap-1">
@@ -256,7 +256,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
           </div>
         )}
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mt-auto">
           <Button 
             className="btn-invest flex-1"
             onClick={() => navigate(`/article/${article.id}`)}
