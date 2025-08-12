@@ -266,23 +266,32 @@ export default function Dashboard() {
       </div>
 
       {/* Featured Investment Opportunities */}
-      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-4 sm:p-8 border border-primary/20 mt-4 sm:mt-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
-        <div className="relative z-10 space-y-4 sm:space-y-6">
-          <div className="text-center space-y-2 sm:space-y-3">
-            <h2 className="text-2xl sm:text-4xl font-bold text-gradient">Featured Investment Opportunities</h2>
-            <p className="text-base sm:text-xl text-foreground/90 font-medium">Premium sports assets with proven track records • Limited availability</p>
-            <div className="flex justify-center gap-2">
-              <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse delay-100"></div>
-              <div className="w-2 h-2 bg-accent rounded-full animate-pulse delay-200"></div>
+      <div className="space-y-6 sm:space-y-8 mt-8 sm:mt-12">
+        {/* Professional Header Section */}
+        <div className="text-center space-y-4 sm:space-y-6 py-6 sm:py-8 bg-card/50 backdrop-blur-sm border-y border-border/20">
+          <div className="max-w-4xl mx-auto space-y-3 sm:space-y-4">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent flex-1"></div>
+              <Badge variant="outline" className="px-4 py-1 text-xs font-medium border-primary/20 bg-primary/5">
+                LIVE OPPORTUNITIES
+              </Badge>
+              <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent flex-1"></div>
             </div>
+            <h2 className="text-3xl sm:text-5xl font-bold text-foreground leading-tight">
+              Featured Investment 
+              <span className="block text-primary">Opportunities</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Premium sports assets with proven track records and limited availability
+            </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
-            {liveDeals.map((investment) => (
-              <InvestmentCard key={investment.id} investment={investment} />
-            ))}
-          </div>
+        </div>
+        
+        {/* Investment Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
+          {liveDeals.map((investment) => (
+            <InvestmentCard key={investment.id} investment={investment} />
+          ))}
         </div>
       </div>
     </div>
