@@ -11,6 +11,7 @@ import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 import { ResponsiveContainer, AreaChart, Area, XAxis, Tooltip, BarChart, Bar, LineChart, Line } from "recharts";
+import PageHeader from "@/components/PageHeader";
 
 interface PortfolioHolding {
   id: string;
@@ -194,11 +195,10 @@ export default function Portfolio() {
   return (
     <div className="space-y-4 sm:space-y-6">
       <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="space-y-2 text-left">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gradient">Liam's Portfolio Overview</h1>
-          <p className="text-base sm:text-lg text-foreground/80">Track your sports investments</p>
-        </div>
+        <PageHeader
+          title="Liam's Portfolio Overview"
+          subtitle="Track your sports investments"
+        />
 
       {/* Portfolio Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4">

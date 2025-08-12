@@ -107,7 +107,7 @@ export default function OrganisationDashboard() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Total Investors</p>
-                <p className="text-2xl font-bold">2,847</p>
+                <p className="text-2xl font-bold">8,750</p>
               </div>
             </div>
           </CardContent>

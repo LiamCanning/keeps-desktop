@@ -19,12 +19,12 @@ export function InvestorMessaging() {
   const { toast } = useToast();
 
   const audienceOptions = [
-    { id: "all", label: "All Investors", count: "2,847" },
-    { id: "diamond", label: "Diamond Tier (£75k+)", count: "48" },
-    { id: "platinum", label: "Platinum Tier (£35k+)", count: "156" },
-    { id: "gold", label: "Gold Tier (£15k+)", count: "423" },
-    { id: "silver", label: "Silver Tier (£5k+)", count: "891" },
-    { id: "bronze", label: "Bronze Tier (£1k+)", count: "1,377" }
+    { id: "all", label: "All Investors", count: "8,750" },
+    { id: "diamond", label: "Diamond Tier (£75k+)", count: "175" },
+    { id: "platinum", label: "Platinum Tier (£35k+)", count: "525" },
+    { id: "gold", label: "Gold Tier (£15k+)", count: "1,050" },
+    { id: "silver", label: "Silver Tier (£5k+)", count: "2,625" },
+    { id: "bronze", label: "Bronze Tier (£1k+)", count: "4,375" }
   ];
 
   const messageTemplates = {
@@ -42,7 +42,7 @@ export function InvestorMessaging() {
     },
     raffle: {
       subject: "Benefits: Win Lando Norris' Worn F1 Suit – Silverstone",
-      message: "Dear Investor,\n\nWe're thrilled to announce an exclusive raffle for Keeps investors: a chance to win Lando Norris' race-worn F1 suit from the British Grand Prix at Silverstone.\n\nHow to enter:\n• Eligible tiers: Gold, Platinum, Diamond\n• Entry window: Opens today and closes in 14 days\n• Winner announcement: Via email and dashboard notifications\n\nThank you for being part of McLaren's journey. Good luck!\n\nBest regards,\nMcLaren Racing Investor Relations"
+      message: "Dear Investor,\n\nWe're thrilled to announce an exclusive raffle for Keeps investors: a chance to win Lando Norris' race-worn F1 suit from the British Grand Prix at Silverstone.\n\nHow to enter:\n• Diamond & Platinum tiers: Automatically entered\n• Gold & Silver tiers: Complete McLaren fan survey to provide valuable data insights (link will be sent separately)\n• Bronze tier: Not eligible for this exclusive offering\n• Entry window: Opens today and closes in 14 days\n• Winner announcement: Via email and dashboard notifications\n\nTop-tier investors are automatically included as a premium benefit, while other tiers can earn entry by sharing their preferences and engagement data to help us better understand our investor community.\n\nThank you for being part of McLaren's journey. Good luck!\n\nBest regards,\nMcLaren Racing Investor Relations"
     }
   };
 
