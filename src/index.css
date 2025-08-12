@@ -127,7 +127,7 @@
   /* Container optimization for better space utilization */
   .container-optimized {
     @apply container mx-auto px-4 sm:px-6;
-    max-width: clamp(320px, 95vw, 1600px);
+    max-width: clamp(320px, 95vw, 1920px);
   }
   
   .container-content {

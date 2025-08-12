@@ -53,7 +53,7 @@ export default function OrganisationDashboard() {
   }
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto">
+    <div className="p-6 xl:p-8 space-y-6 max-w-7xl mx-auto 2xl:max-w-none 2xl:w-full 2xl:mx-0 2xl:px-8 min-[1800px]:px-12">
       {/* Header Section */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-6">
