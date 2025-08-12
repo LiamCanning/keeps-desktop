@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Gift, Star, Trophy, Calendar, Crown, Diamond, ChevronDown, ChevronUp } from "lucide-react";
+import { Gift, Star, Trophy, Calendar, Crown, Diamond } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { assetTiers } from "@/components/BenefitsTiers";
 import { LogoImage } from "@/components/ui/logo-image";
+import { TierExplorerModal } from "@/components/TierExplorerModal";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 interface Benefit {
@@ -64,7 +63,7 @@ const benefits: Benefit[] = [
 ];
 
 function BenefitCard({ benefit }: { benefit: Benefit }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const getAssetKey = (teamName: string) => {
     if (teamName.includes('Liverpool')) return 'liverpool';
@@ -76,23 +75,6 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
     return 'liverpool';
   };
 
-  const tierColors = {
-    bronze: "bg-gradient-to-r from-amber-50 to-amber-100 border-amber-200",
-    silver: "bg-gradient-to-r from-slate-50 to-slate-100 border-slate-200", 
-    gold: "bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-200",
-    platinum: "bg-gradient-to-r from-purple-50 to-purple-100 border-purple-200",
-    diamond: "bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200"
-  };
-
-  const tierIconColors = {
-    bronze: "bg-amber-600 text-white",
-    silver: "bg-slate-400 text-white", 
-    gold: "bg-yellow-500 text-white",
-    platinum: "bg-purple-600 text-white",
-    diamond: "bg-blue-600 text-white"
-  };
-
-  const tierOrder = ['bronze', 'silver', 'gold', 'platinum', 'diamond'];
 
   return (
     <Card className="card-professional overflow-hidden h-full flex flex-col">
@@ -121,92 +103,21 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
       </CardHeader>
       
       <CardContent className="pt-0 mt-auto">
-        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-          <CollapsibleTrigger asChild>
-            <Button 
-              variant="outline" 
-              className="w-full flex items-center justify-between p-4 h-auto"
-            >
-              <span className="font-medium">View Investment Tiers & Benefits</span>
-              {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            </Button>
-          </CollapsibleTrigger>
-          
-          <CollapsibleContent className="mt-4">
-            <div className="space-y-3">
-              {tierOrder.map((tierKey, index) => {
-                const tier = assetTiers[getAssetKey(benefit.team)][tierKey];
-                if (!tier) return null;
-                
-                return (
-                  <div 
-                    key={tierKey}
-                    className={`p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg ${
-                      tierColors[tierKey as keyof typeof tierColors]
-                    } relative overflow-hidden`}
-                    style={{
-                      transform: `scale(${1 + index * 0.01})`,
-                      zIndex: tierOrder.length - index
-                    }}
-                  >
-                    
-                    <div className="flex items-start gap-4">
-                      <div className={`p-3 rounded-lg shadow-md ${tierIconColors[tierKey as keyof typeof tierIconColors]}`}>
-                        {tierKey === 'bronze' && <Gift className="w-5 h-5" />}
-                        {tierKey === 'silver' && <Star className="w-5 h-5" />}
-                        {tierKey === 'gold' && <Trophy className="w-5 h-5" />}
-                        {tierKey === 'platinum' && <Crown className="w-5 h-5" />}
-                        {tierKey === 'diamond' && <Diamond className="w-5 h-5" />}
-                      </div>
-                      
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-3">
-                          <h4 className="font-bold text-lg capitalize text-left">{tier.name} Tier</h4>
-                          <div className="flex items-center gap-2">
-                            <Badge variant="success" className="text-xs">
-                              {tier.available} Available
-                            </Badge>
-                          </div>
-                        </div>
-                        
-                        <div className="mb-4 p-3 bg-white/50 rounded-lg border">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-muted-foreground">Investment Required</span>
-                            <span className="text-lg font-bold text-foreground">£{tier.investment.toLocaleString()}</span>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <h5 className="font-semibold text-sm text-left mb-2">Exclusive Benefits:</h5>
-                          {tier.benefits.map((benefit, index) => (
-                            <div key={index} className="flex items-start gap-3 text-sm text-left">
-                              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="leading-relaxed">{benefit}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Progressive enhancement visual cue */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-                  </div>
-                );
-              })}
-            </div>
-            
-            <div className="mt-6 p-4 bg-accent/10 rounded-lg border">
-              <div className="flex items-center gap-2 mb-2">
-                <Star className="w-4 h-4 text-primary" />
-                <span className="font-medium text-sm">Benefits Progression</span>
-              </div>
-              <p className="text-xs text-muted-foreground text-left">
-                Higher tiers include all benefits from previous tiers plus exclusive additional perks. 
-                Diamond tier offers the most exclusive experiences with personalised access and premium benefits.
-              </p>
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
+        <Button 
+          onClick={() => setIsModalOpen(true)}
+          variant="outline" 
+          className="w-full flex items-center justify-center gap-2 p-4 h-auto hover-scale"
+        >
+          <span className="font-medium">Explore Investment Tiers & Benefits</span>
+          <Star className="w-4 h-4" />
+        </Button>
+        
+        <TierExplorerModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          teamName={benefit.team}
+          assetKey={getAssetKey(benefit.team)}
+        />
       </CardContent>
     </Card>
   );
