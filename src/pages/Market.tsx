@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
+import PageHeader from "@/components/PageHeader";
 
 interface MarketListing {
   id: string;
@@ -213,10 +214,10 @@ export default function Market() {
     <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="space-y-2 text-left">
-          <h1 className="text-2xl sm:text-3xl font-bold text-primary">Secondary Market</h1>
-          <p className="text-base sm:text-lg text-foreground/80">Buy and sell sports assets</p>
-        </div>
+        <PageHeader
+          title="Secondary Market"
+          subtitle="Buy and sell sports assets"
+        />
         <Button 
           className="btn-invest text-base sm:text-lg px-4 sm:px-6 py-3 h-auto min-h-[44px] w-full sm:w-auto"
           onClick={() => window.location.href = '/list-asset'}

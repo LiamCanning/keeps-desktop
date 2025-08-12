@@ -16,6 +16,7 @@ import adidasLogo from "@/assets/brands/adidas-logo.png";
 import rolexLogo from "@/assets/brands/rolex-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import PageHeader from "@/components/PageHeader";
 
 
 interface FavoriteTeam {
@@ -110,10 +111,10 @@ export default function Account() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">Account</h1>
-        <p className="text-lg text-muted-foreground">Manage your account preferences and settings</p>
-      </div>
+      <PageHeader
+        title="Account"
+        subtitle="Manage your account preferences and settings"
+      />
 
       {/* Account Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

@@ -151,10 +151,10 @@ export default function KnowledgeBase() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="space-y-2 text-left">
-        <h1 className="text-3xl font-bold text-gradient">Knowledge Base</h1>
-        <p className="text-lg text-muted-foreground">Understanding different types of sports investment deals</p>
-      </div>
+      <PageHeader
+        title="Knowledge Base"
+        subtitle="Understanding different types of sports investment deals"
+      />
 
       {/* Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

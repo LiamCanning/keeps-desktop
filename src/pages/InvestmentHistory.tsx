@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link, useNavigate } from "react-router-dom";
+import PageHeader from "@/components/PageHeader";
 interface Investment {
   id: string;
   asset: string;
@@ -86,10 +87,10 @@ export default function InvestmentHistory() {
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">Investment History</h1>
-        <p className="text-lg text-muted-foreground">Complete record of your investment transactions</p>
-      </div>
+      <PageHeader
+        title="Investment History"
+        subtitle="Complete record of your investment transactions"
+      />
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

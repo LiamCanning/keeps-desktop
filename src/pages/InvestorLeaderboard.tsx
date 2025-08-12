@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import PageHeader from "@/components/PageHeader";
 
 // Import avatar images
 import alexAvatar from "@/assets/avatars/alex-avatar.png";
@@ -27,6 +28,7 @@ import jenniferAvatar from "@/assets/avatars/jennifer-avatar.png";
 // Import brand logos
 import santanderLogo from "@/assets/brands/santander-logo.png";
 import rolexLogo from "@/assets/brands/rolex-logo.png";
+import cadburyLogo from "@/assets/brands/cadbury-logo.png";
 
 interface Investor {
   id: string;
@@ -56,18 +58,18 @@ const getAssetInvestors = (assetId: string): {
       return {
         totalInvestors: 10250,
         corporateSponsor: {
-          id: "nike",
-          name: "Nike Inc.",
-          avatar: "/src/assets/brands/nike-logo.png",
-          totalInvested: "£12,500,000",
-          portfolioValue: "£15,000,000",
-          returns: "+£2,500,000",
-          returnPercent: 20.0,
+          id: "cadbury",
+          name: "Cadbury",
+          avatar: cadburyLogo,
+          totalInvested: "£10,000,000",
+          portfolioValue: "£11,500,000",
+          returns: "+£1,500,000",
+          returnPercent: 15.0,
           rank: 1,
           tier: "Corporate",
           assetsOwned: 1,
           joinDate: "Jan 2024",
-          location: "Beaverton, US",
+          location: "Birmingham, UK",
           isCompany: true
         },
         investors: [
@@ -467,14 +469,11 @@ export default function InvestorLeaderboard() {
         </Button>
       </div>
 
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">
-          {assetId ? `${getAssetName(assetId)} Investor Leaderboard` : 'Investor Leaderboard'}
-        </h1>
-        <p className="text-lg text-foreground/80">
-          {assetId ? `Top performing investors in ${getAssetName(assetId)}` : 'Top performing investors on the Keeps platform'}
-        </p>
-      </div>
+      <PageHeader
+        title={assetId ? `${getAssetName(assetId)} Investor Leaderboard` : 'Investor Leaderboard'}
+        subtitle={assetId ? `Top performing investors in ${getAssetName(assetId)}` : 'Top performing investors on the Keeps platform'}
+        align="left"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="card-professional p-4">
@@ -494,7 +493,7 @@ export default function InvestorLeaderboard() {
               <Building className="w-5 h-5 text-success" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Corporate Sponsors</p>
+              <p className="text-sm text-muted-foreground">{assetId ? 'Corporate Sponsor' : 'Corporate Sponsors'}</p>
               <p className="font-semibold text-xl text-card-foreground">{assetId ? '1' : '28'}</p>
             </div>
           </div>
