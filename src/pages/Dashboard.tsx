@@ -123,7 +123,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
 
   return (
     <Card 
-      className="investment-card group bg-card border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden h-full flex flex-col"
+      className="investment-card group bg-card border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden h-full flex flex-col p-0"
       onClick={handleCardClick}
     >
       <div className="relative overflow-hidden">
@@ -291,7 +291,7 @@ export default function Dashboard() {
         <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-4 sm:p-6 border border-primary/20">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
           <div className="relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch content-stretch">
               {liveDeals.map((investment) => (
                 <InvestmentCard key={investment.id} investment={investment} />
               ))}

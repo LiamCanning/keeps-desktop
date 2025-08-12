@@ -271,7 +271,7 @@ export default function KnowledgeBase() {
                   </CardHeader>
                   
                   <CardContent className="space-y-6">
-                    <p className="text-sm text-muted-foreground leading-relaxed text-left">
+                    <p className="text-base text-muted-foreground leading-relaxed text-left">
                       {deal.description}
                     </p>
 
@@ -296,7 +296,7 @@ export default function KnowledgeBase() {
                       <h4 className="font-semibold mb-3 text-left">Key Features</h4>
                       <div className="space-y-2">
                         {deal.features.map((feature, index) => (
-                          <div key={index} className="flex items-start gap-2 text-sm text-left">
+                          <div key={index} className="flex items-start gap-2 text-base text-left">
                             <div className="w-1.5 h-1.5 bg-success rounded-full mt-2 flex-shrink-0"></div>
                             <span>{feature}</span>
                           </div>
@@ -309,7 +309,7 @@ export default function KnowledgeBase() {
                       <h4 className="font-semibold mb-3 text-left">Key Risks</h4>
                       <div className="space-y-2">
                         {deal.risks.map((risk, index) => (
-                          <div key={index} className="flex items-start gap-2 text-sm text-left">
+                          <div key={index} className="flex items-start gap-2 text-base text-left">
                             <div className="w-1.5 h-1.5 bg-warning rounded-full mt-2 flex-shrink-0"></div>
                             <span>{risk}</span>
                           </div>

@@ -196,7 +196,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
 }) {
   const navigate = useNavigate();
   return (
-    <Card className="card-professional group hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden">
+    <Card className="card-professional group hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden p-0">
       <div className="relative overflow-hidden">
         <img 
           src={article.image}
@@ -546,8 +546,8 @@ export default function Content() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {/* Video 1 - Liverpool FC */}
-              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
-                <div className="relative overflow-hidden rounded-t-xl">
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300 p-0 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src="/lovable-uploads/e7fc1a1b-ac3a-4e88-83fd-63ad4106d1d1.png"
                     alt="My Day Out With the Liverpool FC Squad"
@@ -581,8 +581,8 @@ export default function Content() {
               </Card>
 
               {/* Video 2 - Ryder Cup */}
-              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
-                <div className="relative overflow-hidden rounded-t-xl">
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300 p-0 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src="/lovable-uploads/f03cc149-975d-41b8-8c1f-515d48282399.png"
                     alt="Playing 3 Holes While at the Ryder Cup"
@@ -616,8 +616,8 @@ export default function Content() {
               </Card>
 
               {/* Video 3 - McLaren */}
-              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
-                <div className="relative overflow-hidden rounded-t-xl">
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300 p-0 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src="/lovable-uploads/997ccbad-b594-422a-b10d-792c1d6dfc48.png"
                     alt="Inside McLaren Technology Centre Tour"
@@ -663,8 +663,8 @@ export default function Content() {
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
-                <div className="relative overflow-hidden rounded-t-xl">
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300 p-0 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop"
                     alt="Sports Market Analysis"
@@ -693,8 +693,8 @@ export default function Content() {
                 </CardContent>
               </Card>
 
-              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
-                <div className="relative overflow-hidden rounded-t-xl">
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300 p-0 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
                     alt="McLaren F1 Car"
@@ -723,8 +723,8 @@ export default function Content() {
                 </CardContent>
               </Card>
 
-              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
-                <div className="relative overflow-hidden rounded-t-xl">
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300 p-0 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=600&fit=crop"
                     alt="Sports Arena"
