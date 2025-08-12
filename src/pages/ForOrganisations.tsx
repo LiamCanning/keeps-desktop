@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import sportsHeroBackground from "@/assets/sports-hero-background.jpg";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
+import PageHeader from "@/components/PageHeader";
 
 const features = [
   {
@@ -60,13 +61,11 @@ export default function ForOrganisations() {
           <Badge variant="secondary" className="mb-4">
             Capital Raising Solutions
           </Badge>
-          <h1 className="text-4xl font-bold text-foreground">
-            Raise Capital Sustainably with Keeps
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Partner with leading sports organisations to raise capital sustainably, grow your audience, 
-            and leverage data utilisation to further commercialise your brand.
-          </p>
+          <PageHeader
+            title="For Organisations"
+            subtitle="Partner with leading sports organisations to raise capital sustainably, grow your audience, and leverage data utilisation to further commercialise your brand."
+            align="center"
+          />
         </div>
       </div>
 

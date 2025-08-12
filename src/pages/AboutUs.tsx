@@ -2,6 +2,7 @@ import { Users, Target, Award, TrendingUp, MapPin, Mail, Linkedin } from "lucide
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import PageHeader from "@/components/PageHeader";
 
 const team = [
   {
@@ -70,13 +71,11 @@ export default function AboutUs() {
           alt="Keeps Logo" 
           className="h-20 w-auto mx-auto mb-8 object-contain"
         />
-        <h1 className="text-4xl font-bold text-foreground">
-          Democratising Sports Investment
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          We're on a mission to make sports investment accessible to everyone. 
-          Keeps has become the leading platform for retail sports investment in the UK.
-        </p>
+        <PageHeader
+          title="About Us"
+          subtitle="We're on a mission to make sports investment accessible to everyone. Keeps has become the leading platform for retail sports investment in the UK."
+          align="center"
+        />
       </div>
 
       {/* Stats */}

@@ -117,6 +117,40 @@ export function Footer() {
               <p className="mt-1">Keeps is a registered trademark of Vessel Social Ltd.</p>
               <p className="mt-3">A company incorporated in England and Wales with company number 14833447.</p>
             </div>
+            <nav aria-label="Social links" className="ml-auto">
+              <ul className="flex items-center gap-3">
+                <li>
+                  <a href="https://www.linkedin.com/company/keeps-sport/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/assets/social/linkedin.svg" alt="LinkedIn" className="w-5 h-5" loading="lazy" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/assets/social/x.svg" alt="X (formerly Twitter)" className="w-5 h-5" loading="lazy" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/assets/social/facebook.svg" alt="Facebook" className="w-5 h-5" loading="lazy" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/assets/social/discord.svg" alt="Discord" className="w-5 h-5" loading="lazy" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/assets/social/youtube.svg" alt="YouTube" className="w-5 h-5" loading="lazy" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/assets/social/instagram.svg" alt="Instagram" className="w-5 h-5" loading="lazy" />
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
