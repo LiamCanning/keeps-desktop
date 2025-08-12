@@ -460,7 +460,13 @@ export default function InvestorLeaderboard() {
     <div className="space-y-6 p-6 max-w-7xl mx-auto">
       {/* Navigation */}
       <div className="flex items-center justify-between">
-        <Button variant="ghost" onClick={() => navigate(assetId ? `/assets/${assetId}` : '/')}>
+        <Button variant="ghost" onClick={() => {
+          if (assetId) {
+            navigate(`/assets/${assetId}`);
+          } else {
+            navigate('/');
+          }
+        }}>
           <ArrowLeft className="w-4 h-4 mr-2" />
           {assetId ? `Back to ${getAssetName(assetId)}` : 'Back to Dashboard'}
         </Button>
