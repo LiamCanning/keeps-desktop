@@ -367,6 +367,15 @@ export default function Content() {
   // Mock user portfolio for personalization
   const userInvestments = ['liverpool-fc', 'mclaren-racing', 'ryder-cup'];
   
+  // Counts for desktop banner tabs
+  const allCount = newsArticles.length;
+  const newsCount = newsArticles.filter(a => a.category === 'news').length;
+  const trendingCount = newsArticles.filter(a => (a.likes || 0) > 100 && a.id !== '7').length;
+  const portfolioCount = newsArticles.filter(article =>
+    userInvestments.some(investment => article.title.toLowerCase().includes(investment.replace('-', ' ')))
+  ).length;
+  const reelsCount = 3; // videos section shows 3 cards
+  
   const filteredArticles = newsArticles.filter(article => {
     if (activeTab === "all") return true;
     if (activeTab === "trending") {
@@ -486,11 +495,11 @@ export default function Content() {
             </Select>
           </div>
           <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-            <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
-            <TabsTrigger value="trending">Trending</TabsTrigger>
-            <TabsTrigger value="news">Latest News</TabsTrigger>
-            <TabsTrigger value="reels">Videos</TabsTrigger>
-            <TabsTrigger value="all">All Content</TabsTrigger>
+            <TabsTrigger value="portfolio">Your Assets ({portfolioCount})</TabsTrigger>
+            <TabsTrigger value="trending">Trending ({trendingCount})</TabsTrigger>
+            <TabsTrigger value="news">Latest News ({newsCount})</TabsTrigger>
+            <TabsTrigger value="reels">Videos ({reelsCount})</TabsTrigger>
+            <TabsTrigger value="all">All Content ({allCount})</TabsTrigger>
           </TabsList>
 
         <TabsContent value="portfolio" className="mt-6">

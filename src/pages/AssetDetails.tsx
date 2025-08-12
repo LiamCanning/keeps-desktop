@@ -143,7 +143,7 @@ export default function AssetDetails() {
       {/* Hero Section */}
       <Card className="p-8 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
         <div className="space-y-6">
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
             {asset.logo && (
               <img 
                 src={asset.logo}
@@ -151,30 +151,30 @@ export default function AssetDetails() {
                 className="w-16 h-16 object-contain rounded-lg bg-white/80 p-1.5 shadow-sm"
               />
             )}
-            <div className="flex-1">
+            <div className="flex-1 w-full">
               <div className="flex items-center gap-3 mb-2">
                 <h1 className="text-3xl font-bold text-gradient">{asset.name}</h1>
                 <Badge variant={asset.status === "coming-soon" ? "warning" : "success"} className="text-sm">
                   {asset.status === "coming-soon" ? "Pre-Sale" : "Live"}
                 </Badge>
               </div>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              {asset.status !== "coming-soon" && (
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                {asset.status !== "coming-soon" && (
+                  <div className="flex items-center gap-1">
+                    <Building className="w-4 h-4" />
+                    <span>{asset.category}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-1">
-                  <Building className="w-4 h-4" />
-                  <span>{asset.category}</span>
+                  <Calendar className="w-4 h-4" />
+                  <span>Launch: {asset.launchDate}</span>
                 </div>
-              )}
-              <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                <span>Launch: {asset.launchDate}</span>
-              </div>
               </div>
             </div>
-            <div className="flex items-center justify-end">
+            <div className="w-full md:w-auto md:ml-auto">
               <Button 
                 size="lg"
-                className="btn-invest px-8 py-3 text-lg font-semibold"
+                className="btn-invest px-8 py-3 text-lg font-semibold w-full md:w-auto"
                 onClick={() => {
                   if (asset.status === "coming-soon") {
                     setShowEarlyAccess(true);

@@ -478,8 +478,59 @@ export default function PrimaryOffering() {
               </CardContent>
             </Card>
           )}
+          {/* Mobile Order Summary (above security) */}
+          <div className="block lg:hidden">
+            <Card className="card-professional bg-success/10 border-success/30 ring-1 ring-success/20">
+              <CardHeader>
+                <CardTitle>Order Summary</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  {isDebenture ? (
+                    <>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Selected Amount:</span>
+                        <span className="font-medium">£{(selectedAmount || 0).toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Debentures:</span>
+                        <span className="font-medium">{Math.min(Math.max(quantityNum, 0), 4)}</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Quantity:</span>
+                        <span className="font-medium">{quantityNum}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Price per Unit:</span>
+                        <span className="font-medium">£{pricePerShare.toLocaleString()}</span>
+                      </div>
+                    </>
+                  )}
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Subtotal:</span>
+                    <span className="font-medium">£{subtotal.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Processing Fee (10%):</span>
+                    <span className="font-medium">£{processingFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
+                  <div className="flex justify-between text-xl font-bold">
+                    <span>Total:</span>
+                    <span className="text-primary">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
+                </div>
+                <Button className="w-full btn-invest" onClick={nextStep} disabled={!canProceedFromStep(currentStep)}>
+                  Continue
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Compliance & Security */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -494,42 +545,11 @@ export default function PrimaryOffering() {
                 </p>
               </CardContent>
             </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <FileCheck className="w-5 h-5" />
-                  Regulatory Compliance
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <ul className="list-disc pl-5 text-sm space-y-1">
-                  <li>KYC/AML verification and investor categorisation checks performed.</li>
-                  <li>Offering complies with applicable securities regulations via regulated partners.</li>
-                  <li>Client funds safeguarded in segregated accounts; robust custody oversight.</li>
-                  <li>Disclosure documents available in your Documents section at checkout.</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
-                  Key Dates & Settlement
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 text-sm space-y-1">
-                  <li>Order window: Open now — closes prior to allocation.</li>
-                  <li>Allocation & confirmation: Notified via email in your account.</li>
-                  <li>Settlement: Funds captured on confirmation; standard T+2 settlement.</li>
-                  <li>Access & benefits: Issued to your account after settlement.</li>
-                </ul>
-              </CardContent>
-            </Card>
+            {/* ... keep existing code (two other cards in the grid) */}
           </div>
         </section>
 
-        <aside className="space-y-6 lg:col-span-4 xl:col-span-3">
+        <aside className="space-y-6 lg:col-span-4 xl:col-span-3 hidden lg:block">
           <Card className="card-professional bg-success/10 border-success/30 ring-1 ring-success/20">
             <CardHeader>
               <CardTitle>Order Summary</CardTitle>

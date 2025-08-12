@@ -77,7 +77,13 @@ const articles: { [key: string]: Article } = {
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     content: [
       "Investors in the Ryder Cup debenture programme receive access to premier seating, hospitality, and once-in-a-lifetime experiences across tournament days.",
-      "The programme blends guaranteed access with long-term value, creating both experiential and financial upside for golf fans."
+      "Debentures are structured to provide a fixed annual coupon with full principal repayment at term, creating a secure yield profile backed by event revenues.",
+      "Revenue drivers include global broadcasting rights, corporate hospitality packages, merchandise sales, and premium access experiences.",
+      "The 2023 Ryder Cup generated record-breaking economic impact and attendance, demonstrating sustained global demand for the tournament.",
+      "Bethpage Black 2025 is expected to command premium pricing, with U.S. market exposure increasing overall revenue and investor returns.",
+      "Investors benefit from guaranteed access combined with financial upside and secondary market liquidity for debenture holders.",
+      "The programme offers tiered access privileges including practice day access, captains’ receptions, and curated on-course experiences.",
+      "Historical repayment performance and consistent demand provide strong downside protection with meaningful experiential value."
     ],
     source: "Keeps Team",
     author: "Sophie Turner",
@@ -94,14 +100,20 @@ const articles: { [key: string]: Article } = {
     summary: "Ohio State University announces plans to launch a £80,000,000 stadium renovation investment opportunity through Keeps Sport in Q4 2025.",
     content: [
       "Ohio State's upcoming investment initiative will modernize stadium infrastructure while opening new revenue pathways for the athletics programme.",
-      "Fans will be able to participate through tiered structures aligning benefits to contribution levels."
+      "The proposal includes premium seating expansion, enhanced concessions, and flexible hospitality zones designed to increase per-game revenue.",
+      "Investors will participate in a structured income share backed by stadium operations including tickets, naming rights, and special events.",
+      "With 105,000-seat capacity and consistent sell-outs, Ohio Stadium represents one of the strongest live-sport cash generators in the U.S.",
+      "Projected yields of 8–12% are supported by diversified revenue and Big Ten media distributions, providing robust cash flow visibility.",
+      "The initiative is aligned with long-term campus development strategy and will be executed with leading construction and finance partners.",
+      "Investor protections include audited reporting, segregated accounts for distributions, and downside scenarios stress-tested to conservative assumptions.",
+      "Launch timing in Q4 2025 positions the programme to benefit from renewed media contracts and expanded playoff format exposure."
     ],
     source: "ESPN",
     author: "Daniel Carter",
     date: "2025-06-22",
     image: "/lovable-uploads/b404eafa-2f22-4d8b-984c-9cf6a58070de.png",
     category: "news",
-    readTime: "2 min read",
+    readTime: "5 min read",
     likes: 284,
     comments: 19
   },
@@ -111,14 +123,21 @@ const articles: { [key: string]: Article } = {
     summary: "Championship side Cardiff City reveals plans for a £4,000,000 equity fundraising round through Keeps Sport, launching early 2026.",
     content: [
       "Cardiff City is preparing an equity round that will enable supporters to become long-term stakeholders in the club's growth plans.",
-      "The investment will focus on squad development and stadium experience upgrades."
+      "The raise targets performance enhancement through player development, academy investment, and matchday experience upgrades.
+      ",
+      "Valuation analysis indicates upside potential tied to promotion scenarios, media distributions, and commercial partnerships.",
+      "Investor tiers will include matchday hospitality, training ground visits, and community engagement experiences.",
+      "Governance frameworks include transparent reporting and investor communications aligned to best practice standards.",
+      "Pre-registration demand from fans has exceeded expectations, with strong regional and international interest.",
+      "Secondary market functionality via Keeps enables future liquidity for investors subject to club policies.",
+      "The fundraising will be conducted in compliance with FA and EFL regulations and overseen by independent advisors."
     ],
     source: "BBC Sport",
     author: "Laura Jenkins",
     date: "2025-06-15",
     image: "/lovable-uploads/010eb98a-7e8c-4f58-8fc6-342c07f81981.png",
     category: "news",
-    readTime: "3 min read",
+    readTime: "5 min read",
     likes: 312,
     comments: 27
   },
@@ -128,7 +147,13 @@ const articles: { [key: string]: Article } = {
     summary: "Digital platforms facilitating fan investment in sports properties report unprecedented user acquisition in 2025.",
     content: [
       "Keeps has recorded record-breaking user signups as fans seek more direct participation in their favourite teams and events.",
-      "The platform's blend of financial products and experiential benefits continues to drive adoption."
+      "Onboarding improvements, transparent product design, and a growing inventory of blue-chip sports assets are driving scale.",
+      "Network effects are emerging as investor communities form around specific teams, sharing insights and elevating engagement.",
+      "Financial education modules and risk disclosures embedded in the journey have increased conversion whilst improving outcomes.",
+      "Partnerships with clubs, leagues, and rights holders are expanding the pipeline of primary and secondary market offerings.",
+      "Mobile-first UX enhancements and localized currency support have enabled international growth across key markets.",
+      "Keeps' secondary market has seen rising liquidity with tighter spreads and improved settlement times.",
+      "The product roadmap includes enhanced portfolio analytics, recurring investment plans, and richer benefit programs."
     ],
     source: "TechCrunch",
     author: "Nadia Lee",
@@ -138,6 +163,31 @@ const articles: { [key: string]: Article } = {
     readTime: "6 min read",
     likes: 1247,
     comments: 89
+  },
+  "7": {
+    id: "7",
+    title: "Hexagon Fan Team Prepares for Revolutionary Fan Investment Model",
+    summary: "Digital sports collective Hexagon Fan Team outlines a 2026 launch for a novel fan ownership structure with revenue sharing.",
+    content: [
+      "Hexagon Fan Team is advancing an ambitious fan investment model that blends community ownership with real revenue participation.",
+      "The upcoming round proposes 75% equity available to investors, aligning governance rights with long-term platform growth.",
+      "Revenue will be generated from tournament integrations, premium memberships, brand partnerships, and digital collectibles.",
+      "A tiered benefits programme will provide experiential rewards including athlete meet-and-greets and event access.",
+      "The platform roadmap prioritises compliance, transparent reporting, and investor dashboards with real-time metrics.",
+      "Market analysis indicates strong demand among Gen Z and millennial fan segments for participatory sports experiences.",
+      "Liquidity pathways will be supported via the Keeps secondary market subject to regulatory requirements.",
+      "Early community pilots have demonstrated high engagement and retention across multiple geographies.",
+      "Product development will focus on mobile-first design, identity, and secure wallet integrations ahead of full launch.",
+      "Founding investors will receive lifetime platform status and enhanced governance participation rights."
+    ],
+    source: "Sports Tech Weekly",
+    author: "Amelia Grant",
+    date: "2025-05-15",
+    image: "/lovable-uploads/aaeb603c-8140-467c-9571-cc97db7c5f56.png",
+    category: "news",
+    readTime: "6 min read",
+    likes: 908,
+    comments: 77
   }
 };
 
