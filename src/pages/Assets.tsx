@@ -114,6 +114,19 @@ const assets: Asset[] = [
 
 function AssetCard({ asset }: { asset: Asset }) {
   const navigate = useNavigate();
+  const getRiskMeta = (category: string) => {
+    switch (category) {
+      case "Debentures":
+        return { riskLevel: "Conservative", timeHorizon: "Medium" } as const;
+      case "Income Sharing Agreement":
+        return { riskLevel: "Moderate", timeHorizon: "Medium" } as const;
+      case "Equity":
+        return { riskLevel: "Moderate", timeHorizon: "Long" } as const;
+      default:
+        return { riskLevel: "Moderate", timeHorizon: "Medium" } as const;
+    }
+  };
+  const { riskLevel, timeHorizon } = getRiskMeta(asset.category);
   
   return (
     <Card className="investment-card group cursor-pointer" onClick={() => navigate(`/assets/${asset.id}`)}>
@@ -151,6 +164,12 @@ function AssetCard({ asset }: { asset: Asset }) {
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Category</span>
             <Badge variant="outline">{asset.category}</Badge>
+          </div>
+          <div className="flex items-center gap-2 pt-1 flex-wrap">
+            <Badge variant={riskLevel === "Conservative" ? "success" : riskLevel === "Moderate" ? "warning" : "destructive"}>
+              {riskLevel} risk
+            </Badge>
+            <Badge variant="outline">{timeHorizon} term</Badge>
           </div>
         </div>
         

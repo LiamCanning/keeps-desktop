@@ -147,6 +147,80 @@ export default function ForOrganisations() {
         </Card>
       </div>
 
+      {/* Listing Requirements */}
+      <div className="mt-16">
+        <h2 className="text-3xl font-bold text-foreground mb-6">Listing Requirements</h2>
+        <Card className="bg-card border-0 shadow-lg">
+          <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>Audited financials (last 2 years) and management accounts</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>Proof of ownership/rights and board approvals</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>Clear use of proceeds and investment terms</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>KYC/AML for directors and major shareholders</span>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>Marketing materials and key visuals (logos, brand assets)</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>Legal documentation for offering structure</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>Data room access for due diligence</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-0.5" />
+                <span>Operational readiness for investor relations</span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Onboarding Steps & Timeline */}
+      <div className="mt-12">
+        <h2 className="text-3xl font-bold text-foreground mb-6">Onboarding Steps & Timeline</h2>
+        <Card className="bg-card border-0 shadow-lg">
+          <CardContent className="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="p-4 rounded-lg border bg-muted/10">
+              <p className="text-sm text-muted-foreground">Week 1</p>
+              <p className="font-semibold">Intro & Requirements</p>
+              <p className="text-sm text-muted-foreground mt-1">Discovery call, data room setup, document checklist.</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-muted/10">
+              <p className="text-sm text-muted-foreground">Weeks 2–3</p>
+              <p className="font-semibold">Due Diligence</p>
+              <p className="text-sm text-muted-foreground mt-1">Financial, legal, and operational review.</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-muted/10">
+              <p className="text-sm text-muted-foreground">Weeks 4–5</p>
+              <p className="font-semibold">Structuring & Creative</p>
+              <p className="text-sm text-muted-foreground mt-1">Offer terms, creative assets, and compliance checks.</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-muted/10">
+              <p className="text-sm text-muted-foreground">Weeks 6–8</p>
+              <p className="font-semibold">Launch & Investor IR</p>
+              <p className="text-sm text-muted-foreground mt-1">Go-live, marketing, and investor relations support.</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
       {/* Case Studies */}
       <div className="mt-16">
         <h2 className="text-3xl font-bold text-center text-foreground mb-8">

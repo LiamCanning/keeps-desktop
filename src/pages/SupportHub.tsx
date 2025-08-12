@@ -7,45 +7,72 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
+  // Investment mechanics
   {
-    question: "Are these real assets?",
-    answer: "Yes, all assets on Keeps are real sports organisations with verified ownership structures. We work directly with clubs, teams, and sports entities to offer genuine investment opportunities."
+    question: "How do investments on Keeps work?",
+    answer: "You choose an asset, review the terms, complete KYC/AML, and invest. Your holdings are recorded in your portfolio with digital confirmations and ongoing updates."
   },
   {
-    question: "Is Keeps regulated?",
-    answer: "Yes, Keeps is regulated by both the UK Financial Conduct Authority (FCA) and the US Securities and Exchange Commission (SEC). We operate under dual regulatory oversight to ensure the highest standards of investor protection and compliance across both markets."
+    question: "What asset types can I invest in?",
+    answer: "We offer Equity, Income Sharing Agreements, and Debentures. Each has different risk profiles and time horizons."
   },
   {
-    question: "What is the minimum investment amount?",
-    answer: "Most investments start from £500, making sports assets accessible to a wider range of investors. Some premium opportunities may have higher minimums."
+    question: "How are risks disclosed?",
+    answer: "Each deal page includes a Risks section with key risk factors. You should also review our Risk Disclosure page for a full framework."
+  },
+
+  // Secondary market
+  {
+    question: "How does the secondary market work?",
+    answer: "You can list eligible holdings for sale or buy from other investors. Prices are set by sellers and influenced by demand. Standard processing fee applies."
   },
   {
-    question: "How do I receive returns on my investments?",
-    answer: "Returns are distributed according to each investment's terms. This may include annual dividends, profit sharing, or capital appreciation depending on the asset type."
+    question: "How long do trades take to settle?",
+    answer: "Most trades settle within 1–3 business days after payment confirmation, subject to compliance checks."
   },
   {
-    question: "Can I sell my investments?",
-    answer: "Yes, we offer a secondary market where you can sell your investments to other users. Liquidity depends on demand and the specific terms of your investment."
+    question: "What are the secondary market fees?",
+    answer: "We charge 2.5% on both buy and sell sides. Full pricing is shown before you confirm a trade."
+  },
+
+  // Tax
+  {
+    question: "How are my returns taxed?",
+    answer: "Tax treatment depends on your personal circumstances and jurisdiction. Capital gains, dividends, or interest may apply. Consult a tax advisor."
   },
   {
-    question: "What exclusive benefits do I receive?",
-    answer: "Benefits vary by investment tier and include priority booking for events, meet & greet opportunities, exclusive merchandise, VIP access, and unique experiences with your chosen teams."
+    question: "Do you provide tax statements?",
+    answer: "Yes. Annual summaries and downloadable statements are available in your portfolio for reporting purposes."
+  },
+
+  // Withdrawals
+  {
+    question: "How do I withdraw funds?",
+    answer: "Go to Payment Methods to add a payout account, then request a withdrawal from your wallet."
   },
   {
-    question: "How are asset valuations determined?",
-    answer: "Asset valuations are conducted by independent third-party professionals using industry-standard methodologies including revenue multiples, comparable transactions, and discounted cash flow analysis."
+    question: "How long do withdrawals take?",
+    answer: "Bank transfers typically take 1–3 business days once processed. Additional verification may extend timelines."
+  },
+
+  // Support SLAs
+  {
+    question: "What are your support response times?",
+    answer: "Live chat: within minutes during business hours. Email: within 24 hours. Critical incidents are prioritised with immediate escalation."
+  },
+
+  // Compliance & custody
+  {
+    question: "What KYC/AML checks do you perform?",
+    answer: "We verify identity and address and screen against sanctions and PEP lists via industry-standard providers."
   },
   {
-    question: "What fees does Keeps charge?",
-    answer: "Keeps charges a 10% processing fee on primary investments and 2.5% on both buy and sell sides for secondary market transactions. All fees are transparent and clearly disclosed before you invest."
+    question: "How are assets held in custody?",
+    answer: "Investor holdings are recorded with segregated accounts and robust record‑keeping. Operational controls are reviewed regularly."
   },
   {
-    question: "How do I track my investment performance?",
-    answer: "Use your portfolio dashboard to monitor real-time performance, view detailed analytics, and track returns. You'll also receive regular updates on your investments."
-  },
-  {
-    question: "Is my personal information secure?",
-    answer: "Yes, we use bank-grade encryption and security measures to protect your data. We're compliant with GDPR and follow strict data protection protocols."
+    question: "Are you FCA regulated?",
+    answer: "We follow FCA‑aligned policies and disclosures. Certain activities may be conducted via regulated partners where required."
   }
 ];
 

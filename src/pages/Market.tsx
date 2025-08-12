@@ -214,7 +214,7 @@ export default function Market() {
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-2 text-left">
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Secondary Market</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary">Secondary Market</h1>
           <p className="text-base sm:text-lg text-foreground/80">Buy and sell sports assets</p>
         </div>
         <Button 

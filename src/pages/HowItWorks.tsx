@@ -37,119 +37,88 @@ const HowItWorks: React.FC = () => {
         subtitle="A clear, transparent 3‑step journey to discover, invest, and track your sports assets — with security at every step."
       />
 
-      {/* 3‑step timeline */}
-      <section aria-labelledby="steps-heading" className="mt-2">
-        <h2 id="steps-heading" className="sr-only">
-          Steps
-        </h2>
-        <ol className="grid gap-6 md:grid-cols-3">
-          <li>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
-                  <Search className="h-5 w-5" /> Discover & Research
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <p>Browse assets, read deal terms, and review independent content.</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Transparent information and risks</li>
-                  <li>Knowledge Base and market insights</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </li>
+      {/* Unified 3-step timeline with security in one card */}
+      <section aria-labelledby="steps-heading" className="mt-4">
+        <Card className="p-4 sm:p-6">
+          <CardHeader className="pb-4">
+            <CardTitle id="steps-heading" className="text-xl">Your 3‑step journey</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <ol className="grid gap-6 md:grid-cols-3">
+              <li className="relative">
+                <div className="md:border-r md:pr-6 md:h-full md:flex md:flex-col">
+                  <div className="flex items-center gap-2 text-base font-semibold mb-2">
+                    <Search className="h-5 w-5" /> Discover & Research
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">Browse assets, read deal terms, and review independent content.</p>
+                  <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                    <li>Transparent information and risks</li>
+                    <li>Knowledge Base and market insights</li>
+                  </ul>
+                </div>
+              </li>
 
-          <li>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
-                  <FileCheck2 className="h-5 w-5" /> Invest & Own
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <p>Create an account, complete KYC/AML, and invest with a transparent fee structure.</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Digital documentation and confirmations</li>
-                  <li>Secure custody and record‑keeping</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </li>
+              <li className="relative">
+                <div className="md:border-r md:pr-6 md:h-full md:flex md:flex-col">
+                  <div className="flex items-center gap-2 text-base font-semibold mb-2">
+                    <FileCheck2 className="h-5 w-5" /> Invest & Own
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">Create an account, complete KYC/AML, and invest with a transparent fee structure.</p>
+                  <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                    <li>Digital documentation and confirmations</li>
+                    <li>Secure custody and record‑keeping</li>
+                  </ul>
+                </div>
+              </li>
 
-          <li>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
-                  <TrendingUp className="h-5 w-5" /> Track & Benefit
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <p>Monitor performance, receive updates, and access benefits where applicable.</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Portfolio and performance analytics</li>
-                  <li>Notifications and holder benefits</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </li>
-        </ol>
-      </section>
+              <li>
+                <div className="md:h-full md:flex md:flex-col">
+                  <div className="flex items-center gap-2 text-base font-semibold mb-2">
+                    <TrendingUp className="h-5 w-5" /> Track & Benefit
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">Monitor performance, receive updates, and access benefits where applicable.</p>
+                  <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                    <li>Portfolio and performance analytics</li>
+                    <li>Notifications and holder benefits</li>
+                  </ul>
+                </div>
+              </li>
+            </ol>
 
-      {/* Security & compliance */}
-      <section className="grid gap-6 md:grid-cols-3 mt-10" aria-labelledby="security-heading">
-        <h2
-          id="security-heading"
-          className="text-xl font-semibold tracking-tight flex items-center gap-2"
-        >
-          <ShieldCheck className="h-5 w-5" /> Security, Custody & Compliance
-        </h2>
-        <Card className="md:col-span-2">
-          <CardContent className="pt-6">
-            <ul className="grid gap-3 sm:grid-cols-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> KYC/AML with industry‑standard verification
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> Asset custody with segregated accounts
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> FCA‑aligned policies and disclosures
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> Data security and regular audits
-              </li>
-            </ul>
-            <div className="mt-4 text-sm">
-              Learn more in our <Link to="/regulatory-compliance" className="underline underline-offset-4">Regulatory Compliance</Link> and
-              <Link to="/risk-disclosure" className="underline underline-offset-4"> Risk Disclosure</Link> pages.
+            <div className="border-t pt-6">
+              <h3 className="text-base font-semibold tracking-tight flex items-center gap-2 mb-3">
+                <ShieldCheck className="h-5 w-5" /> Security, Custody & Compliance
+              </h3>
+              <ul className="grid gap-3 sm:grid-cols-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> KYC/AML with industry‑standard verification
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> Asset custody with segregated accounts
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> FCA‑aligned policies and disclosures
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary" /> Data security and regular audits
+                </li>
+              </ul>
+              <div className="mt-4 text-sm">
+                Learn more in our <Link to="/regulatory-compliance" className="underline underline-offset-4">Regulatory Compliance</Link> and
+                <Link to="/risk-disclosure" className="underline underline-offset-4"> Risk Disclosure</Link> pages.
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <Button asChild size="sm">
+                <Link to="/login">Get started</Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
+                <Link to="/support-hub">Contact support</Link>
+              </Button>
             </div>
           </CardContent>
         </Card>
-        <aside className="space-y-3">
-          <Card>
-            <CardContent className="pt-6 text-sm">
-              <p className="font-medium">Common next steps</p>
-              <ul className="list-disc pl-5 mt-2 space-y-1 text-muted-foreground">
-                <li>
-                  Review the <Link to="/knowledge-base" className="underline underline-offset-4">Knowledge Base</Link>
-                </li>
-                <li>Create an account to start your KYC</li>
-                <li>
-                  Join the <Link to="/community" className="underline underline-offset-4">Community</Link>
-                </li>
-              </ul>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <Button asChild size="sm">
-                  <Link to="/login">Get started</Link>
-                </Button>
-                <Button asChild variant="outline" size="sm">
-                  <Link to="/support-hub">Contact support</Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </aside>
       </section>
     </main>
   );

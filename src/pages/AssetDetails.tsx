@@ -129,6 +129,20 @@ export default function AssetDetails() {
 
   const asset = getAssetData(assetId || "");
 
+  const getRiskMeta = (category: string) => {
+    switch (category) {
+      case "Debentures":
+        return { riskLevel: "Conservative", timeHorizon: "Medium" } as const;
+      case "Income Sharing Agreement":
+        return { riskLevel: "Moderate", timeHorizon: "Medium" } as const;
+      case "Equity":
+        return { riskLevel: "Moderate", timeHorizon: "Long" } as const;
+      default:
+        return { riskLevel: "Moderate", timeHorizon: "Medium" } as const;
+    }
+  };
+  const { riskLevel, timeHorizon } = getRiskMeta(asset.category);
+
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       <Button 
@@ -205,6 +219,12 @@ export default function AssetDetails() {
                 <div className="text-sm text-muted-foreground">Min. Investment</div>
                 <div className="font-bold text-lg text-warning">{asset.minInvestment}</div>
               </div>
+            </div>
+            <div className="mt-4 flex items-center gap-2 flex-wrap">
+              <Badge variant={riskLevel === "Aggressive" ? "destructive" : riskLevel === "Moderate" ? "warning" : "success"}>
+                {riskLevel} risk
+              </Badge>
+              <Badge variant="outline">Time horizon: {timeHorizon}</Badge>
             </div>
           </div>
         </div>

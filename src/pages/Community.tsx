@@ -186,9 +186,9 @@ export default function Community() {
   return (
     <div className="space-y-6 p-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-bold text-gradient">Community Hub</h1>
-        <p className="text-lg text-foreground/80">Connect with fellow sports investors</p>
+      <div className="space-y-2 text-left">
+        <h1 className="text-4xl font-bold text-gradient">Community Hub</h1>
+        <p className="text-lg text-muted-foreground">Connect with fellow sports investors</p>
       </div>
 
       {/* Modern Community Features Bar */}
