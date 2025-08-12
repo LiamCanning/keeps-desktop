@@ -16,14 +16,14 @@ export default function OrganisationDashboard() {
     return (
       <div className="relative min-h-screen bg-background flex items-center justify-center p-0 overflow-hidden">
         {/* Background image for desktop */}
-        <div className="hidden md:block fixed inset-0 z-0 pointer-events-none">
+        <div className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen z-0 pointer-events-none">
           <img
             src="/lovable-uploads/f9489b3f-9784-4b93-8f3d-77f58cba7577.png"
             alt="Formula 1 racing background"
             className="w-full h-full object-cover opacity-60"
             style={{ objectPosition: 'center' }}
           />
-          <div className="fixed inset-0 bg-background/50" />
+          <div className="absolute inset-0 bg-background/50" />
         </div>
         <Card className="card-professional w-full max-w-md relative z-20 bg-background/95 backdrop-blur-sm border-2">
           <CardHeader className="text-center">

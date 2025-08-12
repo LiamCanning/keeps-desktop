@@ -46,7 +46,7 @@ export default function ForOrganisations() {
     <div className="max-w-7xl mx-auto p-6 space-y-8">
       {/* Header Section */}
       <div 
-        className="text-center space-y-4 py-16 px-6 rounded-2xl relative overflow-hidden"
+        className="text-center space-y-4 py-16 px-6 rounded-2xl relative overflow-hidden isolate"
         style={{
           backgroundImage: `url(${sportsHeroBackground})`,
           backgroundSize: 'cover',
