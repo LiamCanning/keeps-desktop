@@ -20,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { TabsBanner } from "@/components/TabsBanner";
 
 interface CommunityPost {
   id: string;
@@ -190,6 +191,8 @@ export default function Community() {
         <h1 className="text-3xl font-bold text-gradient">Community Hub</h1>
         <p className="text-lg text-foreground/80">Connect with fellow sports investors</p>
       </div>
+
+      <TabsBanner title="Community Hub" count={2847} />
 
       {/* Modern Community Features Bar */}
       <div className="flex items-center gap-4 p-4 bg-card rounded-lg border">

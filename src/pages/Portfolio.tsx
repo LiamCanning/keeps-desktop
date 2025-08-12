@@ -11,6 +11,7 @@ import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 import { ResponsiveContainer, AreaChart, Area, XAxis, Tooltip, BarChart, Bar, LineChart, Line } from "recharts";
+import { TabsBanner } from "@/components/TabsBanner";
 
 interface PortfolioHolding {
   id: string;
@@ -199,6 +200,8 @@ export default function Portfolio() {
           <h1 className="text-2xl sm:text-3xl font-bold text-gradient">Liam's Portfolio Overview</h1>
           <p className="text-base sm:text-lg text-foreground/80">Track your sports investments</p>
         </div>
+
+        <TabsBanner title="Portfolio Dashboard" count={3} />
 
       {/* Portfolio Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4">

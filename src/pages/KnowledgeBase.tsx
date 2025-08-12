@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { TabsBanner } from "@/components/TabsBanner";
 
 interface DealType {
   id: string;
@@ -154,6 +155,8 @@ export default function KnowledgeBase() {
         <h1 className="text-3xl font-bold text-gradient">Knowledge Base</h1>
         <p className="text-lg text-muted-foreground">Understanding different types of sports investment deals</p>
       </div>
+
+      <TabsBanner title="Knowledge Base" count={4} />
 
       {/* Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
