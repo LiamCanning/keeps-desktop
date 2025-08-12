@@ -156,53 +156,61 @@ export default function KnowledgeBase() {
         subtitle="Understanding different types of sports investment deals"
       />
 
-      {/* Overview Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Book className="w-5 h-5 text-primary" />
+      {/* Overview Stats - Modern Bubble Design */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950/30 dark:to-orange-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-orange-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-orange-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-orange-500/20 rounded-xl">
+                <FileText className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Deal Types</p>
-              <p className="font-semibold text-xl">4</p>
-            </div>
+            <p className="text-sm text-orange-600/80 dark:text-orange-400/80 mb-1 font-medium">Deal Types</p>
+            <p className="text-2xl font-bold text-orange-900 dark:text-orange-100">4</p>
           </div>
         </Card>
         
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-success/20 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-success" />
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-emerald-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-emerald-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-emerald-500/20 rounded-xl">
+                <TrendingUp className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Min Investment</p>
-              <p className="font-semibold text-xl">£500</p>
-            </div>
+            <p className="text-sm text-emerald-600/80 dark:text-emerald-400/80 mb-1 font-medium">Min Investment</p>
+            <p className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">£500</p>
           </div>
         </Card>
         
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-warning/20 rounded-lg">
-              <PieChart className="w-5 h-5 text-warning" />
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950/30 dark:to-amber-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-amber-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-amber-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-amber-500/20 rounded-xl">
+                <PieChart className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Expected Returns</p>
-              <p className="font-semibold text-xl">5-20%</p>
-            </div>
+            <p className="text-sm text-amber-600/80 dark:text-amber-400/80 mb-1 font-medium">Expected Returns</p>
+            <p className="text-2xl font-bold text-amber-900 dark:text-amber-100">5-20%</p>
           </div>
         </Card>
         
-        <Card className="p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <FileText className="w-5 h-5 text-primary" />
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-blue-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-blue-500/20 rounded-xl">
+                <Book className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Time Horizons</p>
-              <p className="font-semibold text-xl">2-25 years</p>
-            </div>
+            <p className="text-sm text-blue-600/80 dark:text-blue-400/80 mb-1 font-medium">Time Horizons</p>
+            <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">2-25 years</p>
           </div>
         </Card>
       </div>

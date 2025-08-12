@@ -87,48 +87,48 @@ export default function ReferralProgram() {
         subtitle="Earn rewards by inviting friends to join Keeps sports investment platform"
       />
 
-      {/* Current Status */}
+      {/* Current Status - Modern Bubble Design */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="card-professional">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-primary/20 rounded-lg">
-                <Users className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Total Referrals</p>
-                <p className="text-2xl font-bold text-card-foreground">{totalReferrals}</p>
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950/30 dark:to-orange-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-orange-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-orange-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-orange-500/20 rounded-xl">
+                <Users className="w-6 h-6 text-orange-600 dark:text-orange-400" />
               </div>
             </div>
-          </CardContent>
+            <p className="text-sm text-orange-600/80 dark:text-orange-400/80 mb-1 font-medium">Total Referrals</p>
+            <p className="text-2xl font-bold text-orange-900 dark:text-orange-100">{totalReferrals}</p>
+          </div>
         </Card>
         
-        <Card className="card-professional">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-success/20 rounded-lg">
-                <Gift className="w-6 h-6 text-success" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Total Earned</p>
-                <p className="text-2xl font-bold text-success">£{totalEarned}</p>
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-emerald-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-emerald-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-emerald-500/20 rounded-xl">
+                <Gift className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
             </div>
-          </CardContent>
+            <p className="text-sm text-emerald-600/80 dark:text-emerald-400/80 mb-1 font-medium">Total Earned</p>
+            <p className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">£{totalEarned}</p>
+          </div>
         </Card>
         
-        <Card className="card-professional">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-warning/20 rounded-lg">
-                <Trophy className="w-6 h-6 text-warning" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Current Tier</p>
-                <Badge variant="warning" className="text-lg font-bold">{currentTier}</Badge>
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950/30 dark:to-amber-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-amber-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-amber-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-amber-500/20 rounded-xl">
+                <Trophy className="w-6 h-6 text-amber-600 dark:text-amber-400" />
               </div>
             </div>
-          </CardContent>
+            <p className="text-sm text-amber-600/80 dark:text-amber-400/80 mb-1 font-medium">Current Tier</p>
+            <div className="bg-amber-500 text-amber-50 px-3 py-1 rounded-full text-sm font-semibold inline-block">{currentTier}</div>
+          </div>
         </Card>
       </div>
 
@@ -179,7 +179,7 @@ export default function ReferralProgram() {
         </CardContent>
       </Card>
 
-      {/* Referral Tiers */}
+      {/* Referral Tiers - Modern Tier Cards */}
       <div>
         <h2 className="text-2xl font-bold text-card-foreground mb-6">Referral Tiers & Rewards</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -191,34 +191,71 @@ export default function ReferralProgram() {
             return (
               <Card 
                 key={reward.tier} 
-                className={`card-professional relative overflow-hidden ${
-                  isCurrentTier ? 'ring-2 ring-primary' : ''
+                className={`card-hover p-6 relative overflow-hidden border-0 ${
+                  isCurrentTier 
+                    ? 'bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950/30 dark:to-orange-900/20 ring-2 ring-orange-500'
+                    : isUnlocked
+                    ? 'bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950/30 dark:to-gray-900/20' 
+                    : 'bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950/30 dark:to-slate-900/20 opacity-60'
                 }`}
               >
                 {isCurrentTier && (
-                  <div className="absolute top-2 right-2">
-                    <Badge variant="success">Current</Badge>
-                  </div>
+                  <>
+                    <div className="absolute -top-6 -right-6 w-20 h-20 bg-orange-200/30 rounded-full blur-xl"></div>
+                    <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-orange-300/20 rounded-full blur-lg"></div>
+                    <div className="absolute top-3 right-3">
+                      <div className="bg-emerald-500 text-white px-2 py-1 rounded-full text-xs font-medium">Current</div>
+                    </div>
+                  </>
                 )}
                 
-                <CardHeader className="text-center">
-                  <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-3 ${
-                    isUnlocked ? 'bg-primary/20' : 'bg-muted/20'
+                <div className="relative z-10 text-center">
+                  <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
+                    isCurrentTier 
+                      ? 'bg-orange-500/20' 
+                      : isUnlocked 
+                      ? 'bg-gray-500/20' 
+                      : 'bg-slate-400/20'
                   }`}>
                     <IconComponent className={`w-8 h-8 ${
-                      isUnlocked ? 'text-primary' : 'text-muted-foreground'
+                      isCurrentTier 
+                        ? 'text-orange-600 dark:text-orange-400' 
+                        : isUnlocked 
+                        ? 'text-gray-600 dark:text-gray-400' 
+                        : 'text-slate-400'
                     }`} />
                   </div>
-                  <CardTitle className="text-xl">{reward.tier}</CardTitle>
-                  <p className="text-2xl font-bold text-success">{reward.amount}</p>
-                  <p className="text-sm text-muted-foreground">{reward.requirement}</p>
-                </CardHeader>
-                
-                <CardContent>
-                  <p className="text-sm text-center text-muted-foreground">
+                  
+                  <h3 className={`text-xl font-bold mb-2 ${
+                    isCurrentTier 
+                      ? 'text-orange-900 dark:text-orange-100' 
+                      : isUnlocked 
+                      ? 'text-gray-900 dark:text-gray-100' 
+                      : 'text-slate-600 dark:text-slate-400'
+                  }`}>{reward.tier}</h3>
+                  
+                  <p className={`text-2xl font-bold mb-2 ${
+                    isCurrentTier || isUnlocked ? 'text-emerald-600' : 'text-slate-500'
+                  }`}>{reward.amount}</p>
+                  
+                  <p className={`text-sm mb-4 ${
+                    isCurrentTier 
+                      ? 'text-orange-600/80 dark:text-orange-400/80' 
+                      : isUnlocked 
+                      ? 'text-gray-600/80 dark:text-gray-400/80' 
+                      : 'text-slate-500/80'
+                  }`}>{reward.requirement}</p>
+                  
+                  <p className={`text-sm ${
+                    isCurrentTier 
+                      ? 'text-orange-700/80 dark:text-orange-300/80' 
+                      : isUnlocked 
+                      ? 'text-gray-700/80 dark:text-gray-300/80' 
+                      : 'text-slate-600/80'
+                  }`}>
                     {reward.description}
                   </p>
-                </CardContent>
+                </div>
               </Card>
             );
           })}
