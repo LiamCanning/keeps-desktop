@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -104,9 +104,11 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-family: 'IBM Plex Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     max-width: 100vw;
     overflow-x: hidden;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.6;
   }
 
   html, #root {
@@ -117,10 +119,38 @@
 }
 
 @layer components {
+  /* Container optimization for better space utilization */
+  .container-optimized {
+    @apply container mx-auto px-4 sm:px-6;
+    max-width: clamp(320px, 95vw, 1600px);
+  }
+  
+  .container-content {
+    @apply container mx-auto px-4 sm:px-6;
+    max-width: clamp(320px, 90vw, 1200px);
+  }
+
+  /* Responsive typography scale */
+  .text-body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+  }
+  
+  .text-heading {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.3;
+  }
+  
+  .text-display {
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.2;
+  }
+
   /* Premium card styles with elegant shadows */
   .card-professional {
     @apply bg-card border border-border rounded-xl transition-all duration-300 hover:scale-[1.02];
     box-shadow: var(--shadow-card);
+    padding: clamp(16px, 2vw, 24px);
   }
 
   .card-professional:hover {

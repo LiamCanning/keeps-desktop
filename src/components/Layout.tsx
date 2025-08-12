@@ -126,7 +126,7 @@ export function Layout({ children }: LayoutProps) {
           {/* Main Content */}
           <main className="flex-1 overflow-auto scrollbar-styled">
             <div className="min-h-full flex flex-col">
-              <div className="flex-1">
+              <div className="flex-1 container-optimized py-4 sm:py-6">
                 {children}
               </div>
               <Footer />
