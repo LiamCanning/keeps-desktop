@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { TabsBanner } from "@/components/TabsBanner";
 
 interface NewsArticle {
   id: string;
@@ -49,7 +48,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Keeps Team",
     date: "2025-06-28",
-    image: "/lovable-uploads/20225499-6f1c-434b-9422-b9398708d59f.png",
+    image: "/src/assets/ryder-cup-golf.jpg",
     category: "news",
     readTime: "4 min read"
   },
@@ -467,8 +466,6 @@ export default function Content() {
           </div>
         </Card>
       </div>
-
-      <TabsBanner title="Content Hub" count={7} />
 
       {/* Content Banner */}
       <div className="hidden md:block relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-8 border border-primary/20">

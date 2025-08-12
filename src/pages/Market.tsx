@@ -10,7 +10,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
-import { TabsBanner } from "@/components/TabsBanner";
 
 interface MarketListing {
   id: string;
@@ -225,8 +224,6 @@ export default function Market() {
           List Asset
         </Button>
       </div>
-
-      <TabsBanner title="Secondary Market" count={6} />
 
       {/* Market Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

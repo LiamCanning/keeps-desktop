@@ -130,7 +130,7 @@ export default function AssetDetails() {
   const asset = getAssetData(assetId || "");
 
   return (
-    <div className="p-4 md:p-6 space-y-4 md:space-y-6 max-w-7xl mx-auto overflow-x-hidden">
+    <div className="p-6 space-y-6 max-w-7xl mx-auto">
       <Button 
         variant="ghost" 
         onClick={() => navigate(-1)}
@@ -141,9 +141,9 @@ export default function AssetDetails() {
       </Button>
       
       {/* Hero Section */}
-      <Card className="p-4 md:p-8 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+      <Card className="p-8 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+          <div className="flex items-center gap-6">
             {asset.logo && (
               <img 
                 src={asset.logo}
@@ -151,9 +151,9 @@ export default function AssetDetails() {
                 className="w-16 h-16 object-contain rounded-lg bg-white/80 p-1.5 shadow-sm"
               />
             )}
-            <div className="flex-1 min-w-0">
-              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
-                <h1 className="text-2xl md:text-3xl font-bold text-gradient break-words">{asset.name}</h1>
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                <h1 className="text-3xl font-bold text-gradient">{asset.name}</h1>
                 <Badge variant={asset.status === "coming-soon" ? "warning" : "success"} className="text-sm">
                   {asset.status === "coming-soon" ? "Pre-Sale" : "Live"}
                 </Badge>
@@ -171,10 +171,10 @@ export default function AssetDetails() {
               </div>
               </div>
             </div>
-            <div className="flex items-center justify-center md:justify-end w-full md:w-auto">
+            <div className="flex items-center justify-end">
               <Button 
                 size="lg"
-                className="btn-invest px-4 md:px-8 py-2 md:py-3 text-sm md:text-lg font-semibold w-full md:w-auto text-center"
+                className="btn-invest px-6 md:px-8 py-3 text-base md:text-lg font-semibold w-full md:w-auto"
                 onClick={() => {
                   if (asset.status === "coming-soon") {
                     setShowEarlyAccess(true);

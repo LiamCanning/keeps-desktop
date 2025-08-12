@@ -293,8 +293,8 @@ export default function PrimaryOffering() {
       </header>
 
       <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Mobile Order Summary - positioned after investment details */}
-        <aside className="lg:hidden order-2">
+        {/* Mobile Order Summary */}
+        <aside className="lg:hidden order-first">
           {total > 0 && (
             <Card className="card-professional sticky top-6">
               <CardHeader>
@@ -345,7 +345,7 @@ export default function PrimaryOffering() {
           )}
         </aside>
 
-        <section className="lg:col-span-8 xl:col-span-9 space-y-6 order-1">
+        <section className="lg:col-span-8 xl:col-span-9 space-y-6">
           <article className="card-professional">
             <Card>
               <CardHeader className="pb-4">
@@ -531,7 +531,7 @@ export default function PrimaryOffering() {
             </Card>
           )}
           {/* Compliance & Security */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 order-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">

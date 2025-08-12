@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TabsBanner } from "@/components/TabsBanner";
 
 interface Investment {
   id: string;
@@ -265,8 +264,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-
-      <TabsBanner title="Live Opportunities" count={3} />
 
       {/* Featured Investment Opportunities */}
       <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-4 sm:p-8 border border-primary/20 mt-4 sm:mt-8">
