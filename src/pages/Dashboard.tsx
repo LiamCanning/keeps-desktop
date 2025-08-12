@@ -131,7 +131,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
           <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-accent/20 to-accent/30 flex items-center justify-center relative overflow-hidden border border-primary/20">
             <div className={`absolute inset-0 bg-cover bg-center ${
               investment.name === 'Liverpool FC' 
-                ? "bg-[url('/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png')]" 
+                ? "bg-[url('/lovable-uploads/3a5ef8d1-50bb-498a-85ff-ce1f67205e5c.png')]" 
                 : investment.name === 'McLaren F1' 
                 ? "bg-[url('/lovable-uploads/f1c416aa-6bce-4a96-af14-85280bd218d8.png')]" 
                 : investment.name === 'Ryder Cup'
