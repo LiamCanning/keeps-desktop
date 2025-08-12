@@ -335,18 +335,18 @@ const getAssetInvestors = (assetId: string): {
       return {
         totalInvestors: 25847,
         corporateSponsor: {
-          id: "nike",
-          name: "Nike Inc.",
-          avatar: "/src/assets/brands/nike-logo.png",
-          totalInvested: "£18,200,000",
-          portfolioValue: "£22,644,000",
-          returns: "+£4,444,000",
-          returnPercent: 24.4,
+          id: "platform-global",
+          name: "Keeps Platform",
+          avatar: "/src/assets/keeps-logo.png",
+          totalInvested: "£25,200,000",
+          portfolioValue: "£33,264,000",
+          returns: "+£8,064,000",
+          returnPercent: 32.0,
           rank: 1,
-          tier: "Corporate",
-          assetsOwned: 8,
+          tier: "Platform",
+          assetsOwned: 15,
           joinDate: "Jan 2024",
-          location: "Beaverton, US",
+          location: "London, UK",
           isCompany: true
         },
         investors: [
