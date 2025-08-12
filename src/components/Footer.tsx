@@ -1,11 +1,4 @@
 import { Link } from "react-router-dom";
-import { LogoImage } from "@/components/ui/logo-image";
-import adidasLogo from "@/assets/brands/adidas-logo.png";
-import nikeLogo from "@/assets/brands/nike-logo.png";
-import bmwLogo from "@/assets/brands/bmw-logo.png";
-import santanderLogo from "@/assets/brands/santander-logo.png";
-import rolexLogo from "@/assets/brands/rolex-logo.png";
-import mclarenLogo from "@/assets/brands/mclaren-logo.png";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -15,18 +8,6 @@ export function Footer() {
   return (
     <footer className="bg-card border-t border-border mt-auto">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Trusted by section */}
-        <div className="mb-10">
-          <p className="text-xs uppercase tracking-wider text-muted-foreground/80 mb-4">Trusted by leading organisations</p>
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 items-center">
-            <LogoImage src={adidasLogo} alt="Adidas brand logo" size="lg" className="opacity-70 hover:opacity-100 transition-opacity" />
-            <LogoImage src={nikeLogo} alt="Nike brand logo" size="lg" className="opacity-70 hover:opacity-100 transition-opacity" />
-            <LogoImage src={bmwLogo} alt="BMW brand logo" size="lg" className="opacity-70 hover:opacity-100 transition-opacity" />
-            <LogoImage src={rolexLogo} alt="Rolex brand logo" size="lg" className="opacity-70 hover:opacity-100 transition-opacity" />
-            <LogoImage src={santanderLogo} alt="Santander brand logo" size="lg" className="opacity-70 hover:opacity-100 transition-opacity" />
-            <LogoImage src={mclarenLogo} alt="McLaren brand logo" size="lg" className="opacity-70 hover:opacity-100 transition-opacity" />
-          </div>
-        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
