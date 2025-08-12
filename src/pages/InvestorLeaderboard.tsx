@@ -464,14 +464,14 @@ export default function InvestorLeaderboard() {
           if (assetId) {
             navigate(`/assets/${assetId}`);
           } else {
-            navigate('/');
+            navigate('/assets');
           }
         }}>
           <ArrowLeft className="w-4 h-4 mr-2" />
-          {assetId ? `Back to ${getAssetName(assetId)}` : 'Back to Dashboard'}
+          {assetId ? `Back to ${getAssetName(assetId)}` : 'Back to Assets'}
         </Button>
         <Button variant="outline" onClick={() => navigate('/assets')}>
-          View Assets
+          View All Assets
         </Button>
       </div>
 
