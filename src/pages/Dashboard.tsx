@@ -200,7 +200,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
               <p className="font-bold text-xs sm:text-sm text-card-foreground">{investment.investors}</p>
             </div>
             <div className="text-center p-2 sm:p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20">
-              <Clock className="w-4 h-4 mx-auto text-destructive mb-1" />
+              <span className="text-lg mb-1">⏱</span>
               <p className="font-bold text-xs sm:text-sm text-card-foreground">{investment.timeRemaining}</p>
             </div>
         </div>
@@ -268,7 +268,7 @@ export default function Dashboard() {
       {/* Featured Investment Opportunities */}
       <div className="space-y-6 sm:space-y-8 mt-8 sm:mt-12">
         {/* Professional Header Section */}
-        <div className="text-center space-y-4 sm:space-y-6 py-6 sm:py-8 bg-card/50 backdrop-blur-sm border-y border-border/20">
+        <div className="text-center space-y-4 sm:space-y-6 py-6 sm:py-8 bg-blue-50/30 backdrop-blur-sm border-y border-border/20">
           <div className="max-w-4xl mx-auto space-y-3 sm:space-y-4">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent flex-1"></div>
@@ -288,10 +288,15 @@ export default function Dashboard() {
         </div>
         
         {/* Investment Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
-          {liveDeals.map((investment) => (
-            <InvestmentCard key={investment.id} investment={investment} />
-          ))}
+        <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-4 sm:p-6 border border-primary/20">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
+          <div className="relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
+              {liveDeals.map((investment) => (
+                <InvestmentCard key={investment.id} investment={investment} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
