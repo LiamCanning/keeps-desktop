@@ -14,7 +14,7 @@ export default function OrganisationDashboard() {
 
   if (showLogin) {
     return (
-      <div className="relative min-h-screen bg-background flex items-center justify-center p-0 overflow-hidden -mx-4 sm:-mx-6 -mt-4 sm:-mt-6">
+      <div className="relative min-h-screen bg-background flex items-center justify-center p-0 overflow-hidden -mx-4 sm:-mx-6 -mt-4 sm:-mt-6 -mb-4 sm:-mb-6">
         {/* Background image for desktop */}
         <div className="hidden md:block absolute inset-0 z-0 pointer-events-none">
           <img
