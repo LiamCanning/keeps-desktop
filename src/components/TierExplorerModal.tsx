@@ -16,19 +16,19 @@ interface TierExplorerModalProps {
 const tierOrder = ['bronze', 'silver', 'gold', 'platinum', 'diamond'];
 
 const tierColors = {
-  bronze: "from-purple-50 to-purple-100 border-purple-200",
-  silver: "from-purple-100 to-purple-200 border-purple-300", 
-  gold: "from-purple-200 to-purple-300 border-purple-400",
-  platinum: "from-purple-300 to-purple-400 border-purple-500",
-  diamond: "from-purple-400 to-purple-500 border-purple-600"
+  bronze: "from-amber-50 to-amber-100 border-amber-200",
+  silver: "from-slate-50 to-slate-100 border-slate-200", 
+  gold: "from-yellow-50 to-yellow-100 border-yellow-200",
+  platinum: "from-purple-50 to-purple-100 border-purple-200",
+  diamond: "from-blue-50 to-blue-100 border-blue-200"
 };
 
 const tierIconColors = {
-  bronze: "bg-purple-500 text-white",
-  silver: "bg-purple-600 text-white", 
-  gold: "bg-purple-700 text-white",
-  platinum: "bg-purple-800 text-white",
-  diamond: "bg-purple-900 text-white"
+  bronze: "bg-amber-600 text-white",
+  silver: "bg-slate-400 text-white", 
+  gold: "bg-yellow-500 text-white",
+  platinum: "bg-purple-600 text-white",
+  diamond: "bg-blue-600 text-white"
 };
 
 const tierIcons = {
