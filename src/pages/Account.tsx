@@ -16,6 +16,7 @@ import adidasLogo from "@/assets/brands/adidas-logo.png";
 import rolexLogo from "@/assets/brands/rolex-logo.png";
 import santanderLogo from "@/assets/brands/santander-logo.png";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { TabsBanner } from "@/components/TabsBanner";
 
 
 interface FavoriteTeam {
@@ -134,14 +135,16 @@ export default function Account() {
           </Select>
         </div>
 
-        <TabsList className="hidden md:grid w-full grid-cols-6 lg:w-auto lg:grid-cols-6 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-          <TabsTrigger value="profile">Profile</TabsTrigger>
-          <TabsTrigger value="account-settings">Settings</TabsTrigger>
-          <TabsTrigger value="notifications">Notifications</TabsTrigger>
-          <TabsTrigger value="security">Security</TabsTrigger>
-          <TabsTrigger value="automated-investing">Auto Investing</TabsTrigger>
-          <TabsTrigger value="data">Data</TabsTrigger>
-        </TabsList>
+        <TabsBanner>
+          <TabsList className="hidden md:grid w-full grid-cols-6 lg:w-auto lg:grid-cols-6 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+            <TabsTrigger value="profile">Profile</TabsTrigger>
+            <TabsTrigger value="account-settings">Settings</TabsTrigger>
+            <TabsTrigger value="notifications">Notifications</TabsTrigger>
+            <TabsTrigger value="security">Security</TabsTrigger>
+            <TabsTrigger value="automated-investing">Auto Investing</TabsTrigger>
+            <TabsTrigger value="data">Data</TabsTrigger>
+          </TabsList>
+        </TabsBanner>
 
         <TabsContent value="profile" className="mt-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

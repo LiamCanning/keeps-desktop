@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
+import { TabsBanner } from "@/components/TabsBanner";
 
 interface Asset {
   id: string;
@@ -235,29 +236,25 @@ export default function Assets() {
           </Select>
         </div>
         <TabsBanner>
-          <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md">
-            <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
-              <div className="w-2 h-2 bg-success rounded-full"></div>
-              <span className="hidden sm:inline">Live Deals ({liveAssets})</span>
-              <span className="sm:hidden">Live ({liveAssets})</span>
-            </TabsTrigger>
-            <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
-              <div className="w-2 h-2 bg-warning rounded-full"></div>
-              <span className="hidden sm:inline">Coming Soon ({comingSoonAssets})</span>
-              <span className="sm:hidden">Coming ({comingSoonAssets})</span>
-            </TabsTrigger>
-            <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
-              <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-              <span className="hidden sm:inline">Completed</span>
-              <span className="sm:hidden">Done</span>
-            </TabsTrigger>
-          </TabsList>
+           <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md">
+             <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+               <div className="w-2 h-2 bg-success rounded-full"></div>
+               <span className="hidden sm:inline">Live Deals ({liveAssets})</span>
+               <span className="sm:hidden">Live ({liveAssets})</span>
+             </TabsTrigger>
+             <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+               <div className="w-2 h-2 bg-warning rounded-full"></div>
+               <span className="hidden sm:inline">Coming Soon ({comingSoonAssets})</span>
+               <span className="sm:hidden">Coming ({comingSoonAssets})</span>
+             </TabsTrigger>
+             <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+               <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
+               <span className="hidden sm:inline">Completed</span>
+               <span className="sm:hidden">Done</span>
+             </TabsTrigger>
+           </TabsList>
         </TabsBanner>
       </Tabs>
-
-
-      {/* Assets Content */}
-      <div className="space-y-6">
 
 
       {/* Assets Content */}

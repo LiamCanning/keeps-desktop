@@ -171,21 +171,21 @@ export default function AssetDetails() {
               </div>
               </div>
             </div>
-            <div className="w-full md:w-auto flex items-stretch md:items-center justify-stretch md:justify-end mt-4 md:mt-0">
-              <Button 
-                size="lg"
-                className="btn-invest px-6 md:px-8 py-3 text-base md:text-lg font-semibold w-full md:w-auto"
-                onClick={() => {
-                  if (asset.status === "coming-soon") {
-                    setShowEarlyAccess(true);
-                  } else {
-                    navigate(`/assets/${assetId}/primary-offering`);
-                  }
-                }}
-              >
-                {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
-              </Button>
-            </div>
+          <div className="w-full md:w-auto flex items-stretch md:items-center justify-stretch md:justify-end mt-4 md:mt-0">
+            <Button 
+              size="lg"
+              className="btn-invest px-6 md:px-8 py-3 text-base md:text-lg font-semibold w-full md:w-auto"
+              onClick={() => {
+                if (asset.status === "coming-soon") {
+                  setShowEarlyAccess(true);
+                } else {
+                  navigate(`/assets/${assetId}/primary-offering`);
+                }
+              }}
+            >
+              {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
+            </Button>
+          </div>
           </div>
           
           {/* Investment Overview Section */}
@@ -323,12 +323,14 @@ export default function AssetDetails() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="thesis">Investment Thesis</TabsTrigger>
-          <TabsTrigger value="analysis">Analysis</TabsTrigger>
-          <TabsTrigger value="risks">Risks & Rewards</TabsTrigger>
-        </TabsList>
+        <TabsBanner>
+          <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="thesis">Investment Thesis</TabsTrigger>
+            <TabsTrigger value="analysis">Analysis</TabsTrigger>
+            <TabsTrigger value="risks">Risks & Rewards</TabsTrigger>
+          </TabsList>
+        </TabsBanner>
 
         <TabsContent value="overview" className="mt-6">
           <Card className="card-professional">
