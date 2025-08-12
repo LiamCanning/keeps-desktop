@@ -147,36 +147,34 @@ export default function Benefits() {
       </div>
 
       {/* Benefits Overview Banner */}
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-100 via-purple-50 to-indigo-100 p-8 border border-purple-300 shadow-lg">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-indigo-600/10"></div>
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-50 to-indigo-50 p-6 border border-purple-200">
         <div className="relative z-10 flex items-center justify-between">
           <div>
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-700 to-purple-600 bg-clip-text text-transparent mb-3">Benefits Overview</h2>
-            <p className="text-purple-700/80 text-lg font-medium">Unlock exclusive sports experiences</p>
+            <h2 className="text-2xl font-bold text-purple-600 mb-2">Benefits Overview</h2>
+            <p className="text-gray-600">Unlock exclusive sports experiences</p>
           </div>
           <div className="flex items-center gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-800">3</div>
-              <div className="text-sm text-purple-600/80 font-medium">Total Assets</div>
+              <div className="text-3xl font-bold text-gray-800">3</div>
+              <div className="text-sm text-gray-600">Total Assets</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-800">5</div>
-              <div className="text-sm text-purple-600/80 font-medium">Benefit Tiers</div>
+              <div className="text-3xl font-bold text-green-600">5</div>
+              <div className="text-sm text-gray-600">Benefit Tiers</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-800">£500</div>
-              <div className="text-sm text-purple-600/80 font-medium">Min Investment</div>
+              <div className="text-3xl font-bold text-yellow-600">£500</div>
+              <div className="text-sm text-gray-600">Min Investment</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-800">Premium</div>
-              <div className="text-sm text-purple-600/80 font-medium">Exclusive Access</div>
+              <div className="text-3xl font-bold text-orange-600">Premium</div>
+              <div className="text-sm text-gray-600">Exclusive Access</div>
             </div>
           </div>
         </div>
         <div className="absolute bottom-4 right-6 flex gap-2">
-          <div className="w-3 h-3 bg-purple-500 rounded-full shadow-sm"></div>
-          <div className="w-3 h-3 bg-purple-400 rounded-full shadow-sm"></div>
-          <div className="w-2 h-2 bg-purple-300 rounded-full shadow-sm"></div>
+          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+          <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
         </div>
       </div>
 
