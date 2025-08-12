@@ -475,53 +475,64 @@ export default function InvestorLeaderboard() {
         align="left"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Users className="w-5 h-5 text-primary" />
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950/30 dark:to-orange-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-orange-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-orange-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-orange-500/20 rounded-xl">
+                <Users className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Total Investors</p>
-              <p className="font-semibold text-xl text-card-foreground">{totalInvestors.toLocaleString()}</p>
-            </div>
+            <p className="text-sm text-orange-600/80 dark:text-orange-400/80 mb-1 font-medium">Total Investors</p>
+            <p className="text-2xl font-bold text-orange-900 dark:text-orange-100">{totalInvestors.toLocaleString()}</p>
           </div>
         </Card>
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-success/20 rounded-lg">
-              <Building className="w-5 h-5 text-success" />
+
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-emerald-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-emerald-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-emerald-500/20 rounded-xl">
+                <Building className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">{assetId ? 'Corporate Sponsor' : 'Corporate Sponsors'}</p>
-              <p className="font-semibold text-xl text-card-foreground">{assetId ? '1' : '28'}</p>
-            </div>
+            <p className="text-sm text-emerald-600/80 dark:text-emerald-400/80 mb-1 font-medium">{assetId ? 'Corporate Sponsor' : 'Corporate Sponsors'}</p>
+            <p className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{assetId ? '1' : '28'}</p>
           </div>
         </Card>
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-warning/20 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-warning" />
+
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950/30 dark:to-amber-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-amber-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-amber-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-amber-500/20 rounded-xl">
+                <TrendingUp className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Avg. Return</p>
-              <p className="font-semibold text-xl text-card-foreground">
-                {assetId === 'liverpool-fc' ? '10.0%' : assetId === 'mclaren-racing' ? '30.0%' : assetId === 'ryder-cup' ? '15.0%' : '18.4%'}
-              </p>
-            </div>
+            <p className="text-sm text-amber-600/80 dark:text-amber-400/80 mb-1 font-medium">Avg. Return</p>
+            <p className="text-2xl font-bold text-amber-900 dark:text-amber-100">
+              {assetId === 'liverpool-fc' ? '10.0%' : assetId === 'mclaren-racing' ? '30.0%' : assetId === 'ryder-cup' ? '15.0%' : '18.4%'}
+            </p>
           </div>
         </Card>
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-accent/20 rounded-lg">
-              <Star className="w-5 h-5 text-accent" />
+
+        <Card className="card-hover p-6 relative overflow-hidden border-0 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950/30 dark:to-purple-900/20">
+          <div className="absolute -top-6 -right-6 w-20 h-20 bg-purple-200/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-300/20 rounded-full blur-lg"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="p-3 bg-purple-500/20 rounded-xl">
+                <Star className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Diamond Tier</p>
-              <p className="font-semibold text-xl text-card-foreground">
-                {assetId === 'liverpool-fc' ? '0' : assetId === 'mclaren-racing' ? '1' : assetId === 'ryder-cup' ? '0' : '1,247'}
-              </p>
-            </div>
+            <p className="text-sm text-purple-600/80 dark:text-purple-400/80 mb-1 font-medium">Diamond Tier</p>
+            <p className="text-2xl font-bold text-purple-900 dark:text-purple-100">
+              {assetId === 'liverpool-fc' ? '0' : assetId === 'mclaren-racing' ? '1' : assetId === 'ryder-cup' ? '0' : '1,247'}
+            </p>
           </div>
         </Card>
       </div>
