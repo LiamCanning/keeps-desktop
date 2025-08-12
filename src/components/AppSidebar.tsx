@@ -15,7 +15,10 @@ import {
   BarChart3,
   Menu,
   Users,
-  BookOpen
+  BookOpen,
+  ListChecks,
+  BadgePercent,
+  MessageSquareHeart
 } from "lucide-react";
 import {
   Sidebar,
@@ -105,6 +108,30 @@ export function AppSidebar() {
                 <NavLink to="/about-us" className="flex items-center gap-3 py-3 w-full">
                   <Info className="w-4 h-4" />
                   <span>About Us</span>
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <NavLink to="/how-it-works" className="flex items-center gap-3 py-3 w-full">
+                  <ListChecks className="w-4 h-4" />
+                  <span>How It Works</span>
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <NavLink to="/fees-and-pricing" className="flex items-center gap-3 py-3 w-full">
+                  <BadgePercent className="w-4 h-4" />
+                  <span>Fees & Pricing</span>
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <NavLink to="/case-studies" className="flex items-center gap-3 py-3 w-full">
+                  <FileText className="w-4 h-4" />
+                  <span>Case Studies</span>
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <NavLink to="/investor-stories" className="flex items-center gap-3 py-3 w-full">
+                  <MessageSquareHeart className="w-4 h-4" />
+                  <span>Investor Stories</span>
                 </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>

@@ -61,6 +61,11 @@ import { CookiePolicy } from "./pages/CookiePolicy";
 import { RiskDisclosure } from "./pages/RiskDisclosure";
 import OrganisationContact from "./pages/OrganisationContact";
 import PrimaryOffering from "./pages/PrimaryOffering";
+import HowItWorks from "./pages/HowItWorks";
+import FeesAndPricing from "./pages/FeesAndPricing";
+import CaseStudies from "./pages/CaseStudies";
+import InvestorStories from "./pages/InvestorStories";
+import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
@@ -86,78 +91,85 @@ const ScrollToTop = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<FirstVisitGate><Dashboard /></FirstVisitGate>} />
-            <Route path="/benefits" element={<Benefits />} />
-            <Route path="/content" element={<Content />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/market" element={<Market />} />
-            <Route path="/my-account" element={<Account />} />
-            <Route path="/deal/:dealId" element={<DealDetails />} />
-            <Route path="/user/:username" element={<UserProfile />} />
-            <Route path="/buy-asset" element={<BuyAsset />} />
-            <Route path="/sell-asset" element={<SellAsset />} />
-            <Route path="/for-organisations" element={<ForOrganisations />} />
-            <Route path="/organisation-contact" element={<OrganisationContact />} />
-            <Route path="/support-hub" element={<SupportHub />} />
-            <Route path="/support-chat" element={<SupportChat />} />
-            <Route path="/referral-program" element={<ReferralProgram />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/market-trends" element={<MarketTrends />} />
-            <Route path="/sector-performance" element={<SectorPerformance />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/community-profile/:username" element={<CommunityProfile />} />
-          <Route path="/community-comments/:postId" element={<CommunityComments />} />
-            <Route path="/article/:id" element={<Article />} />
-            <Route path="/community-comments/:id" element={<CommunityComments />} />
-            <Route path="/trade/:assetId" element={<TradingInterface />} />
-            <Route path="/assets/:assetId/primary-offering" element={<PrimaryOffering />} />
-            <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
-            <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
-          <Route path="/investor-relations" element={<InvestorRelations />} />
-          <Route path="/investor-leaderboard" element={<InvestorLeaderboard />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/assets" element={<Assets />} />
-          <Route path="/assets/:assetId" element={<AssetDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/sell-shares" element={<SellShares />} />
-          <Route path="/request-team" element={<RequestTeam />} />
-          <Route path="/organisation-dashboard" element={<OrganisationDashboard />} />
-          <Route path="/list-asset" element={<ListAsset />} />
-          <Route path="/knowledge-base" element={<KnowledgeBase />} />
-          <Route path="/community-messages" element={<CommunityMessages />} />
-          <Route path="/community-saved-posts" element={<CommunitySavedPosts />} />
-          <Route path="/community-find-people" element={<CommunityFindPeople />} />
-          <Route path="/personal-information" element={<PersonalInformation />} />
-          <Route path="/payment-methods" element={<PaymentMethods />} />
-          <Route path="/documents-verification" element={<DocumentsVerification />} />
-          <Route path="/connected-devices" element={<ConnectedDevices />} />
-          <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
-          <Route path="/investment-history" element={<InvestmentHistory />} />
-          <Route path="/community-profile" element={<CommunityProfile />} />
-            <Route path="/sell-shares" element={<SellShares />} />
-            <Route path="/sell/liverpool" element={<SellShares />} />
-            <Route path="/sell/mclaren" element={<SellShares />} />
-            <Route path="/sell/ryder-cup" element={<SellShares />} />
-            <Route path="/order-confirmation" element={<OrderConfirmation />} />
-            <Route path="/sale-confirmation" element={<SaleConfirmation />} />
-        <Route path="/community-forum" element={<CommunityForum />} />
-        <Route path="/community-forum/:topicId" element={<CommunityTopicDetail />} />
-        <Route path="/sale-confirmation" element={<SaleConfirmation />} />
-            <Route path="/transaction-details/:id" element={<TransactionDetails />} />
-            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/cookie-policy" element={<CookiePolicy />} />
-            <Route path="/risk-disclosure" element={<RiskDisclosure />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+      <HelmetProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Layout>
+            <Routes>
+              <Route path="/" element={<FirstVisitGate><Dashboard /></FirstVisitGate>} />
+              <Route path="/benefits" element={<Benefits />} />
+              <Route path="/content" element={<Content />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/market" element={<Market />} />
+              <Route path="/my-account" element={<Account />} />
+              <Route path="/deal/:dealId" element={<DealDetails />} />
+              <Route path="/user/:username" element={<UserProfile />} />
+              <Route path="/buy-asset" element={<BuyAsset />} />
+              <Route path="/sell-asset" element={<SellAsset />} />
+              <Route path="/for-organisations" element={<ForOrganisations />} />
+              <Route path="/organisation-contact" element={<OrganisationContact />} />
+              <Route path="/support-hub" element={<SupportHub />} />
+              <Route path="/support-chat" element={<SupportChat />} />
+              <Route path="/referral-program" element={<ReferralProgram />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              {/* Newly added informational pages */}
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/fees-and-pricing" element={<FeesAndPricing />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/investor-stories" element={<InvestorStories />} />
+              <Route path="/market-trends" element={<MarketTrends />} />
+              <Route path="/sector-performance" element={<SectorPerformance />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/community-profile/:username" element={<CommunityProfile />} />
+              <Route path="/community-comments/:postId" element={<CommunityComments />} />
+              <Route path="/article/:id" element={<Article />} />
+              <Route path="/community-comments/:id" element={<CommunityComments />} />
+              <Route path="/trade/:assetId" element={<TradingInterface />} />
+              <Route path="/assets/:assetId/primary-offering" element={<PrimaryOffering />} />
+              <Route path="/investors/:assetId" element={<InvestorLeaderboard />} />
+              <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
+              <Route path="/investor-relations" element={<InvestorRelations />} />
+              <Route path="/investor-leaderboard" element={<InvestorLeaderboard />} />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/assets" element={<Assets />} />
+              <Route path="/assets/:assetId" element={<AssetDetails />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/sell-shares" element={<SellShares />} />
+              <Route path="/request-team" element={<RequestTeam />} />
+              <Route path="/organisation-dashboard" element={<OrganisationDashboard />} />
+              <Route path="/list-asset" element={<ListAsset />} />
+              <Route path="/knowledge-base" element={<KnowledgeBase />} />
+              <Route path="/community-messages" element={<CommunityMessages />} />
+              <Route path="/community-saved-posts" element={<CommunitySavedPosts />} />
+              <Route path="/community-find-people" element={<CommunityFindPeople />} />
+              <Route path="/personal-information" element={<PersonalInformation />} />
+              <Route path="/payment-methods" element={<PaymentMethods />} />
+              <Route path="/documents-verification" element={<DocumentsVerification />} />
+              <Route path="/connected-devices" element={<ConnectedDevices />} />
+              <Route path="/portfolio-performance" element={<PortfolioPerformance />} />
+              <Route path="/investment-history" element={<InvestmentHistory />} />
+              <Route path="/community-profile" element={<CommunityProfile />} />
+              <Route path="/sell-shares" element={<SellShares />} />
+              <Route path="/sell/liverpool" element={<SellShares />} />
+              <Route path="/sell/mclaren" element={<SellShares />} />
+              <Route path="/sell/ryder-cup" element={<SellShares />} />
+              <Route path="/order-confirmation" element={<OrderConfirmation />} />
+              <Route path="/sale-confirmation" element={<SaleConfirmation />} />
+              <Route path="/community-forum" element={<CommunityForum />} />
+              <Route path="/community-forum/:topicId" element={<CommunityTopicDetail />} />
+              <Route path="/sale-confirmation" element={<SaleConfirmation />} />
+              <Route path="/transaction-details/:id" element={<TransactionDetails />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
+              <Route path="/risk-disclosure" element={<RiskDisclosure />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </HelmetProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
