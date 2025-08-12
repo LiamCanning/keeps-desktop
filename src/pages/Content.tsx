@@ -92,9 +92,7 @@ const newsArticles: NewsArticle[] = [
     date: "2025-05-15",
     image: "/lovable-uploads/aaeb603c-8140-467c-9571-cc97db7c5f56.png",
     category: "news",
-    readTime: "4 min read",
-    likes: 892,
-    comments: 156
+    readTime: "4 min read"
   }
 ];
 
@@ -198,8 +196,8 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
 }) {
   const navigate = useNavigate();
   return (
-    <Card className="card-professional group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-      <div className="relative overflow-hidden rounded-t-xl">
+    <Card className="card-professional group hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden">
+      <div className="relative overflow-hidden">
         <img 
           src={article.image}
           alt={article.title}

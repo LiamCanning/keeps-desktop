@@ -126,9 +126,9 @@ function InvestmentCard({ investment }: { investment: Investment }) {
       className="investment-card group bg-card border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
       onClick={handleCardClick}
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden rounded-t-xl">
         {investment.status === "live" ? (
-          <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-accent/20 to-accent/30 flex items-center justify-center relative overflow-hidden border border-primary/20">
+          <div className="w-full h-64 relative overflow-hidden">
             <div className={`absolute inset-0 bg-cover bg-center ${
               investment.name === 'Liverpool FC' 
                 ? "bg-[url('/lovable-uploads/3a5ef8d1-50bb-498a-85ff-ce1f67205e5c.png')]" 
@@ -138,11 +138,10 @@ function InvestmentCard({ investment }: { investment: Investment }) {
                 ? "bg-[url('/lovable-uploads/2e283d73-dfc0-468d-8412-ea95e97eb268.png')]"
                 : "bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=400&fit=crop')]"
             }`}></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-accent/20"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           </div>
         ) : (
-          <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-accent/20 to-accent/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-primary/20">
+          <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-accent/20 to-accent/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
             <img 
               src={investment.logo}
               alt={investment.name}
@@ -150,7 +149,6 @@ function InvestmentCard({ investment }: { investment: Investment }) {
             />
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {investment.featured && (
           <Badge variant="warning" className="absolute top-4 left-4 flex items-center gap-1 text-xs z-10">
