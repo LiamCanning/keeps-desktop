@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import ryderImage from "@/assets/ryder-cup-golf.jpg";
 
 interface NewsArticle {
   id: string;
@@ -49,7 +48,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Keeps Team",
     date: "2025-06-28",
-    image: ryderImage,
+    image: "/src/assets/ryder-cup-golf.jpg",
     category: "news",
     readTime: "4 min read"
   },
@@ -199,7 +198,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
 }) {
   const navigate = useNavigate();
   return (
-    <Card className="card-professional group hover:shadow-xl transition-all duration-300 h-full">
+    <Card className="card-professional group hover:shadow-xl transition-all duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
         <img 
           src={article.image}
@@ -225,7 +224,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         </p>
       </CardHeader>
       
-      <CardContent className="pt-0 flex flex-col h-full">
+      <CardContent className="pt-0">
         <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
           <div className="flex items-center gap-4">
             <span className="font-medium">{article.source}</span>
@@ -263,7 +262,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
           </div>
         )}
         
-        <div className="flex items-center gap-2 mt-auto">
+        <div className="flex items-center gap-2">
           <Button 
             className="btn-invest flex-1"
             onClick={() => navigate(`/article/${article.id}`)}
@@ -367,15 +366,6 @@ export default function Content() {
 
   // Mock user portfolio for personalization
   const userInvestments = ['liverpool-fc', 'mclaren-racing', 'ryder-cup'];
-  
-  // Counts for desktop banner tabs
-  const allCount = newsArticles.length;
-  const newsCount = newsArticles.filter(a => a.category === 'news').length;
-  const trendingCount = newsArticles.filter(a => (a.likes || 0) > 100 && a.id !== '7').length;
-  const portfolioCount = newsArticles.filter(article =>
-    userInvestments.some(investment => article.title.toLowerCase().includes(investment.replace('-', ' ')))
-  ).length;
-  const reelsCount = 3; // videos section shows 3 cards
   
   const filteredArticles = newsArticles.filter(article => {
     if (activeTab === "all") return true;
@@ -496,11 +486,11 @@ export default function Content() {
             </Select>
           </div>
           <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-            <TabsTrigger value="portfolio">Your Assets ({portfolioCount})</TabsTrigger>
-            <TabsTrigger value="trending">Trending ({trendingCount})</TabsTrigger>
-            <TabsTrigger value="news">Latest News ({newsCount})</TabsTrigger>
-            <TabsTrigger value="reels">Videos ({reelsCount})</TabsTrigger>
-            <TabsTrigger value="all">All Content ({allCount})</TabsTrigger>
+            <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
+            <TabsTrigger value="trending">Trending</TabsTrigger>
+            <TabsTrigger value="news">Latest News</TabsTrigger>
+            <TabsTrigger value="reels">Videos</TabsTrigger>
+            <TabsTrigger value="all">All Content</TabsTrigger>
           </TabsList>
 
         <TabsContent value="portfolio" className="mt-6">

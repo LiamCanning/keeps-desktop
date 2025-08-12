@@ -170,7 +170,7 @@ export default function ListAsset() {
               </div>
 
               {asset && (
-                <div className="p-4 bg-accent/20 rounded-lg border border-accent/30 md:text-card-foreground text-primary-foreground">
+                <div className="p-4 bg-accent/20 rounded-lg border border-accent/30">
                   <div className="flex items-center gap-3 mb-3">
                     <LogoImage 
                       src={asset.logo}
@@ -178,25 +178,25 @@ export default function ListAsset() {
                       size="lg"
                     />
                     <div>
-                      <h3 className="font-semibold md:text-card-foreground text-primary-foreground">{asset.name}</h3>
+                      <h3 className="font-semibold">{asset.name}</h3>
                       <Badge variant="outline">{asset.type}</Badge>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="md:text-muted-foreground text-primary-foreground">{asset.name === "Ryder Cup" ? "Debentures Owned" : "Shares Owned"}</p>
+                  <div>
+                      <p className="text-muted-foreground">{asset.name === "Ryder Cup" ? "Debentures Owned" : "Shares Owned"}</p>
                       <p className="font-semibold">{asset.totalShares}</p>
                     </div>
                     <div>
-                      <p className="md:text-muted-foreground text-primary-foreground">Current Price</p>
+                      <p className="text-muted-foreground">Current Price</p>
                       <p className="font-semibold">£{asset.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                     <div>
-                      <p className="md:text-muted-foreground text-primary-foreground">Purchase Price</p>
+                      <p className="text-muted-foreground">Purchase Price</p>
                       <p className="font-semibold">£{asset.purchasePrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                     <div>
-                      <p className="md:text-muted-foreground text-primary-foreground">Profit per {asset.name === "Ryder Cup" ? "Debenture" : "Share"}</p>
+                      <p className="text-muted-foreground">Profit per {asset.name === "Ryder Cup" ? "Debenture" : "Share"}</p>
                       <p className="font-semibold text-success">+£{(asset.currentPrice - asset.purchasePrice).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                   </div>
