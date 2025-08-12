@@ -157,8 +157,8 @@ export default function ListAsset() {
                             size="sm"
                           />
                           <div>
-                            <p className="font-medium">{asset.name}</p>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="font-medium text-foreground md:text-foreground">{asset.name}</p>
+                            <p className="text-sm text-white md:text-muted-foreground">
                               {asset.totalShares} {asset.name === "Ryder Cup" ? "debentures" : "shares"} owned • Current: £{asset.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </p>
                           </div>

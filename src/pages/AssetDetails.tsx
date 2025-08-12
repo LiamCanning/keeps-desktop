@@ -174,7 +174,7 @@ export default function AssetDetails() {
             <div className="flex items-center justify-end">
               <Button 
                 size="lg"
-                className="btn-invest px-8 py-3 text-lg font-semibold"
+                className="btn-invest px-6 md:px-8 py-3 text-base md:text-lg font-semibold w-full md:w-auto"
                 onClick={() => {
                   if (asset.status === "coming-soon") {
                     setShowEarlyAccess(true);

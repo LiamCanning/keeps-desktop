@@ -76,8 +76,14 @@ const articles: { [key: string]: Article } = {
     title: "Ryder Cup Debenture Programme Offers Exclusive Investment Returns",
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     content: [
-      "Investors in the Ryder Cup debenture programme receive access to premier seating, hospitality, and once-in-a-lifetime experiences across tournament days.",
-      "The programme blends guaranteed access with long-term value, creating both experiential and financial upside for golf fans."
+      "The prestigious Ryder Cup debenture programme represents a landmark opportunity for golf enthusiasts and savvy investors to participate in one of sport's most celebrated tournaments through a structured investment vehicle.",
+      "Golf's biennial showdown between Europe and America has achieved record-breaking commercial success, with the 2023 Rome edition generating €262 million in economic activity across the host region, demonstrating the tournament's extraordinary market appeal.",
+      "Debenture holders receive guaranteed premium seating for all tournament days, exclusive hospitality experiences including gourmet dining with golf legends, and VIP access to practice rounds and pro-am events featuring world-renowned professionals.",
+      "The investment structure provides 5% annual coupon payments plus full principal repayment after the 10-year term, backed by the tournament's proven revenue model including global broadcasting rights worth €200M+ per event.",
+      "Premium experiences include behind-the-scenes course access, meet-and-greet opportunities with Ryder Cup captains, and invitations to exclusive sponsor events throughout the tournament week.",
+      "Corporate hospitality packages command €2,000-5,000 per person whilst the secondary debenture market consistently shows 15-20% premiums to face value, demonstrating strong investment appreciation potential.",
+      "The 2025 Bethpage Black venue represents premium US market positioning, with New York's affluent demographic providing substantial demand for luxury golf experiences and hospitality packages.",
+      "Historical data shows 100% debenture repayment rates whilst tournament assets provide secure backing for all investment commitments, making this an attractive proposition for risk-conscious investors seeking sports exposure."
     ],
     source: "Keeps Team",
     author: "Sophie Turner",
@@ -93,15 +99,21 @@ const articles: { [key: string]: Article } = {
     title: "Ohio State Prepares for Upcoming Stadium Investment Launch",
     summary: "Ohio State University announces plans to launch a £80,000,000 stadium renovation investment opportunity through Keeps Sport in Q4 2025.",
     content: [
-      "Ohio State's upcoming investment initiative will modernize stadium infrastructure while opening new revenue pathways for the athletics programme.",
-      "Fans will be able to participate through tiered structures aligning benefits to contribution levels."
+      "Ohio State University is preparing to launch America's most ambitious college athletics investment programme, offering fans and investors unprecedented access to stadium revenue through an innovative £80 million income sharing agreement.",
+      "The pioneering initiative will provide 10% participation in future Ohio Stadium revenues, covering all income streams from the iconic 105,000-capacity venue including ticketing, premium seating, concessions, and special events.",
+      "Ohio State's football programme consistently ranks among the top three nationally in revenue generation, producing over £150 million annually with stadium operations representing 40-50% of total athletics income.",
+      "The income sharing agreement targets 8-12% annual returns for investors, directly tied to the Buckeyes' performance and the stadium's operational success across seven home games, concerts, and major university events.",
+      "Ohio Stadium's waiting list exceeds 40,000 season ticket holders whilst premium seating commands £2,000-5,000 per season, demonstrating sustained demand that underpins the investment's revenue projections.",
+      "Funds raised will support critical infrastructure upgrades including enhanced digital experiences, expanded premium hospitality areas, and state-of-the-art training facilities to maintain Ohio State's competitive advantage.",
+      "The university's £7 billion endowment and AAA credit rating provide exceptional financial stability, whilst Big Ten Conference revenue sharing adds over £50 million annually to the athletics programme.",
+      "College football's expanding playoff system and escalating media rights deals position Ohio State as a primary beneficiary, with the programme's national championship aspirations ensuring consistent sell-outs and premium pricing power throughout the investment term."
     ],
     source: "ESPN",
     author: "Daniel Carter",
     date: "2025-06-22",
     image: "/lovable-uploads/b404eafa-2f22-4d8b-984c-9cf6a58070de.png",
     category: "news",
-    readTime: "2 min read",
+    readTime: "5 min read",
     likes: 284,
     comments: 19
   },
@@ -110,15 +122,21 @@ const articles: { [key: string]: Article } = {
     title: "Cardiff City Announces Upcoming Fan Investment Opportunity",
     summary: "Championship side Cardiff City reveals plans for a £4,000,000 equity fundraising round through Keeps Sport, launching early 2026.",
     content: [
-      "Cardiff City is preparing an equity round that will enable supporters to become long-term stakeholders in the club's growth plans.",
-      "The investment will focus on squad development and stadium experience upgrades."
+      "Cardiff City Football Club is pioneering fan ownership in Welsh football with an innovative £4 million equity fundraising round that will transform supporters into genuine stakeholders in the club's Championship campaign.",
+      "The groundbreaking initiative offers 10% equity participation at a £40 million club valuation, providing exceptional value compared to Premier League peers whilst delivering direct ownership benefits to the passionate Welsh fanbase.",
+      "Cardiff's 33,000-capacity Cardiff City Stadium and recent Premier League experience (2018-19 season) provide solid foundations for growth, with the club's Championship position offering significant promotion upside for equity investors.",
+      "Historical data demonstrates that Championship clubs achieving Premier League promotion typically experience 300-500% valuation increases, making Cardiff's current valuation particularly attractive for long-term equity holders.",
+      "The club generates £25-30 million annual revenue through gate receipts, EFL broadcasting rights, and commercial partnerships, whilst maintaining a sustainable financial model that has eliminated historic debt burdens.",
+      "Cardiff's proven player trading strategy has produced over £40 million in transfer profits during the past five years, demonstrating exceptional asset management capabilities that directly benefit equity shareholders.",
+      "The Welsh identity creates unique marketing opportunities in rapidly growing Asian markets, where Celtic nations enjoy premium brand positioning for merchandise and commercial partnerships.",
+      "Funds raised will target squad strengthening for promotion ambitions, youth academy development, and stadium experience enhancements including digital infrastructure and hospitality upgrades to maximize matchday revenues for investor returns."
     ],
     source: "BBC Sport",
     author: "Laura Jenkins",
     date: "2025-06-15",
     image: "/lovable-uploads/010eb98a-7e8c-4f58-8fc6-342c07f81981.png",
     category: "news",
-    readTime: "3 min read",
+    readTime: "4 min read",
     likes: 312,
     comments: 27
   },
@@ -127,8 +145,14 @@ const articles: { [key: string]: Article } = {
     title: "Keeps Sports Investment Platform Sees Record User Growth",
     summary: "Digital platforms facilitating fan investment in sports properties report unprecedented user acquisition in 2025.",
     content: [
-      "Keeps has recorded record-breaking user signups as fans seek more direct participation in their favourite teams and events.",
-      "The platform's blend of financial products and experiential benefits continues to drive adoption."
+      "Keeps Sports has achieved extraordinary milestone growth with over 150,000 new user registrations in Q2 2025, representing a 400% increase year-over-year as sports fans embrace direct investment participation in their favourite teams and events.",
+      "The revolutionary platform has facilitated over £300 million in total investment volume across Premier League football, Formula 1, golf tournaments, and college athletics, demonstrating robust demand for sports-focused financial products.",
+      "User demographics reveal 67% of investors are aged 25-45 with average portfolio values of £15,000, whilst premium tier members investing £50,000+ represent the fastest-growing segment at 25% quarterly growth.",
+      "Platform analytics show exceptional engagement metrics with users spending average 47 minutes per session exploring investment opportunities, reading portfolio performance updates, and participating in community discussions.",
+      "The innovative blend of financial returns and experiential benefits continues driving adoption, with 89% of users citing exclusive access to teams and events as primary motivation alongside investment gains.",
+      "Keeps' proprietary technology enables seamless fractional ownership, real-time portfolio tracking, and secondary market trading capabilities that traditional sports investments previously lacked, revolutionizing fan engagement models.",
+      "Geographic expansion across Europe and North America has opened new markets, with particular success in Germany (42% user growth) and Canada (38% growth) where sports investment appetite exceeds initial projections.",
+      "Strategic partnerships with major sports properties including additional Premier League clubs, NBA teams, and European football leagues are scheduled for H2 2025, potentially doubling platform investment opportunities for the growing user base."
     ],
     source: "TechCrunch",
     author: "Nadia Lee",
@@ -138,6 +162,29 @@ const articles: { [key: string]: Article } = {
     readTime: "6 min read",
     likes: 1247,
     comments: 89
+  },
+  "7": {
+    id: "7",
+    title: "Hexagon Fan Team Revolutionizes Sports Engagement with Blockchain Investment Model",
+    summary: "Digital sports entertainment collective Hexagon Fan Team announces groundbreaking fan ownership structure combining blockchain technology with traditional sports investment.",
+    content: [
+      "Hexagon Fan Team is transforming sports fan engagement through an innovative blockchain-powered investment platform that enables collective ownership of tournament outcomes, player partnerships, and exclusive merchandise revenues.",
+      "The pioneering £1.25 million fundraising round offers 75% equity in a revolutionary sports technology platform that bridges traditional sports investment with cutting-edge fan engagement experiences.",
+      "Early investors gain significant ownership stakes in a platform targeting the £50 billion global sports memorabilia and fan engagement market, with revenue projections of £5 million+ annually by year three.",
+      "The Hexagon ecosystem integrates with major international tournaments, creating multiple revenue streams through transaction fees (2-5%), premium memberships (£50-200 annually), and strategic tournament partnerships.",
+      "Blockchain technology ensures transparent reporting and enables secondary market trading of fan investment positions, whilst smart contracts automate revenue distribution and ownership verification processes.",
+      "The platform's gamified approach combines legal sports investment with prediction markets, NFT trading, and exclusive content access, appealing to tech-savvy sports fans seeking deeper engagement beyond traditional viewing.",
+      "Global sports betting markets exceeding £200 billion annually demonstrate massive commercial opportunity, whilst fan engagement platforms show consistent 300%+ growth rates across developed markets.",
+      "Hexagon's unique positioning capitalizes on increasing demand for fan participation models, with the 75% equity structure providing substantial upside potential as the platform scales across multiple sports and geographic regions."
+    ],
+    source: "Sports Tech Weekly",
+    author: "Marcus Thompson",
+    date: "2025-05-10",
+    image: "/src/assets/hexagon-sports.jpg",
+    category: "news",
+    readTime: "5 min read",
+    likes: 892,
+    comments: 156
   }
 };
 

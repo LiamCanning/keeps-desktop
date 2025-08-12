@@ -198,7 +198,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
 }) {
   const navigate = useNavigate();
   return (
-    <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+    <Card className="card-professional group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
       <div className="relative overflow-hidden rounded-t-xl">
         <img 
           src={article.image}
@@ -213,7 +213,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         </Badge>
       </div>
       
-      <CardHeader className="pb-3">
+      <CardHeader className="pb-3 flex-1">
         <div className="flex items-start justify-between gap-3">
           <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
             {article.title}
@@ -224,7 +224,7 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         </p>
       </CardHeader>
       
-      <CardContent className="pt-0">
+      <CardContent className="pt-0 mt-auto">
         <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
           <div className="flex items-center gap-4">
             <span className="font-medium">{article.source}</span>
@@ -465,6 +465,38 @@ export default function Content() {
             </div>
           </div>
         </Card>
+      </div>
+
+      {/* Content Banner */}
+      <div className="hidden md:block relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 p-8 border border-primary/20">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
+        <div className="relative z-10">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-3xl font-bold text-gradient">Content Discovery</h2>
+              <p className="text-xl text-foreground/80 mt-2">Stay informed about your sports investments</p>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary">7</div>
+                <div className="text-sm text-muted-foreground">Latest Articles</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-success">5</div>
+                <div className="text-sm text-muted-foreground">Community Posts</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-warning">12</div>
+                <div className="text-sm text-muted-foreground">This Week</div>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center gap-2 mt-4">
+            <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse delay-100"></div>
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse delay-200"></div>
+          </div>
+        </div>
       </div>
 
       {/* Enhanced Content Discovery */}
