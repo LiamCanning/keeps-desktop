@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 import sportsHeroBackground from "@/assets/sports-hero-background.jpg";
+import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
+import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 
 const features = [
   {
@@ -165,14 +167,14 @@ export default function ForOrganisations() {
               type: "F1 Team",
               amount: "£100M Raised",
               description: "Innovative income sharing agreement providing fans exclusive access while funding technology development.",
-              logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png"
+              logo: mclarenLogo
             },
             {
               name: "Ryder Cup",
               type: "Golf Tournament",
               amount: "£50M Raised",
               description: "Premium debenture programme offering guaranteed returns and exclusive tournament access to investors.",
-              logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png"
+              logo: ryderLogo
             }
           ].map((client, index) => (
             <Card key={index} className="bg-card border-0 shadow-lg">

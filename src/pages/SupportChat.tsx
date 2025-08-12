@@ -75,7 +75,7 @@ export default function SupportChat() {
   };
 
   return (
-    <div className="flex flex-col h-screen max-w-4xl mx-auto">
+    <div className="flex flex-col h-screen max-w-6xl mx-auto">
       {/* Header */}
       <div className="border-b border-border p-4 bg-card">
         <div className="flex items-center gap-4">
