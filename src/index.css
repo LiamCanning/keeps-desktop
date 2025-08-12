@@ -116,6 +116,11 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
+
+  /* Premium display font for headings */
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
 }
 
 @layer components {
