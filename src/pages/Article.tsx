@@ -4,8 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-// Removed direct import of ryder article image; using new image URL in data
-
 
 interface Article {
   id: string;
@@ -90,7 +88,7 @@ const articles: { [key: string]: Article } = {
     source: "Keeps Team",
     author: "Sophie Turner",
     date: "2025-06-28",
-    image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&h=800&fit=crop",
+    image: "/src/assets/ryder-cup-golf.jpg",
     category: "news",
     readTime: "4 min read",
     likes: 620,

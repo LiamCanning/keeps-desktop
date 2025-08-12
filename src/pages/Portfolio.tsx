@@ -8,11 +8,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { LogoImage } from "@/components/ui/logo-image";
-import { TabsBanner } from "@/components/TabsBanner";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
 import { ResponsiveContainer, AreaChart, Area, XAxis, Tooltip, BarChart, Bar, LineChart, Line } from "recharts";
-
 
 interface PortfolioHolding {
   id: string;
@@ -278,13 +276,11 @@ export default function Portfolio() {
             </SelectContent>
           </Select>
         </div>
-        <TabsBanner>
-          <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-            <TabsTrigger value="overview">Your Investments</TabsTrigger>
-            <TabsTrigger value="performance">Performance & Analytics</TabsTrigger>
-            <TabsTrigger value="watchlist">Watchlist</TabsTrigger>
-          </TabsList>
-        </TabsBanner>
+        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+          <TabsTrigger value="overview">Your Investments</TabsTrigger>
+          <TabsTrigger value="performance">Performance & Analytics</TabsTrigger>
+          <TabsTrigger value="watchlist">Watchlist</TabsTrigger>
+        </TabsList>
 
         <TabsContent value="overview" className="mt-6">
           <div className="space-y-6">

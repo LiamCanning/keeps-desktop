@@ -7,11 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { TabsBanner } from "@/components/TabsBanner";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-// Removed direct import of ryder hero; using new image URL below
-
 
 interface NewsArticle {
   id: string;
@@ -53,7 +48,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Keeps Team",
     date: "2025-06-28",
-    image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&h=800&fit=crop",
+    image: "/src/assets/ryder-cup-golf.jpg",
     category: "news",
     readTime: "4 min read"
   },
@@ -522,15 +517,13 @@ export default function Content() {
               </SelectContent>
             </Select>
           </div>
-          <TabsBanner>
-            <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-              <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
-              <TabsTrigger value="trending">Trending</TabsTrigger>
-              <TabsTrigger value="news">Latest News</TabsTrigger>
-              <TabsTrigger value="reels">Videos</TabsTrigger>
-              <TabsTrigger value="all">All Content</TabsTrigger>
-            </TabsList>
-          </TabsBanner>
+          <TabsList className="hidden md:grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+            <TabsTrigger value="portfolio">Your Assets</TabsTrigger>
+            <TabsTrigger value="trending">Trending</TabsTrigger>
+            <TabsTrigger value="news">Latest News</TabsTrigger>
+            <TabsTrigger value="reels">Videos</TabsTrigger>
+            <TabsTrigger value="all">All Content</TabsTrigger>
+          </TabsList>
 
         <TabsContent value="portfolio" className="mt-6">
           <div className="space-y-4">

@@ -9,7 +9,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
-import { TabsBanner } from "@/components/TabsBanner";
 
 interface Asset {
   id: string;
@@ -220,41 +219,41 @@ export default function Assets() {
         <p className="text-base sm:text-lg text-muted-foreground">Discover and invest in world-class sports organisations</p>
       </div>
 
-      {/* Filter Tabs */}
-      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-        {/* Mobile tab selector */}
-        <div className="md:hidden mb-3">
-          <Select value={activeTab} onValueChange={handleTabChange}>
-            <SelectTrigger aria-label="Select assets section">
-              <SelectValue placeholder="Select section" />
-            </SelectTrigger>
-            <SelectContent className="z-50">
-              <SelectItem value="live">Live</SelectItem>
-              <SelectItem value="coming-soon">Coming Soon</SelectItem>
-              <SelectItem value="completed">Completed</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <TabsBanner>
-           <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md">
-             <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
-               <div className="w-2 h-2 bg-success rounded-full"></div>
-               <span className="hidden sm:inline">Live Deals ({liveAssets})</span>
-               <span className="sm:hidden">Live ({liveAssets})</span>
-             </TabsTrigger>
-             <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
-               <div className="w-2 h-2 bg-warning rounded-full"></div>
-               <span className="hidden sm:inline">Coming Soon ({comingSoonAssets})</span>
-               <span className="sm:hidden">Coming ({comingSoonAssets})</span>
-             </TabsTrigger>
-             <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
-               <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-               <span className="hidden sm:inline">Completed</span>
-               <span className="sm:hidden">Done</span>
-             </TabsTrigger>
-           </TabsList>
-        </TabsBanner>
-      </Tabs>
+      {/* Filter Tabs - Replacing the banner */}
+      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 sm:p-6 border border-primary/20">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+          {/* Mobile tab selector */}
+          <div className="md:hidden mb-3">
+            <Select value={activeTab} onValueChange={handleTabChange}>
+              <SelectTrigger aria-label="Select assets section">
+                <SelectValue placeholder="Select section" />
+              </SelectTrigger>
+              <SelectContent className="z-50">
+                <SelectItem value="live">Live</SelectItem>
+                <SelectItem value="coming-soon">Coming Soon</SelectItem>
+                <SelectItem value="completed">Completed</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md">
+            <TabsTrigger value="live" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+              <div className="w-2 h-2 bg-success rounded-full"></div>
+              <span className="hidden sm:inline">Live Deals ({liveAssets})</span>
+              <span className="sm:hidden">Live ({liveAssets})</span>
+            </TabsTrigger>
+            <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+              <div className="w-2 h-2 bg-warning rounded-full"></div>
+              <span className="hidden sm:inline">Coming Soon ({comingSoonAssets})</span>
+              <span className="sm:hidden">Coming ({comingSoonAssets})</span>
+            </TabsTrigger>
+            <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
+              <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
+              <span className="hidden sm:inline">Completed</span>
+              <span className="sm:hidden">Done</span>
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
 
 
       {/* Assets Content */}

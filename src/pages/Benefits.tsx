@@ -8,10 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { assetTiers } from "@/components/BenefitsTiers";
 import { LogoImage } from "@/components/ui/logo-image";
-import { TabsBanner } from "@/components/TabsBanner";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
-
 interface Benefit {
   id: string;
   team: string;
@@ -84,7 +82,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
     gold: "bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-200",
     platinum: "bg-gradient-to-r from-purple-50 to-purple-100 border-purple-200",
     diamond: "bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200"
-  } as const;
+  };
 
   const tierIconColors = {
     bronze: "bg-amber-600 text-white",
@@ -304,21 +302,19 @@ export default function Benefits() {
             </SelectContent>
           </Select>
         </div>
-          <TabsBanner>
-            <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md p-1.5">
-              <TabsTrigger value="all" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
-                <span>All Assets ({totalBenefits})</span>
-              </TabsTrigger>
-              <TabsTrigger value="live" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span>Live Assets ({liveBenefits})</span>
-              </TabsTrigger>
-              <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
-                <div className="w-2 h-2 bg-warning rounded-full"></div>
-                <span>Coming Soon ({comingSoonBenefits})</span>
-              </TabsTrigger>
-            </TabsList>
-          </TabsBanner>
+        <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md p-1.5">
+          <TabsTrigger value="all" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
+            <span>All Assets ({totalBenefits})</span>
+          </TabsTrigger>
+          <TabsTrigger value="live" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
+            <div className="w-2 h-2 bg-success rounded-full"></div>
+            <span>Live Assets ({liveBenefits})</span>
+          </TabsTrigger>
+          <TabsTrigger value="coming-soon" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
+            <div className="w-2 h-2 bg-warning rounded-full"></div>
+            <span>Coming Soon ({comingSoonBenefits})</span>
+          </TabsTrigger>
+        </TabsList>
 
         <TabsContent value={activeTab} className="mt-6">
           <div className="space-y-6">

@@ -143,7 +143,7 @@ export default function AssetDetails() {
       {/* Hero Section */}
       <Card className="p-8 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+          <div className="flex items-center gap-6">
             {asset.logo && (
               <img 
                 src={asset.logo}
@@ -151,14 +151,14 @@ export default function AssetDetails() {
                 className="w-16 h-16 object-contain rounded-lg bg-white/80 p-1.5 shadow-sm"
               />
             )}
-            <div className="flex-1 w-full">
+            <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-3xl font-bold text-gradient break-words">{asset.name}</h1>
+                <h1 className="text-3xl font-bold text-gradient">{asset.name}</h1>
                 <Badge variant={asset.status === "coming-soon" ? "warning" : "success"} className="text-sm">
                   {asset.status === "coming-soon" ? "Pre-Sale" : "Live"}
                 </Badge>
               </div>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
               {asset.status !== "coming-soon" && (
                 <div className="flex items-center gap-1">
                   <Building className="w-4 h-4" />
@@ -171,21 +171,21 @@ export default function AssetDetails() {
               </div>
               </div>
             </div>
-          <div className="w-full md:w-auto flex items-stretch md:items-center justify-stretch md:justify-end mt-4 md:mt-0">
-            <Button 
-              size="lg"
-              className="btn-invest px-6 md:px-8 py-3 text-base md:text-lg font-semibold w-full md:w-auto"
-              onClick={() => {
-                if (asset.status === "coming-soon") {
-                  setShowEarlyAccess(true);
-                } else {
-                  navigate(`/assets/${assetId}/primary-offering`);
-                }
-              }}
-            >
-              {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
-            </Button>
-          </div>
+            <div className="flex items-center justify-end">
+              <Button 
+                size="lg"
+                className="btn-invest px-6 md:px-8 py-3 text-base md:text-lg font-semibold w-full md:w-auto"
+                onClick={() => {
+                  if (asset.status === "coming-soon") {
+                    setShowEarlyAccess(true);
+                  } else {
+                    navigate(`/assets/${assetId}/primary-offering`);
+                  }
+                }}
+              >
+                {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
+              </Button>
+            </div>
           </div>
           
           {/* Investment Overview Section */}
@@ -323,14 +323,12 @@ export default function AssetDetails() {
             </SelectContent>
           </Select>
         </div>
-        <TabsBanner>
-          <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="thesis">Investment Thesis</TabsTrigger>
-            <TabsTrigger value="analysis">Analysis</TabsTrigger>
-            <TabsTrigger value="risks">Risks & Rewards</TabsTrigger>
-          </TabsList>
-        </TabsBanner>
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="thesis">Investment Thesis</TabsTrigger>
+          <TabsTrigger value="analysis">Analysis</TabsTrigger>
+          <TabsTrigger value="risks">Risks & Rewards</TabsTrigger>
+        </TabsList>
 
         <TabsContent value="overview" className="mt-6">
           <Card className="card-professional">
@@ -529,17 +527,17 @@ export default function AssetDetails() {
 
       {/* Action Section */}
       <Card className="p-6 bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="flex items-center justify-between">
           <div>
             <h3 className="text-xl font-bold mb-2">Ready to Invest?</h3>
             <p className="text-muted-foreground">Join thousands of investors backing {asset.name}</p>
           </div>
-          <div className="flex gap-3 w-full md:w-auto">
-            <Button variant="outline" className="w-full md:w-auto" onClick={() => navigate("/benefits")}>
+          <div className="flex gap-3">
+            <Button variant="outline" onClick={() => navigate("/benefits")}>
               View Benefits
             </Button>
             <Button 
-              className="btn-invest w-full md:w-auto"
+              className="btn-invest"
               onClick={() => {
                 if (asset.status === "coming-soon") {
                   setShowEarlyAccess(true);
