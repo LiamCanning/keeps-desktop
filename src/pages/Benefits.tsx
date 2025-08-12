@@ -95,7 +95,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
   const tierOrder = ['bronze', 'silver', 'gold', 'platinum', 'diamond'];
 
   return (
-    <Card className="card-professional overflow-hidden">
+    <Card className="card-professional overflow-hidden h-full flex flex-col">
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -312,7 +312,7 @@ export default function Benefits() {
             </div>
             
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
                 {filteredBenefits.map((benefit) => (
                   <BenefitCard key={benefit.id} benefit={benefit} />
                 ))}

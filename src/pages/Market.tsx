@@ -162,7 +162,7 @@ function MarketCard({ listing }: { listing: MarketListing }) {
         <div className="border-t pt-3">
           <div className="flex justify-between items-center mb-2">
             <span className="font-semibold text-card-foreground">Total price:</span>
-            <span className="font-bold text-lg text-primary">{listing.finalPrice}</span>
+            <span className="font-bold text-lg text-green-700">{listing.finalPrice}</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Clock className="w-4 h-4" />

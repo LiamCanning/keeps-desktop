@@ -189,7 +189,7 @@ function InvestmentCard({ investment }: { investment: Investment }) {
         {/* Key metrics in cards */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3">
             <div className="text-center p-2 sm:p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20">
-              <p className="text-xs text-muted-foreground mb-1">Min Entry</p>
+              <p className="text-xs text-muted-foreground">Min Entry</p>
               <p className="font-bold text-xs sm:text-sm text-card-foreground">
                 {investment.name === 'McLaren F1' ? '£2,000' : 
                  investment.name === 'Ryder Cup' ? '£1,000' : '£500'}

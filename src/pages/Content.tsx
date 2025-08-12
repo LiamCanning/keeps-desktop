@@ -213,36 +213,32 @@ function NewsCard({ article, bookmarked, onToggleBookmark }: {
         </Badge>
       </div>
       
-      <CardHeader className="pb-3 flex-1">
-        <div className="flex items-start justify-between gap-3">
-          <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
-            {article.title}
-          </CardTitle>
-        </div>
-        <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
+      <CardHeader className="pb-2 flex-1">
+        <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors mb-2">
+          {article.title}
+        </CardTitle>
+        <p className="text-sm text-muted-foreground line-clamp-2">
           {article.summary}
         </p>
       </CardHeader>
       
       <CardContent className="pt-0 mt-auto">
-        <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-          <div className="flex items-center gap-4">
-            <span className="font-medium">{article.source}</span>
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <span>{new Date(article.date).toLocaleDateString('en-GB', { 
-                day: 'numeric', 
-                month: 'short', 
-                year: 'numeric' 
-              })}</span>
-            </div>
-            {article.readTime && (
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                <span>{article.readTime}</span>
-              </div>
-            )}
+        <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
+          <span className="font-medium">{article.source}</span>
+          <div className="flex items-center gap-1">
+            <Calendar className="w-3 h-3" />
+            <span>{new Date(article.date).toLocaleDateString('en-GB', { 
+              day: 'numeric', 
+              month: 'short', 
+              year: 'numeric' 
+            })}</span>
           </div>
+          {article.readTime && (
+            <div className="flex items-center gap-1">
+              <Clock className="w-3 h-3" />
+              <span>{article.readTime}</span>
+            </div>
+          )}
         </div>
         
         {(article.likes || article.comments) && (
