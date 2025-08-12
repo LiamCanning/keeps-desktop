@@ -120,7 +120,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
         </p>
       </CardHeader>
       
-      <CardContent className="pt-0">
+      <CardContent className="pt-0 mt-auto">
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
           <CollapsibleTrigger asChild>
             <Button 

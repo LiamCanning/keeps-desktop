@@ -16,7 +16,7 @@ export default function OrganisationDashboard() {
     return (
       <div className="relative min-h-screen bg-background flex items-center justify-center p-0 overflow-hidden">
         {/* Background image for desktop */}
-        <div className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen z-0 pointer-events-none">
+        <div className="hidden md:block absolute inset-0 z-0 pointer-events-none">
           <img
             src="/lovable-uploads/f9489b3f-9784-4b93-8f3d-77f58cba7577.png"
             alt="Formula 1 racing background"
