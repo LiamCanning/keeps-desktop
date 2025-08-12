@@ -88,7 +88,7 @@ const articles: { [key: string]: Article } = {
     source: "Keeps Team",
     author: "Sophie Turner",
     date: "2025-06-28",
-    image: "/src/assets/ryder-cup-golf.jpg",
+    image: "/lovable-uploads/499a2e53-4432-44cc-b37d-2a6b0e942d5b.png",
     category: "news",
     readTime: "4 min read",
     likes: 620,

@@ -48,7 +48,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Keeps Team",
     date: "2025-06-28",
-    image: "/src/assets/ryder-cup-golf.jpg",
+    image: "/lovable-uploads/499a2e53-4432-44cc-b37d-2a6b0e942d5b.png",
     category: "news",
     readTime: "4 min read"
   },

@@ -293,8 +293,8 @@ export default function PrimaryOffering() {
       </header>
 
       <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Mobile Order Summary */}
-        <aside className="lg:hidden order-first">
+        {/* Mobile Order Summary - positioned after investment details */}
+        <aside className="lg:hidden">
           {total > 0 && (
             <Card className="card-professional sticky top-6">
               <CardHeader>
