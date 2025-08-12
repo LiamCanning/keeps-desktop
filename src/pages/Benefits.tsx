@@ -103,14 +103,16 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
       </CardHeader>
       
       <CardContent className="pt-0 mt-auto">
-        <Button 
-          onClick={() => setIsModalOpen(true)}
-          variant="outline" 
-          className="-mx-3 flex items-center justify-center gap-2 px-8 py-4 h-auto hover-scale hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all duration-200"
-        >
-          <span className="font-medium">Explore Investment Tiers & Benefits</span>
-          <Star className="w-4 h-4" />
-        </Button>
+        <div className="flex justify-center">
+          <Button 
+            onClick={() => setIsModalOpen(true)}
+            variant="outline" 
+            className="flex items-center justify-center gap-2 px-6 py-4 h-auto hover-scale hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all duration-200"
+          >
+            <span className="font-medium">Explore Investment Tiers & Benefits</span>
+            <Star className="w-4 h-4" />
+          </Button>
+        </div>
         
         <TierExplorerModal
           isOpen={isModalOpen}
