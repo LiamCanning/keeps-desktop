@@ -147,7 +147,7 @@ export default function AssetDetails() {
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       <Button 
         variant="ghost" 
-        onClick={() => navigate(-1)}
+        onClick={() => navigate('/assets')}
         className="flex items-center gap-2"
       >
         <ArrowLeft className="w-4 h-4" />
