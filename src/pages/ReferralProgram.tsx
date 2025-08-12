@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import PageHeader from "@/components/PageHeader";
 
 interface ReferralReward {
   tier: string;
@@ -81,13 +82,10 @@ export default function ReferralProgram() {
 
   return (
     <div className="p-6 space-y-6 max-w-6xl mx-auto">
-      {/* Header */}
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-gradient">Referral Program</h1>
-        <p className="text-lg text-muted-foreground">
-          Earn rewards by inviting friends to join Keeps sports investment platform
-        </p>
-      </div>
+      <PageHeader
+        title="Referral Program"
+        subtitle="Earn rewards by inviting friends to join Keeps sports investment platform"
+      />
 
       {/* Current Status */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

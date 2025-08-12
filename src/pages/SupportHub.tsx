@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import PageHeader from "@/components/PageHeader";
 
 const faqs = [
   // Investment mechanics
@@ -110,13 +111,11 @@ export default function SupportHub() {
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
-      {/* Header */}
-      <div className="text-center space-y-4 py-8">
-        <h1 className="text-4xl font-bold text-foreground">Support Hub</h1>
-        <p className="text-xl text-muted-foreground">
-          Get help with your investments and account
-        </p>
-      </div>
+      <PageHeader
+        title="Support Hub"
+        subtitle="Get help with your investments and account"
+        align="center"
+      />
 
       {/* Search */}
       <div className="max-w-2xl mx-auto">
