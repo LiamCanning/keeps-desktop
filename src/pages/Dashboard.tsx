@@ -196,11 +196,11 @@ function InvestmentCard({ investment }: { investment: Investment }) {
               </p>
             </div>
             <div className="text-center p-2 sm:p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20">
-              <Users className="w-4 h-4 mx-auto text-primary mb-1" />
+              <Users className="w-4 h-4 mx-auto text-primary" />
               <p className="font-bold text-xs sm:text-sm text-card-foreground">{investment.investors}</p>
             </div>
             <div className="text-center p-2 sm:p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-primary/20">
-              <span className="text-lg mb-1">⏱</span>
+              <Clock className="w-4 h-4 mx-auto text-primary" />
               <p className="font-bold text-xs sm:text-sm text-card-foreground">{investment.timeRemaining}</p>
             </div>
         </div>
