@@ -238,15 +238,15 @@ export default function Market() {
               <div className="text-sm text-gray-600">Market Volume</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">6</div>
+              <div className="text-3xl font-bold text-blue-600">6</div>
               <div className="text-sm text-gray-600">Active Listings</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-600">+14.8%</div>
+              <div className="text-3xl font-bold text-green-600">+14.8%</div>
               <div className="text-sm text-gray-600">Avg Price Change</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600">2.5 days</div>
+              <div className="text-3xl font-bold text-purple-600">2.5 days</div>
               <div className="text-sm text-gray-600">Avg Settlement</div>
             </div>
           </div>
