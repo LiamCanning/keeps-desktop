@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { LogoImage } from "@/components/ui/logo-image";
 import mclarenLogo from "@/assets/logos/mclaren-racing-logo.png";
 import ryderLogo from "@/assets/logos/ryder-cup-logo.png";
+import PageHeader from "@/components/PageHeader";
 
 interface Asset {
   id: string;
@@ -232,11 +233,10 @@ export default function Assets() {
 
   return (
     <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
-      {/* Header Section */}
-      <div className="space-y-2 text-left">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gradient">All Assets</h1>
-        <p className="text-base sm:text-lg text-muted-foreground">Discover and invest in world-class sports organisations</p>
-      </div>
+      <PageHeader
+        title="All Assets"
+        subtitle="Discover and invest in world-class sports organisations"
+      />
 
       {/* Filter Tabs - Replacing the banner */}
       <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 sm:p-6 border border-primary/20">

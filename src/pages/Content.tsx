@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import PageHeader from "@/components/PageHeader";
 
 interface NewsArticle {
   id: string;
@@ -387,10 +388,10 @@ export default function Content() {
       {/* Personalized Header Section */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-gradient">Content for Your Portfolio</h1>
-            <p className="text-lg text-foreground/80">insights from the world of sports investment</p>
-          </div>
+          <PageHeader
+            title="Content for Your Portfolio"
+            subtitle="insights from the world of sports investment"
+          />
           <Badge variant="secondary" className="px-3 py-1">
             {userInvestments.length} Assets
           </Badge>
