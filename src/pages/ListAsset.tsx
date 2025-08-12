@@ -102,7 +102,7 @@ export default function ListAsset() {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-4xl mx-auto">
+    <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex items-center gap-4">
         <Button variant="ghost" onClick={() => navigate(-1)}>
@@ -129,9 +129,9 @@ export default function ListAsset() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* Listing Form */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-3 space-y-6">
           {/* Asset Selection */}
           <Card className="card-professional">
             <CardHeader>
@@ -334,7 +334,7 @@ export default function ListAsset() {
         </div>
 
         {/* Listing Summary */}
-        <div className="space-y-6">
+        <div className="space-y-6 lg:col-span-2">
           {asset && quantityNum > 0 && priceNum > 0 && (
             <Card className="card-professional">
               <CardHeader>

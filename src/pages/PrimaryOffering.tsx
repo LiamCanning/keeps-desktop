@@ -284,7 +284,7 @@ export default function PrimaryOffering() {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-6xl mx-auto">
+    <div className="p-6 space-y-6 max-w-7xl mx-auto">
       <header className="flex items-center gap-4">
         <Button variant="ghost" onClick={() => navigate(-1)}>
           <ArrowLeft className="w-4 h-4 mr-2" />
@@ -313,7 +313,7 @@ export default function PrimaryOffering() {
                   <Separator />
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total:</span>
-                    <span className="text-primary">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
+                    <span className="text-success">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
                   </div>
                 </div>
                 <div className="space-y-3">
@@ -345,7 +345,7 @@ export default function PrimaryOffering() {
           )}
         </aside>
 
-        <section className="lg:col-span-8 xl:col-span-9 space-y-6">
+        <section className="lg:col-span-7 xl:col-span-8 space-y-6">
           <article className="card-professional">
             <Card>
               <CardHeader className="pb-4">
@@ -581,7 +581,7 @@ export default function PrimaryOffering() {
           </div>
         </section>
 
-        <aside className="space-y-6 lg:col-span-4 xl:col-span-3">
+        <aside className="space-y-6 lg:col-span-5 xl:col-span-4">
           <Card className="card-professional bg-success/10 border-success/30 ring-1 ring-success/20">
             <CardHeader>
               <CardTitle>Order Summary</CardTitle>
@@ -607,7 +607,7 @@ export default function PrimaryOffering() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Unit Price:</span>
-                      <span className="font-medium">£{pricePerShare.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                      <span className="font-medium">£{pricePerShare.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: false })}</span>
                     </div>
                   </>
                 )}
@@ -617,13 +617,13 @@ export default function PrimaryOffering() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Processing Fee ({(asset.processingFee * 100).toFixed(0)}%):</span>
-                  <span className="font-medium">£{processingFee.toFixed(2)}</span>
+                  <span className="font-medium">£{processingFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <Separator />
-                <div className="flex justify-between text-xl font-bold">
-                  <span>Total:</span>
-                  <span className="text-primary">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                </div>
+                  <div className="flex justify-between text-xl font-bold">
+                    <span>Total:</span>
+                    <span className="text-success">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
               </div>
 
               {currentTierData && (

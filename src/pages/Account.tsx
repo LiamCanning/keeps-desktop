@@ -108,7 +108,7 @@ export default function Account() {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-4xl mx-auto">
+    <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold text-gradient">Account</h1>
