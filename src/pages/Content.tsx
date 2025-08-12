@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ryderHero from "@/assets/ryder-cup-golf.jpg";
+
 
 interface NewsArticle {
   id: string;
@@ -48,7 +50,7 @@ const newsArticles: NewsArticle[] = [
     summary: "The exclusive Ryder Cup debenture programme provides investors with premium access and attractive financial returns through innovative sports investment.",
     source: "Keeps Team",
     date: "2025-06-28",
-    image: "/src/assets/ryder-cup-golf.jpg",
+    image: ryderHero,
     category: "news",
     readTime: "4 min read"
   },

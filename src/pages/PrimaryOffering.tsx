@@ -293,57 +293,6 @@ export default function PrimaryOffering() {
       </header>
 
       <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Mobile Order Summary */}
-        <aside className="lg:hidden order-first">
-          {total > 0 && (
-            <Card className="card-professional sticky top-6">
-              <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span>Subtotal:</span>
-                    <span className="font-semibold">£{subtotal.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
-                  </div>
-                  <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>Processing Fee ({(asset.processingFee * 100).toFixed(1)}%):</span>
-                    <span>£{processingFee.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
-                  </div>
-                  <Separator />
-                  <div className="flex justify-between text-lg font-bold">
-                    <span>Total:</span>
-                    <span className="text-primary">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <TierIcon className={`w-5 h-5 ${currentTierData?.color}`} />
-                    <span className="font-semibold">{currentTierData?.name} Tier</span>
-                  </div>
-                  {selectedTierBenefits.length > 0 && (
-                    <div className="space-y-2">
-                      <p className="text-sm font-medium">Benefits Included:</p>
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                        {selectedTierBenefits.slice(0, 3).map((benefit, index) => (
-                          <li key={index} className="flex items-start gap-1">
-                            <span className="text-success mt-1">✓</span>
-                            <span>{benefit}</span>
-                          </li>
-                        ))}
-                        {selectedTierBenefits.length > 3 && (
-                          <li className="text-xs text-muted-foreground">
-                            +{selectedTierBenefits.length - 3} more benefits
-                          </li>
-                        )}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </aside>
 
         <section className="lg:col-span-8 xl:col-span-9 space-y-6">
           <article className="card-professional">
@@ -530,6 +479,58 @@ export default function PrimaryOffering() {
               </CardContent>
             </Card>
           )}
+          {/* Mobile Order Summary moved below Investment Details and above Security */}
+          {total > 0 && (
+            <div className="lg:hidden">
+              <Card className="card-professional">
+                <CardHeader>
+                  <CardTitle>Order Summary</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span>Subtotal:</span>
+                      <span className="font-semibold">£{subtotal.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
+                    </div>
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                      <span>Processing Fee ({(asset.processingFee * 100).toFixed(1)}%):</span>
+                      <span>£{processingFee.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
+                    </div>
+                    <Separator />
+                    <div className="flex justify-between text-lg font-bold">
+                      <span>Total:</span>
+                      <span className="text-primary">£{total.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</span>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <TierIcon className={`w-5 h-5 ${currentTierData?.color}`} />
+                      <span className="font-semibold">{currentTierData?.name} Tier</span>
+                    </div>
+                    {selectedTierBenefits.length > 0 && (
+                      <div className="space-y-2">
+                        <p className="text-sm font-medium">Benefits Included:</p>
+                        <ul className="text-sm text-muted-foreground space-y-1">
+                          {selectedTierBenefits.slice(0, 3).map((benefit, index) => (
+                            <li key={index} className="flex items-start gap-1">
+                              <span className="text-success mt-1">✓</span>
+                              <span>{benefit}</span>
+                            </li>
+                          ))}
+                          {selectedTierBenefits.length > 3 && (
+                            <li className="text-xs text-muted-foreground">
+                              +{selectedTierBenefits.length - 3} more benefits
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
           {/* Compliance & Security */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card>

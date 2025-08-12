@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import ryderArticle from "@/assets/ryder-cup-golf.jpg";
+
 
 interface Article {
   id: string;
@@ -88,7 +90,7 @@ const articles: { [key: string]: Article } = {
     source: "Keeps Team",
     author: "Sophie Turner",
     date: "2025-06-28",
-    image: "/src/assets/ryder-cup-golf.jpg",
+    image: ryderArticle,
     category: "news",
     readTime: "4 min read",
     likes: 620,
