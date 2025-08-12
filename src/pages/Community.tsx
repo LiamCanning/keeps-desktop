@@ -219,55 +219,36 @@ export default function Community() {
         </Button>
       </div>
 
-      {/* Community Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Users className="w-5 h-5 text-primary" />
+      {/* Community Discovery Banner */}
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-orange-50 to-pink-50 p-6 border border-orange-200">
+        <div className="relative z-10 flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-orange-600 mb-2">Community Discovery</h2>
+            <p className="text-gray-600">Connect with fellow sports investors</p>
+          </div>
+          <div className="flex items-center gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-800">2,847</div>
+              <div className="text-sm text-gray-600">Total Members</div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Total Members</p>
-              <p className="font-semibold text-xl text-card-foreground">2,847</p>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600">156</div>
+              <div className="text-sm text-gray-600">Posts Today</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-yellow-600">234</div>
+              <div className="text-sm text-gray-600">Active Now</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-600">42</div>
+              <div className="text-sm text-gray-600">Top Discussions</div>
             </div>
           </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-success/20 rounded-lg">
-              <MessageCircle className="w-5 h-5 text-success" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Posts Today</p>
-              <p className="font-semibold text-xl text-card-foreground">156</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-warning/20 rounded-lg">
-              <Heart className="w-5 h-5 text-warning" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Active Now</p>
-              <p className="font-semibold text-xl text-card-foreground">234</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-accent/20 rounded-lg">
-              <Star className="w-5 h-5 text-accent" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Top Discussions</p>
-              <p className="font-semibold text-xl text-card-foreground">42</p>
-            </div>
-          </div>
-        </Card>
+        </div>
+        <div className="absolute bottom-4 right-6 flex gap-2">
+          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+          <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+        </div>
       </div>
 
       {/* Community Tabs */}

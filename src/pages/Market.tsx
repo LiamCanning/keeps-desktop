@@ -225,55 +225,36 @@ export default function Market() {
         </Button>
       </div>
 
-      {/* Market Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-primary" />
+      {/* Market Analytics Banner */}
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-teal-50 to-blue-50 p-6 border border-teal-200">
+        <div className="relative z-10 flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-teal-600 mb-2">Market Analytics</h2>
+            <p className="text-gray-600">Real-time trading insights</p>
+          </div>
+          <div className="flex items-center gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-800">£1.2M</div>
+              <div className="text-sm text-gray-600">Market Volume</div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Market Volume</p>
-              <p className="font-semibold text-xl text-card-foreground">£1.2M</p>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600">6</div>
+              <div className="text-sm text-gray-600">Active Listings</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-yellow-600">+14.8%</div>
+              <div className="text-sm text-gray-600">Avg Price Change</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-600">2.5 days</div>
+              <div className="text-sm text-gray-600">Avg Settlement</div>
             </div>
           </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-success/20 rounded-lg">
-              <Users className="w-5 h-5 text-success" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Active Listings</p>
-              <p className="font-semibold text-xl text-card-foreground">{marketListings.length}</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-warning/20 rounded-lg">
-              <DollarSign className="w-5 h-5 text-warning" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Avg Price Change</p>
-              <p className="font-semibold text-xl text-card-foreground">+14.8%</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="card-professional p-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Clock className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Avg Settlement</p>
-              <p className="font-semibold text-xl text-card-foreground">2.5 days</p>
-            </div>
-          </div>
-        </Card>
+        </div>
+        <div className="absolute bottom-4 right-6 flex gap-2">
+          <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+        </div>
       </div>
 
       {/* Search and Filters */}

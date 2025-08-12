@@ -235,55 +235,36 @@ export default function Benefits() {
         </p>
       </div>
 
-      {/* Benefits Overview Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="p-4 card-professional">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Gift className="w-5 h-5 text-primary" />
+      {/* Benefits Overview Banner */}
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-50 to-indigo-50 p-6 border border-purple-200">
+        <div className="relative z-10 flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-purple-600 mb-2">Benefits Overview</h2>
+            <p className="text-gray-600">Unlock exclusive sports experiences</p>
+          </div>
+          <div className="flex items-center gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-800">3</div>
+              <div className="text-sm text-gray-600">Total Assets</div>
             </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Total Assets</p>
-              <p className="font-semibold text-xl">3</p>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600">5</div>
+              <div className="text-sm text-gray-600">Benefit Tiers</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-yellow-600">£500</div>
+              <div className="text-sm text-gray-600">Min Investment</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-600">Premium</div>
+              <div className="text-sm text-gray-600">Exclusive Access</div>
             </div>
           </div>
-        </Card>
-        
-        <Card className="p-4 card-professional">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-success/20 rounded-lg">
-              <Star className="w-5 h-5 text-success" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Benefit Tiers</p>
-              <p className="font-semibold text-xl">5</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="p-4 card-professional">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-warning/20 rounded-lg">
-              <Trophy className="w-5 h-5 text-warning" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Min Investment</p>
-              <p className="font-semibold text-xl">£500</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="p-4 card-professional">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Diamond className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Exclusive Access</p>
-              <p className="font-semibold text-xl">Premium</p>
-            </div>
-          </div>
-        </Card>
+        </div>
+        <div className="absolute bottom-4 right-6 flex gap-2">
+          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+          <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+        </div>
       </div>
 
       {/* Benefits Tabs */}
