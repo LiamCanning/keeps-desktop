@@ -68,7 +68,7 @@ const assets: { [key: string]: Asset } = {
     name: "Southern Brave",
     type: "Equity Investment",
     pricePerShare: 1500,
-    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    logo: "/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
     currency: "GBP",
     description: "The Hundred cricket franchise equity shares with dividend potential",
     minInvestment: 1500,

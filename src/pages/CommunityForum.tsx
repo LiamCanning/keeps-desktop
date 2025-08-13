@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MessageCircle, Users, ThumbsUp, ThumbsDown, Pin, Clock, TrendingUp, Search, Plus, Filter } from "lucide-react";
+import { MessageCircle, Users, ThumbsUp, ThumbsDown, Pin, Clock, TrendingUp, Search, Plus, Filter, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -238,9 +238,15 @@ export default function CommunityForum() {
   return (
     <div className="space-y-6 p-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-bold text-gradient">Community Forum</h1>
-        <p className="text-lg text-foreground/80">Discuss sports investments with fellow investors</p>
+      <div className="space-y-4">
+        <Button variant="ghost" onClick={() => navigate(-1)} className="flex items-center gap-2">
+          <ArrowLeft className="w-4 h-4" />
+          Back to Community
+        </Button>
+        <div className="space-y-2 text-center">
+          <h1 className="text-3xl font-bold text-gradient">Community Forum</h1>
+          <p className="text-lg text-foreground/80">Discuss sports investments with fellow investors</p>
+        </div>
       </div>
 
       {/* Search and Filters */}

@@ -36,49 +36,7 @@ interface CommunityPost {
   dealMention?: string;
 }
 
-const communityPosts: CommunityPost[] = [
-  {
-    id: "1",
-    user: {
-      name: "Sarah Mitchell",
-      username: "sarahm_investor",
-      avatar: sarahAvatar,
-      verified: true
-    },
-    content: "Just invested in Liverpool FC through Keeps! The Diamond tier benefits are incredible - behind-the-scenes access and VIP hospitality make this feel like true ownership. This is the future of fan investment! ⚽️🔥",
-    timestamp: "2h",
-    likes: 127,
-    replies: 15,
-    dealMention: "Liverpool FC"
-  },
-  {
-    id: "2", 
-    user: {
-      name: "Mike Johnson",
-      username: "mike_sports",
-      avatar: mikeAvatar,
-      verified: false
-    },
-    content: "McLaren's performance this season has been outstanding! My F1 investment is already showing solid returns. The revenue sharing model is brilliant for sports fans who want to be more than just spectators 🏎️📈",
-    timestamp: "4h",
-    likes: 89,
-    replies: 23,
-    dealMention: "McLaren Racing"
-  },
-  {
-    id: "3",
-    user: {
-      name: "Emma Watson",
-      username: "emma_invests", 
-      avatar: emmaAvatar,
-      verified: true
-    },
-    content: "Diversification is key! I'm now invested across Liverpool FC, McLaren F1, and considering the Ryder Cup. Sports investment gives me exposure to sectors I'm passionate about while building wealth 💰⛳",
-    timestamp: "6h",
-    likes: 156,
-    replies: 31
-  }
-];
+import { communityPosts as initialPosts } from '@/data/communityPosts';
 
 function CommunityPost({ 
   post, 
@@ -150,7 +108,7 @@ export default function Community() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("timeline");
   const [newPostContent, setNewPostContent] = useState("");
-  const [posts, setPosts] = useState(communityPosts);
+  const [posts, setPosts] = useState(initialPosts);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handlePostSubmit = () => {

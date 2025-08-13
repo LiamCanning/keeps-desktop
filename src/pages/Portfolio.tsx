@@ -33,7 +33,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "1",
     name: "Southern Brave",
-    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
+    logo: "/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
     investment: "£50,000",
     shares: "33 (£1,500 per share)",
     purchaseDate: "15/03/2025",
