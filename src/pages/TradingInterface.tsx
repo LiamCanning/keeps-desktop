@@ -382,7 +382,7 @@ export default function TradingInterface() {
                  <Separator />
                  <div className="flex justify-between text-xl font-bold">
                    <span>Total:</span>
-                   <span className="text-primary">{formatGBP(total)}</span>
+                   <span className="text-success">{formatGBP(total)}</span>
                  </div>
                </div>
                {/* Investment Tier */}
