@@ -22,6 +22,17 @@ interface Investment {
 const investmentHistory: Investment[] = [
   {
     id: "1",
+    asset: "Southern Brave",
+    type: "Primary Purchase",
+    date: "2025-03-15",
+    amount: 50000,
+    shares: 33,
+    pricePerShare: 1500,
+    status: "completed",
+    currentValue: 58250
+  },
+  {
+    id: "2",
     asset: "Liverpool FC",
     type: "Primary Purchase",
     date: "2025-07-15",
@@ -32,7 +43,7 @@ const investmentHistory: Investment[] = [
     currentValue: 28750
   },
   {
-    id: "2", 
+    id: "3", 
     asset: "McLaren Racing",
     type: "Primary Purchase",
     date: "2025-07-10",
@@ -43,7 +54,7 @@ const investmentHistory: Investment[] = [
     currentValue: 244000
   },
   {
-    id: "3",
+    id: "4",
     asset: "Ryder Cup",
     type: "Debenture Purchase",
     date: "2025-07-05",

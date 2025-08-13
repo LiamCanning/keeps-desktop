@@ -115,7 +115,7 @@ const marketListings: MarketListing[] = [
   {
     id: "7",
     asset: "Southern Brave",
-    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
     seller: "CricketFan92",
     quantity: 3,
     pricePerUnit: "£1,750",
@@ -129,7 +129,7 @@ const marketListings: MarketListing[] = [
   {
     id: "8",
     asset: "Southern Brave",
-    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
     seller: "HundredFan",
     quantity: 5,
     pricePerUnit: "£1,680",
@@ -143,7 +143,7 @@ const marketListings: MarketListing[] = [
   {
     id: "9",
     asset: "Southern Brave",
-    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
     seller: "CricketInvestor",
     quantity: 1,
     pricePerUnit: "£1,800",
@@ -567,7 +567,7 @@ export default function Market() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <LogoImage 
-                      src="/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png"
+                      src="/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png"
                       alt="Southern Brave"
                       size="md"
                     />

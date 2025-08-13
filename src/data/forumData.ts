@@ -28,6 +28,18 @@ import hexagonSports from '@/assets/hexagon-sports.jpg';
 export const forumPosts = [
   {
     id: "1",
+    title: "Southern Brave deal closed - incredibly efficient process!",
+    content: "Just completed my Southern Brave investment and honestly blown away by how smooth the entire process was. From initial application to final confirmation took less than 48 hours. The Keeps team really delivered on their promise of streamlined sports investing. Already looking forward to The Hundred season and those dividend payments!",
+    author: "James Richardson",
+    avatar: jamesAvatar,
+    timestamp: "1 hour ago",
+    category: "Cricket",
+    replies: 8,
+    likes: 15,
+    verified: true
+  },
+  {
+    id: "2",
     title: "Liverpool FC valuation concerns - thoughts?",
     content: "I've been looking at the Liverpool FC investment opportunity and I'm a bit concerned about the current valuation compared to recent club sales. What are your thoughts on the £40M raise at this price point?",
     author: "Sarah Thompson",
@@ -39,7 +51,7 @@ export const forumPosts = [
     verified: true
   },
   {
-    id: "2", 
+    id: "3", 
     title: "McLaren F1 - Best performing investment this quarter",
     content: "Just wanted to share that McLaren has been absolutely crushing it this quarter. Up 22% and looking strong for the rest of the season. Anyone else holding McLaren shares?",
     author: "Mike Johnson",

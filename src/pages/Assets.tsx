@@ -114,7 +114,7 @@ const assets: Asset[] = [
   {
     id: "southern-brave",
     name: "Southern Brave",
-    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
     banner: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=400&fit=crop",
     status: "completed",
     description: "5% equity of £100m valuation. 100% funded cricket investment providing dividends from The Hundred's elite franchise.",

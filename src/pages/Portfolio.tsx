@@ -32,6 +32,21 @@ interface PortfolioHolding {
 const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "1",
+    name: "Southern Brave",
+    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
+    investment: "£50,000",
+    shares: "33 (£1,500 per share)",
+    purchaseDate: "15/03/2025",
+    purchasePrice: "£1,500.00 per share",
+    currentPrice: "£1,750.00 per share",
+    return: "+£8,250",
+    returnPercent: 16.5,
+    tier: "Platinum",
+    dividendPotential: "3-5% dividends",
+    type: "Equity"
+  },
+  {
+    id: "2",
     name: "Liverpool FC",
     logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
     investment: "£25,000",
@@ -46,7 +61,7 @@ const portfolioHoldings: PortfolioHolding[] = [
     type: "Equity"
   },
   {
-    id: "2",
+    id: "3",
     name: "McLaren Racing",
     logo: mclarenLogo,
     investment: "£200,000",
@@ -61,7 +76,7 @@ const portfolioHoldings: PortfolioHolding[] = [
     type: "ISA"
   },
   {
-    id: "3",
+    id: "4",
     name: "Ryder Cup",
     logo: ryderLogo,
     investment: "£15,000",
@@ -77,12 +92,12 @@ const portfolioHoldings: PortfolioHolding[] = [
   },
 ];
 
-// Performance data derived from holdings
+// Performance data derived from holdings (updated with Southern Brave)
 const valueHistory = [
-  { date: "Week 1", value: 275000 },
-  { date: "Week 2", value: 281500 },
-  { date: "Week 3", value: 295200 },
-  { date: "Week 4", value: 302355 },
+  { date: "Week 1", value: 290000 },
+  { date: "Week 2", value: 295500 },
+  { date: "Week 3", value: 315200 },
+  { date: "Week 4", value: 323805 },
 ];
 
 const returnsHistory = [
@@ -187,8 +202,8 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const totalInvested = 250000;
-  const totalValue = 302355;
+  const totalInvested = 290000;
+  const totalValue = 323805;
   const totalReturn = totalValue - totalInvested;
   const returnPercent = (totalReturn / totalInvested) * 100;
 
@@ -252,10 +267,11 @@ export default function Portfolio() {
         <CardContent>
           <div className="p-4 bg-muted/20 rounded-lg">
             <p className="text-sm text-card-foreground leading-relaxed">
-              Your portfolio shows strong diversification across different sports sectors. McLaren Racing (80% of holdings) 
-              represents a significant concentration risk, but its strong performance (+22.0% current return) justifies the allocation. 
-              Consider adding exposure to emerging sports markets for additional growth potential. Your current projected annual 
-              return is 18.4%, outperforming the sports investment index by 2.1%.
+              Your portfolio shows excellent diversification across different sports sectors. Southern Brave (17.2% of holdings) 
+              represents strong cricket exposure while McLaren Racing (69.0% of holdings) dominates your motorsport allocation. 
+              Both assets are performing above expectations with strong fundamentals. Consider your balanced exposure across 
+              emerging cricket markets and established F1 commercial success. Current projected annual return is 19.2%, 
+              outperforming the sports investment index by 3.1%.
             </p>
           </div>
         </CardContent>
