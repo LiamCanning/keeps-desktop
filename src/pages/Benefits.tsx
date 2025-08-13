@@ -59,6 +59,13 @@ const benefits: Benefit[] = [
     logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png",
     status: "coming-soon",
     description: "Elite American university athletics programme offering premium game experiences, campus access, and exclusive Buckeyes community benefits."
+  },
+  {
+    id: "7",
+    team: "Southern Brave",
+    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    status: "completed",
+    description: "The Hundred cricket franchise offering exclusive cricket experiences, hospitality packages, and access to England's premier cricket tournament."
   }
 ];
 
@@ -72,6 +79,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
     if (teamName.includes('Cardiff')) return 'cardiff';
     if (teamName.includes('Hexagon')) return 'hexagon';
     if (teamName.includes('Ohio')) return 'ohio';
+    if (teamName.includes('Southern')) return 'southernbrave';
     return 'liverpool';
   };
 
@@ -92,7 +100,7 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
               <CardTitle className="text-xl text-left">{benefit.team}</CardTitle>
               <Badge variant={benefit.status === "live" ? "success" : benefit.status === "coming-soon" ? "warning" : "secondary"} className="mt-1">
                 {benefit.status === "live" ? "Live" : 
-                 benefit.status === "coming-soon" ? "Coming Soon" : "Completed"}
+                 benefit.status === "coming-soon" ? "Coming Soon" : "Funded"}
               </Badge>
             </div>
           </div>
@@ -188,15 +196,15 @@ export default function Benefits() {
             <SelectTrigger aria-label="Select benefits section">
               <SelectValue placeholder="Select section" />
             </SelectTrigger>
-            <SelectContent className="z-50">
-              <SelectItem value="all">All Assets</SelectItem>
-              <SelectItem value="live">Live</SelectItem>
-              <SelectItem value="coming-soon">Coming Soon</SelectItem>
-              <SelectItem value="completed">Completed</SelectItem>
-            </SelectContent>
+              <SelectContent className="z-50">
+                <SelectItem value="all">All Assets</SelectItem>
+                <SelectItem value="live">Live</SelectItem>
+                <SelectItem value="coming-soon">Coming Soon</SelectItem>
+                <SelectItem value="completed">Funded</SelectItem>
+              </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md p-1.5">
+        <TabsList className="hidden md:grid w-full grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] h-auto rounded-md p-1.5">
           <TabsTrigger value="all" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
             <span>All Assets ({totalBenefits})</span>
           </TabsTrigger>
@@ -208,6 +216,10 @@ export default function Benefits() {
             <div className="w-2 h-2 bg-warning rounded-full"></div>
             <span>Coming Soon ({comingSoonBenefits})</span>
           </TabsTrigger>
+          <TabsTrigger value="completed" className="flex items-center justify-center gap-2 text-sm font-medium p-3">
+            <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
+            <span>Funded ({benefits.filter(b => b.status === "completed").length})</span>
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value={activeTab} className="mt-6">
@@ -217,7 +229,7 @@ export default function Benefits() {
                 {activeTab === "all" ? "All Asset Benefits" :
                  activeTab === "live" ? "Live Asset Benefits" :
                  activeTab === "coming-soon" ? "Coming Soon Benefits" :
-                 "Completed Asset Benefits"}
+                 "Funded Asset Benefits"}
               </h2>
               <Badge variant={activeTab === "live" ? "success" : activeTab === "coming-soon" ? "warning" : "secondary"}>
                 {filteredBenefits.length} Available

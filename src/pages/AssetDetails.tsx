@@ -112,6 +112,23 @@ export default function AssetDetails() {
           investmentThesis: "Ohio State University athletics represents America's most valuable college sports program with guaranteed revenue streams from stadium operations. The income sharing agreement provides 10% participation in future stadium revenues from Ohio Stadium (105,000 capacity), generating £8-12M annually for investors. Ohio State's football program consistently ranks #1-3 nationally in revenue generation (£150M+ annually), with stadium revenues representing 40-50% of total athletics income. The agreement covers all stadium-generated revenue including tickets, concessions, hospitality, naming rights, and special events.",
           detailedAnalysis: "Ohio Stadium generates £60-80M annually through seven home games, concerts, and special events. Season ticket waiting lists exceed 40,000 names while premium seating commands £2,000-5,000 per season. Ohio State's national championship aspirations ensure consistent sell-outs and premium pricing power. The university's £7bn endowment and AAA credit rating provide financial stability, while Big Ten Conference revenue sharing adds £50M+ annually. College football's expansion through playoffs and media rights creates additional revenue growth potential, with Ohio State positioned as a primary beneficiary."
         };
+      case "southern-brave":
+        return {
+          name: "Southern Brave",
+          description: "5% equity of £100m valuation. 100% funded cricket investment providing dividends from The Hundred's elite franchise.",
+          minInvestment: "£1,500",
+          expectedReturn: "3-5% dividends",
+          fundingProgress: 100,
+          totalFunding: "£5M",
+          category: "Equity",
+          launchDate: "March 2025",
+          endDate: "May 2025",
+          status: "completed",
+          logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+          investmentThesis: "Southern Brave represents a unique opportunity to invest in The Hundred's most successful franchise through direct equity participation. With 100% funding achieved and operations commenced, this completed investment provides stable dividend income from England's premier cricket tournament. Southern Brave's championship-winning performance in 2021 and consistent playoff appearances demonstrate on-field excellence that translates to commercial success. The Rose Bowl stadium capacity expansion and Hampshire Cricket's facilities investment create additional revenue streams. The Hundred's £125M broadcast deal with Sky Sports and BBC provides guaranteed income distribution, while Southern Brave's partnership with KP Snacks ensures premium commercial backing.",
+          detailedAnalysis: "Southern Brave's 2024 season generated record revenues of £18.5M through ticket sales, merchandise, hospitality, and broadcast distributions. The Hundred format's family-friendly scheduling drives 85% capacity utilization at the Rose Bowl, while Southern Brave's 'most entertaining cricket' brand attracts premium sponsorship rates. KP Snacks' multi-year partnership provides £2.5M annually in commercial backing, with additional partnerships generating £5M+ yearly. Player wages are capped under Hundred regulations ensuring profit margins, while Southern Brave's academy system produces tradeable assets. The investment provides 3-5% annual dividends plus potential capital appreciation from franchise value growth in the expanding Hundred market.",
+          fundingOutcome: "The £5M funding round has been strategically allocated across four key areas to enhance Southern Brave's competitive position and revenue generation. Stadium facilities received £2.1M for Rose Bowl hospitality suite upgrades, including 12 premium boxes with direct pitch views, enhanced catering facilities with celebrity chef partnerships, and technology upgrades featuring 4K replay screens and interactive fan zones. Player development invested £1.2M in academy expansion, specialist coaching recruitment including former England internationals, and cutting-edge performance analysis equipment. Commercial infrastructure received £900K for brand partnerships development, merchandise retail expansion including pop-up stores across Hampshire, and digital marketing campaigns targeting The Hundred's growing fanbase. The remaining £800K was allocated to operational excellence including sustainability initiatives, community outreach programs in Southampton and Winchester, and reserve funding for strategic opportunities during the competitive season."
+        };
       default:
         return {
           name: "Asset Not Found",
@@ -186,19 +203,22 @@ export default function AssetDetails() {
               </div>
             </div>
             <div className="flex items-center justify-end">
-              <Button 
-                size="lg"
-                className="btn-invest px-4 md:px-8 py-3 text-sm md:text-lg font-semibold w-full md:w-auto"
-                onClick={() => {
-                  if (asset.status === "coming-soon") {
-                    setShowEarlyAccess(true);
-                  } else {
-                    navigate(`/assets/${assetId}/primary-offering`);
-                  }
-                }}
-              >
-                {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
-              </Button>
+          <Button 
+            size="lg"
+            className="btn-invest px-4 md:px-8 py-3 text-sm md:text-lg font-semibold w-full md:w-auto"
+            onClick={() => {
+              if (asset.status === "coming-soon") {
+                setShowEarlyAccess(true);
+              } else if (asset.status === "completed") {
+                navigate('/market');
+              } else {
+                navigate(`/assets/${assetId}/primary-offering`);
+              }
+            }}
+          >
+            {asset.status === "coming-soon" ? "Get Early Access" : 
+             asset.status === "completed" ? "View Secondary Market" : "Invest Now"}
+          </Button>
             </div>
           </div>
           
@@ -343,10 +363,11 @@ export default function AssetDetails() {
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+        <TabsList className={`hidden md:grid w-full ${asset.status === "completed" ? "grid-cols-5" : "grid-cols-4"} lg:w-auto bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md`}>
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="thesis">Investment Thesis</TabsTrigger>
           <TabsTrigger value="analysis">Analysis</TabsTrigger>
+          {asset.status === "completed" && <TabsTrigger value="outcome">Outcome</TabsTrigger>}
           <TabsTrigger value="risks">Risks & Rewards</TabsTrigger>
         </TabsList>
 
@@ -543,6 +564,63 @@ export default function AssetDetails() {
             </CardContent>
           </Card>
         </TabsContent>
+
+        {asset.status === "completed" && (
+          <TabsContent value="outcome" className="mt-6">
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle>Funding Outcome</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  {(asset as any).fundingOutcome || "Details about how the funding has been allocated and the specific outcomes achieved."}
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="p-4 bg-success/5 rounded-lg border border-success/20">
+                    <h4 className="font-semibold text-success mb-3">Stadium Facilities (£2.1M)</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li>• 12 premium hospitality boxes with pitch views</li>
+                      <li>• Celebrity chef catering partnerships</li>
+                      <li>• 4K replay screens and interactive fan zones</li>
+                      <li>• Enhanced accessibility facilities</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                    <h4 className="font-semibold text-primary mb-3">Player Development (£1.2M)</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li>• Academy expansion with new coaching staff</li>
+                      <li>• Former England internationals recruited</li>
+                      <li>• Performance analysis equipment upgrade</li>
+                      <li>• Youth development programs</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="p-4 bg-warning/5 rounded-lg border border-warning/20">
+                    <h4 className="font-semibold text-warning mb-3">Commercial Infrastructure (£900K)</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li>• Brand partnership development</li>
+                      <li>• Pop-up retail stores across Hampshire</li>
+                      <li>• Digital marketing campaign expansion</li>
+                      <li>• Fan engagement technology</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="p-4 bg-accent/5 rounded-lg border border-accent/20">
+                    <h4 className="font-semibold text-accent mb-3">Operational Excellence (£800K)</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li>• Sustainability initiative implementation</li>
+                      <li>• Community outreach in Southampton & Winchester</li>
+                      <li>• Strategic opportunity reserve fund</li>
+                      <li>• Environmental impact reduction programs</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        )}
       </Tabs>
 
       {/* Action Section */}
@@ -561,12 +639,15 @@ export default function AssetDetails() {
               onClick={() => {
                 if (asset.status === "coming-soon") {
                   setShowEarlyAccess(true);
+                } else if (asset.status === "completed") {
+                  navigate('/market');
                 } else {
                   navigate(`/assets/${assetId}/primary-offering`);
                 }
               }}
             >
-              {asset.status === "coming-soon" ? "Get Early Access" : "Invest Now"}
+              {asset.status === "coming-soon" ? "Get Early Access" : 
+               asset.status === "completed" ? "View Secondary Market" : "Invest Now"}
             </Button>
           </div>
         </div>

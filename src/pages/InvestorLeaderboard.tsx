@@ -330,6 +330,98 @@ const getAssetInvestors = (assetId: string): {
         ]
       };
 
+    case "southern-brave":
+      return {
+        totalInvestors: 3350,
+        corporateSponsor: {
+          id: "kp-snacks",
+          name: "KP Snacks",
+          avatar: "/public/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png",
+          totalInvested: "£2,500,000",
+          portfolioValue: "£2,875,000",
+          returns: "+£375,000",
+          returnPercent: 15.0,
+          rank: 1,
+          tier: "Corporate",
+          assetsOwned: 1,
+          joinDate: "Mar 2024",
+          location: "Slough, UK",
+          isCompany: true
+        },
+        investors: [
+          {
+            id: "1",
+            name: "Chris Thompson",
+            avatar: chrisAvatar,
+            totalInvested: "£45,000",
+            portfolioValue: "£51,750",
+            returns: "+£6,750",
+            returnPercent: 15.0,
+            rank: 1,
+            tier: "Gold",
+            assetsOwned: 1,
+            joinDate: "Mar 2024",
+            location: "Southampton, UK"
+          },
+          {
+            id: "2",
+            name: "Jennifer Lopez",
+            avatar: jenniferAvatar,
+            totalInvested: "£30,000",
+            portfolioValue: "£34,500",
+            returns: "+£4,500",
+            returnPercent: 15.0,
+            rank: 2,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "Mar 2024",
+            location: "Winchester, UK"
+          },
+          {
+            id: "3",
+            name: "Marcus Johnson",
+            avatar: marcusAvatar,
+            totalInvested: "£22,500",
+            portfolioValue: "£25,875",
+            returns: "+£3,375",
+            returnPercent: 15.0,
+            rank: 3,
+            tier: "Silver",
+            assetsOwned: 1,
+            joinDate: "Apr 2024",
+            location: "Portsmouth, UK"
+          },
+          {
+            id: "4",
+            name: "Lisa Zhang",
+            avatar: lisaAvatar,
+            totalInvested: "£18,000",
+            portfolioValue: "£20,700",
+            returns: "+£2,700",
+            returnPercent: 15.0,
+            rank: 4,
+            tier: "Bronze",
+            assetsOwned: 1,
+            joinDate: "Apr 2024",
+            location: "Hampshire, UK"
+          },
+          {
+            id: "5",
+            name: "Paul Kumar",
+            avatar: paulAvatar,
+            totalInvested: "£15,000",
+            portfolioValue: "£17,250",
+            returns: "+£2,250",
+            returnPercent: 15.0,
+            rank: 5,
+            tier: "Bronze",
+            assetsOwned: 1,
+            joinDate: "May 2024",
+            location: "Basingstoke, UK"
+          }
+        ]
+      };
+
     default:
       // Default global leaderboard for non-asset pages
       return {
@@ -452,6 +544,7 @@ export default function InvestorLeaderboard() {
       case "liverpool-fc": return "Liverpool FC";
       case "mclaren-racing": return "McLaren Racing";
       case "ryder-cup": return "Ryder Cup";
+      case "southern-brave": return "Southern Brave";
       default: return "Platform";
     }
   };

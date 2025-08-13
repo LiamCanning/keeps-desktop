@@ -110,6 +110,20 @@ const assets: Asset[] = [
     totalFunding: "£80M",
     category: "Income Sharing Agreement",
     launchDate: "November 2025"
+  },
+  {
+    id: "southern-brave",
+    name: "Southern Brave",
+    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    banner: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=400&fit=crop",
+    status: "completed",
+    description: "5% equity of £100m valuation. 100% funded cricket investment providing dividends from The Hundred's elite franchise.",
+    minInvestment: "£1,500",
+    expectedReturn: "3-5% dividends",
+    fundingProgress: 100,
+    totalFunding: "£5M",
+    category: "Equity",
+    launchDate: "March 2025"
   }
 ];
 
@@ -141,9 +155,9 @@ function AssetCard({ asset }: { asset: Asset }) {
               size="xl"
             />
           </div>
-          <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"} className="shadow-md">
-            {asset.status === "live" ? "Live" : asset.status === "coming-soon" ? "Coming Soon" : "Completed"}
-          </Badge>
+            <Badge variant={asset.status === "live" ? "success" : asset.status === "coming-soon" ? "warning" : "secondary"} className="shadow-md">
+              {asset.status === "live" ? "Live" : asset.status === "coming-soon" ? "Coming Soon" : "Funded"}
+            </Badge>
         </div>
       </div>
       
@@ -250,7 +264,7 @@ export default function Assets() {
               <SelectContent className="z-50">
                 <SelectItem value="live">Live</SelectItem>
                 <SelectItem value="coming-soon">Coming Soon</SelectItem>
-                <SelectItem value="completed">Completed</SelectItem>
+                <SelectItem value="completed">Funded</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -267,8 +281,8 @@ export default function Assets() {
             </TabsTrigger>
             <TabsTrigger value="completed" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium p-2 sm:p-3">
               <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-              <span className="hidden sm:inline">Completed</span>
-              <span className="sm:hidden">Done</span>
+              <span className="hidden sm:inline">Funded ({completedAssets})</span>
+              <span className="sm:hidden">Funded ({completedAssets})</span>
             </TabsTrigger>
           </TabsList>
         </Tabs>
@@ -281,7 +295,7 @@ export default function Assets() {
           <h2 className="text-xl font-semibold text-left">
             {activeTab === "live" ? "Live Investment Assets" :
              activeTab === "coming-soon" ? "Upcoming Assets" :
-             "Completed Assets"}
+             "Funded Assets"}
           </h2>
           <Badge variant={activeTab === "live" ? "success" : activeTab === "coming-soon" ? "warning" : "secondary"}>
             {filteredAssets.length} Available

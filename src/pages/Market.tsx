@@ -111,6 +111,48 @@ const marketListings: MarketListing[] = [
     priceChange: 17.0,
     expires: "2025-08-15",
     type: "buy"
+  },
+  {
+    id: "7",
+    asset: "Southern Brave",
+    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    seller: "CricketFan92",
+    quantity: 3,
+    pricePerUnit: "£1,750",
+    totalPrice: "£5,250",
+    processingFee: "£131.25",
+    finalPrice: "£5,381.25",
+    priceChange: 16.7,
+    expires: "2025-08-18",
+    type: "buy"
+  },
+  {
+    id: "8",
+    asset: "Southern Brave",
+    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    seller: "HundredFan",
+    quantity: 5,
+    pricePerUnit: "£1,680",
+    totalPrice: "£8,400",
+    processingFee: "£210.00",
+    finalPrice: "£8,610.00",
+    priceChange: 12.0,
+    expires: "2025-08-20",
+    type: "buy"
+  },
+  {
+    id: "9",
+    asset: "Southern Brave",
+    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    seller: "CricketInvestor",
+    quantity: 1,
+    pricePerUnit: "£1,800",
+    totalPrice: "£1,800",
+    processingFee: "£45.00",
+    finalPrice: "£1,845.00",
+    priceChange: 20.0,
+    expires: "2025-08-22",
+    type: "buy"
   }
 ];
 
@@ -270,18 +312,32 @@ export default function Market() {
               className="pl-10 h-11 text-base"
             />
           </div>
-          <Select value={sortBy} onValueChange={setSortBy}>
-            <SelectTrigger className="w-full sm:w-48 h-11">
-              <ArrowUpDown className="w-4 h-4 mr-2" />
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="price-low">Price: Low to High</SelectItem>
-              <SelectItem value="price-high">Price: High to Low</SelectItem>
-              <SelectItem value="change-high">Best Performance</SelectItem>
-              <SelectItem value="expires-soon">Expires Soon</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="flex gap-3">
+            <Select value={sortBy} onValueChange={setSortBy}>
+              <SelectTrigger className="w-full sm:w-48 h-11">
+                <ArrowUpDown className="w-4 h-4 mr-2" />
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="price-low">Price: Low to High</SelectItem>
+                <SelectItem value="price-high">Price: High to Low</SelectItem>
+                <SelectItem value="change-high">Best Performance</SelectItem>
+                <SelectItem value="expires-soon">Expires Soon</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select value="" onValueChange={() => {}}>
+              <SelectTrigger className="w-full sm:w-48 h-11">
+                <Filter className="w-4 h-4 mr-2" />
+                <SelectValue placeholder="Filter by Sport" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="football">Football</SelectItem>
+                <SelectItem value="formula-one">Formula One</SelectItem>
+                <SelectItem value="golf">Golf</SelectItem>
+                <SelectItem value="cricket">Cricket</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </Card>
 
@@ -297,13 +353,15 @@ export default function Market() {
               <SelectItem value="market">Market</SelectItem>
               <SelectItem value="analysis">Analysis</SelectItem>
               <SelectItem value="watchlist">Watchlist</SelectItem>
+              <SelectItem value="funded">Funded</SelectItem>
             </SelectContent>
           </Select>
         </div>
-        <TabsList className="hidden md:grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
+        <TabsList className="hidden md:grid w-full grid-cols-4 lg:w-auto lg:grid-cols-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-[var(--shadow-elegant)] rounded-md">
           <TabsTrigger value="market" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Market</TabsTrigger>
           <TabsTrigger value="analysis" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Analysis</TabsTrigger>
           <TabsTrigger value="watchlist" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Watchlist</TabsTrigger>
+          <TabsTrigger value="funded" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Funded</TabsTrigger>
         </TabsList>
 
         <TabsContent value="market" className="mt-6">
@@ -489,6 +547,59 @@ export default function Market() {
                     </div>
                     <Button className="w-full btn-invest mt-4">
                       Add to Watchlist
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="funded" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-foreground">Funded Assets</h2>
+              <Badge variant="secondary">1 Asset</Badge>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <Card className="card-professional">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3">
+                    <LogoImage 
+                      src="/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png"
+                      alt="Southern Brave"
+                      size="md"
+                    />
+                    <div>
+                      <CardTitle className="text-lg text-card-foreground">Southern Brave</CardTitle>
+                      <p className="text-sm text-muted-foreground">The Hundred Cricket</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Status</span>
+                      <Badge variant="secondary">100% Funded</Badge>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Total Funding</span>
+                      <span className="font-bold text-lg">£5M</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Expected Returns</span>
+                      <span className="font-bold text-lg text-success">3-5% dividends</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Available via</span>
+                      <span className="font-bold text-lg">Secondary Market</span>
+                    </div>
+                    <Button 
+                      className="w-full btn-invest mt-4"
+                      onClick={() => window.location.href = '/market'}
+                    >
+                      View Secondary Market
                     </Button>
                   </div>
                 </CardContent>

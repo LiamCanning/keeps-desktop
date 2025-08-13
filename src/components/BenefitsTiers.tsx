@@ -206,13 +206,45 @@ export const assetTiers = {
       available: 100,
       benefits: ["Exclusive dinner with Ohio State athletics director and coaching staff", "VIP access to all sporting events including basketball and American football", "Personalised relationship manager", "Opportunity to participate in Ohio State traditions like dotting the 'i' in Script Ohio", "✓ Includes all benefits from previous tiers"]
     }
+  },
+  southernbrave: {
+    bronze: {
+      name: "Bronze",
+      investment: 1500,
+      available: 2000,
+      benefits: ["The Hundred digital magazine", "Monthly cricket insights", "Basic customer support"]
+    },
+    silver: {
+      name: "Silver",
+      investment: 7500,
+      available: 1000,
+      benefits: ["Quarterly Southern Brave updates", "Early access to new cricket opportunities", "Official Southern Brave merchandise", "✓ Includes all benefits from previous tiers"]
+    },
+    gold: {
+      name: "Gold",
+      investment: 20000,
+      available: 400,
+      benefits: ["VIP match day experiences at The Rose Bowl", "Behind-the-scenes training ground access", "Annual strategic briefings with cricket management", "Exclusive access to Southern Brave player interactions", "✓ Includes all benefits from previous tiers"]
+    },
+    platinum: {
+      name: "Platinum",
+      investment: 50000,
+      available: 150,
+      benefits: ["Private Rose Bowl stadium tours including player facilities", "Cricket player meet & greet opportunities", "Premium hospitality for The Hundred finals", "Exclusive access to Southern Brave coaching clinics", "✓ Includes all benefits from previous tiers"]
+    },
+    diamond: {
+      name: "Diamond",
+      investment: 100000,
+      available: 50,
+      benefits: ["Exclusive dinner with Southern Brave captain and coaching staff", "VIP access to all The Hundred matches", "Personalised relationship manager", "Opportunity to participate in Southern Brave team talks and strategy sessions", "Luxury hospitality experiences during cricket season", "✓ Includes all benefits from previous tiers"]
+    }
   }
 };
 
 interface BenefitsTiersProps {
   selectedTier?: string;
   compact?: boolean;
-  asset?: 'liverpool' | 'mclaren' | 'rydercup' | 'cardiff' | 'hexagon' | 'ohio';
+  asset?: 'liverpool' | 'mclaren' | 'rydercup' | 'cardiff' | 'hexagon' | 'ohio' | 'southernbrave';
 }
 
 export function BenefitsTiers({ selectedTier, compact = false, asset }: BenefitsTiersProps) {
