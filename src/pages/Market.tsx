@@ -174,7 +174,7 @@ function MarketCard({ listing }: { listing: MarketListing }) {
         <Button 
           className="w-full btn-invest min-h-[44px]"
           onClick={() => {
-            const assetId = listing.asset.toLowerCase().replace(/\s+/g, '-').replace('racing', 'f1');
+            const assetId = listing.asset.toLowerCase().replace(/\s+/g, '-');
             navigate(`/trade/${assetId}`, { state: { listing } });
           }}
         >
