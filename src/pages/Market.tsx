@@ -247,7 +247,7 @@ export default function Market() {
     .filter(listing => {
       const matchesSearch = listing.asset.toLowerCase().includes(searchTerm.toLowerCase()) ||
         listing.seller.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesSport = !sportFilter || listing.sport === sportFilter;
+      const matchesSport = !sportFilter || sportFilter === "all" || listing.sport === sportFilter;
       return matchesSearch && matchesSport;
     })
     .sort((a, b) => {
@@ -344,7 +344,7 @@ export default function Market() {
                 <SelectValue placeholder="Filter by Sport" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Sports</SelectItem>
+                <SelectItem value="all">All Sports</SelectItem>
                 <SelectItem value="football">Football</SelectItem>
                 <SelectItem value="formula-one">Formula One</SelectItem>
                 <SelectItem value="golf">Golf</SelectItem>
