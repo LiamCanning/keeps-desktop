@@ -109,6 +109,18 @@ export const forumPosts = [
     replies: 14,
     likes: 11,
     verified: true
+  },
+  {
+    id: "8",
+    title: "Southern Brave deal completed - incredibly efficient process! 🏏",
+    content: "Just wanted to share my experience with the Southern Brave funding round. The entire process from application to completion was seamless. The team at Keeps handled everything professionally, and the cricket insights were spot-on. Really impressed with how quickly everything was finalized compared to traditional investment routes. Looking forward to the dividend distributions!",
+    author: "CricketInvestor_UK",
+    avatar: jamesAvatar,
+    timestamp: "4 hours ago",
+    category: "cricket", 
+    replies: 18,
+    likes: 24,
+    verified: true
   }
 ];
 

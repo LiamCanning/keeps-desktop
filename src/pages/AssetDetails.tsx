@@ -185,8 +185,8 @@ export default function AssetDetails() {
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
                   <h1 className="text-2xl md:text-3xl font-bold text-gradient break-words">{asset.name}</h1>
-                <Badge variant={asset.status === "coming-soon" ? "warning" : "success"} className="text-sm">
-                  {asset.status === "coming-soon" ? "Pre-Sale" : "Live"}
+                <Badge variant={asset.status === "coming-soon" ? "warning" : asset.status === "completed" ? "secondary" : "success"} className="text-sm">
+                  {asset.status === "coming-soon" ? "Pre-Sale" : asset.status === "completed" ? "Completed" : "Live"}
                 </Badge>
               </div>
               <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-sm text-muted-foreground">
@@ -484,14 +484,23 @@ export default function AssetDetails() {
                         <li>Championship Lead: 516 points</li>
                       </>
                     )}
-                    {assetId === 'ryder-cup' && (
-                      <>
-                        <li>Tournament Revenue: £200M+</li>
-                        <li>Corporate Hospitality: £50M+</li>
-                        <li>Economic Impact: £150M per event</li>
-                        <li>Debenture Repayment: 100% historical</li>
-                      </>
-                    )}
+                     {assetId === 'ryder-cup' && (
+                       <>
+                         <li>Tournament Revenue: £200M+</li>
+                         <li>Corporate Hospitality: £50M+</li>
+                         <li>Economic Impact: £150M per event</li>
+                         <li>Debenture Repayment: 100% historical</li>
+                       </>
+                     )}
+                     {assetId === 'southern-brave' && (
+                       <>
+                         <li>2024 Revenue: £18.5M (Record)</li>
+                         <li>KP Snacks Partnership: £2.5M annually</li>
+                         <li>Capacity Utilization: 85% at Rose Bowl</li>
+                         <li>Dividend Yield: 4.2%</li>
+                         <li>Commercial Partnerships: £5M+ yearly</li>
+                       </>
+                     )}
                   </ul>
                 </div>
                 <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
@@ -515,15 +524,24 @@ export default function AssetDetails() {
                         <li>Commercial Partnerships: 53 active</li>
                       </>
                     )}
-                    {assetId === 'ryder-cup' && (
-                      <>
-                        <li>Tournament Prestige: Golf's Premier Event</li>
-                        <li>Biennial Format: Scarcity value</li>
-                        <li>Secondary Market Premium: 15-20%</li>
-                        <li>Hospitality Packages: £2K-5K per person</li>
-                      </>
-                    )}
-                    <li>Competitive Advantage: Strong</li>
+                     {assetId === 'ryder-cup' && (
+                       <>
+                         <li>Tournament Prestige: Golf's Premier Event</li>
+                         <li>Biennial Format: Scarcity value</li>
+                         <li>Secondary Market Premium: 15-20%</li>
+                         <li>Hospitality Packages: £2K-5K per person</li>
+                       </>
+                     )}
+                     {assetId === 'southern-brave' && (
+                       <>
+                         <li>The Hundred Franchise Ranking: #2 by value</li>
+                         <li>Championship Winner: 2021</li>
+                         <li>Playoff Appearances: Consistent</li>
+                         <li>Rose Bowl Stadium: Premium venue</li>
+                         <li>Hampshire Cricket Partnership: Facilities</li>
+                       </>
+                     )}
+                     <li>Competitive Advantage: Strong</li>
                   </ul>
                 </div>
               </div>

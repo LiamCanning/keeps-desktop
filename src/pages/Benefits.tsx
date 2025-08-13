@@ -60,13 +60,13 @@ const benefits: Benefit[] = [
     status: "coming-soon",
     description: "Elite American university athletics programme offering premium game experiences, campus access, and exclusive Buckeyes community benefits."
   },
-  {
-    id: "7",
-    team: "Southern Brave",
-    logo: "/public/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
-    status: "completed",
-    description: "The Hundred cricket franchise offering exclusive cricket experiences, hospitality packages, and access to England's premier cricket tournament."
-  }
+    {
+      id: "7",
+      team: "Southern Brave",
+      logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
+      status: "completed",
+      description: "The Hundred cricket franchise offering exclusive cricket experiences, hospitality packages, and access to England's premier cricket tournament."
+    }
 ];
 
 function BenefitCard({ benefit }: { benefit: Benefit }) {

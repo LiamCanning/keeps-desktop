@@ -187,7 +187,11 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
             className="btn-invest flex-1 min-h-[44px]"
             onClick={() => {
               let assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-              window.location.href = `/list-asset?preselected=${assetSlug}`;
+              if (assetSlug === 'southern-brave') {
+                window.location.href = `/trade/southern-brave`;
+              } else {
+                window.location.href = `/list-asset?preselected=${assetSlug}`;
+              }
             }}
           >
             <Activity className="w-4 h-4 mr-2" />

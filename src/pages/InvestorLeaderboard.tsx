@@ -333,21 +333,21 @@ const getAssetInvestors = (assetId: string): {
     case "southern-brave":
       return {
         totalInvestors: 3350,
-        corporateSponsor: {
-          id: "kp-snacks",
-          name: "KP Snacks",
-          avatar: "/public/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png",
-          totalInvested: "£2,500,000",
-          portfolioValue: "£2,875,000",
-          returns: "+£375,000",
-          returnPercent: 15.0,
-          rank: 1,
-          tier: "Corporate",
-          assetsOwned: 1,
-          joinDate: "Mar 2024",
-          location: "Slough, UK",
-          isCompany: true
-        },
+          corporateSponsor: {
+            id: "kp-snacks",
+            name: "KP Snacks",
+            avatar: "/lovable-uploads/921dc679-1319-4920-b7ca-3e98397ffd2f.png",
+            totalInvested: "£2,500,000",
+            portfolioValue: "£2,875,000",
+            returns: "+£375,000",
+            returnPercent: 15.0,
+            rank: 1,
+            tier: "Corporate",
+            assetsOwned: 1,
+            joinDate: "Mar 2024",
+            location: "Slough, UK",
+            isCompany: true
+          },
         investors: [
           {
             id: "1",

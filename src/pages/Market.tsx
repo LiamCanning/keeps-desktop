@@ -25,6 +25,7 @@ interface MarketListing {
   priceChange: number;
   expires: string;
   type: "buy" | "sell";
+  sport: string;
 }
 
 const marketListings: MarketListing[] = [
@@ -40,7 +41,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£2,818.75",
     priceChange: 10.0,
     expires: "2025-08-01",
-    type: "buy"
+    type: "buy",
+    sport: "football"
   },
   {
     id: "2",
@@ -54,7 +56,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£5,381.25",
     priceChange: 5.0,
     expires: "2025-08-05",
-    type: "buy"
+    type: "buy",
+    sport: "football"
   },
   {
     id: "3",
@@ -68,7 +71,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£24,600",
     priceChange: 20.0,
     expires: "2025-08-10",
-    type: "buy"
+    type: "buy",
+    sport: "formula-one"
   },
   {
     id: "4",
@@ -82,7 +86,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£18,142.50",
     priceChange: 18.0,
     expires: "2025-08-12",
-    type: "buy"
+    type: "buy",
+    sport: "formula-one"
   },
   {
     id: "5",
@@ -96,7 +101,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£6,083.38",
     priceChange: 18.7,
     expires: "2025-08-12",
-    type: "buy"
+    type: "buy",
+    sport: "golf"
   },
   {
     id: "6",
@@ -110,7 +116,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£11,992.50",
     priceChange: 17.0,
     expires: "2025-08-15",
-    type: "buy"
+    type: "buy",
+    sport: "golf"
   },
   {
     id: "7",
@@ -124,7 +131,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£5,381.25",
     priceChange: 16.7,
     expires: "2025-08-18",
-    type: "buy"
+    type: "buy",
+    sport: "cricket"
   },
   {
     id: "8",
@@ -138,7 +146,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£8,610.00",
     priceChange: 12.0,
     expires: "2025-08-20",
-    type: "buy"
+    type: "buy",
+    sport: "cricket"
   },
   {
     id: "9",
@@ -152,7 +161,8 @@ const marketListings: MarketListing[] = [
     finalPrice: "£1,845.00",
     priceChange: 20.0,
     expires: "2025-08-22",
-    type: "buy"
+    type: "buy",
+    sport: "cricket"
   }
 ];
 
@@ -231,12 +241,15 @@ export default function Market() {
   const [activeTab, setActiveTab] = useState("market");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("price-low");
+  const [sportFilter, setSportFilter] = useState("");
 
   const filteredListings = marketListings
-    .filter(listing =>
-      listing.asset.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      listing.seller.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    .filter(listing => {
+      const matchesSearch = listing.asset.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        listing.seller.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesSport = !sportFilter || listing.sport === sportFilter;
+      return matchesSearch && matchesSport;
+    })
     .sort((a, b) => {
       switch (sortBy) {
         case "price-high":
@@ -325,12 +338,13 @@ export default function Market() {
                 <SelectItem value="expires-soon">Expires Soon</SelectItem>
               </SelectContent>
             </Select>
-            <Select value="" onValueChange={() => {}}>
+            <Select value={sportFilter} onValueChange={setSportFilter}>
               <SelectTrigger className="w-full sm:w-48 h-11">
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Filter by Sport" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="">All Sports</SelectItem>
                 <SelectItem value="football">Football</SelectItem>
                 <SelectItem value="formula-one">Formula One</SelectItem>
                 <SelectItem value="golf">Golf</SelectItem>
