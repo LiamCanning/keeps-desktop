@@ -124,7 +124,7 @@ export default function AssetDetails() {
           launchDate: "March 2025",
           endDate: "May 2025",
           status: "completed",
-          logo: "/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+          logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
           investmentThesis: "Southern Brave represents a unique opportunity to invest in The Hundred's most successful franchise through direct equity participation. With 100% funding achieved and operations commenced, this completed investment provides stable dividend income from England's premier cricket tournament. Southern Brave's championship-winning performance in 2021 and consistent playoff appearances demonstrate on-field excellence that translates to commercial success. The Rose Bowl stadium capacity expansion and Hampshire Cricket's facilities investment create additional revenue streams. The Hundred's £125M broadcast deal with Sky Sports and BBC provides guaranteed income distribution, while Southern Brave's partnership with KP Snacks ensures premium commercial backing.",
           detailedAnalysis: "Southern Brave's 2024 season generated record revenues of £18.5M through ticket sales, merchandise, hospitality, and broadcast distributions. The Hundred format's family-friendly scheduling drives 85% capacity utilization at the Rose Bowl, while Southern Brave's 'most entertaining cricket' brand attracts premium sponsorship rates. KP Snacks' multi-year partnership provides £2.5M annually in commercial backing, with additional partnerships generating £5M+ yearly. Player wages are capped under Hundred regulations ensuring profit margins, while Southern Brave's academy system produces tradeable assets. The investment provides 3-5% annual dividends plus potential capital appreciation from franchise value growth in the expanding Hundred market.",
           fundingOutcome: "The £5M funding round has been strategically allocated across four key areas to enhance Southern Brave's competitive position and revenue generation. Stadium facilities received £2.1M for Rose Bowl hospitality suite upgrades, including 12 premium boxes with direct pitch views, enhanced catering facilities with celebrity chef partnerships, and technology upgrades featuring 4K replay screens and interactive fan zones. Player development invested £1.2M in academy expansion, specialist coaching recruitment including former England internationals, and cutting-edge performance analysis equipment. Commercial infrastructure received £900K for brand partnerships development, merchandise retail expansion including pop-up stores across Hampshire, and digital marketing campaigns targeting The Hundred's growing fanbase. The remaining £800K was allocated to operational excellence including sustainability initiatives, community outreach programs in Southampton and Winchester, and reserve funding for strategic opportunities during the competitive season."
@@ -185,7 +185,7 @@ export default function AssetDetails() {
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
                   <h1 className="text-2xl md:text-3xl font-bold text-gradient break-words">{asset.name}</h1>
-                <Badge variant={asset.status === "coming-soon" ? "warning" : asset.status === "completed" ? "secondary" : "success"} className="text-sm">
+                <Badge variant={asset.status === "coming-soon" ? "warning" : asset.status === "completed" ? "default" : "success"} className={`text-sm ${asset.status === "completed" ? "bg-green-600 text-white border-green-600" : ""}`}>
                   {asset.status === "coming-soon" ? "Pre-Sale" : asset.status === "completed" ? "Completed" : "Live"}
                 </Badge>
               </div>
@@ -627,8 +627,8 @@ export default function AssetDetails() {
                     </ul>
                   </div>
                   
-                  <div className="p-4 bg-accent/5 rounded-lg border border-accent/20">
-                    <h4 className="font-semibold text-accent mb-3">Operational Excellence (£800K)</h4>
+                  <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                    <h4 className="font-semibold text-purple-700 mb-3">Operational Excellence (£800K)</h4>
                     <ul className="space-y-2 text-sm">
                       <li>• Sustainability initiative implementation</li>
                       <li>• Community outreach in Southampton & Winchester</li>

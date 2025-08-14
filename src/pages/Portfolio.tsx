@@ -33,7 +33,7 @@ const portfolioHoldings: PortfolioHolding[] = [
   {
     id: "1",
     name: "Southern Brave",
-    logo: "/lovable-uploads/6954178a-41c6-4084-8e3f-900689bb1803.png",
+    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
     investment: "£50,000",
     shares: "33 (£1,500 per share)",
     purchaseDate: "15/03/2025",
@@ -187,11 +187,7 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
             className="btn-invest flex-1 min-h-[44px]"
             onClick={() => {
               let assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-              if (assetSlug === 'southern-brave') {
-                window.location.href = `/trade/southern-brave`;
-              } else {
-                window.location.href = `/list-asset?preselected=${assetSlug}`;
-              }
+              window.location.href = `/list-asset?preselected=${assetSlug}`;
             }}
           >
             <Activity className="w-4 h-4 mr-2" />
