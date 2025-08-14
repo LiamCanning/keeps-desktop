@@ -185,7 +185,7 @@ export default function AssetDetails() {
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
                   <h1 className="text-2xl md:text-3xl font-bold text-gradient break-words">{asset.name}</h1>
-                <Badge variant={asset.status === "coming-soon" ? "warning" : asset.status === "completed" ? "default" : "success"} className={`text-sm ${asset.status === "completed" ? "bg-green-600 text-white border-green-600" : ""}`}>
+                <Badge variant={asset.status === "coming-soon" ? "warning" : asset.status === "completed" ? "default" : "success"} className={`text-sm ${asset.status === "completed" ? "bg-green-800 text-green-100 border-green-700 hover:bg-green-700" : ""}`}>
                   {asset.status === "coming-soon" ? "Pre-Sale" : asset.status === "completed" ? "Completed" : "Live"}
                 </Badge>
               </div>
@@ -627,8 +627,8 @@ export default function AssetDetails() {
                     </ul>
                   </div>
                   
-                  <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
-                    <h4 className="font-semibold text-purple-700 mb-3">Operational Excellence (£800K)</h4>
+                  <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-700">
+                    <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-3">Operational Excellence (£800K)</h4>
                     <ul className="space-y-2 text-sm">
                       <li>• Sustainability initiative implementation</li>
                       <li>• Community outreach in Southampton & Winchester</li>

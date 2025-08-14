@@ -186,7 +186,12 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
           <Button 
             className="btn-invest flex-1 min-h-[44px]"
             onClick={() => {
-              let assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+              let assetSlug;
+              if (holding.name === "Southern Brave") {
+                assetSlug = "southern-brave";
+              } else {
+                assetSlug = holding.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+              }
               window.location.href = `/list-asset?preselected=${assetSlug}`;
             }}
           >
@@ -394,11 +399,11 @@ export default function Portfolio() {
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold text-card-foreground text-left">Watchlist</h2>
               <Badge variant="success">
-                3 Assets
+                4 Assets
               </Badge>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
               {[
                 {
                   id: "liverpool-fc",
@@ -422,6 +427,14 @@ export default function Portfolio() {
                   logo: ryderLogo,
                   price: "£5,935",
                   change: "+18.7%",
+                  status: "Live"
+                },
+                {
+                  id: "southern-brave",
+                  name: "Southern Brave",
+                  logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
+                  price: "£1,750",
+                  change: "+16.5%",
                   status: "Live"
                 }
               ].map((asset) => (

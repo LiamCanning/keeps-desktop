@@ -336,7 +336,7 @@ const getAssetInvestors = (assetId: string): {
           corporateSponsor: {
             id: "kp-snacks",
             name: "KP Snacks",
-            avatar: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
+            avatar: "/lovable-uploads/6b5c3f05-b0ea-465d-81e9-bd8f22856572.png",
             totalInvested: "£2,500,000",
             portfolioValue: "£2,875,000",
             returns: "+£375,000",
