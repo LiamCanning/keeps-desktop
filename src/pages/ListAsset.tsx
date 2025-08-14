@@ -58,7 +58,7 @@ const portfolioAssets: PortfolioAsset[] = [
     id: "southern-brave",
     name: "Southern Brave",
     logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
-    totalShares: 25,
+    totalShares: 33,
     purchasePrice: 1400,
     currentPrice: 1750,
     type: "Equity"
