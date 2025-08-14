@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { forumPosts } from "@/data/forumData";
 import { ArrowLeft, Heart, MessageCircle, Share2, Send } from "lucide-react";
 
 // Import avatar images
@@ -100,10 +101,30 @@ const mockComments: Comment[] = [
 export default function CommunityComments() {
   const { id } = useParams();
   const navigate = useNavigate();
+  
+  // Find the actual post based on the ID from the URL
+  const actualPost = forumPosts.find(post => post.id === id) || forumPosts[0];
+  
+  // Use the actual post data instead of hardcoded originalPost
+  const currentPost: CommunityPost = {
+    id: actualPost.id,
+    user: {
+      name: actualPost.author,
+      username: `@${actualPost.author.toLowerCase().replace(/\s+/g, '')}`,
+      avatar: actualPost.avatar,
+      verified: actualPost.verified
+    },
+    content: actualPost.content,
+    timestamp: actualPost.timestamp,
+    likes: actualPost.likes,
+    replies: actualPost.replies,
+    dealMention: actualPost.category
+  };
+  
   const [comments, setComments] = useState(mockComments);
   const [newComment, setNewComment] = useState("");
   const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(originalPost.likes);
+  const [likeCount, setLikeCount] = useState(currentPost.likes);
 
   const handleLike = () => {
     setLiked(!liked);
@@ -146,27 +167,27 @@ export default function CommunityComments() {
         <CardHeader className="pb-3">
           <div className="flex items-start gap-3">
             <Avatar className="w-12 h-12">
-              <AvatarImage src={originalPost.user.avatar} alt={originalPost.user.name} />
-              <AvatarFallback>{originalPost.user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+              <AvatarImage src={currentPost.user.avatar} alt={currentPost.user.name} />
+              <AvatarFallback>{currentPost.user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
             </Avatar>
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <h3 className="font-semibold text-card-foreground">{originalPost.user.name}</h3>
-                {originalPost.user.verified && (
+                <h3 className="font-semibold text-card-foreground">{currentPost.user.name}</h3>
+                {currentPost.user.verified && (
                   <Badge variant="success" className="w-4 h-4 p-0 rounded-full">✓</Badge>
                 )}
               </div>
-              <p className="text-sm text-muted-foreground">{originalPost.user.username} · {originalPost.timestamp}</p>
+              <p className="text-sm text-muted-foreground">{currentPost.user.username} · {currentPost.timestamp}</p>
             </div>
           </div>
         </CardHeader>
         
         <CardContent className="space-y-4">
-          <p className="text-card-foreground leading-relaxed">{originalPost.content}</p>
+          <p className="text-card-foreground leading-relaxed">{currentPost.content}</p>
           
-          {originalPost.dealMention && (
+          {currentPost.dealMention && (
             <Badge variant="outline" className="text-xs">
-              {originalPost.dealMention}
+              {currentPost.dealMention}
             </Badge>
           )}
           

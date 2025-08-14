@@ -185,7 +185,7 @@ export default function AssetDetails() {
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
                   <h1 className="text-2xl md:text-3xl font-bold text-gradient break-words">{asset.name}</h1>
-                <Badge variant={asset.status === "coming-soon" ? "warning" : asset.status === "completed" ? "default" : "success"} className={`text-sm ${asset.status === "completed" ? "bg-green-800 text-green-100 border-green-700 hover:bg-green-700" : ""}`}>
+                <Badge variant={asset.status === "coming-soon" ? "warning" : asset.status === "completed" ? "default" : "success"} className={`text-sm ${asset.status === "completed" ? "bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-700" : ""}`}>
                   {asset.status === "coming-soon" ? "Pre-Sale" : asset.status === "completed" ? "Completed" : "Live"}
                 </Badge>
               </div>

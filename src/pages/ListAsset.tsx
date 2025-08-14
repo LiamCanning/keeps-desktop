@@ -53,6 +53,15 @@ const portfolioAssets: PortfolioAsset[] = [
     purchasePrice: 5000,
     currentPrice: 5935,
     type: "Debenture"
+  },
+  {
+    id: "southern-brave",
+    name: "Southern Brave",
+    logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
+    totalShares: 25,
+    purchasePrice: 1400,
+    currentPrice: 1750,
+    type: "Equity"
   }
 ];
 
