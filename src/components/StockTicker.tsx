@@ -128,7 +128,7 @@ export const StockTicker: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
       
       {/* Live indicator - better positioned above the banner */}
-      <div className="absolute -top-5 left-4 flex items-center gap-2 text-primary text-xs font-medium z-20 bg-card px-3 py-1 rounded-full border border-border/50 shadow-sm">
+      <div className="absolute -top-2 left-4 flex items-center gap-2 text-primary text-xs font-medium z-20 bg-card px-3 py-1 rounded-full border border-border/50 shadow-sm">
         <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
         LIVE
       </div>
