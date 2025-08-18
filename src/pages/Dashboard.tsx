@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import StockTicker from "@/components/StockTicker";
 
 interface Investment {
   id: string;
@@ -254,16 +255,20 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   return (
-    <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
-      {/* Header Section */}
-      <div className="space-y-2 text-left">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-foreground text-left">Welcome Back <span className="text-primary">Liam</span></h1>
-            <p className="text-base sm:text-lg text-foreground/80 text-left">Ready to invest?</p>
+    <div className="space-y-0">
+      {/* Stock Ticker Banner */}
+      <StockTicker />
+      
+      <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="space-y-2 text-left">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold text-foreground text-left">Welcome Back <span className="text-primary">Liam</span></h1>
+              <p className="text-base sm:text-lg text-foreground/80 text-left">Ready to invest?</p>
+            </div>
           </div>
         </div>
-      </div>
 
       {/* Featured Investment Opportunities */}
       <div className="space-y-6 sm:space-y-8 mt-8 sm:mt-12">
@@ -299,6 +304,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
