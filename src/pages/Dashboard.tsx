@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import StockTicker from "@/components/StockTicker";
+import TranslationBanner from "@/components/TranslationBanner";
 
 interface Investment {
   id: string;
@@ -256,6 +257,9 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-0">
+      {/* Translation Banner */}
+      <TranslationBanner />
+      
       {/* Stock Ticker Banner */}
       <StockTicker />
       
