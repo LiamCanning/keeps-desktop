@@ -123,9 +123,15 @@ const getBadgeIcon = (badge: string) => {
 
 export const StockTicker: React.FC = () => {
   return (
-    <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-y border-slate-700/50 relative overflow-hidden">
+    <div className="w-full bg-gradient-to-r from-muted/40 via-muted/30 to-muted/40 border-y border-border/30 relative overflow-hidden">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-slate-800/30 opacity-30"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
+      
+      {/* Live indicator - better positioned */}
+      <div className="absolute top-2 left-4 flex items-center gap-2 text-primary text-xs font-medium z-20">
+        <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+        LIVE
+      </div>
       
       {/* Ticker content */}
       <div className="py-3 relative z-10">
@@ -134,11 +140,11 @@ export const StockTicker: React.FC = () => {
           {[...tickerData, ...tickerData].map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 px-6 whitespace-nowrap min-w-max border-r border-slate-600/30 last:border-r-0"
+              className="flex items-center gap-4 px-6 whitespace-nowrap min-w-max border-r border-border/30 last:border-r-0"
             >
               {/* Logo if available */}
               {item.logo && (
-                <div className="w-6 h-6 rounded-full bg-white/10 p-1 flex items-center justify-center">
+                <div className="w-6 h-6 rounded-full bg-card/80 p-1 flex items-center justify-center border border-border/50">
                   <img 
                     src={item.logo} 
                     alt={item.name}
@@ -150,21 +156,21 @@ export const StockTicker: React.FC = () => {
               {/* Asset info */}
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-slate-100 font-semibold text-sm">
+                  <span className="text-foreground font-semibold text-sm">
                     {item.symbol}
                   </span>
-                  <span className="text-slate-300 text-xs">
+                  <span className="text-muted-foreground text-xs">
                     {item.name}
                   </span>
                 </div>
                 
                 <div className="flex items-center gap-2">
-                  <span className="text-slate-100 font-bold text-sm">
+                  <span className="text-foreground font-bold text-sm">
                     {item.price}
                   </span>
                   
                   <div className={`flex items-center gap-1 text-xs font-medium ${
-                    item.trend === "up" ? "text-green-400" : "text-red-400"
+                    item.trend === "up" ? "text-success" : "text-destructive"
                   }`}>
                     {item.trend === "up" ? (
                       <TrendingUp className="w-3 h-3" />
@@ -176,7 +182,7 @@ export const StockTicker: React.FC = () => {
                 </div>
                 
                 {item.volume && (
-                  <span className="text-slate-400 text-xs">
+                  <span className="text-muted-foreground text-xs">
                     {item.volume}
                   </span>
                 )}
@@ -194,12 +200,6 @@ export const StockTicker: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
-      
-      {/* Live indicator */}
-      <div className="absolute top-2 right-4 flex items-center gap-2 text-green-400 text-xs">
-        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        LIVE MARKET DATA
       </div>
     </div>
   );
