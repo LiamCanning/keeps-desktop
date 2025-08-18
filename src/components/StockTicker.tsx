@@ -94,7 +94,7 @@ const tickerData: TickerItem[] = [
 const getBadgeVariant = (badge: string) => {
   switch (badge) {
     case "HOT":
-      return "destructive";
+      return "success";
     case "TRENDING":
       return "warning";
     case "LIVE":
@@ -127,14 +127,14 @@ export const StockTicker: React.FC = () => {
       {/* Background pattern */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
       
-      {/* Live indicator - better positioned */}
-      <div className="absolute top-2 left-4 flex items-center gap-2 text-primary text-xs font-medium z-20">
+      {/* Live indicator - better positioned above the banner */}
+      <div className="absolute -top-5 left-4 flex items-center gap-2 text-primary text-xs font-medium z-20 bg-card px-3 py-1 rounded-full border border-border/50 shadow-sm">
         <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
         LIVE
       </div>
       
       {/* Ticker content */}
-      <div className="py-3 relative z-10">
+      <div className="py-4 relative z-10">
         <div className="flex items-center animate-scroll-left">
           {/* Duplicate items for seamless loop */}
           {[...tickerData, ...tickerData].map((item, index) => (
@@ -144,11 +144,11 @@ export const StockTicker: React.FC = () => {
             >
               {/* Logo if available */}
               {item.logo && (
-                <div className="w-6 h-6 rounded-full bg-card/80 p-1 flex items-center justify-center border border-border/50">
+                <div className="w-8 h-8 rounded-full bg-card/80 p-1.5 flex items-center justify-center border border-border/50">
                   <img 
                     src={item.logo} 
                     alt={item.name}
-                    className="w-4 h-4 object-contain"
+                    className="w-5 h-5 object-contain"
                   />
                 </div>
               )}
