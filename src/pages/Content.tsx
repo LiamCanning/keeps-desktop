@@ -9,6 +9,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import PageHeader from "@/components/PageHeader";
 
+// Import avatar images
+import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
+import mikeAvatar from "@/assets/avatars/mike-avatar.png";
+import emmaAvatar from "@/assets/avatars/emma-avatar.png";
+
 interface NewsArticle {
   id: string;
   title: string;
@@ -569,7 +574,7 @@ export default function Content() {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="flex items-center gap-2 mb-3">
-                    <img src="/src/assets/avatars/sarah-avatar.png" alt="Sarah" className="w-8 h-8 rounded-full object-cover" />
+                    <img src={sarahAvatar} alt="Sarah" className="w-8 h-8 rounded-full object-cover" />
                     <span className="text-sm font-medium">Sarah Mitchell</span>
                     <Badge variant="outline" className="text-xs">Gold Investor</Badge>
                   </div>
@@ -604,7 +609,7 @@ export default function Content() {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="flex items-center gap-2 mb-3">
-                    <img src="/src/assets/avatars/emma-avatar.png" alt="Emma" className="w-8 h-8 rounded-full object-cover" />
+                    <img src={emmaAvatar} alt="Emma" className="w-8 h-8 rounded-full object-cover" />
                     <span className="text-sm font-medium">Emma Thompson</span>
                     <Badge variant="outline" className="text-xs">Platinum Investor</Badge>
                   </div>
@@ -639,7 +644,7 @@ export default function Content() {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="flex items-center gap-2 mb-3">
-                    <img src="/src/assets/avatars/mike-avatar.png" alt="Mike" className="w-8 h-8 rounded-full object-cover" />
+                    <img src={mikeAvatar} alt="Mike" className="w-8 h-8 rounded-full object-cover" />
                     <span className="text-sm font-medium">Mike Rodriguez</span>
                     <Badge variant="outline" className="text-xs">Diamond Investor</Badge>
                   </div>

@@ -5,6 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+// Import avatar images
+import sarahAvatar from "@/assets/avatars/sarah-avatar.png";
+import mikeAvatar from "@/assets/avatars/mike-avatar.png";
+import emmaAvatar from "@/assets/avatars/emma-avatar.png";
+
 interface UserProfile {
   name: string;
   username: string;
@@ -33,7 +38,7 @@ const userProfiles: { [key: string]: UserProfile } = {
   "sarahm_investor": {
     name: "Sarah Mitchell",
     username: "sarahm_investor",
-    avatar: "/src/assets/avatars/sarah-avatar.png",
+    avatar: sarahAvatar,
     bio: "Sports investment enthusiast • Liverpool FC season ticket holder • Building wealth through sports",
     joinDate: "March 2024",
     location: "Liverpool, UK",
@@ -54,7 +59,7 @@ const userProfiles: { [key: string]: UserProfile } = {
   "mike_sports": {
     name: "Mike Johnson", 
     username: "mike_sports",
-    avatar: "/src/assets/avatars/mike-avatar.png",
+    avatar: mikeAvatar,
     bio: "F1 technology investor • McLaren shareholder • Engineering background • Racing analytics expert",
     joinDate: "January 2024",
     location: "Birmingham, UK",
@@ -76,7 +81,7 @@ const userProfiles: { [key: string]: UserProfile } = {
   "emma_invests": {
     name: "Emma Watson",
     username: "emma_invests", 
-    avatar: "/src/assets/avatars/emma-avatar.png",
+    avatar: emmaAvatar,
     bio: "Sports investment strategist • Ryder Cup VIP • Building diverse portfolio • Golf content creator",
     joinDate: "February 2024",
     location: "Edinburgh, Scotland",
