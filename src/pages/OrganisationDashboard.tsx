@@ -28,9 +28,9 @@ export default function OrganisationDashboard() {
           />
           <div className="absolute inset-0 bg-background/50" />
         </div>
-        <Card className="card-professional w-full max-w-md relative z-20 bg-background/95 backdrop-blur-sm border-2">
+        <Card className="w-full max-w-md relative z-20 bg-gradient-to-br from-background/95 to-background/90 backdrop-blur-lg border border-primary/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
           <CardHeader className="text-center">
-            <div className="mx-auto mb-4 p-4 bg-primary/20 rounded-xl w-fit">
+            <div className="mx-auto mb-4 p-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl w-fit shadow-lg backdrop-blur-sm">
               <OptimizedImage
                 src="/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"
                 alt="McLaren Racing logo"
@@ -88,7 +88,7 @@ export default function OrganisationDashboard() {
       </div>
 
       {/* Key Investor Insights */}
-      <Card className="card-professional bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
+      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
             <Users className="w-5 h-5" />
@@ -108,10 +108,10 @@ export default function OrganisationDashboard() {
 
       {/* Metrics Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="card-professional">
+        <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <CardContent className="p-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-primary/20 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-primary/30 to-primary/20 rounded-xl shadow-sm">
                 <TrendingUp className="w-5 h-5 text-primary" />
               </div>
               <div>
@@ -122,10 +122,10 @@ export default function OrganisationDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="card-professional">
+        <Card className="bg-gradient-to-br from-success/10 to-success/5 border border-success/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <CardContent className="p-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-success/20 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-success/30 to-success/20 rounded-xl shadow-sm">
                 <Banknote className="w-5 h-5 text-success" />
               </div>
               <div>
@@ -136,10 +136,10 @@ export default function OrganisationDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="card-professional">
+        <Card className="bg-gradient-to-br from-warning/10 to-warning/5 border border-warning/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <CardContent className="p-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-warning/20 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-warning/30 to-warning/20 rounded-xl shadow-sm">
                 <Clock className="w-5 h-5 text-warning" />
               </div>
               <div>
@@ -150,11 +150,11 @@ export default function OrganisationDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="card-professional">
+        <Card className="bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <CardContent className="p-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-primary/20 rounded-lg">
-                <Target className="w-5 h-5 text-primary" />
+              <div className="p-3 bg-gradient-to-br from-accent/30 to-accent/20 rounded-xl shadow-sm">
+                <Target className="w-5 h-5 text-accent" />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Funding Progress</p>
@@ -168,7 +168,7 @@ export default function OrganisationDashboard() {
       {/* Detailed Analytics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Investor Demographics */}
-        <Card className="card-professional">
+        <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
           <CardHeader>
             <CardTitle className="text-xl flex items-center gap-2">
               <PieChart className="w-5 h-5" />
@@ -205,7 +205,7 @@ export default function OrganisationDashboard() {
         </Card>
 
         {/* Investment by Age Category */}
-        <Card className="card-professional">
+        <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
           <CardHeader>
             <CardTitle className="text-xl flex items-center gap-2">
               <BarChart className="w-5 h-5" />
@@ -235,7 +235,7 @@ export default function OrganisationDashboard() {
         </Card>
 
           {/* Geographic Distribution */}
-          <Card className="card-professional lg:col-span-1">
+          <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-1">
             <CardHeader>
               <CardTitle className="text-xl flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
@@ -269,7 +269,7 @@ export default function OrganisationDashboard() {
           </Card>
 
           {/* McLaren Store Marketing */}
-          <Card className="card-professional lg:col-span-1">
+          <Card className="bg-gradient-to-br from-primary/8 to-accent/8 border border-primary/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-1">
             <CardHeader>
               <CardTitle className="text-xl flex items-center gap-2">
                 <MessageSquare className="w-5 h-5" />
@@ -322,7 +322,7 @@ export default function OrganisationDashboard() {
           </Card>
 
           {/* Investor Performance Section - Made landscape to match Recent Activity */}
-          <Card className="card-professional lg:col-span-2">
+          <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-2">
             <CardHeader>
               <CardTitle className="text-xl flex items-center gap-2">
                 <TrendingUp className="w-5 h-5" />
@@ -391,7 +391,7 @@ export default function OrganisationDashboard() {
       <InvestorMessaging />
 
       {/* Recent Activity */}
-      <Card className="card-professional">
+      <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
             <Calendar className="w-5 h-5" />
