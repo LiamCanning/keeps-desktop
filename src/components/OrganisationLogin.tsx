@@ -13,6 +13,7 @@ export function OrganisationLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -27,6 +28,7 @@ export function OrganisationLogin() {
           title: "Login Successful",
           description: "Welcome to your McLaren F1 dashboard.",
         });
+        setOpen(false); // Close dialog first
         navigate("/organisation-dashboard");
       } else {
         toast({
@@ -39,8 +41,18 @@ export function OrganisationLogin() {
     }, 1500);
   };
 
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+    if (!newOpen) {
+      // Reset form when dialog closes
+      setEmail("");
+      setPassword("");
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button variant="outline" className="gap-2">
           <User className="w-4 h-4" />
