@@ -41,7 +41,7 @@ export default function OrganisationDashboard() {
             <p className="text-muted-foreground">Access your organisation dashboard and investor analytics</p>
           </CardHeader>
           <CardContent>
-            <OrganisationLogin />
+            <OrganisationLogin onLoginSuccess={() => setShowLogin(false)} />
             <Button 
               variant="ghost" 
               className="w-full mt-4"

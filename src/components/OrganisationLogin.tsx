@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,12 +8,15 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Lock, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-export function OrganisationLogin() {
+interface OrganisationLoginProps {
+  onLoginSuccess?: () => void;
+}
+
+export function OrganisationLogin({ onLoginSuccess }: OrganisationLoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
   const { toast } = useToast();
 
   const handleLogin = async () => {
@@ -29,7 +31,7 @@ export function OrganisationLogin() {
           description: "Welcome to your McLaren F1 dashboard.",
         });
         setOpen(false); // Close dialog first
-        navigate("/organisation-dashboard");
+        onLoginSuccess?.(); // Notify parent component
       } else {
         toast({
           title: "Login Failed",
