@@ -22,6 +22,7 @@ export function OrganisationLogin() {
     // Simulate authentication
     setTimeout(() => {
       if (email === "admin@mclaren.com" && password === "mclaren2024") {
+        localStorage.setItem("mclaren-admin-logged-in", "true");
         toast({
           title: "Login Successful",
           description: "Welcome to your McLaren F1 dashboard.",

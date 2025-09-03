@@ -10,7 +10,10 @@ import { InvestorMessaging } from "@/components/InvestorMessaging";
 
 export default function OrganisationDashboard() {
   const [selectedMetric, setSelectedMetric] = useState("overview");
-  const [showLogin, setShowLogin] = useState(true);
+  const [showLogin, setShowLogin] = useState(() => {
+    // Check if user is already logged in
+    return !localStorage.getItem("mclaren-admin-logged-in");
+  });
 
   if (showLogin) {
     return (
@@ -42,7 +45,10 @@ export default function OrganisationDashboard() {
             <Button 
               variant="ghost" 
               className="w-full mt-4"
-              onClick={() => setShowLogin(false)}
+              onClick={() => {
+                localStorage.setItem("mclaren-admin-logged-in", "true");
+                setShowLogin(false);
+              }}
             >
               Continue as Demo User
             </Button>
@@ -72,7 +78,10 @@ export default function OrganisationDashboard() {
         </div>
         <Button 
           variant="outline" 
-          onClick={() => setShowLogin(true)}
+          onClick={() => {
+            localStorage.removeItem("mclaren-admin-logged-in");
+            setShowLogin(true);
+          }}
         >
           Logout
         </Button>
