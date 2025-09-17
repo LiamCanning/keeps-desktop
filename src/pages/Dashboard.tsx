@@ -56,7 +56,7 @@ const liveDeals: Investment[] = [
     id: "3",
     name: "Ryder Cup",
     logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
-    amount: "£42,500,000", 
+    amount: "£62,500,000", 
     type: "Debenture Programme",
     progress: 90,
     investors: "2,340",

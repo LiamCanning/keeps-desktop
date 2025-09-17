@@ -62,7 +62,7 @@ export default function AssetDetails() {
           minInvestment: "£1,000",
           expectedReturn: "5% + Principal",
           fundingProgress: 90,
-          totalFunding: "£42.5M",
+          totalFunding: "£62.5M",
           category: "Debentures",
           launchDate: "July 2025",
           equity: "5%",

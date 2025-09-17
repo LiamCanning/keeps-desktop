@@ -40,7 +40,7 @@ export default function Index() {
       logo: "/placeholder.svg",
       title: "Ryder Cup 2025 Debenture Programme",
       type: "Debentures",
-      amount: "£42,500,000",
+      amount: "£62,500,000",
       progress: 90,
       investors: "2,340",
       minEntry: "£2,500",
