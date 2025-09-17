@@ -35,6 +35,7 @@ export default function AssetDetails() {
           totalFunding: "£40M",
           category: "Equity",
           launchDate: "July 2025",
+          equity: "1%",
           logo: "/lovable-uploads/c0f719b9-a198-429d-b736-b4081a14de86.png",
           investmentThesis: "Liverpool FC represents a unique opportunity to invest in Premier League excellence through direct equity participation. With their recent Premier League title victory and global fanbase of 580 million supporters, Liverpool offers unparalleled brand value. The club's £600M Adidas kit deal starting 2025-26 season demonstrates commercial strength, while consistent Champions League qualification (80% rate over past decade) ensures European revenue. The Anfield expansion project will generate additional matchday revenue of £15-20M annually through premium seating and hospitality packages. Revenue diversification through broadcasting rights (£150M+ annually), commercial partnerships, and player trading provides multiple income streams with proven 15% annual player asset appreciation.",
           detailedAnalysis: "Liverpool's 2024-25 Premier League title success drives commercial gains in a 'virtuous cycle' of performance and revenue growth. The £600M Adidas deal represents a £30M annual boost compared to their previous Nike partnership, with total revenue reaching £614M in 2024 (record high). Champions League qualification generates £50-80M annually, while the club's player trading model shows consistent profitability - key signings like Salah (£37M acquisition) now valued at £80M+. The Premier League's broadcast deal guarantees minimum £100M annually regardless of position, whilst Liverpool's global brand strength in Asian markets drives merchandise and sponsorship premiums. Stadium naming rights and commercial partnerships offer additional £20-30M growth potential."
@@ -49,6 +50,7 @@ export default function AssetDetails() {
           totalFunding: "£50M",
           category: "Income Sharing Agreement",
           launchDate: "July 2025",
+          equity: "10%",
           logo: "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
           investmentThesis: "McLaren Racing offers exposure to Formula 1's unprecedented commercial success through structured income sharing agreement. Following their 2024 Constructors Championship victory (first since 1998), McLaren has reached record commercial heights with 53 active partnerships and industry-leading revenue generation. F1's global viewership of 1.5 billion fans, combined with McLaren's resurgent performance under Lando Norris and Oscar Piastri, creates compelling investment returns. The team's 'most commercial revenue in F1 history' achievement demonstrates exceptional monetisation capability. Income sharing participants receive 7% annual returns from prize money, sponsorship deals, technology licensing, and McLaren's automotive partnerships, providing exposure to F1's $3bn annual revenue pool.",
           detailedAnalysis: "McLaren's 2024 championship victory validates their commercial strategy, generating record revenue of £253M (+18% YoY). Prize money distribution reached £95M from P4 Constructors finish, whilst 2025 pre-season favourite status commands premium sponsorship rates. The team's 53 commercial partnerships include major brands like Google, Velas, and McLaren Automotive, generating £180M+ commercial revenue annually. Technology licensing to automotive sector provides stable £15M baseline. F1's cost cap regulations ensure competitive sustainability whilst McLaren's operational efficiency (95% cost cap utilisation) maximises performance per dollar. The team's Mercedes power unit partnership through 2030 guarantees competitive machinery, whilst young driver lineup (Norris/Piastri) provides long-term stability for commercial partnerships."
@@ -63,6 +65,7 @@ export default function AssetDetails() {
           totalFunding: "£42.5M",
           category: "Debentures",
           launchDate: "July 2025",
+          equity: "5%",
           logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
           investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament following record-breaking 2023 Rome success. The 2023 event generated record €262M economic activity (11% increase vs 2018 Paris) with 271,000 attendees from 100 countries, demonstrating sustained global demand. Debentures provide 5% annual coupon payments plus full principal repayment after 10-year term, backed by tournament's established revenue model including global broadcasting rights (€200M+ per event), corporate hospitality (€50M+ per event), and premium experiences. The secondary debenture market shows consistent 15-20% premiums to face value, whilst 2025 Bethpage Black venue commands premium US market positioning.",
           detailedAnalysis: "The 2023 Ryder Cup's record €262M economic impact validates the tournament's commercial strength, with sponsorship revenue increasing 153% during current cycle. Corporate hospitality packages command €2,000-5,000 per person whilst premium experiences sell at substantial premiums. The biennial format creates natural scarcity value, with alternating European/US venues ensuring global market participation. Golf's affluent demographic provides stable demand base - average household income of attendees exceeds €100K with high discretionary spending power. Tournament assets secure debenture investments with 100% historical repayment rate. The 2025 Bethpage Black venue represents premium US golf positioning, whilst European 2027 venue selection offers additional appreciation potential through location premium."
@@ -78,6 +81,7 @@ export default function AssetDetails() {
           category: "Equity",
           launchDate: "September 2025",
           status: "coming-soon",
+          equity: "75%",
           logo: "/lovable-uploads/6e897916-7050-40ca-a142-0d028232a4b7.png",
           investmentThesis: "Hexagon Fan Team represents the future of sports fan engagement through blockchain-powered community ownership and revenue sharing. The platform enables fans to collectively own stakes in tournament outcomes, player partnerships, and merchandise revenues. With 75% equity available for £1.25M, early investors gain significant ownership in a revolutionary sports technology platform. The Hexagon ecosystem integrates with major tournaments worldwide, creating multiple revenue streams from fan participation, NFT trading, prediction markets, and exclusive content access.",
           detailedAnalysis: "The global sports betting market exceeds £200bn annually while fan engagement platforms show 300%+ growth rates. Hexagon Fan Team's unique model combines legal sports investment with gamified fan experiences, targeting the £50bn global sports memorabilia and fan engagement market. Revenue projections show £5M+ annual gross revenue by year 3 through transaction fees (2-5%), premium memberships (£50-200 annually), and tournament partnerships. The 75% equity stake provides significant upside potential as the platform scales across multiple sports and geographic markets."
@@ -93,6 +97,7 @@ export default function AssetDetails() {
           category: "Equity",
           launchDate: "October 2025",
           status: "coming-soon",
+          equity: "10%",
           logo: "/lovable-uploads/32e5079c-7a6a-4a36-9545-a4faa7411f89.png",
           investmentThesis: "Cardiff City offers compelling value in the Championship with strong fundamentals and promotion potential. The club's £40M valuation reflects significant undervaluation compared to Premier League peers, with 10% equity available for £4M. Cardiff's 33,000-capacity stadium, passionate Welsh fanbase, and recent Premier League experience (2018-19) provide solid foundations for growth. Championship clubs achieving promotion typically see 300-500% valuation increases, while Cardiff's sustainable financial model and youth development program ensure long-term viability.",
           detailedAnalysis: "Cardiff City generates £25-30M annual revenue through gate receipts, broadcasting rights, and commercial partnerships. The Championship playoff system provides clear promotion pathway, with promoted clubs receiving £170M+ in Premier League revenue guarantees. Cardiff's player trading model has generated £40M+ in transfer profits over five years, demonstrating strong asset management. The club's Welsh identity creates unique marketing opportunities in growing Asian markets, while stadium naming rights and commercial partnerships offer additional revenue growth potential."
@@ -108,6 +113,7 @@ export default function AssetDetails() {
           category: "Income Sharing Agreement",
           launchDate: "November 2025",
           status: "coming-soon",
+          equity: "10%",
           logo: "/lovable-uploads/fcb5a91d-487c-486c-a923-d4255d9db988.png",
           investmentThesis: "Ohio State University athletics represents America's most valuable college sports program with guaranteed revenue streams from stadium operations. The income sharing agreement provides 10% participation in future stadium revenues from Ohio Stadium (105,000 capacity), generating £8-12M annually for investors. Ohio State's football program consistently ranks #1-3 nationally in revenue generation (£150M+ annually), with stadium revenues representing 40-50% of total athletics income. The agreement covers all stadium-generated revenue including tickets, concessions, hospitality, naming rights, and special events.",
           detailedAnalysis: "Ohio Stadium generates £60-80M annually through seven home games, concerts, and special events. Season ticket waiting lists exceed 40,000 names while premium seating commands £2,000-5,000 per season. Ohio State's national championship aspirations ensure consistent sell-outs and premium pricing power. The university's £7bn endowment and AAA credit rating provide financial stability, while Big Ten Conference revenue sharing adds £50M+ annually. College football's expansion through playoffs and media rights creates additional revenue growth potential, with Ohio State positioned as a primary beneficiary."
@@ -124,6 +130,7 @@ export default function AssetDetails() {
           launchDate: "March 2025",
           endDate: "May 2025",
           status: "completed",
+          equity: "5%",
           logo: "/lovable-uploads/3c190904-fab4-4a2c-896f-f8e2878d832a.png",
           investmentThesis: "Southern Brave represents a unique opportunity to invest in The Hundred's most successful franchise through direct equity participation. With 100% funding achieved and operations commenced, this completed investment provides stable dividend income from England's premier cricket tournament. Southern Brave's championship-winning performance in 2021 and consistent playoff appearances demonstrate on-field excellence that translates to commercial success. The Rose Bowl stadium capacity expansion and Hampshire Cricket's facilities investment create additional revenue streams. The Hundred's £125M broadcast deal with Sky Sports and BBC provides guaranteed income distribution, while Southern Brave's partnership with KP Snacks ensures premium commercial backing.",
           detailedAnalysis: "Southern Brave's 2024 season generated record revenues of £18.5M through ticket sales, merchandise, hospitality, and broadcast distributions. The Hundred format's family-friendly scheduling drives 85% capacity utilization at the Rose Bowl, while Southern Brave's 'most entertaining cricket' brand attracts premium sponsorship rates. KP Snacks' multi-year partnership provides £2.5M annually in commercial backing, with additional partnerships generating £5M+ yearly. Player wages are capped under Hundred regulations ensuring profit margins, while Southern Brave's academy system produces tradeable assets. The investment provides 3-5% annual dividends plus potential capital appreciation from franchise value growth in the expanding Hundred market.",
@@ -139,7 +146,8 @@ export default function AssetDetails() {
           totalFunding: "N/A",
           category: "Unknown",
           launchDate: "N/A",
-          logo: ""
+          logo: "",
+          equity: "N/A"
         };
     }
   };
@@ -290,13 +298,17 @@ export default function AssetDetails() {
               <p className="text-xs text-muted-foreground mt-1">Target fundraising amount</p>
             </div>
             
-            <div className="p-4 bg-gradient-to-br from-accent/5 to-accent/10 rounded-lg border border-accent/20">
+            <div className="p-4 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg border border-primary/20">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 bg-accent rounded-full"></div>
-                <p className="text-sm font-medium text-muted-foreground">Launch Date</p>
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <p className="text-sm font-medium text-muted-foreground">
+                  {asset.category === "Equity" ? "Equity Offered" : asset.category === "Income Sharing Agreement" ? "Revenue Share" : "Annual Yield"}
+                </p>
               </div>
-              <p className="text-2xl font-bold text-foreground">{asset.launchDate}</p>
-              <p className="text-xs text-muted-foreground mt-1">Investment opportunity opens</p>
+              <p className="text-2xl font-bold text-foreground">{asset.equity}</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                {asset.category === "Equity" ? "Ownership stake in this round" : asset.category === "Income Sharing Agreement" ? "Share of commercial revenues" : "Guaranteed annual return"}
+              </p>
             </div>
           </div>
 
