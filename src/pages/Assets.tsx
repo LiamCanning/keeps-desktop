@@ -62,7 +62,7 @@ const assets: Asset[] = [
     banner: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=400&fit=crop",
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
-    minInvestment: "£1,000",
+    minInvestment: "£25,000",
     expectedReturn: "5% + Principal",
     fundingProgress: 90,
     totalFunding: "£62.5M",

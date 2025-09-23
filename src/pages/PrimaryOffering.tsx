@@ -138,7 +138,7 @@ export default function PrimaryOffering() {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null); // Ryder Cup preset amount
 
   const isDebenture = asset.id === 'ryder-cup';
-  const ryderPresetAmounts = [1000, 15000, 25000, 35000, 50000];
+  const ryderPresetAmounts = [25000, 50000];
 
   // Sync amount <-> quantity for non-debenture assets
   const pricePerShare = asset.pricePerShare;

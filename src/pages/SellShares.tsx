@@ -42,9 +42,9 @@ const holdings: Holding[] = [
     id: "3",
     name: "Ryder Cup",
     logo: "/placeholder.svg",
-    shares: 3,
-    currentPrice: 5935,
-    purchasePrice: 5000,
+    shares: 1,
+    currentPrice: 59350,
+    purchasePrice: 50000,
     type: "Debenture"
   }
 ];

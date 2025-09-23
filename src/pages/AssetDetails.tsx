@@ -59,7 +59,7 @@ export default function AssetDetails() {
         return {
           name: "Ryder Cup",
           description: "Secured debenture investment in golf's most prestigious biennial team tournament, providing guaranteed annual returns plus exclusive tournament access and hospitality rights.",
-          minInvestment: "£1,000",
+          minInvestment: "£25,000",
           expectedReturn: "5% + Principal",
           fundingProgress: 90,
           totalFunding: "£62.5M",

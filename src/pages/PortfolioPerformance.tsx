@@ -12,12 +12,12 @@ export default function PortfolioPerformance() {
 
   // Historical performance data
   const performanceData = [
-    { month: "Jul", value: 250000, liverpoolFC: 25000, mclaren: 200000, ryderCup: 15000, return: 0 },
-    { month: "Aug", value: 265000, liverpoolFC: 26200, mclaren: 215000, ryderCup: 15800, return: 6.0 },
-    { month: "Sep", value: 278000, liverpoolFC: 27100, mclaren: 225000, ryderCup: 16400, return: 11.2 },
-    { month: "Oct", value: 285000, liverpoolFC: 27800, mclaren: 230000, ryderCup: 16900, return: 14.0 },
-    { month: "Nov", value: 295000, liverpoolFC: 28200, mclaren: 238000, ryderCup: 17300, return: 18.0 },
-    { month: "Dec", value: 302355, liverpoolFC: 28750, mclaren: 244000, ryderCup: 17805, return: 20.9 }
+    { month: "Jul", value: 275000, liverpoolFC: 25000, mclaren: 200000, ryderCup: 50000, return: 0 },
+    { month: "Aug", value: 290000, liverpoolFC: 26200, mclaren: 215000, ryderCup: 52800, return: 5.5 },
+    { month: "Sep", value: 303000, liverpoolFC: 27100, mclaren: 225000, ryderCup: 55400, return: 10.2 },
+    { month: "Oct", value: 310000, liverpoolFC: 27800, mclaren: 230000, ryderCup: 56900, return: 12.7 },
+    { month: "Nov", value: 320000, liverpoolFC: 28200, mclaren: 238000, ryderCup: 58300, return: 16.4 },
+    { month: "Dec", value: 327355, liverpoolFC: 28750, mclaren: 244000, ryderCup: 59350, return: 19.0 }
   ];
 
   // Volatility data

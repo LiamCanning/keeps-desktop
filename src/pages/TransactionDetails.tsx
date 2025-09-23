@@ -17,7 +17,7 @@ interface Txn {
 const transactions: Record<string, Txn> = {
   "1": { id: "1", asset: "Liverpool FC", type: "Primary Purchase", date: "2025-07-15", amount: 25000, shares: 50, pricePerShare: 500 },
   "2": { id: "2", asset: "McLaren Racing", type: "Primary Purchase", date: "2025-07-10", amount: 200000, shares: 200, pricePerShare: 1000 },
-  "3": { id: "3", asset: "Ryder Cup", type: "Debenture Purchase", date: "2025-07-05", amount: 15000, shares: 3, pricePerShare: 5000 },
+  "3": { id: "3", asset: "Ryder Cup", type: "Debenture Purchase", date: "2025-07-05", amount: 50000, shares: 1, pricePerShare: 50000 },
 };
 
 export default function TransactionDetails() {
