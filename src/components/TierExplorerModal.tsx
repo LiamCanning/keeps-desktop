@@ -63,10 +63,6 @@ export function TierExplorerModal({ isOpen, onClose, teamName, assetKey }: TierE
     }
   };
 
-  const goToTier = (index: number) => {
-    setCurrentTierIndex(index);
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -87,12 +83,12 @@ export function TierExplorerModal({ isOpen, onClose, teamName, assetKey }: TierE
 
           {/* Tier Navigation */}
           <div className="flex items-center justify-center gap-2 py-4">
-            {tierOrder.map((tierKey, index) => {
+            {availableTiers.map((tierKey, index) => {
               const TierNavIcon = tierIcons[tierKey as keyof typeof tierIcons];
               return (
                 <button
                   key={tierKey}
-                  onClick={() => goToTier(index)}
+                  onClick={() => setCurrentTierIndex(index)}
                   className={`flex flex-col items-center gap-2 p-3 rounded-lg transition-all duration-300 ${
                     index === currentTierIndex 
                       ? `bg-gradient-to-br ${tierColors[tierKey as keyof typeof tierColors]} scale-110 shadow-lg` 
