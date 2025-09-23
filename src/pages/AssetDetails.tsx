@@ -60,14 +60,14 @@ export default function AssetDetails() {
           name: "Ryder Cup",
           description: "Secured debenture investment in golf's most prestigious biennial team tournament, providing guaranteed annual returns plus exclusive tournament access and hospitality rights.",
           minInvestment: "£25,000",
-          expectedReturn: "5% + Principal",
+          expectedReturn: "5.5% + Principal",
           fundingProgress: 90,
           totalFunding: "£62.5M",
           category: "Debentures",
           launchDate: "July 2025",
-          equity: "5%",
+          equity: "5.5%",
           logo: "/lovable-uploads/89e0f872-2b6e-443e-a0d7-bcb3dead15dd.png",
-          investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament following record-breaking 2023 Rome success. The 2023 event generated record €262M economic activity (11% increase vs 2018 Paris) with 271,000 attendees from 100 countries, demonstrating sustained global demand. Debentures provide 5% annual coupon payments plus full principal repayment after 10-year term, backed by tournament's established revenue model including global broadcasting rights (€200M+ per event), corporate hospitality (€50M+ per event), and premium experiences. The secondary debenture market shows consistent 15-20% premiums to face value, whilst 2025 Bethpage Black venue commands premium US market positioning.",
+          investmentThesis: "Ryder Cup debentures offer secured investment in golf's most prestigious biennial tournament following record-breaking 2023 Rome success. The 2023 event generated record €262M economic activity (11% increase vs 2018 Paris) with 271,000 attendees from 100 countries, demonstrating sustained global demand. Debentures provide 5.5% annual coupon payments plus full principal repayment after 10-year term, backed by tournament's established revenue model including global broadcasting rights (€200M+ per event), corporate hospitality (€50M+ per event), and premium experiences. The secondary debenture market shows consistent 15-20% premiums to face value, whilst 2025 Bethpage Black venue commands premium US market positioning.",
           detailedAnalysis: "The 2023 Ryder Cup's record €262M economic impact validates the tournament's commercial strength, with sponsorship revenue increasing 153% during current cycle. Corporate hospitality packages command €2,000-5,000 per person whilst premium experiences sell at substantial premiums. The biennial format creates natural scarcity value, with alternating European/US venues ensuring global market participation. Golf's affluent demographic provides stable demand base - average household income of attendees exceeds €100K with high discretionary spending power. Tournament assets secure debenture investments with 100% historical repayment rate. The 2025 Bethpage Black venue represents premium US golf positioning, whilst European 2027 venue selection offers additional appreciation potential through location premium."
         };
       case "hexagon-fan-team":

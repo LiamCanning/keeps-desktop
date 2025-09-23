@@ -59,7 +59,7 @@ const deals = {
     minimumEntry: "£2,500",
     equityPercentage: "N/A",
     valuation: "N/A",
-    dividends: "5% + Principal return",
+    dividends: "5.5% + Principal return",
     exclusiveBenefits: true,
     benefitsTier: "platinum",
     status: "live" as const

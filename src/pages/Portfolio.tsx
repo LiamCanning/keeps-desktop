@@ -87,7 +87,7 @@ const portfolioHoldings: PortfolioHolding[] = [
     return: "+£9,350",
     returnPercent: 18.7,
     tier: "Diamond",
-    dividendPotential: "5% + Principal",
+    dividendPotential: "5.5% + Principal",
     type: "Debenture"
   },
 ];

@@ -62,7 +62,7 @@ const liveDeals: Investment[] = [
     investors: "2,340",
     timeRemaining: "48 hours",
     status: "live",
-    dividendPotential: "5% + Principal",
+    dividendPotential: "5.5% + Principal",
     tier: "Silver"
   }
 ];

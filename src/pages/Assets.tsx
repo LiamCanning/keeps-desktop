@@ -63,7 +63,7 @@ const assets: Asset[] = [
     status: "live",
     description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access.",
     minInvestment: "£25,000",
-    expectedReturn: "5% + Principal",
+    expectedReturn: "5.5% + Principal",
     fundingProgress: 90,
     totalFunding: "£62.5M",
     category: "Debentures",
