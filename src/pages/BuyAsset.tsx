@@ -51,7 +51,7 @@ const deals = {
     availableShares: 2250,
     fundingGoal: 62500000,
     currentRaised: 56250000,
-    investorsCount: 2340,
+    investorsCount: 1750,
     dividendYield: "5.5% + Principal",
     terms: "Debenture programme with exclusive access",
     tiers: [25000, 50000]

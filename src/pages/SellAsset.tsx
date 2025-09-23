@@ -248,7 +248,7 @@ export default function SellAsset() {
                     </div>
                     <div className="p-3 bg-muted/20 rounded-lg border">
                       <p className="text-sm text-muted-foreground mb-1">Suggested Price</p>
-                      <p className="text-lg font-semibold text-card-foreground">£{selectedHolding.currentPrice} per share</p>
+                      <p className="text-lg font-semibold text-card-foreground">£{selectedHolding.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} per share</p>
                       <p className="text-xs text-muted-foreground">Based on current market conditions and recent transactions</p>
                     </div>
                     <p className="text-sm text-muted-foreground">
@@ -275,11 +275,11 @@ export default function SellAsset() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Current price per share:</span>
-                        <span className="font-medium">£{selectedHolding.currentPrice}</span>
+                        <span className="font-medium">£{selectedHolding.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Estimated total value:</span>
-                        <span className="font-medium">£{(quantityToSell * selectedHolding.currentPrice).toLocaleString()}</span>
+                        <span className="font-medium">£{(quantityToSell * selectedHolding.currentPrice).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Remaining shares:</span>
@@ -347,7 +347,7 @@ export default function SellAsset() {
                     <Input
                       id="price"
                       type="number"
-                      placeholder={`Current market price: £${selectedHolding.currentPrice}`}
+                      placeholder={`Current market price: £${selectedHolding.currentPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
                       value={listingData.pricePerShare}
                       onChange={(e) => setListingData(prev => ({ ...prev, pricePerShare: e.target.value }))}
                       step="0.01"
@@ -378,16 +378,16 @@ export default function SellAsset() {
                     <div className="p-4 bg-muted/50 rounded-lg space-y-2">
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Total sale value:</span>
-                        <span className="font-medium">£{totalSaleValue.toLocaleString()}</span>
+                        <span className="font-medium">£{totalSaleValue.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Platform fee (2.5%):</span>
-                        <span className="font-medium">-£{platformFee.toFixed(2)}</span>
+                        <span className="font-medium">-£{platformFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="border-t pt-2">
                         <div className="flex justify-between font-semibold text-lg">
                           <span>Net proceeds:</span>
-                          <span>£{netProceeds.toFixed(2)}</span>
+                          <span>£{netProceeds.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                         </div>
                       </div>
                     </div>
@@ -435,7 +435,7 @@ export default function SellAsset() {
                       <p className="text-muted-foreground">
                         {listingData.listingType === "fixed" ? "Price per share" : "Starting bid"}
                       </p>
-                      <p className="font-medium">£{pricePerShare}</p>
+                      <p className="font-medium">£{Number(pricePerShare || 0).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                     <div>
                       <p className="text-muted-foreground">Listing duration</p>
@@ -452,15 +452,15 @@ export default function SellAsset() {
                   <div className="border-t pt-3 space-y-1">
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Total sale value:</span>
-                      <span className="font-medium">£{totalSaleValue.toLocaleString()}</span>
+                       <span className="font-medium">£{totalSaleValue.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Platform fee (2.5%):</span>
-                      <span className="font-medium">-£{platformFee.toFixed(2)}</span>
+                       <span className="font-medium">-£{platformFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex justify-between font-semibold">
                       <span>Net proceeds:</span>
-                      <span className="text-success">£{netProceeds.toFixed(2)}</span>
+                      <span className="text-success">£{netProceeds.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                   </div>
                 </div>
@@ -530,11 +530,11 @@ export default function SellAsset() {
                     <span className="text-muted-foreground">
                       {listingData.listingType === "fixed" ? "Listed Price:" : "Starting Bid:"}
                     </span>
-                    <span className="font-medium">£{pricePerShare} per share</span>
+                    <span className="font-medium">£{Number(pricePerShare || 0).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} per share</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Potential Net Proceeds:</span>
-                    <span className="font-medium text-success">£{netProceeds.toFixed(2)}</span>
+                    <span className="font-medium text-success">£{netProceeds.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                 </div>
                 <div className="flex gap-3">

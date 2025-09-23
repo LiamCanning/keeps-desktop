@@ -273,11 +273,11 @@ export default function ListAsset() {
                       onClick={() => setPricePerShare(suggestedPrice.toString())}
                       className="px-6 bg-success/10 border-success text-success hover:bg-success hover:text-white"
                     >
-                      Use Suggested: £{suggestedPrice.toFixed(2)}
+                      Use Suggested: £{suggestedPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </Button>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Suggested price: £{suggestedPrice.toFixed(2)} (5% above current market price)
+                    Suggested price: £{suggestedPrice.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (5% above current market price)
                   </p>
                 </div>
 
@@ -361,7 +361,7 @@ export default function ListAsset() {
                   </div>
                    <div className="flex justify-between">
                     <span className="text-muted-foreground">Price per {asset.name === "Ryder Cup" ? "Debenture" : "Share"}:</span>
-                    <span className="font-medium">£{priceNum.toFixed(2)}</span>
+                    <span className="font-medium">£{priceNum.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Subtotal:</span>
@@ -369,7 +369,7 @@ export default function ListAsset() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Sale Fee (2.5%):</span>
-                    <span className="font-medium">£{saleeFee.toFixed(2)}</span>
+                    <span className="font-medium">£{saleeFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between text-xl font-bold">

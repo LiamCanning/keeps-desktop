@@ -54,7 +54,7 @@ const deals = {
     amount: "£62,500,000",
     raised: "£56,250,000",
     progress: 90,
-    investors: "2,340",
+    investors: "1,750",
     timeline: "48 hours",
     minimumEntry: "£2,500",
     equityPercentage: "N/A",

@@ -59,7 +59,7 @@ const liveDeals: Investment[] = [
     amount: "£62,500,000", 
     type: "Debenture Programme",
     progress: 90,
-    investors: "2,340",
+    investors: "1,750",
     timeRemaining: "48 hours",
     status: "live",
     dividendPotential: "5.5% + Principal",

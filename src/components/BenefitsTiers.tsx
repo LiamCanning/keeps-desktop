@@ -89,7 +89,7 @@ export const assetTiers = {
     diamond: {
       name: "Diamond",
       investment: 50000,
-      available: 750,
+      available: 500,
       benefits: ["Captain's Dinner access with Ryder Cup team members", "VIP behind-the-scenes tournament access", "Private hospitality suite access", "Exclusive photo opportunities with the Ryder Cup trophy", "Personalised relationship manager", "✓ Includes all benefits from previous tiers"]
     }
   },

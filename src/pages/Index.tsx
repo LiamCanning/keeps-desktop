@@ -42,7 +42,7 @@ export default function Index() {
       type: "Debentures",
       amount: "£62,500,000",
       progress: 90,
-      investors: "2,340",
+      investors: "1,750",
       minEntry: "£2,500",
       description: "Debenture investment in golf's most prestigious team tournament with guaranteed returns and exclusive access."
     }

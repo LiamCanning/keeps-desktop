@@ -240,7 +240,7 @@ const getAssetInvestors = (assetId: string): {
 
     case "ryder-cup":
       return {
-        totalInvestors: 2340,
+        totalInvestors: 1750,
         corporateSponsor: {
           id: "rolex",
           name: "Rolex SA",
