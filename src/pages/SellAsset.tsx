@@ -39,9 +39,9 @@ const userHoldings = [
     asset: "Ryder Cup",
     logo: "/placeholder.svg",
     quantity: 1,
-    avgPurchasePrice: 5000,
-    currentPrice: 5900,
-    totalValue: 5900,
+    avgPurchasePrice: 50000,
+    currentPrice: 59350,
+    totalValue: 59350,
     returns: 18.0
   }
 ];

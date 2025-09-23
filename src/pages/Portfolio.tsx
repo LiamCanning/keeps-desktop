@@ -79,14 +79,14 @@ const portfolioHoldings: PortfolioHolding[] = [
     id: "4",
     name: "Ryder Cup",
     logo: ryderLogo,
-    investment: "£15,000",
-    shares: "3 (£5000 per debenture)",
+    investment: "£50,000",
+    shares: "1 (£50,000 per debenture)",
     purchaseDate: "05/07/2025",
-    purchasePrice: "£5000.00 per debenture",
-    currentPrice: "£5935.00 per debenture",
-    return: "+£2,805",
+    purchasePrice: "£50,000.00 per debenture",
+    currentPrice: "£59,350.00 per debenture",
+    return: "+£9,350",
     returnPercent: 18.7,
-    tier: "Silver",
+    tier: "Diamond",
     dividendPotential: "5% + Principal",
     type: "Debenture"
   },
@@ -94,10 +94,10 @@ const portfolioHoldings: PortfolioHolding[] = [
 
 // Performance data derived from holdings (updated with Southern Brave)
 const valueHistory = [
-  { date: "Week 1", value: 290000 },
-  { date: "Week 2", value: 295500 },
-  { date: "Week 3", value: 315200 },
-  { date: "Week 4", value: 323805 },
+  { date: "Week 1", value: 325000 },
+  { date: "Week 2", value: 330500 },
+  { date: "Week 3", value: 350200 },
+  { date: "Week 4", value: 359350 },
 ];
 
 const returnsHistory = [
@@ -207,8 +207,8 @@ function HoldingCard({ holding }: { holding: PortfolioHolding }) {
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const totalInvested = 290000;
-  const totalValue = 323805;
+  const totalInvested = 325000;
+  const totalValue = 359350;
   const totalReturn = totalValue - totalInvested;
   const returnPercent = (totalReturn / totalInvested) * 100;
 
@@ -425,7 +425,7 @@ export default function Portfolio() {
                   id: "ryder-cup",
                   name: "Ryder Cup",
                   logo: ryderLogo,
-                  price: "£5,935",
+                  price: "£59,350",
                   change: "+18.7%",
                   status: "Live"
                 },

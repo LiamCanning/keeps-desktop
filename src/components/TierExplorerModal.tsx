@@ -45,12 +45,14 @@ export function TierExplorerModal({ isOpen, onClose, teamName, assetKey }: TierE
   
   if (!tiers) return null;
 
-  const currentTierKey = tierOrder[currentTierIndex];
+  // Get available tiers for this asset dynamically
+  const availableTiers = Object.keys(tiers);
+  const currentTierKey = availableTiers[currentTierIndex];
   const currentTier = tiers[currentTierKey as keyof typeof tiers];
   const TierIcon = tierIcons[currentTierKey as keyof typeof tierIcons];
 
   const nextTier = () => {
-    if (currentTierIndex < tierOrder.length - 1) {
+    if (currentTierIndex < availableTiers.length - 1) {
       setCurrentTierIndex(currentTierIndex + 1);
     }
   };
@@ -129,7 +131,7 @@ export function TierExplorerModal({ isOpen, onClose, teamName, assetKey }: TierE
                       {currentTier.name} Tier
                     </CardTitle>
                     <p className="text-lg text-muted-foreground mt-1">
-                      Tier {currentTierIndex + 1} of {tierOrder.length}
+                      Tier {currentTierIndex + 1} of {availableTiers.length}
                     </p>
                   </div>
                 </div>
@@ -161,14 +163,14 @@ export function TierExplorerModal({ isOpen, onClose, teamName, assetKey }: TierE
               </div>
 
               {/* Tier Progression Info */}
-              {currentTierIndex < tierOrder.length - 1 && (
+              {currentTierIndex < availableTiers.length - 1 && (
                 <div className="bg-accent/20 rounded-lg p-4 border border-accent/30">
                   <div className="flex items-center gap-2 mb-2">
                     <Star className="w-4 h-4 text-primary" />
                     <span className="font-medium text-sm">Next Tier Benefits</span>
                   </div>
                   <p className="text-sm text-muted-foreground text-left">
-                    Upgrade to {tierOrder[currentTierIndex + 1]} tier for additional exclusive perks and enhanced experiences.
+                    Upgrade to {availableTiers[currentTierIndex + 1]} tier for additional exclusive perks and enhanced experiences.
                   </p>
                 </div>
               )}
@@ -189,14 +191,14 @@ export function TierExplorerModal({ isOpen, onClose, teamName, assetKey }: TierE
             
             <div className="text-center">
               <div className="text-sm text-muted-foreground">
-                Showing tier {currentTierIndex + 1} of {tierOrder.length}
+                Showing tier {currentTierIndex + 1} of {availableTiers.length}
               </div>
             </div>
             
             <Button 
               variant="outline" 
               onClick={nextTier} 
-              disabled={currentTierIndex === tierOrder.length - 1}
+              disabled={currentTierIndex === availableTiers.length - 1}
               className="flex items-center gap-2"
             >
               Next Tier

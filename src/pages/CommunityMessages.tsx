@@ -89,7 +89,7 @@ const conversations: Conversation[] = [
           username: "mike_sports",
           avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face"
         },
-        content: "Thanks for the Ryder Cup tip! Just invested £5K",
+        content: "Thanks for the Ryder Cup tip! Just invested £25K in Platinum tier",
         timestamp: "1d",
         read: true
       }

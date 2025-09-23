@@ -65,7 +65,7 @@ export const forumPosts = [
   {
     id: "3",
     title: "Ryder Cup debentures - worth the premium?",
-    content: "Looking at the Ryder Cup investment - the returns look good but it's quite a high entry point at £5,935 per debenture. Has anyone done the math on whether this beats traditional golf investments?",
+    content: "Looking at the Ryder Cup investment - the returns look good with the new two-tier structure. Platinum at £25K and Diamond at £50K both offer excellent value. Has anyone done the analysis on the hospitality benefits versus traditional golf investments?",
     author: "Emma Wilson",
     avatar: emmaAvatar,
     timestamp: "6 hours ago",

@@ -80,35 +80,17 @@ export const assetTiers = {
     }
   },
   rydercup: {
-    bronze: {
-      name: "Bronze",
-      investment: 1000,
-      available: 1000,
-      benefits: ["Commemorative Merchandise", "Limited edition Ryder Cup merchandise package and certificate"]
-    },
-    silver: {
-      name: "Silver",
-      investment: 15000, 
-      available: 750,
-      benefits: ["Premium Hospitality", "Access to Silver Club hospitality areas during practice rounds", "✓ Includes all benefits from previous tiers"]
-    },
-    gold: {
-      name: "Gold",
-      investment: 25000,
-      available: 500,
-      benefits: ["Exclusive Tournament Access", "Premium seating for all tournament days plus Gold Lounge Access", "✓ Includes all benefits from previous tiers"]
-    },
     platinum: {
       name: "Platinum",
-      investment: 35000,
-      available: 250,
-      benefits: ["Player Meet & Greet", "Exclusive meet and greet with Ryder Cup players", "✓ Includes all benefits from previous tiers"]
+      investment: 25000,
+      available: 1500,
+      benefits: ["Premium hospitality for all tournament days", "Access to exclusive Platinum Lounge", "Priority seating for all rounds", "Official Ryder Cup merchandise package", "Meet and greet opportunities with golf professionals"]
     },
     diamond: {
       name: "Diamond",
       investment: 50000,
-      available: 100,
-      benefits: ["Captain's Dinner", "Exclusive dinner with the Ryder Cup Captain and team members", "✓ Includes all benefits from previous tiers"]
+      available: 750,
+      benefits: ["Captain's Dinner access with Ryder Cup team members", "VIP behind-the-scenes tournament access", "Private hospitality suite access", "Exclusive photo opportunities with the Ryder Cup trophy", "Personalised relationship manager", "✓ Includes all benefits from previous tiers"]
     }
   },
   cardiff: {

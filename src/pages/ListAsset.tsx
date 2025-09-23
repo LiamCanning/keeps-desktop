@@ -49,9 +49,9 @@ const portfolioAssets: PortfolioAsset[] = [
     id: "ryder-cup",
     name: "Ryder Cup",
     logo: ryderLogo,
-    totalShares: 3,
-    purchasePrice: 5000,
-    currentPrice: 5935,
+    totalShares: 1,
+    purchasePrice: 50000,
+    currentPrice: 59350,
     type: "Debenture"
   },
   {

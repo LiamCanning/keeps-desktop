@@ -47,7 +47,7 @@ const userProfiles: { [key: string]: UserProfile } = {
     following: "891",
     investments: [
       { name: "Liverpool FC", amount: "£2,500", returns: "+15.2%", status: "Active" },
-      { name: "Ryder Cup", amount: "£1,200", returns: "+12.8%", status: "Active" },
+      { name: "Ryder Cup", amount: "£25,000", returns: "+18.7%", status: "Active" },
     ],
     tier: "Gold",
     recentActivity: [
@@ -89,14 +89,14 @@ const userProfiles: { [key: string]: UserProfile } = {
     followers: "3.1k",
     following: "423",
     investments: [
-      { name: "Ryder Cup", amount: "£8,000", returns: "+12.8%", status: "Active" },
+      { name: "Ryder Cup", amount: "£50,000", returns: "+18.7%", status: "Active" },
       { name: "Cardiff City", amount: "£2,500", returns: "+9.4%", status: "Active" },
       { name: "Hexagon Cup", amount: "£1,500", returns: "+7.2%", status: "Active" },
     ],
     tier: "Platinum",
     recentActivity: [
       { type: "post", content: "Analyzed Ryder Cup investment performance and strategy insights", timestamp: "6 hours ago" },
-      { type: "investment", content: "Added £2,000 to Ryder Cup position", timestamp: "3 days ago" },
+      { type: "investment", content: "Added £25,000 to Ryder Cup Diamond position", timestamp: "3 days ago" },
       { type: "comment", content: "Shared golf market insights and tournament predictions", timestamp: "1 week ago" },
     ]
   }

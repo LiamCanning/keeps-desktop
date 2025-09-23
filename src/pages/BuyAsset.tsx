@@ -46,15 +46,15 @@ const deals = {
     name: "Ryder Cup",
     logo: "/placeholder.svg",
     title: "Debenture Investment Programme",
-    pricePerShare: 1000,
-    minimumInvestment: 1000,
-    availableShares: 500,
-    fundingGoal: 10000000,
-    currentRaised: 8850000,
-    investorsCount: 456,
-    dividendYield: "12-18%",
-    terms: "10-year debenture with premium access",
-    tiers: [1000, 15000, 25000, 35000, 50000]
+    pricePerShare: 25000,
+    minimumInvestment: 25000,
+    availableShares: 2250,
+    fundingGoal: 62500000,
+    currentRaised: 56250000,
+    investorsCount: 2340,
+    dividendYield: "5% + Principal",
+    terms: "Debenture programme with exclusive access",
+    tiers: [25000, 50000]
   }
 };
 
@@ -241,7 +241,7 @@ export default function BuyAsset() {
                         ))}
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Select a debenture tier above (£1k, £15k, £25k, £35k, or £50k only)
+                        Select a debenture tier above (Platinum £25k or Diamond £50k only)
                       </p>
                     </div>
                   ) : (
