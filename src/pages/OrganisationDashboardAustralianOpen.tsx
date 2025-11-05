@@ -111,7 +111,7 @@ export default function OrganisationDashboardAustralianOpen() {
       </Card>
 
       {/* Metrics Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <CardContent className="p-6">
             <div className="flex items-center gap-3">
@@ -167,47 +167,24 @@ export default function OrganisationDashboardAustralianOpen() {
             </div>
           </CardContent>
         </Card>
+
+        <Card className="bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-gradient-to-br from-accent/30 to-accent/20 rounded-xl shadow-sm">
+                <TrendingUp className="w-5 h-5 text-accent" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Retention Rate</p>
+                <p className="text-2xl font-bold">72%</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Detailed Analytics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Investor Demographics */}
-        <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
-          <CardHeader>
-            <CardTitle className="text-xl flex items-center gap-2">
-              <PieChart className="w-5 h-5" />
-              Investor Age Demographics
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">25-34 years</span>
-                <span className="font-semibold">18%</span>
-              </div>
-              <Progress value={18} className="h-2" />
-              
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">35-44 years</span>
-                <span className="font-semibold">32%</span>
-              </div>
-              <Progress value={32} className="h-2" />
-              
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">45-54 years</span>
-                <span className="font-semibold">35%</span>
-              </div>
-              <Progress value={35} className="h-2" />
-              
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-muted-foreground">55+ years</span>
-                <span className="font-semibold">15%</span>
-              </div>
-              <Progress value={15} className="h-2" />
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Age Demographics: Tier Distribution & Engagement */}
         <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
           <CardHeader>
@@ -566,70 +543,6 @@ export default function OrganisationDashboardAustralianOpen() {
           </CardContent>
         </Card>
 
-        {/* Investor Performance Section */}
-        <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="text-xl flex items-center gap-2">
-              <TrendingUp className="w-5 h-5" />
-              Investor Performance Metrics
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-3">
-              <div className="p-3 bg-gradient-to-r from-success/10 to-success/5 rounded-lg border border-success/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="w-2 h-2 bg-success rounded-full"></div>
-                      <span className="font-medium text-success text-sm">Debenture Holder Retention Rate</span>
-                    </div>
-                    <p className="text-xl font-bold">72%</p>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Investors retaining debentures (not reselling)</p>
-                </div>
-              </div>
-              
-              <div className="p-3 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="font-medium text-primary text-sm">Average Investment Value</span>
-                    </div>
-                    <p className="text-xl font-bold">£26,250</p>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Per debenture</p>
-                </div>
-              </div>
-              
-              <div className="p-3 bg-gradient-to-r from-warning/10 to-warning/5 rounded-lg border border-warning/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="w-2 h-2 bg-warning rounded-full"></div>
-                      <span className="font-medium text-warning text-sm">Engagement Score</span>
-                    </div>
-                    <p className="text-xl font-bold">8.7/10</p>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Event attendance & communications</p>
-                </div>
-              </div>
-
-              <div className="p-3 bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg border border-accent/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="w-2 h-2 bg-accent rounded-full"></div>
-                      <span className="font-medium text-accent text-sm">Referral Rate</span>
-                    </div>
-                    <p className="text-xl font-bold">18.4%</p>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Investors referring new prospects</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Secondary Market Activity */}
         <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-2">
