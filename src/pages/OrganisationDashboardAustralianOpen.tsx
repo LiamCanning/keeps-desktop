@@ -8,12 +8,33 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { OrganisationLogin } from "@/components/OrganisationLogin";
 import { InvestorMessagingAO } from "@/components/InvestorMessagingAO";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { toast } from "@/hooks/use-toast";
 
 export default function OrganisationDashboardAustralianOpen() {
   const [selectedMetric, setSelectedMetric] = useState("overview");
   const [showLogin, setShowLogin] = useState(() => {
     return !localStorage.getItem("australianopen-admin-logged-in");
   });
+  const [isSendingDiscount, setIsSendingDiscount] = useState(false);
+  const [discountsSent, setDiscountsSent] = useState(2387);
+
+  const handleSendStoreDiscount = async () => {
+    setIsSendingDiscount(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    // Update counter
+    setDiscountsSent(prev => prev + 2500);
+    
+    // Show success notification
+    toast({
+      title: "Store Discount Sent! 🎉",
+      description: "25% OFF discount code sent to all 2,500 investors via email and push notification",
+    });
+    
+    setIsSendingDiscount(false);
+  };
 
   if (showLogin) {
     return (
@@ -429,15 +450,24 @@ export default function OrganisationDashboardAustralianOpen() {
                 </div>
               </div>
               
-              <Button size="sm" className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
-                Send Store Discount to All Investors
+              <Button 
+                size="sm" 
+                className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                onClick={handleSendStoreDiscount}
+                disabled={isSendingDiscount}
+              >
+                {isSendingDiscount ? (
+                  <span className="animate-pulse">Sending...</span>
+                ) : (
+                  "Send Store Discount to All Investors"
+                )}
               </Button>
             </div>
             
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 bg-muted/10 rounded-lg border">
                 <p className="text-sm font-medium">Total Sent</p>
-                <p className="text-xl font-bold text-primary">2,387</p>
+                <p className="text-xl font-bold text-primary">{discountsSent.toLocaleString()}</p>
               </div>
               <div className="p-3 bg-muted/10 rounded-lg border">
                 <p className="text-sm font-medium">Purchase Rate</p>
