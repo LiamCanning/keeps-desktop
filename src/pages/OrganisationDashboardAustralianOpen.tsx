@@ -543,6 +543,58 @@ export default function OrganisationDashboardAustralianOpen() {
           </CardContent>
         </Card>
 
+        {/* Investor Performance Metrics */}
+        <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-1">
+          <CardHeader>
+            <CardTitle className="text-xl flex items-center gap-2">
+              <TrendingUp className="w-5 h-5" />
+              Investor Performance Metrics
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-3">
+              <div className="p-3 bg-gradient-to-r from-success/10 to-success/5 rounded-lg border border-success/20">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">ROI Performance</p>
+                    <p className="text-xl font-bold">24.3%</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Average 2-year return</p>
+                </div>
+              </div>
+              
+              <div className="p-3 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Satisfaction Score</p>
+                    <p className="text-xl font-bold">4.7/5.0</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Based on 2,245 responses</p>
+                </div>
+              </div>
+
+              <div className="p-3 bg-gradient-to-r from-warning/10 to-warning/5 rounded-lg border border-warning/20">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Portfolio Growth</p>
+                    <p className="text-xl font-bold">+18.2%</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Year-over-year value</p>
+                </div>
+              </div>
+
+              <div className="p-3 bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg border border-accent/20">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Engagement Rate</p>
+                    <p className="text-xl font-bold">87%</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Active participation</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Secondary Market Activity */}
         <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-2">
