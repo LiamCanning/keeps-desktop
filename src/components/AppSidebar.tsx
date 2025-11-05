@@ -174,11 +174,6 @@ export function AppSidebar() {
                     </NavLink>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <NavLink to="/organisation-dashboard/liverpool" className="flex items-center gap-2 w-full">
-                      <span>Liverpool FC</span>
-                    </NavLink>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
                     <NavLink to="/organisation-dashboard/ryder-cup" className="flex items-center gap-2 w-full">
                       <span>Ryder Cup</span>
                     </NavLink>

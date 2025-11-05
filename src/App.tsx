@@ -39,7 +39,6 @@ import SellShares from "./pages/SellShares";
 import RequestTeam from "./pages/RequestTeam";
 import KnowledgeBase from "./pages/KnowledgeBase";
 import OrganisationDashboardMclaren from "./pages/OrganisationDashboardMclaren";
-import OrganisationDashboardLiverpool from "./pages/OrganisationDashboardLiverpool";
 import OrganisationDashboardRyderCup from "./pages/OrganisationDashboardRyderCup";
 import CommunityMessages from "./pages/CommunityMessages";
 import CommunitySavedPosts from "./pages/CommunitySavedPosts";
@@ -143,7 +142,6 @@ const App = () => (
               <Route path="/request-team" element={<RequestTeam />} />
               <Route path="/organisation-dashboard" element={<Navigate to="/organisation-dashboard/mclaren" replace />} />
               <Route path="/organisation-dashboard/mclaren" element={<OrganisationDashboardMclaren />} />
-              <Route path="/organisation-dashboard/liverpool" element={<OrganisationDashboardLiverpool />} />
               <Route path="/organisation-dashboard/ryder-cup" element={<OrganisationDashboardRyderCup />} />
               <Route path="/list-asset" element={<ListAsset />} />
               <Route path="/knowledge-base" element={<KnowledgeBase />} />
