@@ -170,21 +170,39 @@ export function InvestorMessagingAO() {
             <Button 
               variant="outline" 
               size="sm" 
-              onClick={() => handleTemplateSelect("announcement")}
+              onClick={() => {
+                handleTemplateSelect("announcement");
+                toast({
+                  title: "Template Applied",
+                  description: "Important Update template loaded",
+                });
+              }}
             >
               Important Update
             </Button>
             <Button 
               variant="outline" 
               size="sm" 
-              onClick={() => handleTemplateSelect("store")}
+              onClick={() => {
+                handleTemplateSelect("store");
+                toast({
+                  title: "Template Applied",
+                  description: "Store Discount template loaded - 25% off offer ready to send",
+                });
+              }}
             >
-              Store Discount
+              Send Store Discount
             </Button>
             <Button 
               variant="outline" 
               size="sm" 
-              onClick={() => handleTemplateSelect("benefits")}
+              onClick={() => {
+                handleTemplateSelect("benefits");
+                toast({
+                  title: "Template Applied",
+                  description: "Benefits template loaded",
+                });
+              }}
             >
               Benefits
             </Button>
