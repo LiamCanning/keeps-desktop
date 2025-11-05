@@ -178,6 +178,11 @@ export function AppSidebar() {
                       <span>Ryder Cup</span>
                     </NavLink>
                   </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <NavLink to="/organisation-dashboard/australian-open" className="flex items-center gap-2 w-full">
+                      <span>Australian Open</span>
+                    </NavLink>
+                  </DropdownMenuItem>
                 </DropdownMenuSubContent>
               </DropdownMenuSub>
               <DropdownMenuSeparator />

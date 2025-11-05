@@ -40,6 +40,7 @@ import RequestTeam from "./pages/RequestTeam";
 import KnowledgeBase from "./pages/KnowledgeBase";
 import OrganisationDashboardMclaren from "./pages/OrganisationDashboardMclaren";
 import OrganisationDashboardRyderCup from "./pages/OrganisationDashboardRyderCup";
+import OrganisationDashboardAustralianOpen from "./pages/OrganisationDashboardAustralianOpen";
 import CommunityMessages from "./pages/CommunityMessages";
 import CommunitySavedPosts from "./pages/CommunitySavedPosts";
 import CommunityFindPeople from "./pages/CommunityFindPeople";
@@ -140,9 +141,10 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/sell-shares" element={<SellShares />} />
               <Route path="/request-team" element={<RequestTeam />} />
-              <Route path="/organisation-dashboard" element={<Navigate to="/organisation-dashboard/mclaren" replace />} />
-              <Route path="/organisation-dashboard/mclaren" element={<OrganisationDashboardMclaren />} />
-              <Route path="/organisation-dashboard/ryder-cup" element={<OrganisationDashboardRyderCup />} />
+            <Route path="/organisation-dashboard" element={<Navigate to="/organisation-dashboard/mclaren" replace />} />
+            <Route path="/organisation-dashboard/mclaren" element={<OrganisationDashboardMclaren />} />
+            <Route path="/organisation-dashboard/ryder-cup" element={<OrganisationDashboardRyderCup />} />
+            <Route path="/organisation-dashboard/australian-open" element={<OrganisationDashboardAustralianOpen />} />
               <Route path="/list-asset" element={<ListAsset />} />
               <Route path="/knowledge-base" element={<KnowledgeBase />} />
               <Route path="/community-messages" element={<CommunityMessages />} />
