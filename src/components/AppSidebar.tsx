@@ -38,6 +38,9 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -159,12 +162,29 @@ export function AppSidebar() {
                   <span>For Organisations</span>
                 </NavLink>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <NavLink to="/organisation-dashboard" className="flex items-center gap-3 py-3 w-full">
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger className="flex items-center gap-3 py-3">
                   <TrendingUp className="w-4 h-4" />
-                  <span>Organisation Dashboard</span>
-                </NavLink>
-              </DropdownMenuItem>
+                  <span>Organisation Dashboards</span>
+                </DropdownMenuSubTrigger>
+                <DropdownMenuSubContent className="bg-popover border z-50">
+                  <DropdownMenuItem asChild>
+                    <NavLink to="/organisation-dashboard/mclaren" className="flex items-center gap-2 w-full">
+                      <span>McLaren Racing</span>
+                    </NavLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <NavLink to="/organisation-dashboard/liverpool" className="flex items-center gap-2 w-full">
+                      <span>Liverpool FC</span>
+                    </NavLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <NavLink to="/organisation-dashboard/ryder-cup" className="flex items-center gap-2 w-full">
+                      <span>Ryder Cup</span>
+                    </NavLink>
+                  </DropdownMenuItem>
+                </DropdownMenuSubContent>
+              </DropdownMenuSub>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <NavLink to="/login" className="flex items-center gap-3 py-3 w-full">
