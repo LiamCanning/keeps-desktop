@@ -111,72 +111,66 @@ export default function OrganisationDashboardAustralianOpen() {
       </Card>
 
       {/* Metrics Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-        <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-primary/30 to-primary/20 rounded-xl shadow-sm">
-                <TrendingUp className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Total Investors</p>
-                <p className="text-2xl font-bold">2,500</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gradient-to-br from-success/10 to-success/5 border border-success/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-success/30 to-success/20 rounded-xl shadow-sm">
-                <Banknote className="w-5 h-5 text-success" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Total Raised</p>
-                <p className="text-2xl font-bold">£75M</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-primary/5 via-background to-background hover:from-primary/10 transition-all duration-500">
+          <CardContent className="p-5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground mb-0.5">Total Investors</p>
+                  <p className="text-3xl font-bold tracking-tight">2,500</p>
+                </div>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-warning/10 to-warning/5 border border-warning/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-warning/30 to-warning/20 rounded-xl shadow-sm">
-                <Clock className="w-5 h-5 text-warning" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Avg. Time on Page</p>
-                <p className="text-2xl font-bold">5.8m</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-primary/30 to-primary/20 rounded-xl shadow-sm">
-                <Target className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Funding Progress</p>
-                <p className="text-2xl font-bold">100%</p>
+        <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-success/5 via-background to-background hover:from-success/10 transition-all duration-500">
+          <CardContent className="p-5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Banknote className="w-6 h-6 text-success" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground mb-0.5">Total Raised</p>
+                  <p className="text-3xl font-bold tracking-tight">£75M</p>
+                </div>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-accent/30 to-accent/20 rounded-xl shadow-sm">
-                <TrendingUp className="w-5 h-5 text-accent" />
+        <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-warning/5 via-background to-background hover:from-warning/10 transition-all duration-500">
+          <CardContent className="p-5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-warning/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="w-6 h-6 text-warning" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground mb-0.5">Avg. Time on Page</p>
+                  <p className="text-3xl font-bold tracking-tight">5.8m</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Retention Rate</p>
-                <p className="text-2xl font-bold">72%</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-primary/5 via-background to-background hover:from-primary/10 transition-all duration-500">
+          <CardContent className="p-5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Target className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground mb-0.5">Funding Progress</p>
+                  <p className="text-3xl font-bold tracking-tight">100%</p>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -539,6 +533,16 @@ export default function OrganisationDashboardAustralianOpen() {
                   <p className="text-xs text-muted-foreground">1,520 investors</p>
                 </div>
               </div>
+
+              <div className="p-3 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Practice Court Access</p>
+                    <p className="text-xl font-bold">68%</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">1,360 investors</p>
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -583,7 +587,7 @@ export default function OrganisationDashboardAustralianOpen() {
                 </div>
               </div>
 
-              <div className="p-3 bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg border border-accent/20">
+              <div className="p-3 bg-gradient-to-r from-destructive/10 to-destructive/5 rounded-lg border border-destructive/20">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-muted-foreground mb-1">Engagement Rate</p>
