@@ -80,7 +80,7 @@ export default function OrganisationDashboardAustralianOpen() {
           <div className="space-y-2">
             <h1 className="text-3xl font-bold text-gradient">Australian Open Dashboard</h1>
             <p className="text-lg text-muted-foreground">Organisation insights and investor metrics</p>
-            <Badge variant="success" className="text-sm">SOLD OUT - 2,000 Debentures</Badge>
+            <Badge variant="success" className="text-sm">SOLD OUT - 2,500 Debentures</Badge>
           </div>
         </div>
         <Button 
@@ -104,7 +104,7 @@ export default function OrganisationDashboardAustralianOpen() {
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground leading-relaxed">
-            Australian Open debenture holders are passionate tennis enthusiasts and Grand Slam fans. The majority are aged 30-60 with strong Australian and Asia-Pacific representation. These investors value exclusivity, access to world-class tennis, and premium hospitality experiences. They demonstrate high engagement with the 2-week annual event, player interactions, and behind-the-scenes experiences. The demographic shows strong retention and interest in year-round tennis engagement, with significant uptake of premium packages and merchandise.
+            Australian Open debenture holders are passionate tennis enthusiasts and Grand Slam fans spanning two tiers: Platinum (2,000 holders at £25k) and Diamond (500 holders at £50k). The majority are aged 35-54 with strong Australian and Asia-Pacific representation. Diamond tier holders show 31% representation in the 55+ demographic, reflecting higher investment capacity. These investors value exclusivity, access to world-class tennis, and premium hospitality experiences, with benefit utilization rates ranging from 78% (younger investors) to 92% (55+ demographic). Additional spending averages £1,980-£4,630 per investor annually on merchandise and hospitality upgrades.
           </p>
         </CardContent>
       </Card>
@@ -119,7 +119,7 @@ export default function OrganisationDashboardAustralianOpen() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Total Investors</p>
-                <p className="text-2xl font-bold">2,000</p>
+                <p className="text-2xl font-bold">2,500</p>
               </div>
             </div>
           </CardContent>
@@ -133,7 +133,7 @@ export default function OrganisationDashboardAustralianOpen() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Total Raised</p>
-                <p className="text-2xl font-bold">£52.5M</p>
+                <p className="text-2xl font-bold">£75M</p>
               </div>
             </div>
           </CardContent>
@@ -182,21 +182,21 @@ export default function OrganisationDashboardAustralianOpen() {
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">25-34 years</span>
-                <span className="font-semibold">22%</span>
+                <span className="font-semibold">18%</span>
               </div>
-              <Progress value={22} className="h-2" />
+              <Progress value={18} className="h-2" />
               
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">35-44 years</span>
-                <span className="font-semibold">35%</span>
+                <span className="font-semibold">32%</span>
               </div>
-              <Progress value={35} className="h-2" />
+              <Progress value={32} className="h-2" />
               
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">45-54 years</span>
-                <span className="font-semibold">28%</span>
+                <span className="font-semibold">35%</span>
               </div>
-              <Progress value={28} className="h-2" />
+              <Progress value={35} className="h-2" />
               
               <div className="flex justify-between items-center">
                 <span className="text-sm text-muted-foreground">55+ years</span>
@@ -207,31 +207,124 @@ export default function OrganisationDashboardAustralianOpen() {
           </CardContent>
         </Card>
 
-        {/* Investment by Age Category */}
+        {/* Age Demographics: Tier Distribution & Engagement */}
         <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
           <CardHeader>
             <CardTitle className="text-xl flex items-center gap-2">
               <BarChart className="w-5 h-5" />
-              Average Investment by Age
+              Age Demographics: Tier Distribution & Engagement
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-4">
-              <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
-                <span className="text-sm font-medium">25-34 years</span>
-                <span className="font-bold text-primary">£18,750</span>
+          <CardContent className="space-y-5">
+            {/* 25-34 years */}
+            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
+              <div className="flex justify-between items-center mb-3">
+                <h4 className="font-semibold text-base">25-34 years</h4>
+                <Badge variant="secondary">450 investors (18%)</Badge>
               </div>
-              <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
-                <span className="text-sm font-medium">35-44 years</span>
-                <span className="font-bold text-primary">£24,500</span>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Tier Distribution:</span>
+                  <span className="font-medium">Platinum 90% • Diamond 10%</span>
+                </div>
+                <div className="flex gap-2 h-2">
+                  <div className="bg-primary rounded-full" style={{width: '90%'}}></div>
+                  <div className="bg-warning rounded-full" style={{width: '10%'}}></div>
+                </div>
+                <div className="grid grid-cols-2 gap-2 mt-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Additional Spending:</span>
+                    <span className="font-bold text-primary">£1,980</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Benefit Utilization:</span>
+                    <span className="font-bold text-success">78%</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
-                <span className="text-sm font-medium">45-54 years</span>
-                <span className="font-bold text-primary">£29,800</span>
+            </div>
+
+            {/* 35-44 years */}
+            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
+              <div className="flex justify-between items-center mb-3">
+                <h4 className="font-semibold text-base">35-44 years</h4>
+                <Badge variant="secondary">800 investors (32%)</Badge>
               </div>
-              <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
-                <span className="text-sm font-medium">55+ years</span>
-                <span className="font-bold text-primary">£38,400</span>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Tier Distribution:</span>
+                  <span className="font-medium">Platinum 85% • Diamond 15%</span>
+                </div>
+                <div className="flex gap-2 h-2">
+                  <div className="bg-primary rounded-full" style={{width: '85%'}}></div>
+                  <div className="bg-warning rounded-full" style={{width: '15%'}}></div>
+                </div>
+                <div className="grid grid-cols-2 gap-2 mt-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Additional Spending:</span>
+                    <span className="font-bold text-primary">£3,000</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Benefit Utilization:</span>
+                    <span className="font-bold text-success">84%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 45-54 years */}
+            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
+              <div className="flex justify-between items-center mb-3">
+                <h4 className="font-semibold text-base">45-54 years</h4>
+                <Badge variant="secondary">875 investors (35%)</Badge>
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Tier Distribution:</span>
+                  <span className="font-medium">Platinum 75% • Diamond 25%</span>
+                </div>
+                <div className="flex gap-2 h-2">
+                  <div className="bg-primary rounded-full" style={{width: '75%'}}></div>
+                  <div className="bg-warning rounded-full" style={{width: '25%'}}></div>
+                </div>
+                <div className="grid grid-cols-2 gap-2 mt-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Additional Spending:</span>
+                    <span className="font-bold text-primary">£3,820</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Benefit Utilization:</span>
+                    <span className="font-bold text-success">89%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 55+ years */}
+            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
+              <div className="flex justify-between items-center mb-3">
+                <h4 className="font-semibold text-base">55+ years</h4>
+                <Badge variant="secondary">375 investors (15%)</Badge>
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Tier Distribution:</span>
+                  <span className="font-medium">Platinum 69% • Diamond 31%</span>
+                </div>
+                <div className="flex gap-2 h-2">
+                  <div className="bg-primary rounded-full" style={{width: '69%'}}></div>
+                  <div className="bg-warning rounded-full" style={{width: '31%'}}></div>
+                </div>
+                <div className="grid grid-cols-2 gap-2 mt-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Additional Spending:</span>
+                    <span className="font-bold text-primary">£4,630</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Benefit Utilization:</span>
+                    <span className="font-bold text-success">92%</span>
+                  </div>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -248,15 +341,15 @@ export default function OrganisationDashboardAustralianOpen() {
           <CardContent className="space-y-4">
             <div className="space-y-3">
               {[
-                { location: "Melbourne, Australia", percentage: 32, count: "640 investors", flag: "🇦🇺" },
-                { location: "Sydney, Australia", percentage: 18, count: "360 investors", flag: "🇦🇺" },
-                { location: "Singapore", percentage: 12, count: "240 investors", flag: "🇸🇬" },
-                { location: "Hong Kong", percentage: 10, count: "200 investors", flag: "🇭🇰" },
-                { location: "London, UK", percentage: 8, count: "160 investors", flag: "🇬🇧" },
-                { location: "Tokyo, Japan", percentage: 7, count: "140 investors", flag: "🇯🇵" },
-                { location: "Auckland, New Zealand", percentage: 5, count: "100 investors", flag: "🇳🇿" },
-                { location: "Perth, Australia", percentage: 4, count: "80 investors", flag: "🇦🇺" },
-                { location: "Brisbane, Australia", percentage: 4, count: "80 investors", flag: "🇦🇺" }
+                { location: "Melbourne, Australia", percentage: 32, count: "800 investors", flag: "🇦🇺" },
+                { location: "Sydney, Australia", percentage: 18, count: "450 investors", flag: "🇦🇺" },
+                { location: "Singapore", percentage: 12, count: "300 investors", flag: "🇸🇬" },
+                { location: "Hong Kong", percentage: 10, count: "250 investors", flag: "🇭🇰" },
+                { location: "London, UK", percentage: 8, count: "200 investors", flag: "🇬🇧" },
+                { location: "Tokyo, Japan", percentage: 7, count: "175 investors", flag: "🇯🇵" },
+                { location: "Auckland, New Zealand", percentage: 5, count: "125 investors", flag: "🇳🇿" },
+                { location: "Perth, Australia", percentage: 4, count: "100 investors", flag: "🇦🇺" },
+                { location: "Brisbane, Australia", percentage: 4, count: "100 investors", flag: "🇦🇺" }
               ].map((item, index) => (
                 <div key={index} className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
@@ -316,11 +409,11 @@ export default function OrganisationDashboardAustralianOpen() {
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 bg-muted/10 rounded-lg border">
                 <p className="text-sm font-medium">Total Sent</p>
-                <p className="text-xl font-bold text-primary">1,842</p>
+                <p className="text-xl font-bold text-primary">2,387</p>
               </div>
               <div className="p-3 bg-muted/10 rounded-lg border">
                 <p className="text-sm font-medium">Purchase Rate</p>
-                <p className="text-xl font-bold text-success">41.7%</p>
+                <p className="text-xl font-bold text-success">43.2%</p>
               </div>
             </div>
           </CardContent>
@@ -505,14 +598,14 @@ export default function OrganisationDashboardAustralianOpen() {
           <CardContent>
             <div className="space-y-3">
               {[
-                { action: "1,247 investors activated AO Store discount (25% off)", time: "2 hours ago", type: "store" },
-                { action: "New raffle announced: Grand Slam Experience Package", time: "5 hours ago", type: "raffle" },
-                { action: "2,000 investors confirmed attendance for AO 2026", time: "1 day ago", type: "event" },
-                { action: "Player meet-and-greet schedule published", time: "2 days ago", type: "event" },
+                { action: "500 Diamond tier investors automatically entered into Carlos Alcaraz racquet raffle", time: "1 hour ago", type: "raffle" },
+                { action: "1,847 Platinum tier investors opted into raffle (92.4% opt-in rate)", time: "2 hours ago", type: "raffle" },
+                { action: "2,387 investors received AO Store 25% discount offer", time: "3 hours ago", type: "store" },
+                { action: "2,500 investors confirmed attendance for AO 2026", time: "1 day ago", type: "event" },
+                { action: "Player meet-and-greet schedule published for both tiers", time: "2 days ago", type: "event" },
                 { action: "Updated hospitality menu released for Championship Week", time: "3 days ago", type: "hospitality" },
-                { action: "849 investors registered for behind-the-scenes tour", time: "4 days ago", type: "event" },
-                { action: "Newsletter sent: 'Road to AO 2026 - Tournament Updates'", time: "5 days ago", type: "communication" },
-                { action: "Premium parking allocation confirmed for all investors", time: "1 week ago", type: "benefit" }
+                { action: "1,032 investors registered for behind-the-scenes tour", time: "4 days ago", type: "event" },
+                { action: "Newsletter sent: 'Road to AO 2026 - Tournament Updates'", time: "5 days ago", type: "communication" }
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-3 p-3 bg-muted/5 rounded-lg border border-primary/5 hover:border-primary/20 transition-colors">
                   <div className="mt-1">

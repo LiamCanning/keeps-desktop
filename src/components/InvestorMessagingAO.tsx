@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Users, Bell, MessageSquare, Target, Calendar } from "lucide-react";
+import { Send, Users, Bell, MessageSquare, Target, Calendar, Loader2, CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,11 +16,14 @@ export function InvestorMessagingAO() {
   const [message, setMessage] = useState("");
   const [targetAudience, setTargetAudience] = useState<string[]>([]);
   const [priority, setPriority] = useState("normal");
+  const [isSending, setIsSending] = useState(false);
+  const [showSuccessBanner, setShowSuccessBanner] = useState(false);
+  const [lastSent, setLastSent] = useState<{count: number, time: string} | null>(null);
   const { toast } = useToast();
 
   const audienceOptions = [
     { id: "diamond", label: "Diamond Tier", count: "500" },
-    { id: "platinum", label: "Platinum Tier", count: "1,500" }
+    { id: "platinum", label: "Platinum Tier", count: "2,000" }
   ];
 
   const messageTemplates = {
@@ -30,7 +33,7 @@ export function InvestorMessagingAO() {
     },
     benefits: {
       subject: "Exclusive Raffle: Win Carlos Alcaraz's Match-Used Racquet",
-      message: "Dear [Investor's Name],\n\nWe are thrilled to announce an exclusive raffle for Australian Open debenture holders: a chance to win Carlos Alcaraz's match-used racquet from the 2025 Australian Open Championship.\n\nHow to enter:\n• Diamond Tier: Automatically entered with 5 bonus entries\n• Platinum Tier: Automatically entered with 2 bonus entries\n• Entry window: Opens today and closes in 14 days\n• Winner announcement: Via email and dashboard notifications\n\nThis authentic Grand Slam memorabilia includes a certificate of authenticity and will be personally signed by Carlos. As one of our valued debenture holders, you are automatically eligible for this exclusive opportunity.\n\nAdditional prizes:\n• 2nd Prize: VIP court-side suite experience for 8 guests\n• 3rd Prize: Signed racquet collection from top 10 ATP/WTA players\n• 10 Runner-up Prizes: Premium AO merchandise packages (AUD $500 each)\n\nThank you for being part of the Australian Open family. Good luck!\n\nBest regards,\nAustralian Open Investor Relations"
+      message: "Dear [Investor's Name],\n\nWe are thrilled to announce an exclusive raffle for Australian Open debenture holders: a chance to win Carlos Alcaraz's match-used racquet from the 2025 Australian Open Championship.\n\nHow to enter:\n• Diamond Tier (500 holders): Automatically entered with 5 bonus entries\n• Platinum Tier (2,000 holders): Must opt-in via dashboard to enter with 2 bonus entries\n\nEntry Details:\n• Entry window: Opens today and closes in 14 days\n• Platinum Tier: Click 'Enter Raffle' button on your dashboard\n• Diamond Tier: You're already entered automatically!\n• Winner announcement: Via email and dashboard notifications\n\nRaffle Prizes:\n🏆 Grand Prize: Carlos Alcaraz's match-used racquet (authenticated & signed)\n🥈 2nd Prize: VIP court-side suite experience for 8 guests\n🥉 3rd Prize: Signed racquet collection from top 10 ATP/WTA players\n🎁 10 Runner-up Prizes: Premium AO merchandise packages (AUD $500 each)\n\nAs a valued debenture holder, you have an exclusive opportunity to win authentic Grand Slam memorabilia. Don't miss your chance!\n\nBest regards,\nAustralian Open Investor Relations"
     },
     performance: {
       subject: "Australian Open 2025 Performance Update & 2026 Preview",
@@ -70,17 +73,35 @@ export function InvestorMessagingAO() {
       return sum + (audience ? parseInt(audience.count.replace(",", "")) : 0);
     }, 0);
 
-    toast({
-      title: "Message Sent Successfully",
-      description: `Your message has been sent to ${totalRecipients.toLocaleString()} investors.`,
-    });
+    setIsSending(true);
 
-    // Reset form
-    setSubject("");
-    setMessage("");
-    setTargetAudience([]);
-    setMessageType("announcement");
-    setPriority("normal");
+    // Simulate sending delay
+    setTimeout(() => {
+      setIsSending(false);
+      
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+      
+      setLastSent({ count: totalRecipients, time: timeString });
+      setShowSuccessBanner(true);
+
+      toast({
+        title: "Message Sent Successfully",
+        description: `Your message has been sent to ${totalRecipients.toLocaleString()} investors.`,
+      });
+
+      // Hide success banner after 5 seconds
+      setTimeout(() => {
+        setShowSuccessBanner(false);
+      }, 5000);
+
+      // Reset form
+      setSubject("");
+      setMessage("");
+      setTargetAudience([]);
+      setMessageType("announcement");
+      setPriority("normal");
+    }, 1500);
   };
 
   return (
@@ -92,6 +113,16 @@ export function InvestorMessagingAO() {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
+        {/* Success Banner */}
+        {showSuccessBanner && lastSent && (
+          <div className="p-4 bg-success/10 border border-success/20 rounded-lg flex items-center gap-3 animate-in fade-in slide-in-from-top-2 duration-300">
+            <CheckCircle2 className="w-5 h-5 text-success" />
+            <div className="flex-1">
+              <p className="font-semibold text-success">Message successfully sent to {lastSent.count.toLocaleString()} investors at {lastSent.time}</p>
+            </div>
+          </div>
+        )}
+
         {/* Message Type Selection */}
         <div className="space-y-3">
           <Label className="text-base font-medium">Message Type</Label>
@@ -221,9 +252,19 @@ export function InvestorMessagingAO() {
           <Button 
             className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
             onClick={handleSendMessage}
+            disabled={isSending}
           >
-            <Send className="w-4 h-4 mr-2" />
-            Send Message
+            {isSending ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                <Send className="w-4 h-4 mr-2" />
+                Send Message
+              </>
+            )}
           </Button>
         </div>
       </CardContent>
