@@ -10,9 +10,25 @@ import { useToast } from "@/hooks/use-toast";
 
 interface OrganisationLoginProps {
   onLoginSuccess?: () => void;
+  logoSrc?: string;
+  logoAlt?: string;
+  title?: string;
+  description?: string;
+  demoEmail?: string;
+  demoPassword?: string;
+  storageKey?: string;
 }
 
-export function OrganisationLogin({ onLoginSuccess }: OrganisationLoginProps) {
+export function OrganisationLogin({ 
+  onLoginSuccess,
+  logoSrc = "/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png",
+  logoAlt = "Organisation logo",
+  title = "McLaren Employee Access",
+  description = "Access your organization dashboard and analytics",
+  demoEmail = "admin@mclaren.com",
+  demoPassword = "mclaren2024",
+  storageKey = "mclaren-admin-logged-in"
+}: OrganisationLoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -24,18 +40,18 @@ export function OrganisationLogin({ onLoginSuccess }: OrganisationLoginProps) {
     
     // Simulate authentication
     setTimeout(() => {
-      if (email === "admin@mclaren.com" && password === "mclaren2024") {
-        localStorage.setItem("mclaren-admin-logged-in", "true");
+      if (email === demoEmail && password === demoPassword) {
+        localStorage.setItem(storageKey, "true");
         toast({
           title: "Login Successful",
-          description: "Welcome to your McLaren F1 dashboard.",
+          description: "Welcome to your dashboard.",
         });
         setOpen(false); // Close dialog first
         onLoginSuccess?.(); // Notify parent component
       } else {
         toast({
           title: "Login Failed",
-          description: "Invalid credentials. Try admin@mclaren.com / mclaren2024",
+          description: `Invalid credentials. Try ${demoEmail} / ${demoPassword}`,
           variant: "destructive",
         });
       }
@@ -66,15 +82,15 @@ export function OrganisationLogin({ onLoginSuccess }: OrganisationLoginProps) {
           <DialogTitle className="flex items-center gap-3">
             <div className="p-2 bg-primary/20 rounded-lg">
               <OptimizedImage
-                src="/lovable-uploads/10864fdf-2d7a-4243-a715-724e5ddfb866.png"
-                alt="McLaren Racing logo"
+                src={logoSrc}
+                alt={logoAlt}
                 className="w-8 h-8 object-contain"
               />
             </div>
-            McLaren Employee Access
+            {title}
           </DialogTitle>
           <DialogDescription>
-            Access your organization dashboard and analytics
+            {description}
           </DialogDescription>
         </DialogHeader>
         <Card className="border-0 shadow-none">
@@ -101,8 +117,8 @@ export function OrganisationLogin({ onLoginSuccess }: OrganisationLoginProps) {
             </div>
             <div className="text-xs text-muted-foreground bg-muted/50 p-3 rounded-lg">
               <p className="font-medium mb-1">Demo Credentials:</p>
-              <p>Email: admin@mclaren.com</p>
-              <p>Password: mclaren2024</p>
+              <p>Email: {demoEmail}</p>
+              <p>Password: {demoPassword}</p>
             </div>
             <Button 
               className="w-full" 

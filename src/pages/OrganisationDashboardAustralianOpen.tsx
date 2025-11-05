@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { OrganisationLogin } from "@/components/OrganisationLogin";
-import { InvestorMessaging } from "@/components/InvestorMessaging";
+import { InvestorMessagingAO } from "@/components/InvestorMessagingAO";
 
 export default function OrganisationDashboardAustralianOpen() {
   const [selectedMetric, setSelectedMetric] = useState("overview");
@@ -29,13 +29,26 @@ export default function OrganisationDashboardAustralianOpen() {
         <Card className="w-full max-w-md relative z-20 bg-gradient-to-br from-background/95 to-background/90 backdrop-blur-lg border border-primary/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 p-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl w-fit shadow-lg backdrop-blur-sm">
-              <Trophy className="w-16 h-16 text-primary" />
+              <OptimizedImage
+                src="/lovable-uploads/australian-open-logo.png"
+                alt="Australian Open logo"
+                className="w-16 h-16 object-contain"
+              />
             </div>
             <CardTitle className="text-2xl">Australian Open Employee Portal</CardTitle>
             <p className="text-muted-foreground">Access your organisation dashboard and investor analytics</p>
           </CardHeader>
           <CardContent>
-            <OrganisationLogin onLoginSuccess={() => setShowLogin(false)} />
+            <OrganisationLogin 
+              onLoginSuccess={() => setShowLogin(false)}
+              logoSrc="/lovable-uploads/australian-open-logo.png"
+              logoAlt="Australian Open logo"
+              title="Australian Open Employee Access"
+              description="Access your organization dashboard and analytics"
+              demoEmail="admin@australianopen.com"
+              demoPassword="ausopen2024"
+              storageKey="australianopen-admin-logged-in"
+            />
             <Button 
               variant="ghost" 
               className="w-full mt-4"
@@ -58,7 +71,11 @@ export default function OrganisationDashboardAustralianOpen() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-6">
           <div className="p-4 bg-[#0085CA] rounded-2xl shadow-lg border">
-            <Trophy className="w-16 h-16 text-white" />
+            <OptimizedImage
+              src="/lovable-uploads/australian-open-logo.png"
+              alt="Australian Open logo"
+              className="w-16 h-16 object-contain"
+            />
           </div>
           <div className="space-y-2">
             <h1 className="text-3xl font-bold text-gradient">Australian Open Dashboard</h1>
@@ -473,7 +490,7 @@ export default function OrganisationDashboardAustralianOpen() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <InvestorMessaging />
+            <InvestorMessagingAO />
           </CardContent>
         </Card>
 
