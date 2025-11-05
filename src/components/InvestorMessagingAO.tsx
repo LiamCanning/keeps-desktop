@@ -17,6 +17,7 @@ export function InvestorMessagingAO() {
   const [targetAudience, setTargetAudience] = useState<string[]>([]);
   const [priority, setPriority] = useState("normal");
   const [isSending, setIsSending] = useState(false);
+  const [showSentConfirmation, setShowSentConfirmation] = useState(false);
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const [lastSent, setLastSent] = useState<{count: number, time: string} | null>(null);
   const { toast } = useToast();
@@ -77,7 +78,8 @@ export function InvestorMessagingAO() {
 
     // Simulate sending delay
     setTimeout(() => {
-      setIsSending(false);
+      // Show "Sent!" button state
+      setShowSentConfirmation(true);
       
       const now = new Date();
       const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
@@ -90,10 +92,16 @@ export function InvestorMessagingAO() {
         description: `Your message has been sent to ${totalRecipients.toLocaleString()} investors.`,
       });
 
-      // Hide success banner after 5 seconds
+      // Hide success banner after 7 seconds
       setTimeout(() => {
         setShowSuccessBanner(false);
-      }, 5000);
+      }, 7000);
+
+      // Reset button state after 2 seconds
+      setTimeout(() => {
+        setShowSentConfirmation(false);
+        setIsSending(false);
+      }, 2000);
 
       // Reset form
       setSubject("");
@@ -115,10 +123,12 @@ export function InvestorMessagingAO() {
       <CardContent className="space-y-6">
         {/* Success Banner */}
         {showSuccessBanner && lastSent && (
-          <div className="p-4 bg-success/10 border border-success/20 rounded-lg flex items-center gap-3 animate-in fade-in slide-in-from-top-2 duration-300">
-            <CheckCircle2 className="w-5 h-5 text-success" />
+          <div className="mb-6 p-5 bg-green-500/10 border-2 border-green-500/30 rounded-lg flex items-center gap-3 animate-in fade-in slide-in-from-top-2 duration-300">
+            <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
             <div className="flex-1">
-              <p className="font-semibold text-success">Message successfully sent to {lastSent.count.toLocaleString()} investors at {lastSent.time}</p>
+              <p className="text-base font-semibold text-green-700 dark:text-green-400">
+                ✓ Message successfully sent to {lastSent.count.toLocaleString()} investors at {lastSent.time}
+              </p>
             </div>
           </div>
         )}
@@ -250,11 +260,16 @@ export function InvestorMessagingAO() {
         {/* Send Button */}
         <div className="pt-4 border-t">
           <Button 
-            className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+            className={`w-full transition-all ${showSentConfirmation ? 'bg-green-600 hover:bg-green-700' : 'bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70'}`}
             onClick={handleSendMessage}
-            disabled={isSending}
+            disabled={isSending || showSentConfirmation}
           >
-            {isSending ? (
+            {showSentConfirmation ? (
+              <>
+                <CheckCircle2 className="w-4 h-4 mr-2" />
+                ✓ Sent!
+              </>
+            ) : isSending ? (
               <>
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                 Sending...

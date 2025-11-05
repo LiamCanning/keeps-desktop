@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { TrendingUp, Users, MapPin, Calendar, MessageSquare, Bell, Target, PieChart, BarChart, Clock, Banknote, Trophy } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TrendingUp, Users, MapPin, Calendar, MessageSquare, Bell, Target, PieChart, BarChart, Clock, Banknote, Trophy, ChevronRight, Ticket, Award } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { OrganisationLogin } from "@/components/OrganisationLogin";
 import { InvestorMessagingAO } from "@/components/InvestorMessagingAO";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 export default function OrganisationDashboardAustralianOpen() {
   const [selectedMetric, setSelectedMetric] = useState("overview");
@@ -215,118 +216,174 @@ export default function OrganisationDashboardAustralianOpen() {
               Age Demographics: Tier Distribution & Engagement
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-5">
+          <CardContent className="space-y-3">
             {/* 25-34 years */}
-            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
-              <div className="flex justify-between items-center mb-3">
-                <h4 className="font-semibold text-base">25-34 years</h4>
-                <Badge variant="secondary">450 investors (18%)</Badge>
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Tier Distribution:</span>
-                  <span className="font-medium">Platinum 90% • Diamond 10%</span>
+            <Collapsible>
+              <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-primary/5 transition-colors">
+                <div className="flex items-center gap-3">
+                  <ChevronRight className="w-4 h-4 text-primary" />
+                  <span className="font-semibold">25-34 years</span>
+                  <span className="text-sm text-muted-foreground">• 450 investors (18%)</span>
                 </div>
-                <div className="flex gap-2 h-2">
-                  <div className="bg-primary rounded-full" style={{width: '90%'}}></div>
-                  <div className="bg-warning rounded-full" style={{width: '10%'}}></div>
-                </div>
-                <div className="grid grid-cols-2 gap-2 mt-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Additional Spending:</span>
-                    <span className="font-bold text-primary">£1,980</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-7 pt-3 space-y-3">
+                <div>
+                  <div className="text-sm font-medium mb-2">Tier Distribution</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Platinum (405)</span>
+                      <span className="text-muted-foreground">90%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500" style={{ width: '90%' }} />
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Diamond (45)</span>
+                      <span className="text-muted-foreground">10%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-amber-500" style={{ width: '10%' }} />
+                    </div>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Benefit Utilization:</span>
-                    <span className="font-bold text-success">78%</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Avg. Additional Spending</div>
+                    <div className="text-lg font-semibold">£1,980</div>
+                  </div>
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Benefit Utilization</div>
+                    <div className="text-lg font-semibold">78%</div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </CollapsibleContent>
+            </Collapsible>
 
             {/* 35-44 years */}
-            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
-              <div className="flex justify-between items-center mb-3">
-                <h4 className="font-semibold text-base">35-44 years</h4>
-                <Badge variant="secondary">800 investors (32%)</Badge>
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Tier Distribution:</span>
-                  <span className="font-medium">Platinum 85% • Diamond 15%</span>
+            <Collapsible>
+              <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-primary/5 transition-colors">
+                <div className="flex items-center gap-3">
+                  <ChevronRight className="w-4 h-4 text-primary" />
+                  <span className="font-semibold">35-44 years</span>
+                  <span className="text-sm text-muted-foreground">• 800 investors (32%)</span>
                 </div>
-                <div className="flex gap-2 h-2">
-                  <div className="bg-primary rounded-full" style={{width: '85%'}}></div>
-                  <div className="bg-warning rounded-full" style={{width: '15%'}}></div>
-                </div>
-                <div className="grid grid-cols-2 gap-2 mt-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Additional Spending:</span>
-                    <span className="font-bold text-primary">£3,000</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-7 pt-3 space-y-3">
+                <div>
+                  <div className="text-sm font-medium mb-2">Tier Distribution</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Platinum (680)</span>
+                      <span className="text-muted-foreground">85%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500" style={{ width: '85%' }} />
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Diamond (120)</span>
+                      <span className="text-muted-foreground">15%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-amber-500" style={{ width: '15%' }} />
+                    </div>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Benefit Utilization:</span>
-                    <span className="font-bold text-success">84%</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Avg. Additional Spending</div>
+                    <div className="text-lg font-semibold">£3,000</div>
+                  </div>
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Benefit Utilization</div>
+                    <div className="text-lg font-semibold">84%</div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </CollapsibleContent>
+            </Collapsible>
 
             {/* 45-54 years */}
-            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
-              <div className="flex justify-between items-center mb-3">
-                <h4 className="font-semibold text-base">45-54 years</h4>
-                <Badge variant="secondary">875 investors (35%)</Badge>
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Tier Distribution:</span>
-                  <span className="font-medium">Platinum 75% • Diamond 25%</span>
+            <Collapsible>
+              <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-primary/5 transition-colors">
+                <div className="flex items-center gap-3">
+                  <ChevronRight className="w-4 h-4 text-primary" />
+                  <span className="font-semibold">45-54 years</span>
+                  <span className="text-sm text-muted-foreground">• 875 investors (35%)</span>
                 </div>
-                <div className="flex gap-2 h-2">
-                  <div className="bg-primary rounded-full" style={{width: '75%'}}></div>
-                  <div className="bg-warning rounded-full" style={{width: '25%'}}></div>
-                </div>
-                <div className="grid grid-cols-2 gap-2 mt-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Additional Spending:</span>
-                    <span className="font-bold text-primary">£3,820</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-7 pt-3 space-y-3">
+                <div>
+                  <div className="text-sm font-medium mb-2">Tier Distribution</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Platinum (655)</span>
+                      <span className="text-muted-foreground">75%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500" style={{ width: '75%' }} />
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Diamond (220)</span>
+                      <span className="text-muted-foreground">25%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-amber-500" style={{ width: '25%' }} />
+                    </div>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Benefit Utilization:</span>
-                    <span className="font-bold text-success">89%</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Avg. Additional Spending</div>
+                    <div className="text-lg font-semibold">£3,820</div>
+                  </div>
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Benefit Utilization</div>
+                    <div className="text-lg font-semibold">89%</div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </CollapsibleContent>
+            </Collapsible>
 
             {/* 55+ years */}
-            <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
-              <div className="flex justify-between items-center mb-3">
-                <h4 className="font-semibold text-base">55+ years</h4>
-                <Badge variant="secondary">375 investors (15%)</Badge>
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Tier Distribution:</span>
-                  <span className="font-medium">Platinum 69% • Diamond 31%</span>
+            <Collapsible>
+              <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-primary/5 transition-colors">
+                <div className="flex items-center gap-3">
+                  <ChevronRight className="w-4 h-4 text-primary" />
+                  <span className="font-semibold">55+ years</span>
+                  <span className="text-sm text-muted-foreground">• 375 investors (15%)</span>
                 </div>
-                <div className="flex gap-2 h-2">
-                  <div className="bg-primary rounded-full" style={{width: '69%'}}></div>
-                  <div className="bg-warning rounded-full" style={{width: '31%'}}></div>
-                </div>
-                <div className="grid grid-cols-2 gap-2 mt-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Additional Spending:</span>
-                    <span className="font-bold text-primary">£4,630</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-7 pt-3 space-y-3">
+                <div>
+                  <div className="text-sm font-medium mb-2">Tier Distribution</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Platinum (260)</span>
+                      <span className="text-muted-foreground">69%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500" style={{ width: '69%' }} />
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Diamond (115)</span>
+                      <span className="text-muted-foreground">31%</span>
+                    </div>
+                    <div className="h-2 bg-primary/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-amber-500" style={{ width: '31%' }} />
+                    </div>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Benefit Utilization:</span>
-                    <span className="font-bold text-success">92%</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Avg. Additional Spending</div>
+                    <div className="text-lg font-semibold">£4,630</div>
+                  </div>
+                  <div className="p-3 bg-background/50 rounded-lg">
+                    <div className="text-xs text-muted-foreground">Benefit Utilization</div>
+                    <div className="text-lg font-semibold">92%</div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </CollapsibleContent>
+            </Collapsible>
           </CardContent>
         </Card>
 
@@ -524,11 +581,11 @@ export default function OrganisationDashboardAustralianOpen() {
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <div className="w-2 h-2 bg-success rounded-full"></div>
-                      <span className="font-medium text-success text-sm">Retention Rate</span>
+                      <span className="font-medium text-success text-sm">Debenture Holder Retention Rate</span>
                     </div>
-                    <p className="text-xl font-bold">94.8%</p>
+                    <p className="text-xl font-bold">72%</p>
                   </div>
-                  <p className="text-xs text-muted-foreground">12-month retention</p>
+                  <p className="text-xs text-muted-foreground">Investors retaining debentures (not reselling)</p>
                 </div>
               </div>
               
@@ -568,6 +625,90 @@ export default function OrganisationDashboardAustralianOpen() {
                     <p className="text-xl font-bold">18.4%</p>
                   </div>
                   <p className="text-xs text-muted-foreground">Investors referring new prospects</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Secondary Market Activity */}
+        <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-xl flex items-center gap-2">
+              <TrendingUp className="w-5 h-5" />
+              Secondary Market Activity
+            </CardTitle>
+            <CardDescription>Trading activity for debentures and individual tickets</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Debenture Sales */}
+            <div className="p-4 bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-lg border border-blue-500/20">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="w-5 h-5 text-blue-500" />
+                <h4 className="font-semibold">Debenture Sales</h4>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <div className="text-xs text-muted-foreground">Trading Volume</div>
+                  <div className="text-lg font-bold">187 debentures</div>
+                  <div className="text-xs text-muted-foreground mt-1">7.5% of total</div>
+                </div>
+                <div>
+                  <div className="text-xs text-muted-foreground">Avg. Sale Price</div>
+                  <div className="text-lg font-bold">£32,400</div>
+                  <Badge variant="secondary" className="mt-1 bg-green-500/10 text-green-700 dark:text-green-400">
+                    +29.6% vs primary
+                  </Badge>
+                </div>
+                <div>
+                  <div className="text-xs text-muted-foreground">Total Volume</div>
+                  <div className="text-lg font-bold">£6.06M</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Individual Ticket Sales */}
+            <div className="p-4 bg-gradient-to-br from-purple-500/10 to-purple-600/5 rounded-lg border border-purple-500/20">
+              <div className="flex items-center gap-2 mb-3">
+                <Ticket className="w-5 h-5 text-purple-500" />
+                <h4 className="font-semibold">Individual Ticket Sales</h4>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <div className="text-xs text-muted-foreground">Trading Volume</div>
+                  <div className="text-lg font-bold">4,823 tickets</div>
+                  <div className="text-xs text-muted-foreground mt-1">Various sessions</div>
+                </div>
+                <div>
+                  <div className="text-xs text-muted-foreground">Avg. Sale Price</div>
+                  <div className="text-lg font-bold">£145</div>
+                  <div className="text-xs text-muted-foreground mt-1">per ticket</div>
+                </div>
+                <div>
+                  <div className="text-xs text-muted-foreground">Total Volume</div>
+                  <div className="text-lg font-bold">£699K</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Market Insights */}
+            <div className="p-4 bg-muted/30 rounded-lg border border-primary/10">
+              <div className="flex items-center gap-2 mb-3">
+                <BarChart className="w-5 h-5 text-primary" />
+                <h4 className="font-semibold">Market Insights</h4>
+              </div>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
+                  <span><strong>Most Active Category:</strong> Quarter-Final Tickets</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
+                  <span><strong>Peak Trading Period:</strong> November-December 2024</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
+                  <span><strong>Price Premium:</strong> Diamond debentures +35% vs Platinum</span>
                 </div>
               </div>
             </div>
