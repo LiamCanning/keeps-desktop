@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { TrendingUp, Users, MapPin, Calendar, MessageSquare, Bell, Target, PieChart, BarChart, Clock, Banknote, Trophy, ChevronRight, Ticket, Award } from "lucide-react";
+import { TrendingUp, Users, MapPin, Calendar, MessageSquare, Bell, Target, PieChart, BarChart, Clock, Banknote, Trophy, ChevronRight, Ticket, Award, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { LogoImage } from "@/components/ui/logo-image";
 import { OrganisationLogin } from "@/components/OrganisationLogin";
 import { InvestorMessagingAO } from "@/components/InvestorMessagingAO";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -472,6 +473,241 @@ export default function OrganisationDashboardAustralianOpen() {
               <div className="p-3 bg-muted/10 rounded-lg border">
                 <p className="text-sm font-medium">Purchase Rate</p>
                 <p className="text-xl font-bold text-success">43.2%</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Cross-Platform Investor Acquisition */}
+        <Card className="bg-gradient-to-br from-background/80 to-muted/20 border border-primary/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-xl flex items-center gap-2">
+              <Users className="w-5 h-5" />
+              Cross-Platform Investor Acquisition
+            </CardTitle>
+            <CardDescription>
+              Understand how other brands on Keeps drive fans to Australian Open
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Direct Acquisition */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#0085CA]/10 flex items-center justify-center border-2 border-[#0085CA]/20">
+                    <LogoImage 
+                      src="/lovable-uploads/australian-open-logo.png"
+                      alt="Australian Open"
+                      size="sm"
+                      className="w-8 h-8"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Direct to Australian Open</p>
+                    <p className="text-sm text-muted-foreground">First purchase on Keeps platform</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <Badge variant="default" className="mb-1">42%</Badge>
+                  <p className="text-xs text-muted-foreground">1,050 investors</p>
+                </div>
+              </div>
+              <Progress value={42} className="h-2" />
+            </div>
+
+            <div className="border-t pt-4">
+              <p className="text-sm font-semibold mb-4 text-muted-foreground uppercase tracking-wide">Cross-Platform Acquisition Paths</p>
+              
+              {/* McLaren → AO */}
+              <div className="space-y-3 mb-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center border-2 border-orange-500/20">
+                      <LogoImage 
+                        src="/src/assets/logos/mclaren-racing-logo.png"
+                        alt="McLaren Racing"
+                        size="sm"
+                        className="w-8 h-8"
+                      />
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground" />
+                    <div className="w-12 h-12 rounded-full bg-[#0085CA]/10 flex items-center justify-center border-2 border-[#0085CA]/20">
+                      <LogoImage 
+                        src="/lovable-uploads/australian-open-logo.png"
+                        alt="Australian Open"
+                        size="sm"
+                        className="w-8 h-8"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-semibold">McLaren Racing → Australian Open</p>
+                      <p className="text-sm text-muted-foreground">Purchased McLaren equity first</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <Badge variant="secondary" className="mb-1">28%</Badge>
+                    <p className="text-xs text-muted-foreground">700 investors</p>
+                  </div>
+                </div>
+                <Progress value={28} className="h-2 bg-orange-500/10" />
+              </div>
+
+              {/* Ryder Cup → AO */}
+              <div className="space-y-3 mb-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center border-2 border-blue-600/20">
+                      <LogoImage 
+                        src="/src/assets/logos/ryder-cup-logo.png"
+                        alt="Ryder Cup"
+                        size="sm"
+                        className="w-8 h-8"
+                      />
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground" />
+                    <div className="w-12 h-12 rounded-full bg-[#0085CA]/10 flex items-center justify-center border-2 border-[#0085CA]/20">
+                      <LogoImage 
+                        src="/lovable-uploads/australian-open-logo.png"
+                        alt="Australian Open"
+                        size="sm"
+                        className="w-8 h-8"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Ryder Cup → Australian Open</p>
+                      <p className="text-sm text-muted-foreground">Invested in Ryder Cup first</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <Badge variant="secondary" className="mb-1">18%</Badge>
+                    <p className="text-xs text-muted-foreground">450 investors</p>
+                  </div>
+                </div>
+                <Progress value={18} className="h-2 bg-blue-600/10" />
+              </div>
+
+              {/* Liverpool → AO */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center border-2 border-red-600/20">
+                      <LogoImage 
+                        src="/src/assets/logos/Liverpool FC Logo.png"
+                        alt="Liverpool FC"
+                        size="sm"
+                        className="w-8 h-8"
+                      />
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground" />
+                    <div className="w-12 h-12 rounded-full bg-[#0085CA]/10 flex items-center justify-center border-2 border-[#0085CA]/20">
+                      <LogoImage 
+                        src="/lovable-uploads/australian-open-logo.png"
+                        alt="Australian Open"
+                        size="sm"
+                        className="w-8 h-8"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Liverpool FC → Australian Open</p>
+                      <p className="text-sm text-muted-foreground">Invested in Liverpool FC first</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <Badge variant="secondary" className="mb-1">12%</Badge>
+                    <p className="text-xs text-muted-foreground">300 investors</p>
+                  </div>
+                </div>
+                <Progress value={12} className="h-2 bg-red-600/10" />
+              </div>
+            </div>
+
+            {/* Multi-Brand Journeys */}
+            <div className="border-t pt-4">
+              <p className="text-sm font-semibold mb-4 text-muted-foreground uppercase tracking-wide">Multi-Brand Journeys</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* McLaren → Ryder Cup → AO */}
+                <div className="p-4 bg-muted/20 rounded-lg border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
+                      <LogoImage 
+                        src="/src/assets/logos/mclaren-racing-logo.png"
+                        alt="McLaren"
+                        size="sm"
+                        className="w-5 h-5"
+                      />
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                    <div className="w-8 h-8 rounded-full bg-blue-600/10 flex items-center justify-center">
+                      <LogoImage 
+                        src="/src/assets/logos/ryder-cup-logo.png"
+                        alt="Ryder Cup"
+                        size="sm"
+                        className="w-5 h-5"
+                      />
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                    <div className="w-8 h-8 rounded-full bg-[#0085CA]/10 flex items-center justify-center">
+                      <LogoImage 
+                        src="/lovable-uploads/australian-open-logo.png"
+                        alt="Australian Open"
+                        size="sm"
+                        className="w-5 h-5"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-sm font-semibold">McLaren → Ryder Cup → AO</p>
+                  <p className="text-xs text-muted-foreground">173 investors (15% of cross-platform)</p>
+                </div>
+
+                {/* Liverpool → McLaren → AO */}
+                <div className="p-4 bg-muted/20 rounded-lg border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 rounded-full bg-red-600/10 flex items-center justify-center">
+                      <LogoImage 
+                        src="/src/assets/logos/Liverpool FC Logo.png"
+                        alt="Liverpool FC"
+                        size="sm"
+                        className="w-5 h-5"
+                      />
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                    <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
+                      <LogoImage 
+                        src="/src/assets/logos/mclaren-racing-logo.png"
+                        alt="McLaren"
+                        size="sm"
+                        className="w-5 h-5"
+                      />
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                    <div className="w-8 h-8 rounded-full bg-[#0085CA]/10 flex items-center justify-center">
+                      <LogoImage 
+                        src="/lovable-uploads/australian-open-logo.png"
+                        alt="Australian Open"
+                        size="sm"
+                        className="w-5 h-5"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-sm font-semibold">Liverpool FC → McLaren → AO</p>
+                  <p className="text-xs text-muted-foreground">92 investors (8% of cross-platform)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Insight */}
+            <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <TrendingUp className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">Cross-Platform Benefit</p>
+                  <p className="text-sm text-muted-foreground">
+                    58% of Australian Open investors (1,450 investors) were acquired through other Keeps brands, demonstrating strong platform synergy and cross-brand fan engagement.
+                  </p>
+                </div>
               </div>
             </div>
           </CardContent>
